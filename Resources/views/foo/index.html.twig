@@ -1,0 +1,15 @@
+{% extends '@YBAcme/layout.html.twig' %}
+
+{% trans_default_domain 'YBAcmeBundle' %}
+
+{% block yb_acme_content %}
+    <section class="yb-acme yb-acme-foo yb-acme-foo-index">
+        <h1>{{ value }}</h1>
+
+        <ol>
+            <li>{{ 'foo.index.key1'|trans }} {{ key1 }}</li>
+            <li>{{ 'foo.index.key2'|trans }} {{ key2 }}</li>
+            <li>{{ 'foo.index.key3'|trans }} {{ key3 }}</li>
+        </ol>
+    </section>
+{% endblock %}
