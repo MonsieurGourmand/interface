@@ -1,5 +1,5 @@
 {
-  "name": "Interface",
+  "name": "monsieurgourmand/interface",
   "license": "MIT",
   "type": "project",
   "description": "Bundle Symfony pour interagir avec l'api de MonsieurGourmand.com",
