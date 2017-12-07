@@ -1,16 +1,2 @@
-parameters:
-    monsieurgourmand.interface.listener.foo.class: YB\Bundle\AcmeBundle\EventListener\FooListener
-    monsieurgourmand.interface.listener.bar.class: YB\Bundle\AcmeBundle\EventListener\BarListener
 
-
-services:
-    monsieurgourmand.interface.listener.foo:
-        class: "%monsieurgourmand.interface.listener.foo.class%"
-        tags:
-          - { name: kernel.event_subscriber }
-
-    monsieurgourmand.interface.listener.bar:
-        class: "%monsieurgourmand.interface.listener.bar.class%"
-        tags:
-          - { name: kernel.event_subscriber }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace monsieurgourmand\Bundle\AcmeBundle\DependencyInjection;
+namespace monsieurgourmand\Bundle\InterfaceBundle\DependencyInjection;
 
 use Symfony\Component\Config\Definition\Processor;
 use Symfony\Component\Config\FileLocator;
@@ -11,9 +11,9 @@ use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
  * Class YBAcmeExtension
- * @package monsieurgourmand\Bundle\AcmeBundle\DependencyInjection
+ * @package monsieurgourmand\Bundle\InterfaceBundle\DependencyInjection
  */
-class YBAcmeExtension extends Extension
+class MonsieurGourmandInterfaceExtension extends Extension
 {
     /**
      * @inheritdoc

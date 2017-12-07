@@ -1,5 +1,1 @@
-monsieurgourmand_interface:
-    resource: "@monsieurgourmandAcmeBundle/Controller/"
-    type: annotation
-    prefix: /yb/acme
 
