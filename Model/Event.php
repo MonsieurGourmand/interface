@@ -134,12 +134,12 @@ class Event extends Master
     private $tDefrost;
 
     /**
-     * @var \Mgd\Route\Event\EventProduct
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\EventProduct
      */
     public $eventProducts;
 
     /**
-     * @var \Mgd\Route\Event\Package
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Package
      */
     public $package;
 

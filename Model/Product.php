@@ -152,12 +152,12 @@ class Product extends Master
     private $salesProducts;
 
     /**
-     * @var \Mgd\Route\Product\Price
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Price
      */
     public $prices;
 
     /**
-     * @var \Mgd\Route\Product\Stock
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Stock
      */
     public $stocks;
 

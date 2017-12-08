@@ -61,12 +61,12 @@ class Prospect extends Master
     private $roles;
 
     /**
-     * @var \Mgd\Route\Prospect\ProspectDownload
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect\ProspectDownload
      */
     public $downloads;
 
     /**
-     * @var \Mgd\Route\Prospect\ProspectMessage
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect\ProspectMessage
      */
     public $messages;
 

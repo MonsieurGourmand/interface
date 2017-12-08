@@ -129,7 +129,7 @@ class Purchase extends Master
     private $leadUser;
 
     /**
-     * @var \Mgd\Route\Purchase\PurchaseProduct
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase\PurchaseProduct
      */
     public $purchaseProducts;
 

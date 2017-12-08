@@ -26,7 +26,7 @@ class Customer extends Master
     private $reference;
 
     /**
-     * @var \Mgd\Route\Customer\User
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\User
      */
     public $users;
 

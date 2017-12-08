@@ -21,12 +21,12 @@ class Operation extends Master
     private $leadUser;
 
     /**
-     * @var \Mgd\Route\Operation\Event
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Event
      */
     public $events;
 
     /**
-     * @var \Mgd\Route\Operation\Activity
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Activity
      */
     public $activities;
 

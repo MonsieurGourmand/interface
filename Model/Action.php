@@ -15,7 +15,7 @@ class Action extends Master
     private $name;
 
     /**
-     * @var \Mgd\Route\Action\Task
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Action\Task
      */
     public $tasks;
 

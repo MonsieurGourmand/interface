@@ -5,7 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 class Task extends Master
 {
     /**
-     * @var \Mgd\Route\Action\Task\Flux
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Action\Task\Flux
      */
     public $fluxes;
 

@@ -10,7 +10,7 @@ class Format extends Master
     private $idFormat;
 
     /**
-     * @var \Mgd\Route\Format\FormatProduct
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\FormatProduct
      */
     public $formatProducts;
 
