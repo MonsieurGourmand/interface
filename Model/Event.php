@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Event
+class Event extends Master
 {
     /**
      * @var integer

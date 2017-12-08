@@ -6,42 +6,46 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-
-use Mgd\Mgd;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Zone
 {
-    public function __construct(\Mgd\Mgd $master)
+
+    private $master;
+    private $entity;
+    private $url;
+
+    public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Zone::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Zone::class;
         $this->url = '/zones';
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Zone $zone,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Zone $zone,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url,$zone,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Zone $zone,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Zone $zone,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url,$zone->getIdzone(),$zone,$this->entity,$format);
     }
 
-    public function remove(\Mgd\Entity\Zone $zone)
+    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Zone $zone)
     {
         return $this->master->remove($this->url,$zone->getIdzone());
     }

@@ -6,37 +6,44 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Supplier;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Product
 {
-    public function __construct(\Mgd\Entity\Supplier $supplier)
+    private $entity;
+    private $url;
+    private $master;
+
+    public function __construct(Supplier $supplier)
     {
         $this->master = $supplier->getMaster();
-        $this->entity = \Mgd\Entity\Product::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Product::class;
         $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/products";
     }
 
-    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
-        if ($format == \Mgd\Mgd::FORMAT_JSON)
+        if ($format == MGD::FORMAT_JSON)
             $params['stopped'] = 'yolo';
         else
             $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Product $product, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $product, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Product $product, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $product->getIdProduct(), $product, $this->entity, $format);
     }

@@ -3,7 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class ProspectDownload
+class ProspectDownload extends Master
 {
     /**
      * @var int

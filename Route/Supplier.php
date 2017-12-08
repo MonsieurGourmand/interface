@@ -6,38 +6,42 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-use Mgd\Mgd;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Supplier
 {
-    public function __construct(\Mgd\Mgd $master)
+    private $master;
+    private $entity;
+    private $url;
+
+    public function __construct(MGD $mgd)
     {
-        $this->master = $master;
-        $this->entity = \Mgd\Entity\Supplier::class;
+        $this->master = $mgd;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier::class;
         $this->url = '/suppliers';
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params,$format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Supplier $supplier,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier $supplier, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$supplier,$this->entity,$format);
+        return $this->master->post($this->url, $supplier, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Supplier $supplier,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier $supplier, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$supplier->getIdSupplier(),$supplier,$this->entity,$format);
+        return $this->master->put($this->url, $supplier->getIdSupplier(), $supplier, $this->entity, $format);
     }
 }

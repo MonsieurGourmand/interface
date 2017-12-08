@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Format
+class Format extends Master
 {
     /**
      * @var integer

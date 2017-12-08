@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Activity
+class Activity extends Master
 {
     /**
      * @var integer

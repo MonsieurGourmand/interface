@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Flux
+class Flux extends Master
 {
     /**
      * @var Stock

@@ -6,20 +6,24 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-use Mgd\Mgd;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Stat
 {
+    private $master;
+    private $url;
+
     /** @var \DateTime $startDate */
     protected $startDate;
 
     /** @var \DateTime $endDate */
     protected $endDate;
 
-    public function __construct(\Mgd\Mgd $master)
+    public function __construct(MGD $master)
     {
         $this->master = $master;
         $this->url = '/stats';
@@ -34,7 +38,7 @@ class Stat
             "endDate" => $this->endDate->format("d/m/Y")
         );
         $url = $this->url."/orders";
-        return $this->master->getAll($url,null,$params,\Mgd\Mgd::FORMAT_JSON);
+        return $this->master->getAll($url,null,$params,MGD::FORMAT_JSON);
     }
 
     public function getProducts()
@@ -44,7 +48,7 @@ class Stat
             "endDate" => $this->endDate->format("d/m/Y")
         );
         $url = $this->url."/products";
-        return $this->master->getAll($url,null,$params,\Mgd\Mgd::FORMAT_JSON);
+        return $this->master->getAll($url,null,$params,MGD::FORMAT_JSON);
     }
 
     /**

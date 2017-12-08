@@ -6,11 +6,16 @@
  * Time: 6:04 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
+
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Prospect
 {
+    private $master;
+    private $entity;
+
     /** @var string */
     protected $url = "/prospects";
 
@@ -22,13 +27,13 @@ class Prospect
     /** @var string */
     protected $firm = null;
 
-    public function __construct(\Mgd\Mgd $master)
+    public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Prospect::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Prospect::class;
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=MGD::FORMAT_OBJECT)
     {
         $params = array("firm" => $this->firm);
         if(!empty($this->email))
@@ -36,17 +41,17 @@ class Prospect
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Prospect $prospect,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Prospect $prospect,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url,$prospect,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Prospect $prospect,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Prospect $prospect,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url,$prospect->getId(),$prospect,$this->entity,$format);
     }

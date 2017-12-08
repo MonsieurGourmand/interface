@@ -10,10 +10,10 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\HttpKernel\DependencyInjection\Extension;
 
 /**
- * Class YBAcmeExtension
+ * Class InterfaceExtension
  * @package monsieurgourmand\Bundle\InterfaceBundle\DependencyInjection
  */
-class MonsieurGourmandInterfaceExtension extends Extension
+class InterfaceExtension extends Extension
 {
     /**
      * @inheritdoc
@@ -23,9 +23,14 @@ class MonsieurGourmandInterfaceExtension extends Extension
         $processor = new Processor();
         $configuration = new Configuration();
 
-        $config = $processor->processConfiguration($configuration, $configs);
-
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
+
+        $config = $processor->processConfiguration($configuration, $configs);
+        $def = $container->getDefinition('interface.MGD');
+        $def->replaceArgument(3, $config['client_id']);
+        $def->replaceArgument(4, $config['secret']);
+        $def->replaceArgument(5, $config['callback']);
+        $def->replaceArgument(6, $config['api_root']);
     }
 }

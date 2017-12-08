@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Stock
+class Stock extends Master
 {
      /**
       * @var Product

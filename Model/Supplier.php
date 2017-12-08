@@ -3,9 +3,9 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Supplier
-{
 
+class Supplier extends Master
+{
     /**
      * @var integer
      */
@@ -62,12 +62,12 @@ class Supplier
     private $customerReference;
 
     /**
-     * @var \Mgd\Route\Supplier\User
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
 
     /**
-     * @var \Mgd\Route\Supplier\Product
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Product
      */
     public $products;
 

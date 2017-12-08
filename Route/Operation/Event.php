@@ -6,37 +6,43 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Operation;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 
 
-use Mgd\Entity\Operation;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Operation;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Event
 {
+    private $entity;
+    private $url;
+    private $master;
+
     public function __construct(Operation $operation)
     {
         $this->master = $operation->getMaster();
-        $this->entity = \Mgd\Entity\Event::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Event::class;
         $this->url = "/operations/".$operation->getIdOperation()."/events";
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Event $event,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Event $event,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url,$event,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Event $event,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Event $event,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url,$event->getIdEvent(),$event,$this->entity,$format);
     }

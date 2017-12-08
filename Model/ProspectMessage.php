@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class ProspectMessage
+class ProspectMessage extends Master
 {
     /**
      * @var int

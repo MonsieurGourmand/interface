@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Price
+class Price extends Master
 {
     /**
      * @var integer

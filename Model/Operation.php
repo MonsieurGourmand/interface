@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Operation
+class Operation extends Master
 {
     /**
      * @var integer

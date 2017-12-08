@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Package
+class Package extends Master
 {
     /**
      * @var integer

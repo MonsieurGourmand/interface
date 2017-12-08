@@ -6,42 +6,47 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Operation;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 
 
-use Mgd\Entity\Operation;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Operation;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Activity
 {
+    private $entity;
+    private $url;
+    private $master;
+
     public function __construct(Operation $operation)
     {
         $this->master = $operation->getMaster();
-        $this->entity = \Mgd\Entity\Activity::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Activity::class;
         $this->url = "/operations/" . $operation->getIdOperation() . "/activities";
     }
 
-    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Activity $activity, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Activity $activity, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $activity, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Activity $activity, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Activity $activity, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $activity->getIdActivity(), $activity, $this->entity, $format);
     }
 
-    public function remove(\Mgd\Entity\Activity $activity)
+    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Activity $activity)
     {
         return $this->master->remove($this->url, $activity->getIdActivity());
     }

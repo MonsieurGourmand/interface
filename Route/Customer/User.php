@@ -6,36 +6,42 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Customer;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 
-use Mgd\Mgd;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Customer;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class User
 {
-    public function __construct(\Mgd\Entity\Customer $customer)
+    private $entity;
+    private $url;
+    private $master;
+
+    public function __construct(Customer $customer)
     {
         $this->master = $customer->getMaster();
-        $this->entity = \Mgd\Entity\User::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\User::class;
         $this->url = "/customers/" . $customer->getIdCustomer() . "/users";
     }
 
-    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\User $user, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\User $user, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $user, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\User $user, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\User $user, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $user->getId(), $user, $this->entity, $format);
     }

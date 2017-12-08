@@ -6,7 +6,7 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
- * Class YBAcmeBundle
+ * Class InterfaceBundle
  */
 class InterfaceBundle extends Bundle
 {

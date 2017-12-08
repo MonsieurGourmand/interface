@@ -6,42 +6,46 @@
  * Time: 6:08 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-use Mgd\Mgd;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class User
 {
-    public function __construct(\Mgd\Mgd $master)
+    private $master;
+    private $entity;
+    private $url;
+
+    public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\User::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\User::class;
         $this->url = '/users';
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\User $user,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\User $user,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url,$user,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\User $user,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\User $user,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url,$user->getId(),$user,$this->entity,$format);
     }
 
-    public function remove(\Mgd\Entity\User $user)
+    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\User $user)
     {
         return $this->master->remove($this->url,$user->getId());
     }

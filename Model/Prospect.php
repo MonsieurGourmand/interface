@@ -8,7 +8,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Prospect
+class Prospect extends Master
 {
     /**
      * @var integer $id

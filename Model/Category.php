@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Category
+class Category extends Master
 {
     /**
      * @var Category

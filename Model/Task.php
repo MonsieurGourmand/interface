@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Task
+class Task extends Master
 {
     /**
      * @var \Mgd\Route\Action\Task\Flux

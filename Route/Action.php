@@ -6,39 +6,43 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-use Mgd\Mgd;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Action
 {
-    public function __construct(\Mgd\Mgd $master)
+    private $master;
+    private $entity;
+    private $url;
+
+    public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Action::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Action::class;
         $this->url = '/actions';
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
         $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params,$format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Action $action,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Action $action, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$action,$this->entity,$format);
+        return $this->master->post($this->url, $action, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Action $action,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Action $action, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$action->getIdAction(),$action,$this->entity,$format);
+        return $this->master->put($this->url, $action->getIdAction(), $action, $this->entity, $format);
     }
 
 }

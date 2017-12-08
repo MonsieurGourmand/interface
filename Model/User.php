@@ -8,7 +8,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class User
+class User extends Master
 {
     /**
      * @var integer $id

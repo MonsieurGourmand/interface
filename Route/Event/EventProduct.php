@@ -6,41 +6,47 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Event;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 
-use Mgd\Mgd;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class EventProduct
 {
-    public function __construct(\Mgd\Entity\Event $event)
+    private $entity;
+    private $url;
+    private $master;
+
+    public function __construct(Event $event)
     {
         $this->master = $event->getMaster();
-        $this->entity = \Mgd\Entity\EventProduct::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct::class;
         $this->url = "/operations/" . $event->getOperation()->getIdOperation() . "/events/" . $event->getIdEvent() . "/products";
     }
 
-    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\EventProduct $eventProduct, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct $eventProduct, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $eventProduct, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\EventProduct $eventProduct, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct $eventProduct, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $eventProduct->getIdEventProduct(), $eventProduct, $this->entity, $format);
     }
 
-    public function remove(\Mgd\Entity\EventProduct $eventProduct)
+    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct $eventProduct)
     {
         return $this->master->remove($this->url, $eventProduct->getIdEventProduct());
     }

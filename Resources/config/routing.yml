@@ -1,1 +1,11 @@
+connect:
+    path:     /connect
+    defaults: { _controller: InterfaceBundle:Index:index }
 
+token:
+    path:     /connect/token
+    defaults: { _controller: InterfaceBundle:Index:token }
+
+disconnect:
+    path: /disconnect
+    defaults: { _controller: InterfaceBundle:Index:disconnect }

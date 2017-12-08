@@ -6,21 +6,27 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-use Mgd\Mgd;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Purchase
 {
-    public function __construct(\Mgd\Mgd $master)
+
+    private $master;
+    private $entity;
+    private $url;
+
+    public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Purchase::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Purchase::class;
         $this->url = '/purchases';
     }
 
-    public function getAll($startDate=null,$endDate=null,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($startDate=null,$endDate=null,$format=MGD::FORMAT_OBJECT)
     {
         $params = array();
         if($startDate && $endDate)
@@ -32,17 +38,17 @@ class Purchase
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Purchase $purchase,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Purchase $purchase,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url,$purchase,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Purchase $purchase,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Purchase $purchase,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url,$purchase->getIdPurchase(),$purchase,$this->entity,$format);
     }

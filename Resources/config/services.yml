@@ -1,2 +1,19 @@
+services:
+    interface.check.mgd:
+        class: monsieurgourmand\Bundle\InterfaceBundle\Connect\CheckMGD
+        arguments: ["@router"]
+    interface.check.listener:
+        class: monsieurgourmand\Bundle\InterfaceBundle\Connect\CheckMGDListener
+        arguments : ['@interface.check.mgd']
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: process }
+    interface.parser:
+        class: monsieurgourmand\Bundle\InterfaceBundle\Service\Parser
+    interface.serializer:
+        class: monsieurgourmand\Bundle\InterfaceBundle\Service\Serializer
+    interface.MGD:
+        class: monsieurgourmand\Bundle\InterfaceBundle\Service\MGD
+        arguments : ['@session','@interface.parser','@interface.serializer','client_id','client_secret','callback','oauthRoot']
+
 
 

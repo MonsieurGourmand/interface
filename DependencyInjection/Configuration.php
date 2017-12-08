@@ -19,8 +19,14 @@ class Configuration implements ConfigurationInterface
     {
         $treeBuilder = new TreeBuilder();
 
-        $rootNode = $treeBuilder->root('yb_acme');
-
+        $rootNode = $treeBuilder->root('interface');
+        $rootNode
+            ->children()
+                ->scalarNode('client_id')->end()
+                ->scalarNode('secret')->end()
+                ->scalarNode('callback')->end()
+                ->scalarNode('api_root')->end()
+            ->end();
         return $treeBuilder;
     }
 }

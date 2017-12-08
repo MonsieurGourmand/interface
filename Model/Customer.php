@@ -3,7 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Customer
+class Customer extends Master
 {
     /**
      * @var integer

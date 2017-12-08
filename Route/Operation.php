@@ -6,37 +6,42 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-use Mgd\Mgd;
+
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Operation
 {
-    public function __construct(\Mgd\Mgd $master)
+    private $master;
+    private $entity;
+    private $url;
+
+    public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \Mgd\Entity\Operation::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Operation::class;
         $this->url = '/operations';
     }
 
-    public function getAll($format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format=MGD::FORMAT_OBJECT)
     {
         $params = array();
         return $this->master->getAll($this->url, $this->entity,$params,$format);
     }
 
-    public function get($id,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url,$id,$this->entity,$format);
     }
 
-    public function post(\Mgd\Entity\Operation $operation,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Operation $operation,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url,$operation,$this->entity,$format);
     }
 
-    public function put(\Mgd\Entity\Operation $operation,$format=\Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Operation $operation,$format=MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url,$operation->getIdOperation(),$operation,$this->entity,$format);
     }

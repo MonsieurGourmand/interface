@@ -6,41 +6,44 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Product;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 
-use Mgd\Entity\Firm;
-use Mgd\Entity\Product;
-use Mgd\Mgd;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Product;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Stock
 {
+    private $entity;
+    private $url;
+    private $master;
+
     public function __construct(Product $product)
     {
         $this->master = $product->getMaster();
-        $this->entity = \Mgd\Entity\Stock::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Stock::class;
         $this->url = "/products/" . $product->getIdProduct() . "/stocks";
     }
 
-    public function getAll($format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT)
     {
         $url = $this->url;
         $params = array();
         return $this->master->getAll($url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
         $url = $this->url;
         return $this->master->get($url, $id, $this->entity, $format);
     }
 
-    public function post(\Mgd\Entity\Stock $stock,  $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Stock $stock, $format = MGD::FORMAT_OBJECT)
     {
         $url = $this->url;
         return $this->master->post($url, $stock, $this->entity, $format);
     }
 
-    public function put(\Mgd\Entity\Stock $stock, $format = \Mgd\Mgd::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Stock $stock, $format = MGD::FORMAT_OBJECT)
     {
         $url = $this->url;
         return $this->master->put($url, $stock->getIdstock(), $stock, $this->entity, $format);

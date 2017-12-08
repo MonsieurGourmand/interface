@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Zone
+class Zone extends Master
 {
     /**
      * @var Zone
