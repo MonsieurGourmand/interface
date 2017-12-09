@@ -105,7 +105,7 @@ class MGD
     public function me(Request $request)
     {
         $response = $request->getSession()->get('client')->fetch($this->apiRoot . '/me');
-        $request->getSession()->set('me', $this->parser->parse($response['result'], User::class, $this, self::FORMAT_OBJECT));
+        $request->getSession()->set('me', $this->parser->parse($response['result'], \monsieurgourmand\Bundle\InterfaceBundle\Model\User::class, $this, self::FORMAT_OBJECT));
     }
 
     public function getAll($url, $entityClass, $params = array(), $format)
