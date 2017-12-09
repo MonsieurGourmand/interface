@@ -2,10 +2,17 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Category;
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Customer;
-use monsieurgourmand\Bundle\InterfaceBundle\Model\User;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\User;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -32,6 +39,16 @@ class MGD
     private $refresh_token;
     private $session;
     public $suppliers;
+    public $purchase;
+    public $category;
+    public $customer;
+    public $action;
+    public $product;
+    public $operation;
+    public $user;
+    public $zone;
+    public $stat;
+    public $format;
 
     public function __construct(Session $session, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -48,6 +65,16 @@ class MGD
         }
         $this->session = $session;
         $this->suppliers = new Supplier($this);
+        $this->category = new Category($this);
+        $this->customer = new Customer($this);
+        $this->action = new Action($this);
+        $this->product = new Product($this);
+        $this->purchase = new Purchase($this);
+        $this->operation = new Operation($this);
+        $this->user = new User($this);
+        $this->zone = new Zone($this);
+        $this->stat = new Stat($this);
+        $this->format = new Format($this);
     }
 
     public function login()
