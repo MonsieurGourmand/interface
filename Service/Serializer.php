@@ -47,7 +47,7 @@ class Serializer
                 }
 
             }
-            elseif(is_object($value) && strpos(get_class($value),"Mgd") !== false)
+            elseif(is_object($value) && strpos(get_class($value),"monsieurgourmand") !== false)
                 $value = self::object($value,$depth + 1);
             $array[$property->getName()] = $value;
             $property->setAccessible(false);
