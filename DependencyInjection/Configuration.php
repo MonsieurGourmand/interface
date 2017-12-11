@@ -22,10 +22,11 @@ class Configuration implements ConfigurationInterface
         $rootNode = $treeBuilder->root('interface');
         $rootNode
             ->children()
-                ->scalarNode('client_id')->end()
-                ->scalarNode('secret')->end()
-                ->scalarNode('callback')->end()
-                ->scalarNode('api_root')->end()
+            ->scalarNode('client_id')->end()
+            ->scalarNode('secret')->end()
+            ->scalarNode('callback')->end()
+            ->scalarNode('api_root')->end()
+            ->booleanNode('credentials')->end()
             ->end();
         return $treeBuilder;
     }

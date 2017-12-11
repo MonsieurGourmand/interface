@@ -18,20 +18,26 @@ class CheckMGD
 {
 
     private $router;
+    private $credentials;
 
-    public function __construct(Router $router)
+    public function __construct(Router $router, $credentials)
     {
         $this->router = $router;
+        $this->credentials = $credentials;
     }
 
     public function check(Request $request)
     {
-        if ($request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('connect') || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')) {
-            return;
-        } else {
-            if (!$client = $request->getSession()->get('client')) {
-                return new RedirectResponse($this->router->generate('connect'));
+        if (!$this->credentials) {
+            if ($request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('connect') || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')) {
+                return;
+            } else {
+                if (!$client = $request->getSession()->get('client')) {
+                    return new RedirectResponse($this->router->generate('connect'));
+                }
             }
+        } else {
+            return;
         }
     }
 

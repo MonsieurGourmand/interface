@@ -8,6 +8,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
@@ -38,7 +39,7 @@ class MGD
     private $client;
     private $refresh_token;
     private $session;
-    public $supplier;
+    public $suppliers;
     public $purchase;
     public $category;
     public $customer;
@@ -49,6 +50,7 @@ class MGD
     public $zone;
     public $stat;
     public $format;
+    public $prospect;
 
     public function __construct(Session $session, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -64,7 +66,7 @@ class MGD
             $this->client = $session->get('client');
         }
         $this->session = $session;
-        $this->supplier = new Supplier($this);
+        $this->suppliers = new Supplier($this);
         $this->category = new Category($this);
         $this->customer = new Customer($this);
         $this->action = new Action($this);
@@ -92,20 +94,21 @@ class MGD
         $this->me($request);
     }
 
-    /* public function accessClientCredential()
-     {
-         $this->client = new \OAuth2\Client($this->client_id, $this->client_secret);
-         $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'client_credentials', array());
-         $this->client->setAccessToken($response['result']['access_token']);
+    public function accessClientCredential()
+    {
+        $this->client = new \OAuth2\Client($this->client_id, $this->client_secret);
+        $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'client_credentials', array());
+        $this->session->set('client', $this->client);
+        $this->client->setAccessToken($response['result']['access_token']);
 
-         // Générations des routes anonymes
-         $this->prospect = new \Mgd\Route\Prospect($this);
-     }*/
+        // Générations des routes anonymes
+        $this->prospect = new Prospect($this);
+    }
 
     public function me(Request $request)
     {
         $response = $request->getSession()->get('client')->fetch($this->apiRoot . '/me');
-        $request->getSession()->set('me', $this->parser->parse($response['result'], \monsieurgourmand\Bundle\InterfaceBundle\Model\User::class, $this, self::FORMAT_OBJECT));
+        $request->getSession()->set('me', $this->parser->parse($response['result'], User::class, $this, self::FORMAT_OBJECT));
     }
 
     public function getAll($url, $entityClass, $params = array(), $format)
@@ -184,7 +187,7 @@ class MGD
                 $this->session->set('refresh_token', $response['result']['refresh_token']);
                 return true;
             } else {
-                //$this->accessClientCredential();
+                $this->accessClientCredential();
                 return true;
             }
         }
