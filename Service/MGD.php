@@ -39,7 +39,7 @@ class MGD
     private $client;
     private $refresh_token;
     private $session;
-    public $suppliers;
+    public $supplier;
     public $purchase;
     public $category;
     public $customer;
@@ -66,7 +66,7 @@ class MGD
             $this->client = $session->get('client');
         }
         $this->session = $session;
-        $this->suppliers = new Supplier($this);
+        $this->supplier = new Supplier($this);
         $this->category = new Category($this);
         $this->customer = new Customer($this);
         $this->action = new Action($this);
