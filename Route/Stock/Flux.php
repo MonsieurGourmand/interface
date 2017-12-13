@@ -6,7 +6,7 @@
  * Time: 6:10 PM
  */
 
-namespace Mgd\Route\Stock;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Stock;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Stock;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;

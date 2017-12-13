@@ -25,7 +25,7 @@ class Stock extends Master
     private $quantity;
 
     /**
-     * @var \Mgd\Route\Stock\Flux
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Stock\Flux
      */
     public $fluxes;
 
