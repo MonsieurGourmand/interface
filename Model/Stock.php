@@ -4,10 +4,10 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 class Stock extends Master
 {
-     /**
-      * @var Product
-      */
-     private $product;
+    /**
+     * @var Product
+     */
+    private $product;
 
     /**
      * @var \DateTime
@@ -19,11 +19,15 @@ class Stock extends Master
      */
     private $idStock;
 
-
     /**
      * @var integer
      */
     private $quantity;
+
+    /**
+     * @var \Mgd\Route\Stock\Flux
+     */
+    public $fluxes;
 
     /**
      * @return bool
