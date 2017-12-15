@@ -27,7 +27,7 @@ class Stock extends Master
     /**
      * @var float
      */
-    private $price;
+    private $value;
 
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Stock\Flux
@@ -114,18 +114,18 @@ class Stock extends Master
     /**
      * @return float
      */
-    public function getPrice()
+    public function getValue()
     {
-        return $this->price;
+        return $this->value;
     }
 
     /**
-     * @param float $price
+     * @param float $value
      * @return Stock
      */
-    public function setPrice($price)
+    public function setValue($value)
     {
-        $this->price = $price;
+        $this->value = $value;
         return $this;
     }
 }
