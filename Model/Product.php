@@ -161,6 +161,10 @@ class Product extends Master
      */
     public $stocks;
 
+    /**
+     * @var integer
+     */
+    private $stockAlert;
 
     /**
      * @return int
@@ -667,6 +671,24 @@ class Product extends Master
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStockAlert()
+    {
+        return $this->stockAlert;
+    }
+
+    /**
+     * @param int $stockAlert
+     * @return Product
+     */
+    public function setStockAlert($stockAlert)
+    {
+        $this->stockAlert = $stockAlert;
         return $this;
     }
 
