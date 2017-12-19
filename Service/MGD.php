@@ -167,6 +167,19 @@ class MGD
             return $response['result'];
     }
 
+    public function patch($url, $id, $object, $entityClass, $format)
+    {
+        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), \OAuth2\Client::HTTP_METHOD_PATCH, array('Content-Type' => 'application/x-www-form-urlencoded'), \OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        if (self::getError($response))
+            return self::patch($url, $id, $object, $entityClass, $format);
+        if ($format == self::FORMAT_OBJECT)
+            return $this->parser->parse($response['result'], $entityClass, $this, $format);
+        elseif ($format == self::FORMAT_JSON)
+            return json_encode($response['result']);
+        else
+            return $response['result'];
+    }
+
     public function remove($url, $id)
     {
         $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', array(), \OAuth2\Client::HTTP_METHOD_DELETE);
