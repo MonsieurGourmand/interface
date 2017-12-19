@@ -38,6 +38,16 @@ class Price extends Master
     private $vat;
 
     /**
+     * @var \DateTime
+     */
+    private $startDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $endDate;
+
+    /**
      * @return int
      */
     public function getIdPrice()
@@ -150,6 +160,42 @@ class Price extends Master
     public function setVat($vat)
     {
         $this->vat = $vat;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStartDate()
+    {
+        return $this->startDate;
+    }
+
+    /**
+     * @param \DateTime $startDate
+     * @return Price
+     */
+    public function setStartDate($startDate)
+    {
+        $this->startDate = $startDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEndDate()
+    {
+        return $this->endDate;
+    }
+
+    /**
+     * @param \DateTime $endDate
+     * @return Price
+     */
+    public function setEndDate($endDate)
+    {
+        $this->endDate = $endDate;
         return $this;
     }
 }
