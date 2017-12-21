@@ -162,6 +162,16 @@ class Product extends Master
     public $stocks;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\PurchaseProduct
+     */
+    public $purchaseProducts;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\EventProduct
+     */
+    public $eventProducts;
+
+    /**
      * @var integer
      */
     private $stockAlert;
