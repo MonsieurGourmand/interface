@@ -23,7 +23,7 @@ class PurchaseProduct
         $this->master = $product->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\PurchaseProduct::class;
         if ($product->getSupplier())
-            $this->url = "/suppliers" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/products";
+            $this->url = "/suppliers/" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/products";
         else
             $this->url = null;
     }
