@@ -22,7 +22,10 @@ class PurchaseProduct
     {
         $this->master = $product->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\PurchaseProduct::class;
-        $this->url = "/suppliers" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/products";
+        if ($product->getSupplier())
+            $this->url = "/suppliers" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/products";
+        else
+            $this->url = null;
     }
 
     public function getAll($format = MGD::FORMAT_OBJECT)
