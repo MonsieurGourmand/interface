@@ -5,6 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
@@ -51,6 +52,7 @@ class MGD
     public $stat;
     public $format;
     public $prospect;
+    public $event;
 
     public function __construct(Session $session, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -77,6 +79,7 @@ class MGD
         $this->zone = new Zone($this);
         $this->stat = new Stat($this);
         $this->format = new Format($this);
+        $this->event = new Event($this);
     }
 
     public function login()
