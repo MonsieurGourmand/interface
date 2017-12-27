@@ -50,11 +50,6 @@ class PurchaseProduct extends Master
     private $product;
 
     /**
-     * @var integer
-     */
-    private $estimatedStock;
-
-    /**
      * @return int
      */
     public function getIdPurchaseProduct()
@@ -205,24 +200,4 @@ class PurchaseProduct extends Master
         $this->product = $product;
         return $this;
     }
-
-    /**
-     * @return int
-     */
-    public function getEstimatedStock()
-    {
-        return $this->estimatedStock;
-    }
-
-    /**
-     * @param int $estimatedStock
-     * @return PurchaseProduct
-     */
-    public function setEstimatedStock($estimatedStock)
-    {
-        $this->estimatedStock = $estimatedStock;
-        return $this;
-    }
-
-
 }
