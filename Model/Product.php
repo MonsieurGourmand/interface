@@ -161,6 +161,20 @@ class Product extends Master
      */
     public $stocks;
 
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\PurchaseProduct
+     */
+    public $purchaseProducts;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\EventProduct
+     */
+    public $eventProducts;
+
+    /**
+     * @var integer
+     */
+    private $stockAlert;
 
     /**
      * @return int
@@ -667,6 +681,24 @@ class Product extends Master
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStockAlert()
+    {
+        return $this->stockAlert;
+    }
+
+    /**
+     * @param int $stockAlert
+     * @return Product
+     */
+    public function setStockAlert($stockAlert)
+    {
+        $this->stockAlert = $stockAlert;
         return $this;
     }
 

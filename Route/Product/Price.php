@@ -61,4 +61,22 @@ class Price
             $url = $this->url;
         return $this->master->put($url, $price->getIdPrice(), $price, $this->entity, $format);
     }
+
+    public function patch(\monsieurgourmand\Bundle\InterfaceBundle\Model\Price $price, Supplier $supplier = null, $format = MGD::FORMAT_OBJECT)
+    {
+        if ($supplier)
+            $url = "/suppliers/" . $supplier->getIdSupplier() . $this->url;
+        else
+            $url = $this->url;
+        return $this->master->patch($url, $price->getIdPrice(), $price, $this->entity, $format);
+    }
+
+    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Price $price, Supplier $supplier = null)
+    {
+        if ($supplier)
+            $url = "/suppliers/" . $supplier->getIdSupplier() . $this->url;
+        else
+            $url = $this->url;
+        return $this->master->remove($url, $price->getIdPrice());
+    }
 }

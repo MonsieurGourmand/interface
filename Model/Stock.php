@@ -4,10 +4,10 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 class Stock extends Master
 {
-     /**
-      * @var Product
-      */
-     private $product;
+    /**
+     * @var Product
+     */
+    private $product;
 
     /**
      * @var \DateTime
@@ -19,11 +19,20 @@ class Stock extends Master
      */
     private $idStock;
 
-
     /**
      * @var integer
      */
     private $quantity;
+
+    /**
+     * @var float
+     */
+    private $value;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Stock\Flux
+     */
+    public $fluxes;
 
     /**
      * @return bool
@@ -102,5 +111,21 @@ class Stock extends Master
         $this->idStock = $idStock;
     }
 
+    /**
+     * @return float
+     */
+    public function getValue()
+    {
+        return $this->value;
+    }
 
+    /**
+     * @param float $value
+     * @return Stock
+     */
+    public function setValue($value)
+    {
+        $this->value = $value;
+        return $this;
+    }
 }

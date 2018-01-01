@@ -5,6 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
@@ -51,6 +52,7 @@ class MGD
     public $stat;
     public $format;
     public $prospect;
+    public $event;
 
     public function __construct(Session $session, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -77,6 +79,7 @@ class MGD
         $this->zone = new Zone($this);
         $this->stat = new Stat($this);
         $this->format = new Format($this);
+        $this->event = new Event($this);
     }
 
     public function login()
@@ -159,6 +162,19 @@ class MGD
         $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), \OAuth2\Client::HTTP_METHOD_PUT, array('Content-Type' => 'application/x-www-form-urlencoded'), \OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if (self::getError($response))
             return self::put($url, $id, $object, $entityClass, $format);
+        if ($format == self::FORMAT_OBJECT)
+            return $this->parser->parse($response['result'], $entityClass, $this, $format);
+        elseif ($format == self::FORMAT_JSON)
+            return json_encode($response['result']);
+        else
+            return $response['result'];
+    }
+
+    public function patch($url, $id, $object, $entityClass, $format)
+    {
+        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), \OAuth2\Client::HTTP_METHOD_PATCH, array('Content-Type' => 'application/x-www-form-urlencoded'), \OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        if (self::getError($response))
+            return self::patch($url, $id, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
             return $this->parser->parse($response['result'], $entityClass, $this, $format);
         elseif ($format == self::FORMAT_JSON)

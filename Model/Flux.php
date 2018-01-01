@@ -30,6 +30,11 @@ class Flux extends Master
     private $created;
 
     /**
+     * @var float
+     */
+    private $unitPrice;
+
+    /**
      * @return Stock
      */
     public function getStock()
@@ -109,4 +114,21 @@ class Flux extends Master
         $this->created = $created;
     }
 
+    /**
+     * @return float
+     */
+    public function getUnitPrice()
+    {
+        return $this->unitPrice;
+    }
+
+    /**
+     * @param float $unitPrice
+     * @return Flux
+     */
+    public function setUnitPrice($unitPrice)
+    {
+        $this->unitPrice = $unitPrice;
+        return $this;
+    }
 }

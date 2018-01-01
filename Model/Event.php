@@ -158,6 +158,11 @@ class Event extends Master
      */
     private $contact;
 
+    /**
+     * @var boolean
+     */
+    private $stockTrouble;
+
 
     /**
      * @return int
@@ -668,6 +673,24 @@ class Event extends Master
     public function setCorporateName($corporateName)
     {
         $this->corporateName = $corporateName;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStockTrouble()
+    {
+        return $this->stockTrouble;
+    }
+
+    /**
+     * @param bool $stockTrouble
+     * @return Event
+     */
+    public function setStockTrouble($stockTrouble)
+    {
+        $this->stockTrouble = $stockTrouble;
         return $this;
     }
 }
