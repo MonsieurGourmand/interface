@@ -9,7 +9,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Product
@@ -25,29 +24,28 @@ class Product
         $this->url = '/products';
     }
 
-    public function getAll($format=MGD::FORMAT_OBJECT)
+    public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
     {
-        $params = array();
-        return $this->master->getAll($this->url, $this->entity,$params,$format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=MGD::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product,$format=MGD::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$product,$this->entity,$format);
+        return $this->master->post($this->url, $product, $this->entity, $format);
     }
 
-    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product,$format=MGD::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$product->getIdProduct(),$product,$this->entity,$format);
+        return $this->master->put($this->url, $product->getIdProduct(), $product, $this->entity, $format);
     }
 
     public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Product $product)
     {
-        return $this->master->remove($this->url,$product->getIdProduct());
+        return $this->master->remove($this->url, $product->getIdProduct());
     }
 }
