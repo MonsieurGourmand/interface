@@ -17,12 +17,17 @@ class Format extends Master
     /**
      * @var string
      */
-    private $intitule;
+    private $name;
 
     /**
      * @var string
      */
-    private $prestation;
+    private $step;
+
+    /**
+     * @var integer
+     */
+    private $status;
 
     /**
      * @var integer
@@ -30,9 +35,29 @@ class Format extends Master
     private $pax;
 
     /**
-     * @var Customer[]
+     * @var integer
      */
-    private $customers;
+    private $quoteNumber;
+
+    /**
+     * @var integer
+     */
+    private $transport;
+
+    /**
+     * @var integer
+     */
+    private $service;
+
+    /**
+     * @var integer
+     */
+    private $documents;
+
+    /**
+     * @var Customer
+     */
+    private $customer;
 
     /**
      * @return int
@@ -43,38 +68,56 @@ class Format extends Master
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getIntitule()
+    public function getName()
     {
-        return $this->intitule;
+        return $this->name;
     }
 
     /**
-     * @param mixed $intitule
+     * @param string $name
      * @return Format
      */
-    public function setIntitule($intitule)
+    public function setName($name)
     {
-        $this->intitule = $intitule;
+        $this->name = $name;
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getPrestation()
+    public function getStep()
     {
-        return $this->prestation;
+        return $this->step;
     }
 
     /**
-     * @param mixed $prestation
+     * @param string $step
      * @return Format
      */
-    public function setPrestation($prestation)
+    public function setStep($step)
     {
-        $this->prestation = $prestation;
+        $this->step = $step;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     * @return Format
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
         return $this;
     }
 
@@ -97,20 +140,92 @@ class Format extends Master
     }
 
     /**
-     * @return mixed
+     * @return int
      */
-    public function getCustomers()
+    public function getQuoteNumber()
     {
-        return $this->customers;
+        return $this->quoteNumber;
     }
 
     /**
-     * @param mixed $customers
+     * @param int $quoteNumber
      * @return Format
      */
-    public function setCustomers($customers)
+    public function setQuoteNumber($quoteNumber)
     {
-        $this->customers = $customers;
+        $this->quoteNumber = $quoteNumber;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTransport()
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param int $transport
+     * @return Format
+     */
+    public function setTransport($transport)
+    {
+        $this->transport = $transport;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getService()
+    {
+        return $this->service;
+    }
+
+    /**
+     * @param int $service
+     * @return Format
+     */
+    public function setService($service)
+    {
+        $this->service = $service;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getDocuments()
+    {
+        return $this->documents;
+    }
+
+    /**
+     * @param int $documents
+     * @return Format
+     */
+    public function setDocuments($documents)
+    {
+        $this->documents = $documents;
+        return $this;
+    }
+
+    /**
+     * @return Customer
+     */
+    public function getCustomer()
+    {
+        return $this->customer;
+    }
+
+    /**
+     * @param Customer $customer
+     * @return Format
+     */
+    public function setCustomer($customer)
+    {
+        $this->customer = $customer;
         return $this;
     }
 }
