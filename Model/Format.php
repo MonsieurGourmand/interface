@@ -60,6 +60,21 @@ class Format extends Master
     private $customer;
 
     /**
+     * @var float
+     */
+    private $divers;
+
+    /**
+     * @var float
+     */
+    private $serviceCost;
+
+    /**
+     * @var float
+     */
+    private $price;
+
+    /**
      * @return int
      */
     public function getIdFormat()
@@ -226,6 +241,60 @@ class Format extends Master
     public function setCustomer($customer)
     {
         $this->customer = $customer;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getDivers()
+    {
+        return $this->divers;
+    }
+
+    /**
+     * @param float $divers
+     * @return Format
+     */
+    public function setDivers($divers)
+    {
+        $this->divers = $divers;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getServiceCost()
+    {
+        return $this->serviceCost;
+    }
+
+    /**
+     * @param float $serviceCost
+     * @return Format
+     */
+    public function setServiceCost($serviceCost)
+    {
+        $this->serviceCost = $serviceCost;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     * @return Format
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
         return $this;
     }
 }
