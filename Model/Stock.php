@@ -25,6 +25,11 @@ class Stock extends Master
     private $quantity;
 
     /**
+     * @var integer
+     */
+    private $quantityExpired;
+
+    /**
      * @var float
      */
     private $value;
@@ -128,4 +133,24 @@ class Stock extends Master
         $this->value = $value;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getQuantityExpired()
+    {
+        return $this->quantityExpired;
+    }
+
+    /**
+     * @param int $quantityExpired
+     * @return Stock
+     */
+    public function setQuantityExpired($quantityExpired)
+    {
+        $this->quantityExpired = $quantityExpired;
+        return $this;
+    }
+
+
 }
