@@ -75,6 +75,11 @@ class Format extends Master
     private $price;
 
     /**
+     * @var array
+     */
+    private $packages;
+
+    /**
      * @return int
      */
     public function getIdFormat()
@@ -297,4 +302,24 @@ class Format extends Master
         $this->price = $price;
         return $this;
     }
+
+    /**
+     * @return array
+     */
+    public function getPackages()
+    {
+        return $this->packages;
+    }
+
+    /**
+     * @param array $packages
+     * @return Format
+     */
+    public function setPackages($packages)
+    {
+        $this->packages = $packages;
+        return $this;
+    }
+
+
 }
