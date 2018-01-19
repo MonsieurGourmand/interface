@@ -80,6 +80,11 @@ class Format extends Master
     private $packages;
 
     /**
+     * @var integer
+     */
+    private $type;
+
+    /**
      * @return int
      */
     public function getIdFormat()
@@ -321,5 +326,21 @@ class Format extends Master
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
+    /**
+     * @param int $type
+     * @return Format
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
 }
