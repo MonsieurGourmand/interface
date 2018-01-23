@@ -304,4 +304,5 @@ class Operation extends Master
         $this->eventDate = $eventDate;
         return $this;
     }
+
 }
