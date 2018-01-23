@@ -36,11 +36,6 @@ class Operation extends Master
     private $operationDate;
 
     /**
-     * @var \DateTime
-     */
-    private $eventDate;
-
-    /**
      * @var string
      */
     private $name;
@@ -286,23 +281,4 @@ class Operation extends Master
         $this->document = $document;
         return $this;
     }
-
-    /**
-     * @return \DateTime
-     */
-    public function getEventDate()
-    {
-        return $this->eventDate;
-    }
-
-    /**
-     * @param \DateTime $eventDate
-     * @return Operation
-     */
-    public function setEventDate($eventDate)
-    {
-        $this->eventDate = $eventDate;
-        return $this;
-    }
-
 }

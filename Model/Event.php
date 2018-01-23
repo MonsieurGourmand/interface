@@ -36,6 +36,11 @@ class Event extends Master
     private $deliveryDate;
 
     /**
+     * @var \DateTime
+     */
+    private $eventDate;
+
+    /**
      * @var integer
      */
     private $status = 0;
@@ -691,6 +696,24 @@ class Event extends Master
     public function setStockTrouble($stockTrouble)
     {
         $this->stockTrouble = $stockTrouble;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getEventDate()
+    {
+        return $this->eventDate;
+    }
+
+    /**
+     * @param \DateTime $eventDate
+     * @return Event
+     */
+    public function setEventDate($eventDate)
+    {
+        $this->eventDate = $eventDate;
         return $this;
     }
 }
