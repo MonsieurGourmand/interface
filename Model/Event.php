@@ -168,6 +168,11 @@ class Event extends Master
      */
     private $stockTrouble;
 
+    /**
+     * @var integer
+     */
+    private $singleUpdate;
+
 
     /**
      * @return int
@@ -714,6 +719,24 @@ class Event extends Master
     public function setEventDate($eventDate)
     {
         $this->eventDate = $eventDate;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSingleUpdate()
+    {
+        return $this->singleUpdate;
+    }
+
+    /**
+     * @param int $singleUpdate
+     * @return Event
+     */
+    public function setSingleUpdate($singleUpdate)
+    {
+        $this->singleUpdate = $singleUpdate;
         return $this;
     }
 }
