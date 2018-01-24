@@ -65,6 +65,11 @@ class Operation extends Master
      */
     private $document;
 
+    /**
+     * @var User
+     */
+    private $leadUser;
+
 
     /**
      * @return int
@@ -233,6 +238,24 @@ class Operation extends Master
     public function setDocument($document)
     {
         $this->document = $document;
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getLeadUser()
+    {
+        return $this->leadUser;
+    }
+
+    /**
+     * @param User $leadUser
+     * @return Operation
+     */
+    public function setLeadUser($leadUser)
+    {
+        $this->leadUser = $leadUser;
         return $this;
     }
 }
