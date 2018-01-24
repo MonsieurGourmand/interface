@@ -16,11 +16,6 @@ class Operation extends Master
     private $customer;
 
     /**
-     * @var User
-     */
-    private $leadUser;
-
-    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Event
      */
     public $events;
@@ -29,11 +24,6 @@ class Operation extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Activity
      */
     public $activities;
-
-    /**
-     * @var \DateTime
-     */
-    private $operationDate;
 
     /**
      * @var string
@@ -99,42 +89,6 @@ class Operation extends Master
     public function setCustomer($customer)
     {
         $this->customer = $customer;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getLeadUser()
-    {
-        return $this->leadUser;
-    }
-
-    /**
-     * @param mixed $leadUser
-     * @return Operation
-     */
-    public function setLeadUser($leadUser)
-    {
-        $this->leadUser = $leadUser;
-        return $this;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getOperationDate()
-    {
-        return $this->operationDate;
-    }
-
-    /**
-     * @param \DateTime $operationDate
-     * @return Operation
-     */
-    public function setOperationDate($operationDate)
-    {
-        $this->operationDate = $operationDate;
         return $this;
     }
 
