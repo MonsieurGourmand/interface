@@ -35,7 +35,7 @@ class Format extends Master
     private $pax;
 
     /**
-     * @var integer
+     * @var string
      */
     private $quoteNumber;
 
@@ -165,7 +165,7 @@ class Format extends Master
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getQuoteNumber()
     {
@@ -173,7 +173,7 @@ class Format extends Master
     }
 
     /**
-     * @param int $quoteNumber
+     * @param string $quoteNumber
      * @return Format
      */
     public function setQuoteNumber($quoteNumber)
