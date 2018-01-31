@@ -174,11 +174,6 @@ class Event extends Master
     private $singleUpdate;
 
     /**
-     * @var array
-     */
-    private $specific;
-
-    /**
      * @return int
      */
     public function getIdEvent()
@@ -741,24 +736,6 @@ class Event extends Master
     public function setSingleUpdate($singleUpdate)
     {
         $this->singleUpdate = $singleUpdate;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getSpecific()
-    {
-        return $this->specific;
-    }
-
-    /**
-     * @param array $specific
-     * @return Event
-     */
-    public function setSpecific($specific)
-    {
-        $this->specific = $specific;
         return $this;
     }
 }
