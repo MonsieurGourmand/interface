@@ -54,7 +54,7 @@ class MGD
     public $prospect;
     public $event;
 
-    public function __construct(Session $session, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
+    public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
         $this->parser = $parser;
         $this->serializer = $serializer;
@@ -63,11 +63,11 @@ class MGD
         $this->client_id = $client_id;
         $this->client_secret = $client_secret;
         $this->callback = $callback;
-        if ($session->get('client')) {
-            $this->refresh_token = $session->get('refresh_token');
-            $this->client = $session->get('client');
-        }
         $this->session = $session;
+        if ($this->session && $this->session->get('client')) {
+            $this->refresh_token = $this->session->get('refresh_token');
+            $this->client = $this->session->get('client');
+        }
         $this->supplier = new Supplier($this);
         $this->category = new Category($this);
         $this->customer = new Customer($this);
@@ -101,7 +101,8 @@ class MGD
     {
         $this->client = new \OAuth2\Client($this->client_id, $this->client_secret);
         $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'client_credentials', array());
-        $this->session->set('client', $this->client);
+        if($this->session)
+            $this->session->set('client', $this->client);
         $this->client->setAccessToken($response['result']['access_token']);
 
         // Générations des routes anonymes

@@ -27,6 +27,8 @@ class Configuration implements ConfigurationInterface
             ->scalarNode('callback')->end()
             ->scalarNode('api_root')->end()
             ->booleanNode('credentials')->end()
+            ->scalarNode('client_command_id')->end()
+            ->scalarNode('secret_command')->end()
             ->end();
         return $treeBuilder;
     }

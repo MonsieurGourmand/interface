@@ -14,6 +14,8 @@ services:
     interface.MGD:
         class: monsieurgourmand\Bundle\InterfaceBundle\Service\MGD
         arguments : ['@session','@interface.parser','@interface.serializer','client_id','client_secret','callback','oauthRoot']
-
+    interface.MGD.command:
+        class: monsieurgourmand\Bundle\InterfaceBundle\Service\MGD
+        arguments : ['','@interface.parser','@interface.serializer','client_id','client_secret','callback','oauthRoot']
 
 
