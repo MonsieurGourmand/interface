@@ -86,6 +86,11 @@ class Product extends Master
     private $stopped;
 
     /**
+     * @var boolean
+     */
+    private $favorite;
+
+    /**
      * @var integer
      */
     private $alert;
@@ -702,4 +707,21 @@ class Product extends Master
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isFavorite()
+    {
+        return $this->favorite;
+    }
+
+    /**
+     * @param bool $favorite
+     * @return Product
+     */
+    public function setFavorite($favorite)
+    {
+        $this->favorite = $favorite;
+        return $this;
+    }
 }
