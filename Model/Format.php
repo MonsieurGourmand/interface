@@ -45,6 +45,31 @@ class Format extends Master
     private $sugarPax;
 
     /**
+     * @var integer
+     */
+    private $sugarWeight;
+
+    /**
+     * @var integer
+     */
+    private $otherWeight;
+
+    /**
+     * @var integer
+     */
+    private $saladeWeight;
+
+    /**
+     * @var integer
+     */
+    private $cheeseWeight;
+
+    /**
+     * @var integer
+     */
+    private $charcutWeight;
+
+    /**
      * @var string
      */
     private $quoteNumber;
@@ -413,5 +438,93 @@ class Format extends Master
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getSugarWeight()
+    {
+        return $this->sugarWeight;
+    }
 
+    /**
+     * @param int $sugarWeight
+     * @return Format
+     */
+    public function setSugarWeight($sugarWeight)
+    {
+        $this->sugarWeight = $sugarWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getOtherWeight()
+    {
+        return $this->otherWeight;
+    }
+
+    /**
+     * @param int $otherWeight
+     * @return Format
+     */
+    public function setOtherWeight($otherWeight)
+    {
+        $this->otherWeight = $otherWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSaladeWeight()
+    {
+        return $this->saladeWeight;
+    }
+
+    /**
+     * @param int $saladeWeight
+     * @return Format
+     */
+    public function setSaladeWeight($saladeWeight)
+    {
+        $this->saladeWeight = $saladeWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCheeseWeight()
+    {
+        return $this->cheeseWeight;
+    }
+
+    /**
+     * @param int $cheeseWeight
+     * @return Format
+     */
+    public function setCheeseWeight($cheeseWeight)
+    {
+        $this->cheeseWeight = $cheeseWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getCharcutWeight()
+    {
+        return $this->charcutWeight;
+    }
+
+    /**
+     * @param int $charcutWeight
+     * @return Format
+     */
+    public function setCharcutWeight($charcutWeight)
+    {
+        $this->charcutWeight = $charcutWeight;
+        return $this;
+    }
 }
