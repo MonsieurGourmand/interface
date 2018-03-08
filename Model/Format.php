@@ -85,6 +85,11 @@ class Format extends Master
     private $type;
 
     /**
+     * @var integer
+     */
+    private $formatType;
+
+    /**
      * @return int
      */
     public function getIdFormat()
@@ -341,6 +346,24 @@ class Format extends Master
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getFormatType()
+    {
+        return $this->formatType;
+    }
+
+    /**
+     * @param int $formatType
+     * @return Format
+     */
+    public function setFormatType($formatType)
+    {
+        $this->formatType = $formatType;
         return $this;
     }
 }
