@@ -35,6 +35,16 @@ class Format extends Master
     private $pax;
 
     /**
+     * @var integer
+     */
+    private $saltPax;
+
+    /**
+     * @var integer
+     */
+    private $sugarPax;
+
+    /**
      * @var string
      */
     private $quoteNumber;
@@ -366,4 +376,42 @@ class Format extends Master
         $this->formatType = $formatType;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getSaltPax()
+    {
+        return $this->saltPax;
+    }
+
+    /**
+     * @param int $saltPax
+     * @return Format
+     */
+    public function setSaltPax($saltPax)
+    {
+        $this->saltPax = $saltPax;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSugarPax()
+    {
+        return $this->sugarPax;
+    }
+
+    /**
+     * @param int $sugarPax
+     * @return Format
+     */
+    public function setSugarPax($sugarPax)
+    {
+        $this->sugarPax = $sugarPax;
+        return $this;
+    }
+
+
 }
