@@ -9,7 +9,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Event
@@ -26,20 +25,18 @@ class Event
         $this->url = '/events';
     }
 
-    public function getAll($startDate=null,$endDate=null,$format=MGD::FORMAT_OBJECT)
+    public function getAll($startDate = null, $endDate = null, $format = MGD::FORMAT_OBJECT, $params = array())
     {
-        $params = array();
-        if($startDate && $endDate)
-        {
+        if ($startDate && $endDate) {
             $params['startDate'] = $startDate;
             $params['endDate'] = $endDate;
         }
 
-        return $this->master->getAll($this->url, $this->entity,$params,$format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=MGD::FORMAT_OBJECT)
+    public function get($id, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 }
