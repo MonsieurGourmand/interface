@@ -25,9 +25,8 @@ class EventProduct
         $this->url = "/products/" . $product->getIdProduct() . "/products";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT,$params= array())
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
