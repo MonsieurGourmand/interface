@@ -25,9 +25,8 @@ class Event
         $this->url = '/events';
     }
 
-    public function getAll($startDate = null, $endDate = null, $format = MGD::FORMAT_OBJECT)
+    public function getAll($startDate = null, $endDate = null, $format = MGD::FORMAT_OBJECT, $params = array())
     {
-        $params = array();
         if ($startDate && $endDate) {
             $params['startDate'] = $startDate;
             $params['endDate'] = $endDate;
