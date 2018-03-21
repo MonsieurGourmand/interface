@@ -159,11 +159,6 @@ class Event extends Master
     private $recipient;
 
     /**
-     * @var User
-     */
-    private $contact;
-
-    /**
      * @var boolean
      */
     private $stockTrouble;
@@ -646,24 +641,6 @@ class Event extends Master
     public function setRecipient($recipient)
     {
         $this->recipient = $recipient;
-        return $this;
-    }
-
-    /**
-     * @return User
-     */
-    public function getContact()
-    {
-        return $this->contact;
-    }
-
-    /**
-     * @param User $contact
-     * @return Event
-     */
-    public function setContact($contact)
-    {
-        $this->contact = $contact;
         return $this;
     }
 
