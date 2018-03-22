@@ -24,12 +24,8 @@ class Product
         $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/products";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($params = array(),$format = MGD::FORMAT_OBJECT)
     {
-        if ($format == MGD::FORMAT_JSON)
-            $params['stopped'] = 'yolo';
-        else
-            $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
