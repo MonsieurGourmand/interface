@@ -147,6 +147,11 @@ class Product extends Master
     private $stockPrice;
 
     /**
+     * @var float
+     */
+    private $unitPrice;
+
+    /**
      * @var Price
      */
     private $activePrice;
@@ -722,6 +727,24 @@ class Product extends Master
     public function setFavorite($favorite)
     {
         $this->favorite = $favorite;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getUnitPrice()
+    {
+        return $this->unitPrice;
+    }
+
+    /**
+     * @param float $unitPrice
+     * @return Product
+     */
+    public function setUnitPrice($unitPrice)
+    {
+        $this->unitPrice = $unitPrice;
         return $this;
     }
 }
