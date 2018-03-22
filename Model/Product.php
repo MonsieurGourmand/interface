@@ -144,11 +144,6 @@ class Product extends Master
     /**
      * @var float
      */
-    private $stockPrice;
-
-    /**
-     * @var float
-     */
     private $unitPrice;
 
     /**
@@ -623,24 +618,6 @@ class Product extends Master
     public function setQuantityExpired($quantityExpired)
     {
         $this->quantityExpired = $quantityExpired;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getStockPrice()
-    {
-        return $this->stockPrice;
-    }
-
-    /**
-     * @param float $stockPrice
-     * @return Product
-     */
-    public function setStockPrice($stockPrice)
-    {
-        $this->stockPrice = $stockPrice;
         return $this;
     }
 
