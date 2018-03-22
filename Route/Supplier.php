@@ -24,9 +24,8 @@ class Supplier
         $this->url = '/suppliers';
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($params = array(),$format = MGD::FORMAT_OBJECT)
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
