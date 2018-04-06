@@ -716,4 +716,22 @@ class Event extends Master
         $this->singleUpdate = $singleUpdate;
         return $this;
     }
+
+    /**
+     * @return Package[]
+     */
+    public function getPackages()
+    {
+        return $this->packages;
+    }
+
+    /**
+     * @param Package[] $packages
+     * @return Event
+     */
+    public function setPackages($packages)
+    {
+        $this->packages = $packages;
+        return $this;
+    }
 }
