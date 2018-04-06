@@ -143,6 +143,10 @@ class Event extends Master
      */
     public $eventProducts;
 
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Package
+     */
+    public $package;
 
     /**
      * @var Package[]
