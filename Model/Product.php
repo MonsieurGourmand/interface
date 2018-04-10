@@ -36,9 +36,9 @@ class Product extends Master
     private $description;
 
     /**
-     * @var string
+     * @var Document[]
      */
-    private $picture;
+    private $pictures;
 
     /**
      * @var integer
@@ -175,6 +175,11 @@ class Product extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\EventProduct
      */
     public $eventProducts;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Document
+     */
+    public $documents;
 
     /**
      * @var integer
