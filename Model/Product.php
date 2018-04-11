@@ -187,6 +187,11 @@ class Product extends Master
     private $stockAlert;
 
     /**
+     * @var Document
+     */
+    private $technicalForm;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -727,6 +732,42 @@ class Product extends Master
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getTechnicalForm()
+    {
+        return $this->technicalForm;
+    }
+
+    /**
+     * @param Document $technicalForm
+     * @return Product
+     */
+    public function setTechnicalForm($technicalForm)
+    {
+        $this->technicalForm = $technicalForm;
+        return $this;
+    }
+
+    /**
+     * @return Document[]
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param Document[] $pictures
+     * @return Product
+     */
+    public function setPictures($pictures)
+    {
+        $this->pictures = $pictures;
         return $this;
     }
 }
