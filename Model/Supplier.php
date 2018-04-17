@@ -42,7 +42,7 @@ class Supplier extends Master
     private $reference;
 
     /**
-     * @var string
+     * @var array
      */
     private $deliveryDays;
 
@@ -188,7 +188,7 @@ class Supplier extends Master
     }
 
     /**
-     * @return string
+     * @return array
      */
     public function getDeliveryDays()
     {
@@ -196,7 +196,7 @@ class Supplier extends Master
     }
 
     /**
-     * @param string $deliveryDays
+     * @param array $deliveryDays
      * @return Supplier
      */
     public function setDeliveryDays($deliveryDays)
