@@ -149,6 +149,11 @@ class Event extends Master
     public $package;
 
     /**
+     * @var Package[]
+     */
+    public $packages;
+
+    /**
      * @var Format
      */
     private $format;
@@ -713,6 +718,24 @@ class Event extends Master
     public function setSingleUpdate($singleUpdate)
     {
         $this->singleUpdate = $singleUpdate;
+        return $this;
+    }
+
+    /**
+     * @return Package[]
+     */
+    public function getPackages()
+    {
+        return $this->packages;
+    }
+
+    /**
+     * @param Package[] $packages
+     * @return Event
+     */
+    public function setPackages($packages)
+    {
+        $this->packages = $packages;
         return $this;
     }
 }

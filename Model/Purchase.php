@@ -24,6 +24,11 @@ class Purchase extends Master
      */
     private $deliveryDate;
 
+    /**
+     * @var \DateTime
+     */
+    private $sendDate;
+
 
     /**
      * @var string
@@ -552,6 +557,24 @@ class Purchase extends Master
     public function setLeadUser($leadUser)
     {
         $this->leadUser = $leadUser;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getSendDate()
+    {
+        return $this->sendDate;
+    }
+
+    /**
+     * @param \DateTime $sendDate
+     * @return Purchase
+     */
+    public function setSendDate($sendDate)
+    {
+        $this->sendDate = $sendDate;
         return $this;
     }
 }
