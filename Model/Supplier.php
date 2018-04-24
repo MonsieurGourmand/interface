@@ -42,7 +42,7 @@ class Supplier extends Master
     private $reference;
 
     /**
-     * @var string
+     * @var array
      */
     private $deliveryDays;
 
