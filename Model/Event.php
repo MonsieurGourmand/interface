@@ -38,6 +38,11 @@ class Event extends Master
     /**
      * @var \DateTime
      */
+    private $recall;
+
+    /**
+     * @var \DateTime
+     */
     private $eventDate;
 
     /**
@@ -736,6 +741,24 @@ class Event extends Master
     public function setPackages($packages)
     {
         $this->packages = $packages;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getRecall()
+    {
+        return $this->recall;
+    }
+
+    /**
+     * @param \DateTime $recall
+     * @return Event
+     */
+    public function setRecall($recall)
+    {
+        $this->recall = $recall;
         return $this;
     }
 }
