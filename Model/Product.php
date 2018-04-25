@@ -334,24 +334,6 @@ class Product extends Master
     }
 
     /**
-     * @return string
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @param string $picture
-     * @return Product
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
-        return $this;
-    }
-
-    /**
      * @return int
      */
     public function getWeight()
