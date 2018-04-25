@@ -157,6 +157,50 @@ class Product extends Master
     private $salesProducts;
 
     /**
+     * @var string
+     */
+    private $ingredients;
+
+    /**
+     * @var integer
+     */
+    private $thawingType;
+
+    /**
+     * @var integer
+     */
+    private $thawingTime;
+
+    /**
+     * @var integer
+     */
+    private $thawingRetentionTime;
+
+    /**
+     * @var integer
+     */
+    private $implementationType;
+
+    /**
+     * @var string
+     */
+    private $implementationDetails;
+    /**
+     * @var Allergen
+     */
+    private $allergens;
+
+    /**
+     * @var Diet
+     */
+    private $diets;
+
+    /**
+     * @var Trace
+     */
+    private $traces;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Price
      */
     public $prices;
@@ -722,6 +766,168 @@ class Product extends Master
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * @param string $ingredients
+     * @return Product
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getThawingType()
+    {
+        return $this->thawingType;
+    }
+
+    /**
+     * @param int $thawingType
+     * @return Product
+     */
+    public function setThawingType($thawingType)
+    {
+        $this->thawingType = $thawingType;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getThawingTime()
+    {
+        return $this->thawingTime;
+    }
+
+    /**
+     * @param int $thawingTime
+     * @return Product
+     */
+    public function setThawingTime($thawingTime)
+    {
+        $this->thawingTime = $thawingTime;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getThawingRetentionTime()
+    {
+        return $this->thawingRetentionTime;
+    }
+
+    /**
+     * @param int $thawingRetentionTime
+     * @return Product
+     */
+    public function setThawingRetentionTime($thawingRetentionTime)
+    {
+        $this->thawingRetentionTime = $thawingRetentionTime;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getImplementationType()
+    {
+        return $this->implementationType;
+    }
+
+    /**
+     * @param int $implementationType
+     * @return Product
+     */
+    public function setImplementationType($implementationType)
+    {
+        $this->implementationType = $implementationType;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImplementationDetails()
+    {
+        return $this->implementationDetails;
+    }
+
+    /**
+     * @param string $implementationDetails
+     * @return Product
+     */
+    public function setImplementationDetails($implementationDetails)
+    {
+        $this->implementationDetails = $implementationDetails;
+        return $this;
+    }
+
+    /**
+     * @return Allergen
+     */
+    public function getAllergens()
+    {
+        return $this->allergens;
+    }
+
+    /**
+     * @param Allergen $allergens
+     * @return Product
+     */
+    public function setAllergens($allergens)
+    {
+        $this->allergens = $allergens;
+        return $this;
+    }
+
+    /**
+     * @return Diet
+     */
+    public function getDiets()
+    {
+        return $this->diets;
+    }
+
+    /**
+     * @param Diet $diets
+     * @return Product
+     */
+    public function setDiets($diets)
+    {
+        $this->diets = $diets;
+        return $this;
+    }
+
+    /**
+     * @return Trace
+     */
+    public function getTraces()
+    {
+        return $this->traces;
+    }
+
+    /**
+     * @param Trace $traces
+     * @return Product
+     */
+    public function setTraces($traces)
+    {
+        $this->traces = $traces;
         return $this;
     }
 }
