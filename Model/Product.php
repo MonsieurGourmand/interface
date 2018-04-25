@@ -36,9 +36,9 @@ class Product extends Master
     private $description;
 
     /**
-     * @var string
+     * @var Document[]
      */
-    private $picture;
+    private $pictures;
 
     /**
      * @var integer
@@ -177,9 +177,19 @@ class Product extends Master
     public $eventProducts;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Document
+     */
+    public $documents;
+
+    /**
      * @var integer
      */
     private $stockAlert;
+
+    /**
+     * @var Document
+     */
+    private $technicalForm;
 
     /**
      * @return int
@@ -722,6 +732,42 @@ class Product extends Master
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getTechnicalForm()
+    {
+        return $this->technicalForm;
+    }
+
+    /**
+     * @param Document $technicalForm
+     * @return Product
+     */
+    public function setTechnicalForm($technicalForm)
+    {
+        $this->technicalForm = $technicalForm;
+        return $this;
+    }
+
+    /**
+     * @return Document[]
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param Document[] $pictures
+     * @return Product
+     */
+    public function setPictures($pictures)
+    {
+        $this->pictures = $pictures;
         return $this;
     }
 }
