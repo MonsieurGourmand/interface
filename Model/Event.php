@@ -46,6 +46,16 @@ class Event extends Master
     private $eventDate;
 
     /**
+     * @var \DateTime
+     */
+    private $collectDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $shippingDate;
+
+    /**
      * @var integer
      */
     private $status = 0;
@@ -759,6 +769,42 @@ class Event extends Master
     public function setRecall($recall)
     {
         $this->recall = $recall;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCollectDate()
+    {
+        return $this->collectDate;
+    }
+
+    /**
+     * @param \DateTime $collectDate
+     * @return Event
+     */
+    public function setCollectDate($collectDate)
+    {
+        $this->collectDate = $collectDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getShippingDate()
+    {
+        return $this->shippingDate;
+    }
+
+    /**
+     * @param \DateTime $shippingDate
+     * @return Event
+     */
+    public function setShippingDate($shippingDate)
+    {
+        $this->shippingDate = $shippingDate;
         return $this;
     }
 }
