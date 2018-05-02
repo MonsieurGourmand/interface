@@ -3,7 +3,9 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Purchase extends Master
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PurchaseInterface;
+
+class Purchase extends Master implements PurchaseInterface
 {
     /**
      * @var integer
