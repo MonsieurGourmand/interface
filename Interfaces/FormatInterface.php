@@ -22,6 +22,6 @@ interface FormatInterface extends MainInterface
     const TYPE_PR = 2;
 
     //FormatType
-    const FORMATYPE_PONCTUEL = 0;
-    const FORMATYPE_MULTI = 1;
+    const FORMAT_PONCTUEL = 0;
+    const FORMAT_MULTI = 1;
 }
