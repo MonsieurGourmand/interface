@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class EventConstants extends MainConstants
+class EventConstants extends MainConstants
 {
     const STATUS_PENDING = 0;
     const STATUS_SEND = 1;

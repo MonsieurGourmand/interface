@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class PriceConstants extends MainConstants
+class PriceConstants extends MainConstants
 {
     //Bases prix
     const BASE_PRODUCT = 0;

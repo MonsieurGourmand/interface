@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class ActivityConstants extends MainConstants
+class ActivityConstants extends MainConstants
 {
 
 

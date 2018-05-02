@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class DiscountConstants extends MainConstants
+class DiscountConstants extends MainConstants
 {
     const TYPE_PERCENT = 1;
     const TYPE_EUROS = 0;

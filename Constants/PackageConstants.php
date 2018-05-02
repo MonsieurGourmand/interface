@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class PackageConstants extends MainConstants
+class PackageConstants extends MainConstants
 {
     //Status
     const STATUS_PENDING = 0;

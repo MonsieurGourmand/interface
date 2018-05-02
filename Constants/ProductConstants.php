@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class ProductConstants extends MainConstants
+class ProductConstants extends MainConstants
 {
     //Bases poids
     const BASE_PRODUCT = 0;

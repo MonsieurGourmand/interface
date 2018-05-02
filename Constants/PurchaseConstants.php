@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class PurchaseConstants extends MainConstants
+class PurchaseConstants extends MainConstants
 {
     const STATUS_PENDING = 0;
     const STATUS_SENDED = 1;

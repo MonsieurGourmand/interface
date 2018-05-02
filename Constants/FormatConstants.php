@@ -9,7 +9,7 @@
 namespace ApiBundle\Constants;
 
 
-abstract class FormatConstants extends MainConstants
+class FormatConstants extends MainConstants
 {
     //Status
     const STATUS_PENDING = 0;

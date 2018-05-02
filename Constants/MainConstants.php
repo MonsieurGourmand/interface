@@ -11,7 +11,7 @@ namespace ApiBundle\Constants;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Master;
 
-abstract class MainConstants extends Master
+class MainConstants extends Master
 {
     //Transport
     const TRANSPORT_CP = 0;
