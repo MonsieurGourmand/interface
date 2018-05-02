@@ -813,8 +813,6 @@ class Event extends Master implements EventInterface
 
     function getTypeConst($type)
     {
-        $oClass = new \ReflectionClass($this);
-        $constants = $oClass->getConstants();
-        return $this->getLiteralConst($constants, $type);
+
     }
 }
