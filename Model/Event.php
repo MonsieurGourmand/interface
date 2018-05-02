@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Event extends Master
+use ApiBundle\Constants\EventConstants;
+
+class Event extends EventConstants
 {
     /**
      * @var integer

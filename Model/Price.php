@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Price extends Master
+use ApiBundle\Constants\PriceConstants;
+
+class Price extends PriceConstants
 {
     /**
      * @var integer

@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Package extends Master
+use ApiBundle\Constants\PackageConstants;
+
+class Package extends PackageConstants
 {
     /**
      * @var integer
