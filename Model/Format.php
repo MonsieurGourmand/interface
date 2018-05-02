@@ -3,7 +3,10 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Format extends Master
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\FormatInterface;
+
+class Format extends Master implements FormatInterface
 {
     /**
      * @var integer

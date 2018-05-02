@@ -3,7 +3,10 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Activity extends Master
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ActivityInterface;
+
+class Activity extends Master implements ActivityInterface
 {
     /**
      * @var integer

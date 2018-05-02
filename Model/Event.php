@@ -3,7 +3,10 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Event extends Master
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
+
+class Event extends Master implements EventInterface
 {
     /**
      * @var integer

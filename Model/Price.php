@@ -3,7 +3,10 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-class Price extends Master
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PriceInterface;
+
+class Price extends Master implements PriceInterface
 {
     /**
      * @var integer

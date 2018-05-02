@@ -1,8 +1,15 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: tom
+ * Date: 02/05/18
+ * Time: 07:09
+ */
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Interfaces;
 
-interface PurchaseInterface
+
+interface PurchaseInterface extends MainInterface
 {
     const STATUS_PENDING = 0;
     const STATUS_SENDED = 1;
