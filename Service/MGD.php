@@ -219,12 +219,19 @@ class MGD
 
     public function getArrayTypeConst($type, $model)
     {
-        $oClass = new \ReflectionClass('monsieurgourmand/Bundle/InterfaceBundle/Model/' . $model);
+        $oClass = new \ReflectionClass($model);
         $constants = $oClass->getConstants();
         $result = array();
         foreach ($constants as $key => $constant) {
-            if (strpos($key, $type) >= 0)
-                $result[$constant] = $key;/*str_replace(
+            if (strpos($key, $type) !== false) {
+                $result[$constant] = $key;
+            }
+        }
+        return $result;
+    }
+}
+
+/*str_replace(
                     array('TRANSPORT_CP',
                         'TRANSPORT_CPCOURSIER',
                         'TRANSPORT_CPSERVEUR',
@@ -294,7 +301,3 @@ class MGD
                         'Hors colis chez serveur',
                         'NA',
                     ), $key);*/
-        }
-        return $result;
-    }
-}
