@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
 
 class Event extends Master implements EventInterface
@@ -810,5 +809,12 @@ class Event extends Master implements EventInterface
     {
         $this->shippingDate = $shippingDate;
         return $this;
+    }
+
+    function getTypeConst($type)
+    {
+        $oClass = new \ReflectionClass($this);
+        $constants = $oClass->getConstants();
+        return $this->getLiteralConst($constants, $type);
     }
 }
