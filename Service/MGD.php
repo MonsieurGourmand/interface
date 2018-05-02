@@ -219,7 +219,7 @@ class MGD
 
     public function getArrayTypeConst($type, $model)
     {
-        $oClass = new \ReflectionClass($model);
+        $oClass = new \ReflectionClass('monsieurgourmand/Bundle/InterfaceBundle/Model/' . $model);
         $constants = $oClass->getConstants();
         $result = array();
         foreach ($constants as $key => $constant) {
