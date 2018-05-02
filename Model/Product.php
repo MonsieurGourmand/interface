@@ -2,9 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use ApiBundle\Constants\ProductConstants;
 
-class Product extends ProductConstants
+class Product extends Master
 {
     /**
      * @var integer

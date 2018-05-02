@@ -2,9 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use ApiBundle\Constants\FormatConstants;
 
-class Format extends FormatConstants
+class Format extends Master
 {
     /**
      * @var integer

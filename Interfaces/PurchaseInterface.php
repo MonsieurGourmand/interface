@@ -1,15 +1,8 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: tom
- * Date: 02/05/18
- * Time: 07:09
- */
 
-namespace ApiBundle\Constants;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Interfaces;
 
-
-class PurchaseConstants extends MainConstants
+interface PurchaseInterface
 {
     const STATUS_PENDING = 0;
     const STATUS_SENDED = 1;

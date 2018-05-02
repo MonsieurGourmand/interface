@@ -2,9 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use ApiBundle\Constants\ActivityConstants;
 
-class Activity extends ActivityConstants
+class Activity extends Master
 {
     /**
      * @var integer
