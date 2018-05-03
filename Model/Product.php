@@ -2,7 +2,11 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Product extends Master
+
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
+
+class Product extends Master implements ProductInterface
 {
     /**
      * @var integer

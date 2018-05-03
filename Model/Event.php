@@ -2,7 +2,10 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Event extends Master
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
+
+class Event extends Master implements EventInterface
 {
     /**
      * @var integer
@@ -44,6 +47,16 @@ class Event extends Master
      * @var \DateTime
      */
     private $eventDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $collectDate;
+
+    /**
+     * @var \DateTime
+     */
+    private $shippingDate;
 
     /**
      * @var integer
@@ -760,5 +773,46 @@ class Event extends Master
     {
         $this->recall = $recall;
         return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getCollectDate()
+    {
+        return $this->collectDate;
+    }
+
+    /**
+     * @param \DateTime $collectDate
+     * @return Event
+     */
+    public function setCollectDate($collectDate)
+    {
+        $this->collectDate = $collectDate;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getShippingDate()
+    {
+        return $this->shippingDate;
+    }
+
+    /**
+     * @param \DateTime $shippingDate
+     * @return Event
+     */
+    public function setShippingDate($shippingDate)
+    {
+        $this->shippingDate = $shippingDate;
+        return $this;
+    }
+
+    function getTypeConst($type)
+    {
+
     }
 }
