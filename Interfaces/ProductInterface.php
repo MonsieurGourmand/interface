@@ -12,13 +12,23 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Interfaces;
 interface ProductInterface extends MainInterface
 {
     //Bases poids
-    const BASE_PRODUCT = 0;
-    const BASE_LOT = 1;
-    const BASE_PIECE = 2;
-    const BASE_KG = 3;
+    const BASEWEIGHT_PRODUCT = 0;
+    const BASEWEIGHT_LOT = 1;
+    const BASEWEIGHT_PIECE = 2;
+    const BASEWEIGHT_KG = 3;
 
     //Bases Alertes
-    const BASE_DAY = 0;
-    const BASE_WEEK = 1;
-    const BASE_MONTH = 2;
+    const BASETIME_DAY = 0;
+    const BASETIME_WEEK = 1;
+    const BASETIME_MONTH = 2;
+
+    const TYPE_FREEZE = 0;
+    const TYPE_FRESH = 1;
+    const TYPE_SEC = 2;
+
+    const THAWING_SEC = 2;
+    const THAWING_FRESH = 1;
+
+    const IMPLEMENTATION_SEC = 2;
+    const IMPLEMENTATION_FRESH = 1;
 }
