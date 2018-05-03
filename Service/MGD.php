@@ -217,14 +217,17 @@ class MGD
         }
     }
 
-    public function getArrayTypeConst($type, $model)
+    public function getArrayTypeConst($type, $model, $choices = false)
     {
         $oClass = new \ReflectionClass($model);
         $constants = $oClass->getConstants();
         $result = array();
         foreach ($constants as $key => $constant) {
             if (strpos($key, $type) !== false) {
-                $result[$constant] = $key;
+                if ($choices)
+                    $result[$key] = $constant;
+                else
+                    $result[$constant] = $key;
             }
         }
         return $result;
