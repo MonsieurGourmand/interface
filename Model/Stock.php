@@ -40,6 +40,11 @@ class Stock extends Master
     public $fluxes;
 
     /**
+     * @var integer
+     */
+    private $type;
+
+    /**
      * @return bool
      */
     public function isAlert()
@@ -152,5 +157,21 @@ class Stock extends Master
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
+    /**
+     * @param int $type
+     * @return Stock
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
 }

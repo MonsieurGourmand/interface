@@ -70,6 +70,11 @@ class Purchase extends Master implements PurchaseInterface
      */
     private $discountType;
 
+    /**
+     * @var integer
+     */
+    private $type;
+
 
     /**
      * @var string
@@ -578,6 +583,24 @@ class Purchase extends Master implements PurchaseInterface
     public function setSendDate($sendDate)
     {
         $this->sendDate = $sendDate;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Purchase
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
         return $this;
     }
 }

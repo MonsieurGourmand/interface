@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -184,6 +183,11 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $stockAlert;
+
+    /**
+     * @var boolean
+     */
+    private $cabane;
 
     /**
      * @return int
@@ -726,6 +730,24 @@ class Product extends Master implements ProductInterface
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCabane()
+    {
+        return $this->cabane;
+    }
+
+    /**
+     * @param bool $cabane
+     * @return Product
+     */
+    public function setCabane($cabane)
+    {
+        $this->cabane = $cabane;
         return $this;
     }
 }
