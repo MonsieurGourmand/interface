@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Stock extends Master
+use ApiBundle\Interfaces\StockInterface;
+
+class Stock extends Master implements StockInterface
 {
     /**
      * @var Product
