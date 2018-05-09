@@ -6,10 +6,9 @@
  * Time: 07:09
  */
 
-namespace ApiBundle\Interfaces;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Interfaces;
 
 
-use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\MainInterface;
 
 interface StockInterface extends MainInterface
 {

@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use ApiBundle\Interfaces\StockInterface;
+
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\StockInterface;
 
 class Stock extends Master implements StockInterface
 {
