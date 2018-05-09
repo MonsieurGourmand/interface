@@ -9,6 +9,8 @@
 namespace ApiBundle\Interfaces;
 
 
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\MainInterface;
+
 interface StockInterface extends MainInterface
 {
     const TYPE_MGD = 0;
