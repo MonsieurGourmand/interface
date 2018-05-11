@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -136,6 +135,11 @@ class Product extends Master implements ProductInterface
     private $quantity;
 
     /**
+     * @var integer
+     */
+    private $quantityCBN;
+
+    /**
      * @var boolean
      */
     private $inAlert;
@@ -146,9 +150,19 @@ class Product extends Master implements ProductInterface
     private $quantityExpired;
 
     /**
+     * @var integer
+     */
+    private $quantityExpiredCBN;
+
+    /**
      * @var float
      */
     private $unitPrice;
+
+    /**
+     * @var float
+     */
+    private $unitPriceCBN;
 
     /**
      * @var Price
@@ -184,6 +198,11 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $stockAlert;
+
+    /**
+     * @var boolean
+     */
+    private $cabane;
 
     /**
      * @return int
@@ -726,6 +745,78 @@ class Product extends Master implements ProductInterface
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isCabane()
+    {
+        return $this->cabane;
+    }
+
+    /**
+     * @param bool $cabane
+     * @return Product
+     */
+    public function setCabane($cabane)
+    {
+        $this->cabane = $cabane;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantityCBN()
+    {
+        return $this->quantityCBN;
+    }
+
+    /**
+     * @param int $quantityCBN
+     * @return Product
+     */
+    public function setQuantityCBN($quantityCBN)
+    {
+        $this->quantityCBN = $quantityCBN;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantityExpiredCBN()
+    {
+        return $this->quantityExpiredCBN;
+    }
+
+    /**
+     * @param int $quantityExpiredCBN
+     * @return Product
+     */
+    public function setQuantityExpiredCBN($quantityExpiredCBN)
+    {
+        $this->quantityExpiredCBN = $quantityExpiredCBN;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getUnitPriceCBN()
+    {
+        return $this->unitPriceCBN;
+    }
+
+    /**
+     * @param float $unitPriceCBN
+     * @return Product
+     */
+    public function setUnitPriceCBN($unitPriceCBN)
+    {
+        $this->unitPriceCBN = $unitPriceCBN;
         return $this;
     }
 }

@@ -17,4 +17,7 @@ interface PurchaseInterface extends MainInterface
     const STATUS_DELIVERED = 3;
     const STATUS_CANCELED = 4;
     const STATUS_ARCHIVED = 5;
+
+    const TYPE_MGD = 0;
+    const TYPE_CBN = 1;
 }
