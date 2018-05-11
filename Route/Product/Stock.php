@@ -24,10 +24,9 @@ class Stock
         $this->url = "/products/" . $product->getIdProduct() . "/stocks";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
     {
         $url = $this->url;
-        $params = array();
         return $this->master->getAll($url, $this->entity, $params, $format);
     }
 

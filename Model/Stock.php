@@ -2,7 +2,11 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Stock extends Master
+
+
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\StockInterface;
+
+class Stock extends Master implements StockInterface
 {
     /**
      * @var Product
@@ -38,6 +42,11 @@ class Stock extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Stock\Flux
      */
     public $fluxes;
+
+    /**
+     * @var integer
+     */
+    private $type;
 
     /**
      * @return bool
@@ -152,5 +161,21 @@ class Stock extends Master
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
 
+    /**
+     * @param int $type
+     * @return Stock
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
 }

@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -136,6 +135,11 @@ class Product extends Master implements ProductInterface
     private $quantity;
 
     /**
+     * @var integer
+     */
+    private $quantityCBN;
+
+    /**
      * @var boolean
      */
     private $inAlert;
@@ -146,9 +150,19 @@ class Product extends Master implements ProductInterface
     private $quantityExpired;
 
     /**
+     * @var integer
+     */
+    private $quantityExpiredCBN;
+
+    /**
      * @var float
      */
     private $unitPrice;
+
+    /**
+     * @var float
+     */
+    private $unitPriceCBN;
 
     /**
      * @var Price
@@ -238,6 +252,11 @@ class Product extends Master implements ProductInterface
      * @var Document
      */
     private $technicalForm;
+
+    /**
+     * @var boolean
+     */
+    private $cabane;
 
     /**
      * @return int
@@ -766,6 +785,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
+     * <<<<<<< HEAD
      * @return string
      */
     public function getIngredients()
@@ -802,6 +822,24 @@ class Product extends Master implements ProductInterface
     }
 
     /**
+     * @return bool
+     */
+    public function isCabane()
+    {
+        return $this->cabane;
+    }
+
+    /**
+     * @param bool $cabane
+     * @return Product
+     */
+    public function setCabane($cabane)
+    {
+        $this->cabane = $cabane;
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getThawingType()
@@ -816,6 +854,23 @@ class Product extends Master implements ProductInterface
     public function setThawingType($thawingType)
     {
         $this->thawingType = $thawingType;
+        return $this;
+    }
+
+    public
+    function getQuantityCBN()
+    {
+        return $this->quantityCBN;
+    }
+
+    /**
+     * @param int $quantityCBN
+     * @return Product
+     */
+    public
+    function setQuantityCBN($quantityCBN)
+    {
+        $this->quantityCBN = $quantityCBN;
         return $this;
     }
 
@@ -942,6 +997,20 @@ class Product extends Master implements ProductInterface
     public function setTraces($traces)
     {
         $this->traces = $traces;
+    }
+
+    public function getQuantityExpiredCBN()
+    {
+        return $this->quantityExpiredCBN;
+    }
+
+    /**
+     * @param int $quantityExpiredCBN
+     * @return Product
+     */
+    public function setQuantityExpiredCBN($quantityExpiredCBN)
+    {
+        $this->quantityExpiredCBN = $quantityExpiredCBN;
         return $this;
     }
 
@@ -960,6 +1029,23 @@ class Product extends Master implements ProductInterface
     public function setPictures($pictures)
     {
         $this->pictures = $pictures;
+    }
+
+    /**
+     * @return float
+     */
+    public function getUnitPriceCBN()
+    {
+        return $this->unitPriceCBN;
+    }
+
+    /**
+     * @param float $unitPriceCBN
+     * @return Product
+     */
+    public function setUnitPriceCBN($unitPriceCBN)
+    {
+        $this->unitPriceCBN = $unitPriceCBN;
         return $this;
     }
 }
