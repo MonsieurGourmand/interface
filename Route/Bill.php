@@ -34,4 +34,9 @@ class Bill
     {
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
+
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Bill $bill, $format = MGD::FORMAT_OBJECT)
+    {
+        return $this->master->post($this->url, $bill, $this->entity, $format);
+    }
 }
