@@ -15,7 +15,7 @@ class Bill extends Master
     private $idFacturationPro;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Bill\BillDetails
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Bill\BillDetail
      */
     public $billDetails;
 
