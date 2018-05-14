@@ -15,6 +15,11 @@ class BillDetail extends Master
     private $amount;
 
     /**
+     * @var float
+     */
+    private $amount_vat;
+
+    /**
      * @var integer
      */
     private $category;
@@ -119,4 +124,24 @@ class BillDetail extends Master
         $this->bill = $bill;
         return $this;
     }
+
+    /**
+     * @return float
+     */
+    public function getAmountVat()
+    {
+        return $this->amount_vat;
+    }
+
+    /**
+     * @param float $amount_vat
+     * @return BillDetail
+     */
+    public function setAmountVat($amount_vat)
+    {
+        $this->amount_vat = $amount_vat;
+        return $this;
+    }
+
+
 }
