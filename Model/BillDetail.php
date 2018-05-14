@@ -35,6 +35,13 @@ class BillDetail extends Master
      */
     private $bill;
 
+
+    /**
+     * @var boolean
+     */
+    private $active;
+
+
     /**
      * @return int
      */
@@ -143,5 +150,21 @@ class BillDetail extends Master
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
 
+    /**
+     * @param bool $active
+     * @return BillDetail
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+        return $this;
+    }
 }
