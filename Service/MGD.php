@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
@@ -53,6 +54,7 @@ class MGD
     public $format;
     public $prospect;
     public $event;
+    public $bill;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -80,6 +82,7 @@ class MGD
         $this->stat = new Stat($this);
         $this->format = new Format($this);
         $this->event = new Event($this);
+        $this->bill = new Bill($this);
     }
 
     public function login()
