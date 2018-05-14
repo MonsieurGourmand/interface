@@ -20,6 +20,11 @@ class BillDetail extends Master
     private $amount_vat;
 
     /**
+     * @var string
+     */
+    private $wording;
+
+    /**
      * @var integer
      */
     private $category;
@@ -165,6 +170,24 @@ class BillDetail extends Master
     public function setActive($active)
     {
         $this->active = $active;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWording()
+    {
+        return $this->wording;
+    }
+
+    /**
+     * @param string $wording
+     * @return BillDetail
+     */
+    public function setWording($wording)
+    {
+        $this->wording = $wording;
         return $this;
     }
 }
