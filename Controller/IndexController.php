@@ -25,6 +25,13 @@ class IndexController extends Controller
     {
         $mgd = $this->get('interface.MGD');
         $mgd->access($request);
+        $token = new UsernamePasswordToken(
+            $request->getSession()->get('me')->getEmail(),
+            null,
+            'main',
+            $request->getSession()->get('me')->getRoles()
+        );
+        $this->get('security.token_storage')->setToken($token);
         return $this->redirectToRoute('index');
     }
 
