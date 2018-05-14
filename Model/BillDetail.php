@@ -17,7 +17,7 @@ class BillDetail extends Master
     /**
      * @var float
      */
-    private $amount_vat;
+    private $amountVat;
 
     /**
      * @var string
@@ -138,24 +138,6 @@ class BillDetail extends Master
     }
 
     /**
-     * @return float
-     */
-    public function getAmountVat()
-    {
-        return $this->amount_vat;
-    }
-
-    /**
-     * @param float $amount_vat
-     * @return BillDetail
-     */
-    public function setAmountVat($amount_vat)
-    {
-        $this->amount_vat = $amount_vat;
-        return $this;
-    }
-
-    /**
      * @return bool
      */
     public function isActive()
@@ -188,6 +170,24 @@ class BillDetail extends Master
     public function setWording($wording)
     {
         $this->wording = $wording;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getAmountVat()
+    {
+        return $this->amountVat;
+    }
+
+    /**
+     * @param float $amountVat
+     * @return BillDetail
+     */
+    public function setAmountVat($amountVat)
+    {
+        $this->amountVat = $amountVat;
         return $this;
     }
 }
