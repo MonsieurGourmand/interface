@@ -20,6 +20,11 @@ class Bill extends Master
     public $billDetails;
 
     /**
+     * @var BillDetail
+     */
+    private $activeBillDetail;
+
+    /**
      * @return int
      */
     public function getIdBill()
@@ -54,4 +59,24 @@ class Bill extends Master
         $this->idFacturationPro = $idFacturationPro;
         return $this;
     }
+
+    /**
+     * @return BillDetail
+     */
+    public function getActiveBillDetail()
+    {
+        return $this->activeBillDetail;
+    }
+
+    /**
+     * @param BillDetail $activeBillDetail
+     * @return Bill
+     */
+    public function setActiveBillDetail($activeBillDetail)
+    {
+        $this->activeBillDetail = $activeBillDetail;
+        return $this;
+    }
+
+
 }
