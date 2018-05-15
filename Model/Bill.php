@@ -25,6 +25,11 @@ class Bill extends Master
     private $activeBillDetail;
 
     /**
+     * @var float
+     */
+    private $remainder;
+
+    /**
      * @return int
      */
     public function getIdBill()
@@ -78,5 +83,21 @@ class Bill extends Master
         return $this;
     }
 
+    /**
+     * @return float
+     */
+    public function getRemainder()
+    {
+        return $this->remainder;
+    }
 
+    /**
+     * @param float $remainder
+     * @return Bill
+     */
+    public function setRemainder($remainder)
+    {
+        $this->remainder = $remainder;
+        return $this;
+    }
 }
