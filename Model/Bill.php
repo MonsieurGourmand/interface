@@ -20,6 +20,11 @@ class Bill extends Master
     public $billDetails;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Bill\Amount
+     */
+    public $amounts;
+
+    /**
      * @var BillDetail
      */
     private $activeBillDetail;
