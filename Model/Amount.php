@@ -20,6 +20,12 @@ class Amount extends Master
     private $type;
 
     /**
+     * @var Event
+     *
+     */
+    private $event;
+
+    /**
      * @return int
      */
     public function getIdAmount()
@@ -63,4 +69,23 @@ class Amount extends Master
         $this->type = $type;
         return $this;
     }
+
+    /**
+     * @return Event
+     */
+    public function getEvent()
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param Event $event
+     * @return Amount
+     */
+    public function setEvent($event)
+    {
+        $this->event = $event;
+        return $this;
+    }
+
 }
