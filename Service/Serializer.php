@@ -49,7 +49,15 @@ class Serializer
             }
             elseif(is_object($value) && strpos(get_class($value),"monsieurgourmand") !== false)
                 $value = self::object($value,$depth + 1);
-            $array[$property->getName()] = $value;
+            $type = '';
+            if (preg_match('/@var\s+(\\\\\w+)/', $property->getDocComment(), $matches)) {
+                list(, $type) = $matches;
+            }
+            if (strstr($type, '\DateTime') && $value !== null) {
+                $array[$property->getName()] = $value->format('c');
+            } else {
+                $array[$property->getName()] = $value;
+            }
             $property->setAccessible(false);
         }
         return $array;
