@@ -78,7 +78,15 @@ class Parser
                             $value = self::object($value, "\\monsieurgourmand\\Bundle\\InterfaceBundle\\Model\\" . $type, $master);
                     }
                 }
-                $propDest->setValue($destination, $value);
+                $type = '';
+                if (preg_match('/@var\s+(\\\\\w+)/', $propDest->getDocComment(), $matches)) {
+                    list(, $type) = $matches;
+                }
+                if (strstr($type, '\DateTime')) {
+                    $propDest->setValue($destination, new \DateTime($value));
+                } else {
+                    $propDest->setValue($destination, $value);
+                }
             } else {
                 $destination->$key = $value;
             }
