@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Mgd;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 
 
 class IndexController extends Controller
