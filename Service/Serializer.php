@@ -61,9 +61,15 @@ class Serializer
                 }
                 $property->setAccessible(false);
             }
+            return $array;
+        }
+        elseif(is_array($object))
+        {
+            foreach($object as $key => &$item)
+                $item = self::object($item,$depth,$key);
+            return $object;
         }
         else
-            $array[$key] = $object;
-        return $array;
+            return $object;
     }
 }
