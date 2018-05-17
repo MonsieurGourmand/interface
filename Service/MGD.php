@@ -120,7 +120,7 @@ class MGD
 
     public function getAll($url, $entityClass, $params = array(), $format)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '.json', $params);
+        $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($params));
         if (self::getError($response))
             return self::getAll($url, $entityClass, $params, $format);
         if ($format == self::FORMAT_OBJECT)
