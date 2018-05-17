@@ -27,7 +27,7 @@ class Activity extends Master implements ActivityInterface
     private $event;
 
     /**
-     * @var string
+     * @var \DateTime
      *
      */
     private $activityDate;
