@@ -3,9 +3,11 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
@@ -14,6 +16,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Trace;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\User;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
 use Symfony\Component\HttpFoundation\Request;
@@ -83,6 +86,9 @@ class MGD
         $this->format = new Format($this);
         $this->event = new Event($this);
         $this->bill = new Bill($this);
+        $this->diet = new Diet($this);
+        $this->trace = new Trace($this);
+        $this->allergen = new Allergen($this);
     }
 
     public function login()
