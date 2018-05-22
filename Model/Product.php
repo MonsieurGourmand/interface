@@ -56,6 +56,16 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
+    private $netWeight;
+
+    /**
+     * @var integer
+     */
+    private $baseNetWeight;
+
+    /**
+     * @var integer
+     */
     private $quantityPurchase;
 
     /**
