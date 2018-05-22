@@ -14,10 +14,6 @@ class Amount extends Master
      */
     private $amount;
 
-    /**
-     * @var float
-     */
-    private $type;
 
     /**
      * @var Event
@@ -52,23 +48,6 @@ class Amount extends Master
         return $this;
     }
 
-    /**
-     * @return float
-     */
-    public function getType()
-    {
-        return $this->type;
-    }
-
-    /**
-     * @param float $type
-     * @return Amount
-     */
-    public function setType($type)
-    {
-        $this->type = $type;
-        return $this;
-    }
 
     /**
      * @return Event
