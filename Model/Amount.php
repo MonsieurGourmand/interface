@@ -22,6 +22,12 @@ class Amount extends Master
     private $event;
 
     /**
+     * @var Bill
+     *
+     */
+    private $bill;
+
+    /**
      * @return int
      */
     public function getIdAmount()
@@ -67,4 +73,21 @@ class Amount extends Master
         return $this;
     }
 
+    /**
+     * @return Bill
+     */
+    public function getBill()
+    {
+        return $this->bill;
+    }
+
+    /**
+     * @param Bill $bill
+     * @return Amount
+     */
+    public function setBill($bill)
+    {
+        $this->bill = $bill;
+        return $this;
+    }
 }
