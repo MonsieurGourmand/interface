@@ -27,6 +27,11 @@ class BillDetail extends Master implements BillDetailInterface
     private $wording;
 
     /**
+     * @var string
+     */
+    private $supplier;
+
+    /**
      * @var integer
      */
     private $category;
@@ -190,6 +195,24 @@ class BillDetail extends Master implements BillDetailInterface
     public function setAmountVat($amountVat)
     {
         $this->amountVat = $amountVat;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSupplier()
+    {
+        return $this->supplier;
+    }
+
+    /**
+     * @param string $supplier
+     * @return BillDetail
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
         return $this;
     }
 }
