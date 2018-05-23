@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class BillDetail extends Master
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\BillDetailInterface;
+
+class BillDetail extends Master implements BillDetailInterface
 {
     /**
      * @var integer
