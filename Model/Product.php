@@ -1058,4 +1058,40 @@ class Product extends Master implements ProductInterface
         $this->unitPriceCBN = $unitPriceCBN;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getNetWeight()
+    {
+        return $this->netWeight;
+    }
+
+    /**
+     * @param int $netWeight
+     * @return Product
+     */
+    public function setNetWeight($netWeight)
+    {
+        $this->netWeight = $netWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBaseNetWeight()
+    {
+        return $this->baseNetWeight;
+    }
+
+    /**
+     * @param int $baseNetWeight
+     * @return Product
+     */
+    public function setBaseNetWeight($baseNetWeight)
+    {
+        $this->baseNetWeight = $baseNetWeight;
+        return $this;
+    }
 }
