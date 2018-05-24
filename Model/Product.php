@@ -213,18 +213,19 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $implementationDetails;
+
     /**
-     * @var Allergen
+     * @var Allergen[]
      */
     private $allergens;
 
     /**
-     * @var Diet
+     * @var Diet[]
      */
     private $diets;
 
     /**
-     * @var Trace
+     * @var Trace[]
      */
     private $traces;
 
