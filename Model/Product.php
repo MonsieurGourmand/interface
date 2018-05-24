@@ -269,6 +269,12 @@ class Product extends Master implements ProductInterface
      */
     private $cabane;
 
+
+    /**
+     * @var boolean
+     */
+    private $deletable;
+
     /**
      * @return int
      */
@@ -1095,4 +1101,24 @@ class Product extends Master implements ProductInterface
         $this->baseNetWeight = $baseNetWeight;
         return $this;
     }
+
+    /**
+     * @return bool
+     */
+    public function isDeletable()
+    {
+        return $this->deletable;
+    }
+
+    /**
+     * @param bool $deletable
+     * @return Product
+     */
+    public function setDeletable($deletable)
+    {
+        $this->deletable = $deletable;
+        return $this;
+    }
+
+
 }
