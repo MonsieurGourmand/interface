@@ -7,6 +7,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Mgd;
+use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
+
 
 
 class IndexController extends Controller
@@ -25,6 +27,17 @@ class IndexController extends Controller
     {
         $mgd = $this->get('interface.MGD');
         $mgd->access($request);
+        if (empty($request->getSession()->get('me')->getRoles()))
+            $roles = array('ROLE_USER');
+        else
+            $roles = $request->getSession()->get('me')->getRoles();
+        $token = new UsernamePasswordToken(
+            $request->getSession()->get('me')->getEmail(),
+            null,
+            'main',
+            $roles
+        );
+        $this->get('security.token_storage')->setToken($token);
         return $this->redirectToRoute('index');
     }
 

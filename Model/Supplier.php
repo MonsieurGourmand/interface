@@ -19,6 +19,11 @@ class Supplier extends Master
     /**
      * @var string
      */
+    private $postageDetail;
+
+    /**
+     * @var string
+     */
     private $comment;
 
     /**
@@ -256,6 +261,24 @@ class Supplier extends Master
     public function setCustomerReference($customerReference)
     {
         $this->customerReference = $customerReference;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPostageDetail()
+    {
+        return $this->postageDetail;
+    }
+
+    /**
+     * @param string $postageDetail
+     * @return Supplier
+     */
+    public function setPostageDetail($postageDetail)
+    {
+        $this->postageDetail = $postageDetail;
         return $this;
     }
 }

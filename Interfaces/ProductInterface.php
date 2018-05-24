@@ -13,7 +13,7 @@ interface ProductInterface extends MainInterface
 {
     //Bases poids
     const BASEWEIGHT_PRODUCT = 0;
-    const BASEWEIGHT_LOT = 1;
+    const BASEWEIGHT_BATCH = 1;
     const BASEWEIGHT_PIECE = 2;
     const BASEWEIGHT_KG = 3;
 

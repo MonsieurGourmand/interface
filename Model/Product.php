@@ -39,9 +39,9 @@ class Product extends Master implements ProductInterface
     private $description;
 
     /**
-     * @var string
+     * @var Document[]
      */
-    private $picture;
+    private $pictures;
 
     /**
      * @var integer
@@ -52,6 +52,16 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $baseWeight;
+
+    /**
+     * @var integer
+     */
+    private $netWeight;
+
+    /**
+     * @var integer
+     */
+    private $baseNetWeight;
 
     /**
      * @var integer
@@ -175,6 +185,51 @@ class Product extends Master implements ProductInterface
     private $salesProducts;
 
     /**
+     * @var string
+     */
+    private $ingredients;
+
+    /**
+     * @var integer
+     */
+    private $thawingType;
+
+    /**
+     * @var integer
+     */
+    private $thawingTime;
+
+    /**
+     * @var integer
+     */
+    private $thawingRetentionTime;
+
+    /**
+     * @var integer
+     */
+    private $implementationType;
+
+    /**
+     * @var string
+     */
+    private $implementationDetails;
+
+    /**
+     * @var Allergen[]
+     */
+    private $allergens;
+
+    /**
+     * @var Diet[]
+     */
+    private $diets;
+
+    /**
+     * @var Trace[]
+     */
+    private $traces;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Price
      */
     public $prices;
@@ -195,9 +250,19 @@ class Product extends Master implements ProductInterface
     public $eventProducts;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Document
+     */
+    public $documents;
+
+    /**
      * @var integer
      */
     private $stockAlert;
+
+    /**
+     * @var Document
+     */
+    private $technicalForm;
 
     /**
      * @var boolean
@@ -299,24 +364,6 @@ class Product extends Master implements ProductInterface
     public function setDescription($description)
     {
         $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPicture()
-    {
-        return $this->picture;
-    }
-
-    /**
-     * @param string $picture
-     * @return Product
-     */
-    public function setPicture($picture)
-    {
-        $this->picture = $picture;
         return $this;
     }
 
@@ -749,6 +796,43 @@ class Product extends Master implements ProductInterface
     }
 
     /**
+     * <<<<<<< HEAD
+     * @return string
+     */
+    public function getIngredients()
+    {
+        return $this->ingredients;
+    }
+
+    /**
+     * @param string $ingredients
+     * @return Product
+     */
+    public function setIngredients($ingredients)
+    {
+        $this->ingredients = $ingredients;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getTechnicalForm()
+    {
+        return $this->technicalForm;
+    }
+
+    /**
+     * @param Document $technicalForm
+     * @return Product
+     */
+    public function setTechnicalForm($technicalForm)
+    {
+        $this->technicalForm = $technicalForm;
+        return $this;
+    }
+
+    /**
      * @return bool
      */
     public function isCabane()
@@ -769,7 +853,23 @@ class Product extends Master implements ProductInterface
     /**
      * @return int
      */
-    public function getQuantityCBN()
+    public function getThawingType()
+    {
+        return $this->thawingType;
+    }
+
+    /**
+     * @param int $thawingType
+     * @return Product
+     */
+    public function setThawingType($thawingType)
+    {
+        $this->thawingType = $thawingType;
+        return $this;
+    }
+
+    public
+    function getQuantityCBN()
     {
         return $this->quantityCBN;
     }
@@ -778,7 +878,8 @@ class Product extends Master implements ProductInterface
      * @param int $quantityCBN
      * @return Product
      */
-    public function setQuantityCBN($quantityCBN)
+    public
+    function setQuantityCBN($quantityCBN)
     {
         $this->quantityCBN = $quantityCBN;
         return $this;
@@ -787,6 +888,128 @@ class Product extends Master implements ProductInterface
     /**
      * @return int
      */
+    public function getThawingTime()
+    {
+        return $this->thawingTime;
+    }
+
+    /**
+     * @param int $thawingTime
+     * @return Product
+     */
+    public function setThawingTime($thawingTime)
+    {
+        $this->thawingTime = $thawingTime;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getThawingRetentionTime()
+    {
+        return $this->thawingRetentionTime;
+    }
+
+    /**
+     * @param int $thawingRetentionTime
+     * @return Product
+     */
+    public function setThawingRetentionTime($thawingRetentionTime)
+    {
+        $this->thawingRetentionTime = $thawingRetentionTime;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getImplementationType()
+    {
+        return $this->implementationType;
+    }
+
+    /**
+     * @param int $implementationType
+     * @return Product
+     */
+    public function setImplementationType($implementationType)
+    {
+        $this->implementationType = $implementationType;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getImplementationDetails()
+    {
+        return $this->implementationDetails;
+    }
+
+    /**
+     * @param string $implementationDetails
+     * @return Product
+     */
+    public function setImplementationDetails($implementationDetails)
+    {
+        $this->implementationDetails = $implementationDetails;
+        return $this;
+    }
+
+    /**
+     * @return Allergen
+     */
+    public function getAllergens()
+    {
+        return $this->allergens;
+    }
+
+    /**
+     * @param Allergen $allergens
+     * @return Product
+     */
+    public function setAllergens($allergens)
+    {
+        $this->allergens = $allergens;
+        return $this;
+    }
+
+    /**
+     * @return Diet
+     */
+    public function getDiets()
+    {
+        return $this->diets;
+    }
+
+    /**
+     * @param Diet $diets
+     * @return Product
+     */
+    public function setDiets($diets)
+    {
+        $this->diets = $diets;
+        return $this;
+    }
+
+    /**
+     * @return Trace
+     */
+    public function getTraces()
+    {
+        return $this->traces;
+    }
+
+    /**
+     * @param Trace $traces
+     * @return Product
+     */
+    public function setTraces($traces)
+    {
+        $this->traces = $traces;
+    }
+
     public function getQuantityExpiredCBN()
     {
         return $this->quantityExpiredCBN;
@@ -800,6 +1023,23 @@ class Product extends Master implements ProductInterface
     {
         $this->quantityExpiredCBN = $quantityExpiredCBN;
         return $this;
+    }
+
+    /**
+     * @return Document[]
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param Document[] $pictures
+     * @return Product
+     */
+    public function setPictures($pictures)
+    {
+        $this->pictures = $pictures;
     }
 
     /**
@@ -817,6 +1057,42 @@ class Product extends Master implements ProductInterface
     public function setUnitPriceCBN($unitPriceCBN)
     {
         $this->unitPriceCBN = $unitPriceCBN;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNetWeight()
+    {
+        return $this->netWeight;
+    }
+
+    /**
+     * @param int $netWeight
+     * @return Product
+     */
+    public function setNetWeight($netWeight)
+    {
+        $this->netWeight = $netWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBaseNetWeight()
+    {
+        return $this->baseNetWeight;
+    }
+
+    /**
+     * @param int $baseNetWeight
+     * @return Product
+     */
+    public function setBaseNetWeight($baseNetWeight)
+    {
+        $this->baseNetWeight = $baseNetWeight;
         return $this;
     }
 }

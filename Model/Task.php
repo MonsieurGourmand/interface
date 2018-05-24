@@ -16,13 +16,13 @@ class Task extends Master
     private $idTask;
 
     /**
-     * @var string
+     * @var \DateTime
      *
      */
     private $startDate;
 
     /**
-     * @var string
+     * @var \DateTime
      *
      */
     private $endDate;

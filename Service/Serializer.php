@@ -13,12 +13,11 @@ class Serializer
 {
     public function serialize($element)
     {
-
         $depth = 0;
         if(is_array($element))
         {
-            foreach($element as &$item)
-                $element = self::object($element,$depth);
+            foreach($element as $key => &$item)
+                $item = self::object($item,$depth,$key);
         }
         else
         {
@@ -27,31 +26,50 @@ class Serializer
         return $element;
     }
 
-    public function object($object,$depth) {
+    public function object($object,$depth,$key = NULL) {
         if($depth > 2) return;
-        $reflectionClass = new \ReflectionClass(get_class($object));
         $array = array();
-        foreach ($reflectionClass->getProperties() as $property) {
-            $property->setAccessible(true);
-            $value = $property->getValue($object);
-            if(is_array($value))
-            {
-                if(isset($value[0]))
+        if(is_object($object))
+        {
+            $reflectionClass = new \ReflectionClass(get_class($object));
+            foreach ($reflectionClass->getProperties() as $property) {
+                $property->setAccessible(true);
+                $value = $property->getValue($object);
+                if(is_array($value))
                 {
-                    if(is_object($value[0]))
+                    if(isset($value[0]))
                     {
-                        foreach ($value as &$element) {
-                            $element = self::object($element,$depth + 1);
+                        if(is_object($value[0]))
+                        {
+                            foreach ($value as &$element) {
+                                $element = self::object($element,$depth + 1);
+                            }
                         }
                     }
-                }
 
+                }
+                elseif(is_object($value) && strpos(get_class($value),"monsieurgourmand") !== false)
+                    $value = self::object($value,$depth + 1);
+                $type = '';
+                if (preg_match('/@var\s+(\\\\\w+)/', $property->getDocComment(), $matches)) {
+                    list(, $type) = $matches;
+                }
+                if (strstr($type, '\DateTime') && $value !== null) {
+                    $array[$property->getName()] = $value->format('c');
+                } else {
+                    $array[$property->getName()] = $value;
+                }
+                $property->setAccessible(false);
             }
-            elseif(is_object($value) && strpos(get_class($value),"monsieurgourmand") !== false)
-                $value = self::object($value,$depth + 1);
-            $array[$property->getName()] = $value;
-            $property->setAccessible(false);
+            return $array;
         }
-        return $array;
+        elseif(is_array($object))
+        {
+            foreach($object as $key => &$item)
+                $item = self::object($item,$depth,$key);
+            return $object;
+        }
+        else
+            return $object;
     }
 }

@@ -3,8 +3,11 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
@@ -13,6 +16,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Trace;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\User;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,6 +57,7 @@ class MGD
     public $format;
     public $prospect;
     public $event;
+    public $bill;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -80,6 +85,10 @@ class MGD
         $this->stat = new Stat($this);
         $this->format = new Format($this);
         $this->event = new Event($this);
+        $this->bill = new Bill($this);
+        $this->diet = new Diet($this);
+        $this->trace = new Trace($this);
+        $this->allergen = new Allergen($this);
     }
 
     public function login()
@@ -117,7 +126,7 @@ class MGD
 
     public function getAll($url, $entityClass, $params = array(), $format)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '.json', $params);
+        $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($params));
         if (self::getError($response))
             return self::getAll($url, $entityClass, $params, $format);
         if ($format == self::FORMAT_OBJECT)
@@ -233,74 +242,3 @@ class MGD
         return $result;
     }
 }
-
-/*str_replace(
-                    array('TRANSPORT_CP',
-                        'TRANSPORT_CPCOURSIER',
-                        'TRANSPORT_CPSERVEUR',
-                        'TRANSPORT_COURSIER',
-                        'TRANSPORT_SERVEUR',
-                        'TRANSPORT_COURSIERLYON',
-                        'TRANSPORT_SERVEURLYON',
-                        'TRANSPORT_MGD',
-                        'TRANSPORT_FOURNISSEUR',
-                        'SERVICE_OUILYON',
-                        'SERVICE_OUI',
-                        'SERVICE_NON',
-                        'SERVICE_NONLYON',
-                        'SERVICE_SERVEURSANSSERVICE',
-                        'SERVICE_SERVEURSANSSERVICELYON',
-                        'DOCS_FCEVENTAIL',
-                        'DOCS_FCEVENTAILQUES',
-                        'DOCS_FC',
-                        'DOCS_FCQUES',
-                        'DOCS_NONE',
-                        'DOCS_QUES',
-                        'DOCS_EVENTAIL',
-                        'TEMPPT_FREEZE',
-                        'TEMPPT_FRESH',
-                        'TEMPPT_SEC',
-                        'TEMPPT_DUO',
-                        'TEMPDE_HOME',
-                        'TEMPDE_TRANSPORT',
-                        'TEMPDE_COLISCLIENT',
-                        'TEMPDE_COLISCOURSIER',
-                        'TEMPDE_COLISSERVEUR',
-                        'TEMPDE_HORSCOLISCLIENT',
-                        'TEMPDE_HORSCOLISSERVEUR',
-                        'TEMPDE_NA'),
-                    array('Chronopost',
-                        'CP + Coursier',
-                        'CP + Serveur',
-                        'Coursier',
-                        'Serveur',
-                        'Coursier Lyon',
-                        'Serveur Lyon',
-                        'MGD',
-                        'Fournisseur',
-                        'Oui Lyon',
-                        'Oui',
-                        'Non',
-                        'Non Lyon',
-                        'Serveur sans service',
-                        'Serveur sans service lyon',
-                        'FC + éventail',
-                        'FC + éventail + Questionnaire',
-                        'FC Seule',
-                        'FC + Questionnaire',
-                        'Aucun',
-                        'Questionnaire Seul',
-                        'Eventail Seul',
-                        'Freeze',
-                        'Fresh',
-                        'Sec',
-                        'Duo',
-                        'Chez nous avant départ',
-                        'Pendant le transport',
-                        'Dans les colis chez client',
-                        'Dans les colis chez coursier',
-                        'Dans les colis chez serveur',
-                        'Hors colis chez client',
-                        'Hors colis chez serveur',
-                        'NA',
-                    ), $key);*/
