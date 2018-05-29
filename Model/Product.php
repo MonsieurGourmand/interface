@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
+use Symfony\Component\Validator\Constraints as Assert;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -202,7 +202,7 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
-    private $thawingRetentionTime;
+    private $retentionTime;
 
     /**
      * @var integer
@@ -912,20 +912,21 @@ class Product extends Master implements ProductInterface
     /**
      * @return int
      */
-    public function getThawingRetentionTime()
+    public function getRetentionTime()
     {
-        return $this->thawingRetentionTime;
+        return $this->retentionTime;
     }
 
     /**
-     * @param int $thawingRetentionTime
+     * @param int $retentionTime
      * @return Product
      */
-    public function setThawingRetentionTime($thawingRetentionTime)
+    public function setRetentionTime($retentionTime)
     {
-        $this->thawingRetentionTime = $thawingRetentionTime;
+        $this->retentionTime = $retentionTime;
         return $this;
     }
+
 
     /**
      * @return int
