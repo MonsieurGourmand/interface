@@ -192,12 +192,12 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
-    private $thawingType;
+    private $thawingDryTime;
 
     /**
      * @var integer
      */
-    private $thawingTime;
+    private $thawingFreshTime;
 
     /**
      * @var integer
@@ -856,24 +856,6 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getThawingType()
-    {
-        return $this->thawingType;
-    }
-
-    /**
-     * @param int $thawingType
-     * @return Product
-     */
-    public function setThawingType($thawingType)
-    {
-        $this->thawingType = $thawingType;
-        return $this;
-    }
-
     public
     function getQuantityCBN()
     {
@@ -894,18 +876,36 @@ class Product extends Master implements ProductInterface
     /**
      * @return int
      */
-    public function getThawingTime()
+    public function getThawingDryTime()
     {
-        return $this->thawingTime;
+        return $this->thawingDryTime;
     }
 
     /**
-     * @param int $thawingTime
+     * @param int $thawingDryTime
      * @return Product
      */
-    public function setThawingTime($thawingTime)
+    public function setThawingDryTime($thawingDryTime)
     {
-        $this->thawingTime = $thawingTime;
+        $this->thawingDryTime = $thawingDryTime;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getThawingFreshTime()
+    {
+        return $this->thawingFreshTime;
+    }
+
+    /**
+     * @param int $thawingFreshTime
+     * @return Product
+     */
+    public function setThawingFreshTime($thawingFreshTime)
+    {
+        $this->thawingFreshTime = $thawingFreshTime;
         return $this;
     }
 
