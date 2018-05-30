@@ -72,7 +72,7 @@ class Parser
                         if (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
                             list(, $type) = $matches;
                         }
-                        if (strstr($type, 'array')) {
+                        if (strstr($type, 'array') || empty($value)) {
                             $propDest->setValue($destination, $value);
                         } else
                             $value = self::object($value, "\\monsieurgourmand\\Bundle\\InterfaceBundle\\Model\\" . $type, $master);

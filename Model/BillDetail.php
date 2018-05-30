@@ -2,7 +2,9 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class BillDetail extends Master
+use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\BillDetailInterface;
+
+class BillDetail extends Master implements BillDetailInterface
 {
     /**
      * @var integer
@@ -23,6 +25,11 @@ class BillDetail extends Master
      * @var string
      */
     private $wording;
+
+    /**
+     * @var string
+     */
+    private $supplier;
 
     /**
      * @var integer
@@ -188,6 +195,24 @@ class BillDetail extends Master
     public function setAmountVat($amountVat)
     {
         $this->amountVat = $amountVat;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSupplier()
+    {
+        return $this->supplier;
+    }
+
+    /**
+     * @param string $supplier
+     * @return BillDetail
+     */
+    public function setSupplier($supplier)
+    {
+        $this->supplier = $supplier;
         return $this;
     }
 }

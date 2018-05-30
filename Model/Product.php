@@ -213,18 +213,19 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $implementationDetails;
+
     /**
-     * @var Allergen
+     * @var Allergen[]
      */
     private $allergens;
 
     /**
-     * @var Diet
+     * @var Diet[]
      */
     private $diets;
 
     /**
-     * @var Trace
+     * @var Trace[]
      */
     private $traces;
 
@@ -1056,6 +1057,42 @@ class Product extends Master implements ProductInterface
     public function setUnitPriceCBN($unitPriceCBN)
     {
         $this->unitPriceCBN = $unitPriceCBN;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNetWeight()
+    {
+        return $this->netWeight;
+    }
+
+    /**
+     * @param int $netWeight
+     * @return Product
+     */
+    public function setNetWeight($netWeight)
+    {
+        $this->netWeight = $netWeight;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBaseNetWeight()
+    {
+        return $this->baseNetWeight;
+    }
+
+    /**
+     * @param int $baseNetWeight
+     * @return Product
+     */
+    public function setBaseNetWeight($baseNetWeight)
+    {
+        $this->baseNetWeight = $baseNetWeight;
         return $this;
     }
 }
