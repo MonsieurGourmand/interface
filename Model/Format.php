@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\FormatInterface;
 
 class Format extends Master implements FormatInterface
@@ -17,6 +16,11 @@ class Format extends Master implements FormatInterface
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\FormatProduct
      */
     public $formatProducts;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\Pricing
+     */
+    public $pricings;
 
     /**
      * @var string
@@ -127,6 +131,11 @@ class Format extends Master implements FormatInterface
      * @var integer
      */
     private $formatType;
+
+    /**
+     * @var integer
+     */
+    private $discount;
 
     /**
      * @return int
@@ -531,4 +540,24 @@ class Format extends Master implements FormatInterface
         $this->charcutWeight = $charcutWeight;
         return $this;
     }
+
+
+    /**
+     * @return int
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param int $discount
+     * @return Event
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+        return $this;
+    }
+
 }

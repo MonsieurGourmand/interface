@@ -194,6 +194,11 @@ class Event extends Master implements EventInterface
     /**
      * @var integer
      */
+    private $discount;
+
+    /**
+     * @var integer
+     */
     private $singleUpdate;
 
     /**
@@ -820,4 +825,24 @@ class Event extends Master implements EventInterface
     {
 
     }
+
+    /**
+     * @return int
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param int $discount
+     * @return Event
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+        return $this;
+    }
+
+
 }
