@@ -205,7 +205,7 @@ class Product extends Master implements ProductInterface
     private $retentionTime;
 
     /**
-     * @var integer
+     * @var Implementation[]
      */
     private $implementations;
 
