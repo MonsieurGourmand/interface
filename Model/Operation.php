@@ -24,6 +24,12 @@ class Operation extends Master implements EventInterface
     public $events;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Format
+     */
+    public $formats;
+
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Activity
      */
     public $activities;
@@ -72,6 +78,11 @@ class Operation extends Master implements EventInterface
      * @var User
      */
     private $leadUser;
+
+    /**
+     * @var integer
+     */
+    private $discount;
 
 
     /**
@@ -261,4 +272,24 @@ class Operation extends Master implements EventInterface
         $this->leadUser = $leadUser;
         return $this;
     }
+
+
+    /**
+     * @return int
+     */
+    public function getDiscount()
+    {
+        return $this->discount;
+    }
+
+    /**
+     * @param int $discount
+     * @return Event
+     */
+    public function setDiscount($discount)
+    {
+        $this->discount = $discount;
+        return $this;
+    }
+
 }
