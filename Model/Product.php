@@ -207,7 +207,7 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
-    private $implementationType;
+    private $implementations;
 
     /**
      * @var string
@@ -927,24 +927,24 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
-
     /**
      * @return int
      */
-    public function getImplementationType()
+    public function getImplementations()
     {
-        return $this->implementationType;
+        return $this->implementations;
     }
 
     /**
-     * @param int $implementationType
+     * @param int $implementations
      * @return Product
      */
-    public function setImplementationType($implementationType)
+    public function setImplementations($implementations)
     {
-        $this->implementationType = $implementationType;
+        $this->implementations = $implementations;
         return $this;
     }
+
 
     /**
      * @return string
