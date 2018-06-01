@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
+use Symfony\Component\Validator\Constraints as Assert;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -192,22 +192,22 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
-    private $thawingType;
+    private $thawingDryTime;
 
     /**
      * @var integer
      */
-    private $thawingTime;
+    private $thawingFreshTime;
 
     /**
      * @var integer
      */
-    private $thawingRetentionTime;
+    private $retentionTime;
 
     /**
-     * @var integer
+     * @var Implementation[]
      */
-    private $implementationType;
+    private $implementations;
 
     /**
      * @var string
@@ -856,24 +856,6 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
-    /**
-     * @return int
-     */
-    public function getThawingType()
-    {
-        return $this->thawingType;
-    }
-
-    /**
-     * @param int $thawingType
-     * @return Product
-     */
-    public function setThawingType($thawingType)
-    {
-        $this->thawingType = $thawingType;
-        return $this;
-    }
-
     public
     function getQuantityCBN()
     {
@@ -894,56 +876,75 @@ class Product extends Master implements ProductInterface
     /**
      * @return int
      */
-    public function getThawingTime()
+    public function getThawingDryTime()
     {
-        return $this->thawingTime;
+        return $this->thawingDryTime;
     }
 
     /**
-     * @param int $thawingTime
+     * @param int $thawingDryTime
      * @return Product
      */
-    public function setThawingTime($thawingTime)
+    public function setThawingDryTime($thawingDryTime)
     {
-        $this->thawingTime = $thawingTime;
+        $this->thawingDryTime = $thawingDryTime;
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getThawingRetentionTime()
+    public function getThawingFreshTime()
     {
-        return $this->thawingRetentionTime;
+        return $this->thawingFreshTime;
     }
 
     /**
-     * @param int $thawingRetentionTime
+     * @param int $thawingFreshTime
      * @return Product
      */
-    public function setThawingRetentionTime($thawingRetentionTime)
+    public function setThawingFreshTime($thawingFreshTime)
     {
-        $this->thawingRetentionTime = $thawingRetentionTime;
+        $this->thawingFreshTime = $thawingFreshTime;
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getImplementationType()
+    public function getRetentionTime()
     {
-        return $this->implementationType;
+        return $this->retentionTime;
     }
 
     /**
-     * @param int $implementationType
+     * @param int $retentionTime
      * @return Product
      */
-    public function setImplementationType($implementationType)
+    public function setRetentionTime($retentionTime)
     {
-        $this->implementationType = $implementationType;
+        $this->retentionTime = $retentionTime;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getImplementations()
+    {
+        return $this->implementations;
+    }
+
+    /**
+     * @param int $implementations
+     * @return Product
+     */
+    public function setImplementations($implementations)
+    {
+        $this->implementations = $implementations;
+        return $this;
+    }
+
 
     /**
      * @return string

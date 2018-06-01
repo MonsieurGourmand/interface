@@ -29,6 +29,6 @@ interface ProductInterface extends MainInterface
     const THAWING_SEC = 2;
     const THAWING_FRESH = 1;
 
-    const IMPLEMENTATION_SEC = 2;
+    const IMPLEMENTATION_HOT = 2;
     const IMPLEMENTATION_FRESH = 1;
 }
