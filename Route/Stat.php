@@ -9,7 +9,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Stat
@@ -37,8 +36,8 @@ class Stat
             "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y")
         );
-        $url = $this->url."/orders";
-        return $this->master->getAll($url,null,$params,MGD::FORMAT_JSON);
+        $url = $this->url . "/orders";
+        return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
     }
 
     public function getProducts()
@@ -47,8 +46,19 @@ class Stat
             "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y")
         );
-        $url = $this->url."/products";
-        return $this->master->getAll($url,null,$params,MGD::FORMAT_JSON);
+        $url = $this->url . "/products";
+        return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
+    }
+
+    public function getProduct($idProduct)
+    {
+        $params = array(
+            'idProduct' => $idProduct,
+            "startDate" => $this->startDate->format("d/m/Y"),
+            "endDate" => $this->endDate->format("d/m/Y")
+        );
+        $url = $this->url . '/' . $idProduct . '/product';
+        return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
     }
 
     /**
