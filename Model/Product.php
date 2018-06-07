@@ -269,6 +269,16 @@ class Product extends Master implements ProductInterface
      */
     private $cabane;
 
+    /**
+     * @var boolean
+     */
+    private $individual;
+
+
+    /**
+     * @var Purpose[]
+     */
+    private $purposes;
 
     /**
      * @var boolean
@@ -1121,5 +1131,39 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isIndividual()
+    {
+        return $this->individual;
+    }
 
+    /**
+     * @param bool $individual
+     * @return Product
+     */
+    public function setIndividual($individual)
+    {
+        $this->individual = $individual;
+        return $this;
+    }
+
+    /**
+     * @return Purpose[]
+     */
+    public function getPurposes()
+    {
+        return $this->purposes;
+    }
+
+    /**
+     * @param Purpose[] $purposes
+     * @return Product
+     */
+    public function setPurposes($purposes)
+    {
+        $this->purposes = $purposes;
+        return $this;
+    }
 }
