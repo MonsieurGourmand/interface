@@ -38,6 +38,8 @@ interface MainInterface
     const DOCS_NONE = 4;
     const DOCS_QUES = 5;
     const DOCS_EVENTAIL = 6;
+    const DOCS_PICFC = 7;
+    const DOCS_PIC = 8;
 
     //Temp Prepa/transport
 
