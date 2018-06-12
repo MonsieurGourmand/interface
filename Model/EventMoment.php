@@ -27,6 +27,11 @@ class EventMoment extends Master
     private $momentDate;
 
     /**
+     * @var float
+     */
+    private $price;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\EventMoment\EventProduct
      */
     public $eventProducts;
@@ -90,6 +95,24 @@ class EventMoment extends Master
     public function setMomentDate($momentDate)
     {
         $this->momentDate = $momentDate;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getPrice()
+    {
+        return $this->price;
+    }
+
+    /**
+     * @param float $price
+     * @return EventMoment
+     */
+    public function setPrice($price)
+    {
+        $this->price = $price;
         return $this;
     }
 }
