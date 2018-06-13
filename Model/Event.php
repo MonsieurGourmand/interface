@@ -202,6 +202,11 @@ class Event extends Master implements EventInterface
     private $singleUpdate;
 
     /**
+     * @var integer
+     */
+    private $pax;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -844,5 +849,21 @@ class Event extends Master implements EventInterface
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getPax()
+    {
+        return $this->pax;
+    }
 
+    /**
+     * @param int $pax
+     * @return Event
+     */
+    public function setPax($pax)
+    {
+        $this->pax = $pax;
+        return $this;
+    }
 }
