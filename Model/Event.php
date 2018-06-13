@@ -162,6 +162,11 @@ class Event extends Master implements EventInterface
     public $eventProducts;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\EventMoment
+     */
+    public $eventMoments;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Amount
      */
     public $amounts;
