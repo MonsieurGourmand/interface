@@ -45,6 +45,11 @@ class Package extends Master implements PackageInterface
     private $weight;
 
     /**
+     * @var integer
+     */
+    private $size;
+
+    /**
      * @return int
      */
     public function getIdPackage()
@@ -149,4 +154,24 @@ class Package extends Master implements PackageInterface
         $this->event = $event;
         return $this;
     }
+
+    /**
+     * @return int
+     */
+    public function getSize()
+    {
+        return $this->size;
+    }
+
+    /**
+     * @param int $size
+     * @return Package
+     */
+    public function setSize($size)
+    {
+        $this->size = $size;
+        return $this;
+    }
+
+
 }

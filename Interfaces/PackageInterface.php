@@ -22,4 +22,7 @@ interface PackageInterface extends MainInterface
     const TYPE_SEC = 0;
     const TYPE_FRESH = 1;
     const TYPE_FREEZE = 2;
+
+    const SIZE_SMALL = 0;
+    const SIZE_MEDIUM = 1;
 }
