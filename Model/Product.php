@@ -292,6 +292,11 @@ class Product extends Master implements ProductInterface
     private $pieceNetWeight;
 
     /**
+     * @var \DateTime
+     */
+    private $shortestDlc;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1226,4 +1231,13 @@ class Product extends Master implements ProductInterface
         $this->pieceNetWeight = $pieceNetWeight;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getShortestDlc()
+    {
+        return $this->shortestDlc;
+    }
+
 }
