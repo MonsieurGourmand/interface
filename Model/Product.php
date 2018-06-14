@@ -285,6 +285,12 @@ class Product extends Master implements ProductInterface
      */
     private $deletable;
 
+    private $pieceCost;
+
+    private $pieceNegotiate;
+
+    private $pieceNetWeight;
+
     /**
      * @return int
      */
@@ -1164,6 +1170,60 @@ class Product extends Master implements ProductInterface
     public function setPurposes($purposes)
     {
         $this->purposes = $purposes;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPieceCost()
+    {
+        return $this->pieceCost;
+    }
+
+    /**
+     * @param mixed $pieceCost
+     * @return Product
+     */
+    public function setPieceCost($pieceCost)
+    {
+        $this->pieceCost = $pieceCost;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPieceNegotiate()
+    {
+        return $this->pieceNegotiate;
+    }
+
+    /**
+     * @param mixed $pieceNegotiate
+     * @return Product
+     */
+    public function setPieceNegotiate($pieceNegotiate)
+    {
+        $this->pieceNegotiate = $pieceNegotiate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPieceNetWeight()
+    {
+        return $this->pieceNetWeight;
+    }
+
+    /**
+     * @param mixed $pieceNetWeight
+     * @return Product
+     */
+    public function setPieceNetWeight($pieceNetWeight)
+    {
+        $this->pieceNetWeight = $pieceNetWeight;
         return $this;
     }
 }
