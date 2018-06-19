@@ -269,11 +269,32 @@ class Product extends Master implements ProductInterface
      */
     private $cabane;
 
+    /**
+     * @var boolean
+     */
+    private $individual;
+
+
+    /**
+     * @var Purpose[]
+     */
+    private $purposes;
 
     /**
      * @var boolean
      */
     private $deletable;
+
+    private $pieceCost;
+
+    private $pieceNegotiate;
+
+    private $pieceNetWeight;
+
+    /**
+     * @var \DateTime
+     */
+    private $shortestDlc;
 
     /**
      * @return int
@@ -1121,5 +1142,102 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isIndividual()
+    {
+        return $this->individual;
+    }
+
+    /**
+     * @param bool $individual
+     * @return Product
+     */
+    public function setIndividual($individual)
+    {
+        $this->individual = $individual;
+        return $this;
+    }
+
+    /**
+     * @return Purpose[]
+     */
+    public function getPurposes()
+    {
+        return $this->purposes;
+    }
+
+    /**
+     * @param Purpose[] $purposes
+     * @return Product
+     */
+    public function setPurposes($purposes)
+    {
+        $this->purposes = $purposes;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPieceCost()
+    {
+        return $this->pieceCost;
+    }
+
+    /**
+     * @param mixed $pieceCost
+     * @return Product
+     */
+    public function setPieceCost($pieceCost)
+    {
+        $this->pieceCost = $pieceCost;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPieceNegotiate()
+    {
+        return $this->pieceNegotiate;
+    }
+
+    /**
+     * @param mixed $pieceNegotiate
+     * @return Product
+     */
+    public function setPieceNegotiate($pieceNegotiate)
+    {
+        $this->pieceNegotiate = $pieceNegotiate;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPieceNetWeight()
+    {
+        return $this->pieceNetWeight;
+    }
+
+    /**
+     * @param mixed $pieceNetWeight
+     * @return Product
+     */
+    public function setPieceNetWeight($pieceNetWeight)
+    {
+        $this->pieceNetWeight = $pieceNetWeight;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getShortestDlc()
+    {
+        return $this->shortestDlc;
+    }
 
 }
