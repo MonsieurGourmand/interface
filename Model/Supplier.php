@@ -67,7 +67,7 @@ class Supplier extends Master
     private $customerReference;
 
     /**
-     * @var string
+     * @var \DateTime
      */
     private $sendingTime;
 
@@ -288,7 +288,7 @@ class Supplier extends Master
     }
 
     /**
-     * @return string
+     * @return \DateTime
      */
     public function getSendingTime()
     {
@@ -296,7 +296,7 @@ class Supplier extends Master
     }
 
     /**
-     * @param string $sendingTime
+     * @param \DateTime $sendingTime
      * @return Supplier
      */
     public function setSendingTime($sendingTime)
