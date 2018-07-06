@@ -67,6 +67,11 @@ class Supplier extends Master
     private $customerReference;
 
     /**
+     * @var \DateTime
+     */
+    private $sendingTime;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
@@ -279,6 +284,24 @@ class Supplier extends Master
     public function setPostageDetail($postageDetail)
     {
         $this->postageDetail = $postageDetail;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getSendingTime()
+    {
+        return $this->sendingTime;
+    }
+
+    /**
+     * @param \DateTime $sendingTime
+     * @return Supplier
+     */
+    public function setSendingTime($sendingTime)
+    {
+        $this->sendingTime = $sendingTime;
         return $this;
     }
 }
