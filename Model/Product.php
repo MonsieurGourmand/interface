@@ -297,6 +297,24 @@ class Product extends Master implements ProductInterface
     private $shortestDlc;
 
     /**
+     * @var boolean
+     *
+     */
+    private $allergensStatus;
+
+    /**
+     * @var boolean
+     *
+     */
+    private $tracesStatus;
+
+    /**
+     * @var boolean
+     *
+     */
+    private $dietsStatus;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1240,4 +1258,57 @@ class Product extends Master implements ProductInterface
         return $this->shortestDlc;
     }
 
+    /**
+     * @return bool
+     */
+    public function isAllergensStatus()
+    {
+        return $this->allergensStatus;
+    }
+
+    /**
+     * @param bool $allergensStatus
+     * @return Product
+     */
+    public function setAllergensStatus($allergensStatus)
+    {
+        $this->allergensStatus = $allergensStatus;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTracesStatus()
+    {
+        return $this->tracesStatus;
+    }
+
+    /**
+     * @param bool $tracesStatus
+     * @return Product
+     */
+    public function setTracesStatus($tracesStatus)
+    {
+        $this->tracesStatus = $tracesStatus;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDietsStatus()
+    {
+        return $this->dietsStatus;
+    }
+
+    /**
+     * @param bool $dietsStatus
+     * @return Product
+     */
+    public function setDietsStatus($dietsStatus)
+    {
+        $this->dietsStatus = $dietsStatus;
+        return $this;
+    }
 }
