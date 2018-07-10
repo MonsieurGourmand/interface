@@ -94,9 +94,9 @@ class Product extends Master implements ProductInterface
     private $archived;
 
     /**
-     * @var boolean
+     * @var \DateTime
      */
-    private $stopped;
+    private $stoppedDate;
 
     /**
      * @var boolean
@@ -1311,4 +1311,24 @@ class Product extends Master implements ProductInterface
         $this->dietsStatus = $dietsStatus;
         return $this;
     }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStoppedDate()
+    {
+        return $this->stoppedDate;
+    }
+
+    /**
+     * @param \DateTime $stoppedDate
+     * @return Product
+     */
+    public function setStoppedDate($stoppedDate)
+    {
+        $this->stoppedDate = $stoppedDate;
+        return $this;
+    }
+
+
 }
