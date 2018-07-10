@@ -17,18 +17,13 @@ interface MainInterface
     const TRANSPORT_CPSERVEUR = 2;
     const TRANSPORT_COURSIER = 3;
     const TRANSPORT_SERVEUR = 4;
-    const TRANSPORT_COURSIERLYON = 5;
-    const TRANSPORT_SERVEURLYON = 5;
     const TRANSPORT_MGD = 6;
     const TRANSPORT_FOURNISSEUR = 7;
 
     //Service
-    const SERVICE_OUILYON = 0;
-    const SERVICE_OUI = 1;
-    const SERVICE_NON = 2;
-    const SERVICE_NONLYON = 3;
-    const SERVICE_SERVEURSANSSERVICE = 4;
-    const SERVICE_SERVEURSANSSERVICELYON = 5;
+    const SERVICE_OUI = 0;
+    const SERVICE_NON = 1;
+    const SERVICE_SERVEURSANSSERVICE = 2;
 
     //Documents
     const DOCS_FCEVENTAIL = 0;
