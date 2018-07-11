@@ -94,9 +94,9 @@ class Product extends Master implements ProductInterface
     private $archived;
 
     /**
-     * @var boolean
+     * @var \DateTime
      */
-    private $stopped;
+    private $stoppedDate;
 
     /**
      * @var boolean
@@ -295,6 +295,24 @@ class Product extends Master implements ProductInterface
      * @var \DateTime
      */
     private $shortestDlc;
+
+    /**
+     * @var boolean
+     *
+     */
+    private $allergensStatus;
+
+    /**
+     * @var boolean
+     *
+     */
+    private $tracesStatus;
+
+    /**
+     * @var boolean
+     *
+     */
+    private $dietsStatus;
 
     /**
      * @return int
@@ -1239,5 +1257,78 @@ class Product extends Master implements ProductInterface
     {
         return $this->shortestDlc;
     }
+
+    /**
+     * @return bool
+     */
+    public function isAllergensStatus()
+    {
+        return $this->allergensStatus;
+    }
+
+    /**
+     * @param bool $allergensStatus
+     * @return Product
+     */
+    public function setAllergensStatus($allergensStatus)
+    {
+        $this->allergensStatus = $allergensStatus;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isTracesStatus()
+    {
+        return $this->tracesStatus;
+    }
+
+    /**
+     * @param bool $tracesStatus
+     * @return Product
+     */
+    public function setTracesStatus($tracesStatus)
+    {
+        $this->tracesStatus = $tracesStatus;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDietsStatus()
+    {
+        return $this->dietsStatus;
+    }
+
+    /**
+     * @param bool $dietsStatus
+     * @return Product
+     */
+    public function setDietsStatus($dietsStatus)
+    {
+        $this->dietsStatus = $dietsStatus;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getStoppedDate()
+    {
+        return $this->stoppedDate;
+    }
+
+    /**
+     * @param \DateTime $stoppedDate
+     * @return Product
+     */
+    public function setStoppedDate($stoppedDate)
+    {
+        $this->stoppedDate = $stoppedDate;
+        return $this;
+    }
+
 
 }
