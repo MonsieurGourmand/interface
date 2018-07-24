@@ -265,6 +265,11 @@ class Product extends Master implements ProductInterface
     private $technicalForm;
 
     /**
+     * @var Packaging
+     */
+    private $packaging;
+
+    /**
      * @var boolean
      */
     private $cabane;
@@ -273,6 +278,11 @@ class Product extends Master implements ProductInterface
      * @var boolean
      */
     private $individual;
+
+    /**
+     * @var boolean
+     */
+    private $repackage;
 
 
     /**
@@ -1330,5 +1340,39 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isRepackage()
+    {
+        return $this->repackage;
+    }
 
+    /**
+     * @param bool $repackage
+     * @return Product
+     */
+    public function setRepackage($repackage)
+    {
+        $this->repackage = $repackage;
+        return $this;
+    }
+
+    /**
+     * @return Packaging
+     */
+    public function getPackaging()
+    {
+        return $this->packaging;
+    }
+
+    /**
+     * @param Packaging $packaging
+     * @return Product
+     */
+    public function setPackaging($packaging)
+    {
+        $this->packaging = $packaging;
+        return $this;
+    }
 }
