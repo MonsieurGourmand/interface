@@ -79,6 +79,12 @@ class Product extends Master implements ProductInterface
     private $supplier;
 
     /**
+     * @var User
+     */
+    private $creator;
+
+
+    /**
      * @var Category
      */
     private $category;
@@ -1375,4 +1381,24 @@ class Product extends Master implements ProductInterface
         $this->packaging = $packaging;
         return $this;
     }
+
+    /**
+     * @return User
+     */
+    public function getCreator()
+    {
+        return $this->creator;
+    }
+
+    /**
+     * @param User $creator
+     * @return Product
+     */
+    public function setCreator($creator)
+    {
+        $this->creator = $creator;
+        return $this;
+    }
+
+
 }
