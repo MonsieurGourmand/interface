@@ -17,4 +17,5 @@ interface EventInterface extends MainInterface
     const STATUS_TROUBLE = 3;
     const STATUS_CANCEL = 4;
     const STATUS_DONE = 5;
+    const STATUS_DRAFT = 6;
 }
