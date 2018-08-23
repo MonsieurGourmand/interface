@@ -212,6 +212,11 @@ class Event extends Master implements EventInterface
     private $pax;
 
     /**
+     * @var float
+     */
+    private $sellingPrice;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -869,6 +874,24 @@ class Event extends Master implements EventInterface
     public function setPax($pax)
     {
         $this->pax = $pax;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSellingPrice()
+    {
+        return $this->sellingPrice;
+    }
+
+    /**
+     * @param float $sellingPrice
+     * @return Event
+     */
+    public function setSellingPrice($sellingPrice)
+    {
+        $this->sellingPrice = $sellingPrice;
         return $this;
     }
 }
