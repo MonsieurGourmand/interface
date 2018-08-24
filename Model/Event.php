@@ -894,4 +894,13 @@ class Event extends Master implements EventInterface
         $this->sellingPrice = $sellingPrice;
         return $this;
     }
+
+    public function isStatusPricing()
+    {
+        if ($this->status === $this::STATUS_SEND || $this->status === $this::STATUS_VALIDATE || $this->status === $this::STATUS_DONE)
+            return true;
+        else
+            return false;
+    }
+
 }
