@@ -7,7 +7,7 @@ class Cause extends Master
     /**
      * @var integer
      */
-    private $idPackaging;
+    private $idCause;
 
     /**
      * @var string
@@ -17,9 +17,9 @@ class Cause extends Master
     /**
      * @return int
      */
-    public function getIdPackaging()
+    public function getIdCause()
     {
-        return $this->idPackaging;
+        return $this->idCause;
     }
 
     /**
