@@ -217,6 +217,16 @@ class Event extends Master implements EventInterface
     private $sellingPrice;
 
     /**
+     * @var boolean
+     */
+    private $free;
+
+    /**
+     * @var Cause
+     */
+    private $cause;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -903,4 +913,39 @@ class Event extends Master implements EventInterface
             return false;
     }
 
+    /**
+     * @return bool
+     */
+    public function isFree()
+    {
+        return $this->free;
+    }
+
+    /**
+     * @param bool $free
+     * @return Event
+     */
+    public function setFree($free)
+    {
+        $this->free = $free;
+        return $this;
+    }
+
+    /**
+     * @return Cause
+     */
+    public function getCause()
+    {
+        return $this->cause;
+    }
+
+    /**
+     * @param Cause $cause
+     * @return Event
+     */
+    public function setCause($cause)
+    {
+        $this->cause = $cause;
+        return $this;
+    }
 }
