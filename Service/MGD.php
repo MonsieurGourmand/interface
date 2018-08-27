@@ -6,6 +6,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
@@ -67,6 +68,7 @@ class MGD
     public $implementation;
     public $purpose;
     public $packaging;
+    public $cause;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -101,6 +103,7 @@ class MGD
         $this->implementation = new Implementation($this);
         $this->purpose = new Purpose($this);
         $this->packaging = new Packaging($this);
+        $this->cause = new Cause($this);
 
     }
 

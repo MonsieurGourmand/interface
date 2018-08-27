@@ -212,6 +212,21 @@ class Event extends Master implements EventInterface
     private $pax;
 
     /**
+     * @var float
+     */
+    private $sellingPrice;
+
+    /**
+     * @var boolean
+     */
+    private $free;
+
+    /**
+     * @var Cause
+     */
+    private $cause;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -869,6 +884,68 @@ class Event extends Master implements EventInterface
     public function setPax($pax)
     {
         $this->pax = $pax;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSellingPrice()
+    {
+        return $this->sellingPrice;
+    }
+
+    /**
+     * @param float $sellingPrice
+     * @return Event
+     */
+    public function setSellingPrice($sellingPrice)
+    {
+        $this->sellingPrice = $sellingPrice;
+        return $this;
+    }
+
+    public function isStatusPricing()
+    {
+        if ($this->status === $this::STATUS_SEND || $this->status === $this::STATUS_VALIDATE || $this->status === $this::STATUS_DONE)
+            return true;
+        else
+            return false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFree()
+    {
+        return $this->free;
+    }
+
+    /**
+     * @param bool $free
+     * @return Event
+     */
+    public function setFree($free)
+    {
+        $this->free = $free;
+        return $this;
+    }
+
+    /**
+     * @return Cause
+     */
+    public function getCause()
+    {
+        return $this->cause;
+    }
+
+    /**
+     * @param Cause $cause
+     * @return Event
+     */
+    public function setCause($cause)
+    {
+        $this->cause = $cause;
         return $this;
     }
 }
