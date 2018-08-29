@@ -18,11 +18,6 @@ class Format extends Master implements FormatInterface
     public $formatProducts;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\Pricing
-     */
-    public $pricings;
-
-    /**
      * @var string
      */
     private $name;
