@@ -29,6 +29,12 @@ class EventProduct extends Master
      */
     private $estimatedStock;
 
+
+    /**
+     * @var integer
+     */
+    private $estimatedStockSend;
+
     /**
      * @return int
      */
@@ -106,6 +112,24 @@ class EventProduct extends Master
     public function setEstimatedStock($estimatedStock)
     {
         $this->estimatedStock = $estimatedStock;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getEstimatedStockSend()
+    {
+        return $this->estimatedStockSend;
+    }
+
+    /**
+     * @param int $estimatedStockSend
+     * @return EventProduct
+     */
+    public function setEstimatedStockSend($estimatedStockSend)
+    {
+        $this->estimatedStockSend = $estimatedStockSend;
         return $this;
     }
 }
