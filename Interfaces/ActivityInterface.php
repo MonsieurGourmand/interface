@@ -21,6 +21,7 @@ interface ActivityInterface extends MainInterface
     const CREATOR_TRANSPORT = 0;
     const CREATOR_MARKETING = 1;
     const CREATOR_SUPPORT = 2;
+    const CREATOR_SYSTEM = 3;
 
     //todo handle multiple activityType
 }
