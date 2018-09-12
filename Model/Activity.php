@@ -73,6 +73,12 @@ class Activity extends Master implements ActivityInterface
      */
     private $favorite;
 
+
+    /**
+     * @var User
+     */
+    private $user;
+
     /**
      * @return int
      */
@@ -281,5 +287,22 @@ class Activity extends Master implements ActivityInterface
         return $this;
     }
 
+    /**
+     * @return User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param User $user
+     * @return Activity
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+        return $this;
+    }
 
 }
