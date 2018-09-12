@@ -36,19 +36,19 @@ class Activity
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Package $package, $format = MGD::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Activity $activity, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url, $package, $this->entity, $format);
+        return $this->master->post($this->url, $activity, $this->entity, $format);
     }
 
-    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Package $package, $format = MGD::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Activity $activity, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url, $package->getIdPackage(), $package, $this->entity, $format);
+        return $this->master->put($this->url, $activity->getIdActivity(), $activity, $this->entity, $format);
     }
 
-    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Package $package)
+    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Activity $activity)
     {
-        return $this->master->remove($this->url, $package->getIdPackage());
+        return $this->master->remove($this->url, $activity->getIdActivity());
     }
 
 }
