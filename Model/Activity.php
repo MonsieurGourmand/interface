@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ActivityInterface;
 
 class Activity extends Master implements ActivityInterface
@@ -70,6 +69,11 @@ class Activity extends Master implements ActivityInterface
     private $operation;
 
     /**
+     * @var boolean
+     */
+    private $active;
+
+    /**
      * @return int
      */
     public function getIdActivity()
@@ -131,54 +135,6 @@ class Activity extends Master implements ActivityInterface
     public function setActivityDate($activityDate)
     {
         $this->activityDate = $activityDate;
-    }
-
-    /**
-     * @return string
-     */
-    public function getActivityLabel()
-    {
-        return $this->activityLabel;
-    }
-
-    /**
-     * @param string $activityLabel
-     */
-    public function setActivityLabel($activityLabel)
-    {
-        $this->activityLabel = $activityLabel;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCode()
-    {
-        return $this->code;
-    }
-
-    /**
-     * @param string $code
-     */
-    public function setCode($code)
-    {
-        $this->code = $code;
-    }
-
-    /**
-     * @return int
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * @param int $active
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
     }
 
     /**
@@ -307,5 +263,21 @@ class Activity extends Master implements ActivityInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isActive()
+    {
+        return $this->active;
+    }
 
+    /**
+     * @param bool $active
+     * @return Activity
+     */
+    public function setActive($active)
+    {
+        $this->active = $active;
+        return $this;
+    }
 }
