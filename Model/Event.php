@@ -177,6 +177,11 @@ class Event extends Master implements EventInterface
     public $package;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Activity
+     */
+    public $activities;
+
+    /**
      * @var Package[]
      */
     public $packages;
