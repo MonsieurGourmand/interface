@@ -71,7 +71,7 @@ class Activity extends Master implements ActivityInterface
     /**
      * @var boolean
      */
-    private $active;
+    private $favorite;
 
     /**
      * @return int
@@ -266,18 +266,20 @@ class Activity extends Master implements ActivityInterface
     /**
      * @return bool
      */
-    public function isActive()
+    public function isFavorite()
     {
-        return $this->active;
+        return $this->favorite;
     }
 
     /**
-     * @param bool $active
+     * @param bool $favorite
      * @return Activity
      */
-    public function setActive($active)
+    public function setFavorite($favorite)
     {
-        $this->active = $active;
+        $this->favorite = $favorite;
         return $this;
     }
+
+
 }
