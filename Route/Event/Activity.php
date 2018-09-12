@@ -25,9 +25,8 @@ class Activity
         $this->url = "/operations/" . $event->getOperation()->getIdOperation() . "/events/" . $event->getIdEvent() . "/activities";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
