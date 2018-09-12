@@ -81,6 +81,11 @@ class Event extends Master implements EventInterface
     /**
      * @var string
      */
+    private $comment;
+
+    /**
+     * @var string
+     */
     private $corporateName;
 
     /**
@@ -946,6 +951,24 @@ class Event extends Master implements EventInterface
     public function setCause($cause)
     {
         $this->cause = $cause;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     * @return Event
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
         return $this;
     }
 }
