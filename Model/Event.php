@@ -232,6 +232,11 @@ class Event extends Master implements EventInterface
     private $cause;
 
     /**
+     * @var integer
+     */
+    private $marketingStatus;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -951,6 +956,24 @@ class Event extends Master implements EventInterface
     public function setCause($cause)
     {
         $this->cause = $cause;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMarketingStatus()
+    {
+        return $this->marketingStatus;
+    }
+
+    /**
+     * @param int $marketingStatus
+     * @return Event
+     */
+    public function setMarketingStatus($marketingStatus)
+    {
+        $this->marketingStatus = $marketingStatus;
         return $this;
     }
 }
