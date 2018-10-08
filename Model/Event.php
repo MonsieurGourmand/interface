@@ -41,6 +41,11 @@ class Event extends Master implements EventInterface
     /**
      * @var \DateTime
      */
+    private $preparationDate;
+
+    /**
+     * @var \DateTime
+     */
     private $recall;
 
     /**
@@ -974,6 +979,24 @@ class Event extends Master implements EventInterface
     public function setMarketingStatus($marketingStatus)
     {
         $this->marketingStatus = $marketingStatus;
+        return $this;
+    }
+
+    /**
+     * @return \DateTime
+     */
+    public function getPreparationDate()
+    {
+        return $this->preparationDate;
+    }
+
+    /**
+     * @param \DateTime $preparationDate
+     * @return Event
+     */
+    public function setPreparationDate($preparationDate)
+    {
+        $this->preparationDate = $preparationDate;
         return $this;
     }
 }
