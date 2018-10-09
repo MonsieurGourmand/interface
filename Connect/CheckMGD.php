@@ -32,6 +32,9 @@ class CheckMGD
             if ($request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('connect') || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')) {
                 return;
             } else {
+                if ($request->isXmlHttpRequest()) {
+                    return;
+                }
                 if (!$client = $request->getSession()->get('client')) {
                     return new RedirectResponse($this->router->generate('connect'));
                 }
