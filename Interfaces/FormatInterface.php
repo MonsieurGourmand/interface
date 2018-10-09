@@ -20,6 +20,8 @@ interface FormatInterface extends MainInterface
     const TYPE_COCKTAIL = 0;
     const TYPE_BUFFET = 1;
     const TYPE_PR = 2;
+    const TYPE_BREAKFAST = 3;
+    const TYPE_SPECIFIC = 4;
 
     //FormatType
     const FORMAT_PONCTUEL = 0;
