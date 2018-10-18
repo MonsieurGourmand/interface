@@ -22,7 +22,6 @@ class Activity
     {
         $this->master = $package->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Activity::class;
-        $this->url = "/operations/" . $package->getEvent()->getOperation()->getIdOperation() . "/events/" . $package->getEvent()->getIdEvent() . "/packages/" . $package->getIdPackage() . '/activities';
         if ($package->getEvent()) {
             $this->url = "/operations/" . $package->getEvent()->getOperation()->getIdOperation() . "/events/" . $package->getEvent()->getIdEvent() . "/packages/" . $package->getIdPackage() . '/activities';
         } else {
