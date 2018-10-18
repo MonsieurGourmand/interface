@@ -50,6 +50,11 @@ class Package extends Master implements PackageInterface
     private $size;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Package\Activity
+     */
+    public $activities;
+
+    /**
      * @return int
      */
     public function getIdPackage()
