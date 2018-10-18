@@ -12,11 +12,19 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Interfaces;
 interface PackageInterface extends MainInterface
 {
     //Status
-    const STATUS_PENDING = 0;
-    const STATUS_READY = 1;
-    const STATUS_SHIPPING = 2;
-    const STATUS_DELIVERED = 3;
-    const STATUS_TROUBLE = 4;
+    const SHIPPER_STATUS_READY = 0;
+    const SHIPPER_STATUS_ROUTING = 1;
+    const SHIPPER_STATUS_SHIPPING_READY = 6;
+    const SHIPPER_STATUS_SHIPPING = 2;
+    const SHIPPER_STATUS_DELIVERED = 3;
+    const SHIPPER_STATUS_TROUBLE = 4;
+    const SHIPPER_STATUS_CANCEL = 7;
+    const SHIPPER_STATUS_RETURN = 8;
+    const SHIPPER_STATUS_AVAILABLE = 9;
+
+    const SUPPORT_STATUS_PENDING = 0;
+    const SUPPORT_STATUS_VALIDATED = 1;
+    const SUPPORT_STATUS_TROUBLE = 2;
 
     //Type
     const TYPE_SEC = 0;
