@@ -7,6 +7,17 @@ use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\FormatInterface;
 
 class Format extends Master implements FormatInterface
 {
+
+    public function __construct()
+    {
+        $this->saltPax = 0;
+        $this->sugarPax = 0;
+        $this->charcutWeight = 0;
+        $this->saladeWeight = 0;
+        $this->otherWeight = 0;
+        $this->sugarWeight = 0;
+    }
+
     /**
      * @var integer
      */
