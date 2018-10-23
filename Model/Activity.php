@@ -73,7 +73,6 @@ class Activity extends Master implements ActivityInterface
      */
     private $favorite;
 
-
     /**
      * @var User
      */
