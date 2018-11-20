@@ -33,4 +33,6 @@ interface PackageInterface extends MainInterface
 
     const SIZE_SMALL = 0;
     const SIZE_MEDIUM = 1;
+    const SIZE_BOX_SMALL = 2;
+    const SIZE_BOX_MEDIUM = 3;
 }
