@@ -12,7 +12,7 @@ class Format extends Master implements FormatInterface
     {
         $this->saltPax = 0;
         $this->sugarPax = 0;
-        $this->charcutWeight = 0;
+        $this->saltWeight = 0;
         $this->saladeWeight = 0;
         $this->otherWeight = 0;
         $this->sugarWeight = 0;
@@ -85,7 +85,7 @@ class Format extends Master implements FormatInterface
     /**
      * @var integer
      */
-    private $charcutWeight;
+    private $saltWeight;
 
     /**
      * @var string
@@ -536,18 +536,18 @@ class Format extends Master implements FormatInterface
     /**
      * @return int
      */
-    public function getCharcutWeight()
+    public function getSaltWeight()
     {
-        return $this->charcutWeight;
+        return $this->saltWeight;
     }
 
     /**
-     * @param int $charcutWeight
+     * @param int $saltWeight
      * @return Format
      */
-    public function setCharcutWeight($charcutWeight)
+    public function setSaltWeight($saltWeight)
     {
-        $this->charcutWeight = $charcutWeight;
+        $this->saltWeight = $saltWeight;
         return $this;
     }
 
