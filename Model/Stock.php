@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\StockInterface;
 
 class Stock extends Master implements StockInterface
@@ -27,6 +26,11 @@ class Stock extends Master implements StockInterface
      * @var integer
      */
     private $quantity;
+
+    /**
+     * @var integer
+     */
+    private $quantityPreparable;
 
     /**
      * @var integer
@@ -176,6 +180,24 @@ class Stock extends Master implements StockInterface
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getQuantityPreparable()
+    {
+        return $this->quantityPreparable;
+    }
+
+    /**
+     * @param int $quantityPreparable
+     * @return Stock
+     */
+    public function setQuantityPreparable($quantityPreparable)
+    {
+        $this->quantityPreparable = $quantityPreparable;
         return $this;
     }
 }

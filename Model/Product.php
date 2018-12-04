@@ -331,6 +331,11 @@ class Product extends Master implements ProductInterface
     private $dietsStatus;
 
     /**
+     * @var integer
+     */
+    private $quantityPreparable;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1400,5 +1405,22 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getQuantityPreparable()
+    {
+        return $this->quantityPreparable;
+    }
+
+    /**
+     * @param int $quantityPreparable
+     * @return Product
+     */
+    public function setQuantityPreparable($quantityPreparable)
+    {
+        $this->quantityPreparable = $quantityPreparable;
+        return $this;
+    }
 
 }
