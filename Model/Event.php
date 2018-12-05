@@ -284,6 +284,12 @@ class Event extends Master implements EventInterface
     private $quoteNumber;
 
     /**
+     * @var integer
+     *
+     */
+    private $type;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -1165,6 +1171,24 @@ class Event extends Master implements EventInterface
     public function setQuoteNumber($quoteNumber)
     {
         $this->quoteNumber = $quoteNumber;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Event
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
         return $this;
     }
 }
