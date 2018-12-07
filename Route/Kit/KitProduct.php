@@ -45,9 +45,9 @@ class KitProduct
         return $this->master->put($this->url, $kitProduct->getIdKitProduct(), $kitProduct, $this->entity, $format);
     }
 
-    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\KitProduct $kitProduct)
+    public function remove($idKitProduct)
     {
-        return $this->master->remove($this->url, $kitProduct->getIdKitProduct());
+        return $this->master->remove($this->url, $idKitProduct);
     }
 
 }
