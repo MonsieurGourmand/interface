@@ -94,11 +94,6 @@ class Format extends Master implements FormatInterface
     private $documents;
 
     /**
-     * @var Customer
-     */
-    private $customer;
-
-    /**
      * @var float
      */
     private $divers;
@@ -277,24 +272,6 @@ class Format extends Master implements FormatInterface
     public function setDocuments($documents)
     {
         $this->documents = $documents;
-        return $this;
-    }
-
-    /**
-     * @return Customer
-     */
-    public function getCustomer()
-    {
-        return $this->customer;
-    }
-
-    /**
-     * @param Customer $customer
-     * @return Format
-     */
-    public function setCustomer($customer)
-    {
-        $this->customer = $customer;
         return $this;
     }
 
