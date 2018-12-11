@@ -134,11 +134,6 @@ class Format extends Master implements FormatInterface
     /**
      * @var integer
      */
-    private $formatType;
-
-    /**
-     * @var integer
-     */
     private $discount;
 
     /**
@@ -398,24 +393,6 @@ class Format extends Master implements FormatInterface
     public function setType($type)
     {
         $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getFormatType()
-    {
-        return $this->formatType;
-    }
-
-    /**
-     * @param int $formatType
-     * @return Format
-     */
-    public function setFormatType($formatType)
-    {
-        $this->formatType = $formatType;
         return $this;
     }
 
