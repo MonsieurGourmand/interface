@@ -10,15 +10,7 @@ class Format extends Master implements FormatInterface
 
     public function __construct()
     {
-        $this->saltPax = 0;
-        $this->sugarPax = 0;
-        $this->saladeWeight = 0;
-        $this->otherWeight = 0;
-        $this->sugarWeight = 0;
-        $this->cheeseWeight = 0;
-        $this->serviceCost = 0;
-        $this->divers = 0;
-        $this->price = 0;
+
     }
 
     /**
