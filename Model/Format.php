@@ -29,16 +29,6 @@ class Format extends Master implements FormatInterface
     private $name;
 
     /**
-     * @var string
-     */
-    private $step;
-
-    /**
-     * @var integer
-     */
-    private $status;
-
-    /**
      * @var integer
      */
     private $pax;
@@ -146,42 +136,6 @@ class Format extends Master implements FormatInterface
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStep()
-    {
-        return $this->step;
-    }
-
-    /**
-     * @param string $step
-     * @return Format
-     */
-    public function setStep($step)
-    {
-        $this->step = $step;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param int $status
-     * @return Format
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
         return $this;
     }
 
