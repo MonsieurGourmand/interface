@@ -19,21 +19,6 @@ class Format extends Master implements FormatInterface
     private $idFormat;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\FormatProduct
-     */
-    public $formatProducts;
-
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var integer
-     */
-    private $pax;
-
-    /**
      * @var integer
      */
     private $saltPax;
@@ -99,11 +84,6 @@ class Format extends Master implements FormatInterface
     private $price;
 
     /**
-     * @var array
-     */
-    private $packages;
-
-    /**
      * @var integer
      */
     private $type;
@@ -119,42 +99,6 @@ class Format extends Master implements FormatInterface
     public function getIdFormat()
     {
         return $this->idFormat;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     * @return Format
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPax()
-    {
-        return $this->pax;
-    }
-
-    /**
-     * @param int $pax
-     * @return Format
-     */
-    public function setPax($pax)
-    {
-        $this->pax = $pax;
-        return $this;
     }
 
     /**
@@ -280,24 +224,6 @@ class Format extends Master implements FormatInterface
     public function setPrice($price)
     {
         $this->price = $price;
-        return $this;
-    }
-
-    /**
-     * @return array
-     */
-    public function getPackages()
-    {
-        return $this->packages;
-    }
-
-    /**
-     * @param array $packages
-     * @return Format
-     */
-    public function setPackages($packages)
-    {
-        $this->packages = $packages;
         return $this;
     }
 
@@ -437,7 +363,7 @@ class Format extends Master implements FormatInterface
 
     /**
      * @param int $discount
-     * @return Event
+     * @return Format
      */
     public function setDiscount($discount)
     {
