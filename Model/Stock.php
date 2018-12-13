@@ -32,6 +32,7 @@ class Stock extends Master implements StockInterface
      */
     private $quantityPreparable;
 
+
     /**
      * @var integer
      */
