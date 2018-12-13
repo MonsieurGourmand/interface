@@ -37,6 +37,7 @@ class Format
     public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Kit $kit, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $kit, $this->entity, $format);
+
     }
 
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Kit $kit, $format = MGD::FORMAT_OBJECT)
