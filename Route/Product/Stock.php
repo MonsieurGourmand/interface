@@ -26,25 +26,21 @@ class Stock
 
     public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
     {
-        $url = $this->url;
-        return $this->master->getAll($url, $this->entity, $params, $format);
+        return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
     public function get($id, $format = MGD::FORMAT_OBJECT)
     {
-        $url = $this->url;
-        return $this->master->get($url, $id, $this->entity, $format);
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
     public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Stock $stock, $format = MGD::FORMAT_OBJECT)
     {
-        $url = $this->url;
-        return $this->master->post($url, $stock, $this->entity, $format);
+        return $this->master->post($this->url, $stock, $this->entity, $format);
     }
 
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Stock $stock, $format = MGD::FORMAT_OBJECT)
     {
-        $url = $this->url;
-        return $this->master->put($url, $stock->getIdstock(), $stock, $this->entity, $format);
+        return $this->master->put($this->url, $stock->getIdstock(), $stock, $this->entity, $format);
     }
 }
