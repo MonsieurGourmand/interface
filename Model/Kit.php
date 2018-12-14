@@ -35,6 +35,11 @@ class Kit extends Master
     public $events;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\AddKit
+     */
+    public $addKits;
+
+    /**
      * @return int
      */
     public function getIdKit()
