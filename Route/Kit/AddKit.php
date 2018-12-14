@@ -22,12 +22,12 @@ class AddKit
     {
         $this->master = $kit->getMaster();
         $this->entity = Kit::class;
-        $this->url = "/formats/" . $kit->getIdKit() . "/addKits";
+        $this->url = "/formats/" . $kit->getIdKit() . "/addkits";
     }
 
-    public function put($idKit, $format = MGD::FORMAT_OBJECT)
+    public function addKit($idKit, \monsieurgourmand\Bundle\InterfaceBundle\Model\KitProduct $kitProduct, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url, $idKit, null, $this->entity, $format);
+        return $this->master->put($this->url, $idKit, $kitProduct, $this->entity, $format);
     }
 
 }
