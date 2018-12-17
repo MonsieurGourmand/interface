@@ -21,7 +21,7 @@ class KitProduct
     public function __construct(Kit $kit)
     {
         $this->master = $kit->getMaster();
-        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\KitProduct::class;
         $this->url = "/kits/" . $kit->getIdKit() . "/products";
     }
 
