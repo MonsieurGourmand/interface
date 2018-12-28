@@ -159,13 +159,13 @@ class MGD
             return $response['result'];
     }
 
-    public function get($url, $id, $entityClass, $format)
+    public function get($url, $id, $entityClass, $format, $params = array())
     {
         $format == self::FORMAT_PDF ? $dot = ".pdf" : $dot = ".json";
         if ($id != null)
-            $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . $dot);
+            $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . $dot, $this->serializer->serialize($params));
         else
-            $response = $this->client->fetch($this->apiRoot . $url . $dot);
+            $response = $this->client->fetch($this->apiRoot . $url . $dot, $this->serializer->serialize($params));
         if (self::getError($response))
             return self::get($url, $id, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
