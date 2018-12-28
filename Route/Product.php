@@ -29,7 +29,7 @@ class Product
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = MGD::FORMAT_OBJECT, $params = array())
+    public function get($id, $params = array(), $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->get($this->url, $id, $this->entity, $format, $params);
     }
