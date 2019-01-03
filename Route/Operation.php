@@ -9,7 +9,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Operation
@@ -30,18 +29,18 @@ class Operation
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id,$format=MGD::FORMAT_OBJECT)
+    public function get($id, $params = array(), $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url,$id,$this->entity,$format);
+        return $this->master->get($this->url, $id, $this->entity, $format, $params);
     }
 
-    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Operation $operation,$format=MGD::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Operation $operation, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url,$operation,$this->entity,$format);
+        return $this->master->post($this->url, $operation, $this->entity, $format);
     }
 
-    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Operation $operation,$format=MGD::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Operation $operation, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url,$operation->getIdOperation(),$operation,$this->entity,$format);
+        return $this->master->put($this->url, $operation->getIdOperation(), $operation, $this->entity, $format);
     }
 }
