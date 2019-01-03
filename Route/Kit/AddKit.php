@@ -25,9 +25,9 @@ class AddKit
         $this->url = "/formats/" . $kit->getIdKit() . "/addkits";
     }
 
-    public function addKit($idKit, \monsieurgourmand\Bundle\InterfaceBundle\Model\KitProduct $kitProduct, $format = MGD::FORMAT_OBJECT)
+    public function addKit($idKit, $params, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url, $idKit, $kitProduct, $this->entity, $format);
+        return $this->master->put($this->url, $idKit, $params, $this->entity, $format);
     }
 
 }
