@@ -27,7 +27,7 @@ class AddKits
 
     public function addKit($idKit, $params, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url, $idKit, $params, $this->entity, $format);
+        return $this->master->put($this->url, $idKit, $params, $this->entity, $format);
     }
 
 }
