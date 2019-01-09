@@ -132,4 +132,14 @@ class EventProduct extends Master
         $this->estimatedStockSend = $estimatedStockSend;
         return $this;
     }
+
+    /**
+     * @param int $idEventProduct
+     * @return EventProduct
+     */
+    public function setIdEventProduct($idEventProduct)
+    {
+        $this->idEventProduct = $idEventProduct;
+        return $this;
+    }
 }
