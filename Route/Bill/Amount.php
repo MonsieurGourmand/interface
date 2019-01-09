@@ -41,6 +41,7 @@ class Amount
         return $this->master->post($this->url, $amount, $this->entity, $format);
     }
 
+
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Amount $amount, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $amount->getIdAmount(), $amount, $this->entity, $format);
