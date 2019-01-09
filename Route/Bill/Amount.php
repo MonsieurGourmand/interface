@@ -46,9 +46,9 @@ class Amount
         return $this->master->put($this->url, $amount->getIdAmount(), $amount, $this->entity, $format);
     }
 
-    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Amount $amount)
+    public function remove($idAmount)
     {
-        return $this->master->remove($this->url, $amount->getIdAmount());
+        return $this->master->remove($this->url, $idAmount);
     }
 
 
