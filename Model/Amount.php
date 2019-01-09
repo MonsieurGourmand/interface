@@ -112,4 +112,14 @@ class Amount extends Master
         $this->comment = $comment;
         return $this;
     }
+
+    /**
+     * @param int $idAmount
+     * @return Amount
+     */
+    public function setIdAmount($idAmount)
+    {
+        $this->idAmount = $idAmount;
+        return $this;
+    }
 }
