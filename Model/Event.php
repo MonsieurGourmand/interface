@@ -197,7 +197,7 @@ class Event extends Master implements EventInterface
     public $packages;
 
     /**
-     * @var Format
+     * @var Kit
      */
     private $format;
 
@@ -735,7 +735,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return Format
+     * @return Kit
      */
     public function getFormat()
     {
@@ -743,7 +743,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param Format $format
+     * @param Kit $format
      * @return Event
      */
     public function setFormat($format)
