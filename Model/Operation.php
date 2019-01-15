@@ -80,6 +80,12 @@ class Operation extends Master implements EventInterface
 
 
     /**
+     * @var integer
+     */
+    private $type;
+
+
+    /**
      * @return int
      */
     public function getIdOperation()
@@ -286,4 +292,21 @@ class Operation extends Master implements EventInterface
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Operation
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
 }
