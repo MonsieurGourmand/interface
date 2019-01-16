@@ -344,6 +344,16 @@ class Product extends Master implements ProductInterface
     }
 
     /**
+     * @param int $idProduct
+     * @return Product
+     */
+    public function setIdProduct($idProduct)
+    {
+        $this->idProduct = $idProduct;
+        return $this;
+    }
+
+    /**
      * @return int
      */
     public function getBatches()

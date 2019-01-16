@@ -10,46 +10,13 @@ class Format extends Master implements FormatInterface
 
     public function __construct()
     {
-        $this->saltPax = 0;
-        $this->sugarPax = 0;
-        $this->saladeWeight = 0;
-        $this->otherWeight = 0;
-        $this->sugarWeight = 0;
-        $this->cheeseWeight = 0;
-        $this->serviceCost = 0;
-        $this->divers = 0;
-        $this->price = 0;
+
     }
 
     /**
      * @var integer
      */
     private $idFormat;
-
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\FormatProduct
-     */
-    public $formatProducts;
-
-    /**
-     * @var string
-     */
-    private $name;
-
-    /**
-     * @var string
-     */
-    private $step;
-
-    /**
-     * @var integer
-     */
-    private $status;
-
-    /**
-     * @var integer
-     */
-    private $pax;
 
     /**
      * @var integer
@@ -102,11 +69,6 @@ class Format extends Master implements FormatInterface
     private $documents;
 
     /**
-     * @var Customer
-     */
-    private $customer;
-
-    /**
      * @var float
      */
     private $divers;
@@ -122,19 +84,9 @@ class Format extends Master implements FormatInterface
     private $price;
 
     /**
-     * @var array
-     */
-    private $packages;
-
-    /**
      * @var integer
      */
     private $type;
-
-    /**
-     * @var integer
-     */
-    private $formatType;
 
     /**
      * @var integer
@@ -147,78 +99,6 @@ class Format extends Master implements FormatInterface
     public function getIdFormat()
     {
         return $this->idFormat;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     * @return Format
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getStep()
-    {
-        return $this->step;
-    }
-
-    /**
-     * @param string $step
-     * @return Format
-     */
-    public function setStep($step)
-    {
-        $this->step = $step;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param int $status
-     * @return Format
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getPax()
-    {
-        return $this->pax;
-    }
-
-    /**
-     * @param int $pax
-     * @return Format
-     */
-    public function setPax($pax)
-    {
-        $this->pax = $pax;
-        return $this;
     }
 
     /**
@@ -294,24 +174,6 @@ class Format extends Master implements FormatInterface
     }
 
     /**
-     * @return Customer
-     */
-    public function getCustomer()
-    {
-        return $this->customer;
-    }
-
-    /**
-     * @param Customer $customer
-     * @return Format
-     */
-    public function setCustomer($customer)
-    {
-        $this->customer = $customer;
-        return $this;
-    }
-
-    /**
      * @return float
      */
     public function getDivers()
@@ -366,24 +228,6 @@ class Format extends Master implements FormatInterface
     }
 
     /**
-     * @return array
-     */
-    public function getPackages()
-    {
-        return $this->packages;
-    }
-
-    /**
-     * @param array $packages
-     * @return Format
-     */
-    public function setPackages($packages)
-    {
-        $this->packages = $packages;
-        return $this;
-    }
-
-    /**
      * @return int
      */
     public function getType()
@@ -398,24 +242,6 @@ class Format extends Master implements FormatInterface
     public function setType($type)
     {
         $this->type = $type;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getFormatType()
-    {
-        return $this->formatType;
-    }
-
-    /**
-     * @param int $formatType
-     * @return Format
-     */
-    public function setFormatType($formatType)
-    {
-        $this->formatType = $formatType;
         return $this;
     }
 
@@ -537,7 +363,7 @@ class Format extends Master implements FormatInterface
 
     /**
      * @param int $discount
-     * @return Event
+     * @return Format
      */
     public function setDiscount($discount)
     {

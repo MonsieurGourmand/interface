@@ -14,12 +14,22 @@ class Amount extends Master
      */
     private $amount;
 
+    /**
+     * @var string
+     */
+    private $comment;
 
     /**
      * @var Event
      *
      */
     private $event;
+
+    /**
+     * @var Operation
+     *
+     */
+    private $operation;
 
     /**
      * @var Bill
@@ -88,6 +98,52 @@ class Amount extends Master
     public function setBill($bill)
     {
         $this->bill = $bill;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     * @return Amount
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @param int $idAmount
+     * @return Amount
+     */
+    public function setIdAmount($idAmount)
+    {
+        $this->idAmount = $idAmount;
+        return $this;
+    }
+
+    /**
+     * @return Operation
+     */
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * @param Operation $operation
+     * @return Amount
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
         return $this;
     }
 }

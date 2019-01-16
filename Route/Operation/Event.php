@@ -30,9 +30,9 @@ class Event
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = MGD::FORMAT_OBJECT)
+    public function get($id, $params = array(), $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->get($this->url, $id, $this->entity, $format);
+        return $this->master->get($this->url, $id, $this->entity, $format, $params);
     }
 
     public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Event $event, $format = MGD::FORMAT_OBJECT)

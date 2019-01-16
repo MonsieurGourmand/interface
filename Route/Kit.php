@@ -11,8 +11,9 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
-class Format
+class Kit
 {
+
     private $master;
     private $entity;
     private $url;
@@ -21,10 +22,10 @@ class Format
     {
         $this->master = $master;
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Kit::class;
-        $this->url = "/formats";
+        $this->url = '/kits';
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT, $params = array())
+    public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
@@ -37,7 +38,6 @@ class Format
     public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Kit $kit, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $kit, $this->entity, $format);
-
     }
 
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Kit $kit, $format = MGD::FORMAT_OBJECT)

@@ -36,6 +36,11 @@ class EventProduct extends Master
     private $estimatedStockSend;
 
     /**
+     * @var string
+     */
+    private $comment;
+
+    /**
      * @return int
      */
     public function getIdEventProduct()
@@ -130,6 +135,34 @@ class EventProduct extends Master
     public function setEstimatedStockSend($estimatedStockSend)
     {
         $this->estimatedStockSend = $estimatedStockSend;
+        return $this;
+    }
+
+    /**
+     * @param int $idEventProduct
+     * @return EventProduct
+     */
+    public function setIdEventProduct($idEventProduct)
+    {
+        $this->idEventProduct = $idEventProduct;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     * @return EventProduct
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
         return $this;
     }
 }

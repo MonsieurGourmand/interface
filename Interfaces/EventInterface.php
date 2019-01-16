@@ -22,4 +22,7 @@ interface EventInterface extends MainInterface
     const MARKETING_STATUS_NOT = 0;
     const MARKETING_STATUS_PENDING = 1;
     const MARKETING_STATUS_DONE = 2;
+
+    const TYPE_PUNCTUAL = 0;
+    const TYPE_MULTI = 1;
 }

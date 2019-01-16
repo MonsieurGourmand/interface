@@ -28,11 +28,15 @@ class Operation extends Master implements EventInterface
      */
     public $formats;
 
-
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Activity
      */
     public $activities;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Amount
+     */
+    public $amounts;
 
     /**
      * @var string
@@ -83,6 +87,12 @@ class Operation extends Master implements EventInterface
      * @var integer
      */
     private $discount;
+
+
+    /**
+     * @var integer
+     */
+    private $type;
 
 
     /**
@@ -292,4 +302,21 @@ class Operation extends Master implements EventInterface
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     * @return Operation
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+        return $this;
+    }
 }

@@ -2,17 +2,12 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class FormatProduct extends Master
+class KitProduct extends Master
 {
     /**
      * @var integer
      */
-    private $idFormatProduct;
-
-    /**
-     * @var Format
-     */
-    private $format;
+    private $idKitProduct;
 
     /**
      * @var Product
@@ -25,28 +20,25 @@ class FormatProduct extends Master
     private $quantity;
 
     /**
+     * @var Kit
+     */
+    private $kit;
+
+    /**
      * @return int
      */
-    public function getIdFormatProduct()
+    public function getIdKitProduct()
     {
-        return $this->idFormatProduct;
+        return $this->idKitProduct;
     }
 
     /**
-     * @return Format
+     * @param int $idKitProduct
+     * @return KitProduct
      */
-    public function getFormat()
+    public function setIdKitProduct($idKitProduct)
     {
-        return $this->format;
-    }
-
-    /**
-     * @param Format $format
-     * @return FormatProduct
-     */
-    public function setFormat($format)
-    {
-        $this->format = $format;
+        $this->idKitProduct = $idKitProduct;
         return $this;
     }
 
@@ -60,7 +52,7 @@ class FormatProduct extends Master
 
     /**
      * @param Product $product
-     * @return FormatProduct
+     * @return KitProduct
      */
     public function setProduct($product)
     {
@@ -78,11 +70,29 @@ class FormatProduct extends Master
 
     /**
      * @param int $quantity
-     * @return FormatProduct
+     * @return KitProduct
      */
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+        return $this;
+    }
+
+    /**
+     * @return Kit
+     */
+    public function getKit()
+    {
+        return $this->kit;
+    }
+
+    /**
+     * @param Kit $kit
+     * @return KitProduct
+     */
+    public function setKit($kit)
+    {
+        $this->kit = $kit;
         return $this;
     }
 }

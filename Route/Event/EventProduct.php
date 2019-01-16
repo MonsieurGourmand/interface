@@ -45,9 +45,9 @@ class EventProduct
         return $this->master->put($this->url, $eventProduct->getIdEventProduct(), $eventProduct, $this->entity, $format);
     }
 
-    public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct $eventProduct)
+    public function remove($idEventProduct)
     {
-        return $this->master->remove($this->url, $eventProduct->getIdEventProduct());
+        return $this->master->remove($this->url, $idEventProduct);
     }
 
 }

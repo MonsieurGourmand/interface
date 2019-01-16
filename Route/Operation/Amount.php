@@ -6,10 +6,11 @@
  * Time: 6:10 PM
  */
 
-namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Bill;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Amount
@@ -18,16 +19,15 @@ class Amount
     private $url;
     private $master;
 
-    public function __construct(Bill $bill)
+    public function __construct(Operation $operation)
     {
-        $this->master = $bill->getMaster();
+        $this->master = $operation->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Amount::class;
-        $this->url = "/bills/" . $bill->getIdBill() . "/amounts";
+        $this->url = "/operations/" . $operation->getIdOperation() . "/amounts";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($format = MGD::FORMAT_OBJECT, $params = array())
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
@@ -41,7 +41,6 @@ class Amount
         return $this->master->post($this->url, $amount, $this->entity, $format);
     }
 
-
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Amount $amount, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $amount->getIdAmount(), $amount, $this->entity, $format);
@@ -51,6 +50,5 @@ class Amount
     {
         return $this->master->remove($this->url, $idAmount);
     }
-
 
 }
