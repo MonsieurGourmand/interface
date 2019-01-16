@@ -21,7 +21,7 @@ class Format
     public function __construct(Operation $operation)
     {
         $this->master = $operation->getMaster();
-        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Format::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Kit::class;
         $this->url = "/operations/" . $operation->getIdOperation() . "/formats";
     }
 
