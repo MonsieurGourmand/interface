@@ -10,6 +10,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Amount
@@ -18,11 +19,11 @@ class Amount
     private $url;
     private $master;
 
-    public function __construct(Event $event)
+    public function __construct(Operation $operation)
     {
-        $this->master = $event->getMaster();
+        $this->master = $operation->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Amount::class;
-        $this->url = "/operations/" . $event->getOperation()->getIdOperation() . "/amounts";
+        $this->url = "/operations/" . $operation->getIdOperation() . "/amounts";
     }
 
     public function getAll($format = MGD::FORMAT_OBJECT, $params = array())
