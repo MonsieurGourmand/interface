@@ -34,6 +34,11 @@ class Operation extends Master implements EventInterface
     public $activities;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Activity
+     */
+    public $amounts;
+
+    /**
      * @var string
      */
     private $name;
