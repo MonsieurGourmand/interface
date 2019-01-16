@@ -24,6 +24,11 @@ class Operation extends Master implements EventInterface
     public $events;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Format
+     */
+    public $formats;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Activity
      */
     public $activities;
