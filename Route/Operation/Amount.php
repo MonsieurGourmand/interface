@@ -6,7 +6,7 @@
  * Time: 6:10 PM
  */
 
-namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
