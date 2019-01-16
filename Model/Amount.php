@@ -26,6 +26,12 @@ class Amount extends Master
     private $event;
 
     /**
+     * @var Operation
+     *
+     */
+    private $operation;
+
+    /**
      * @var Bill
      *
      */
@@ -120,6 +126,24 @@ class Amount extends Master
     public function setIdAmount($idAmount)
     {
         $this->idAmount = $idAmount;
+        return $this;
+    }
+
+    /**
+     * @return Operation
+     */
+    public function getOperation()
+    {
+        return $this->operation;
+    }
+
+    /**
+     * @param Operation $operation
+     * @return Amount
+     */
+    public function setOperation($operation)
+    {
+        $this->operation = $operation;
         return $this;
     }
 }
