@@ -19,6 +19,8 @@ interface MainInterface
     const TRANSPORT_SERVEUR = 4;
     const TRANSPORT_MGD = 6;
     const TRANSPORT_FOURNISSEUR = 7;
+    const TRANSPORT_UPS = 8;
+    const TRANSPORT_UPSCOURSIER = 9;
 
     //Service
     const SERVICE_OUI = 0;
