@@ -262,30 +262,6 @@ class Event extends Master implements EventInterface
      * @var integer
      *
      */
-    private $sugarWeight;
-
-    /**
-     * @var integer
-     *
-     */
-    private $saladeWeight;
-
-    /**
-     * @var integer
-     *
-     */
-    private $cheeseWeight;
-
-    /**
-     * @var integer
-     *
-     */
-    private $otherWeight;
-
-    /**
-     * @var integer
-     *
-     */
     private $quoteNumber;
 
     /**
@@ -1086,78 +1062,6 @@ class Event extends Master implements EventInterface
     public function setSugarPax($sugarPax)
     {
         $this->sugarPax = $sugarPax;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSugarWeight()
-    {
-        return $this->sugarWeight;
-    }
-
-    /**
-     * @param int $sugarWeight
-     * @return Event
-     */
-    public function setSugarWeight($sugarWeight)
-    {
-        $this->sugarWeight = $sugarWeight;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSaladeWeight()
-    {
-        return $this->saladeWeight;
-    }
-
-    /**
-     * @param int $saladeWeight
-     * @return Event
-     */
-    public function setSaladeWeight($saladeWeight)
-    {
-        $this->saladeWeight = $saladeWeight;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getCheeseWeight()
-    {
-        return $this->cheeseWeight;
-    }
-
-    /**
-     * @param int $cheeseWeight
-     * @return Event
-     */
-    public function setCheeseWeight($cheeseWeight)
-    {
-        $this->cheeseWeight = $cheeseWeight;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getOtherWeight()
-    {
-        return $this->otherWeight;
-    }
-
-    /**
-     * @param int $otherWeight
-     * @return Event
-     */
-    public function setOtherWeight($otherWeight)
-    {
-        $this->otherWeight = $otherWeight;
         return $this;
     }
 
