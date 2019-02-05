@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PriceInterface;
 
 class Price extends Master implements PriceInterface
@@ -50,6 +49,16 @@ class Price extends Master implements PriceInterface
      * @var \DateTime
      */
     private $endDate;
+
+    /**
+     * @param int $idPrice
+     * @return Price
+     */
+    public function setIdPrice($idPrice)
+    {
+        $this->idPrice = $idPrice;
+        return $this;
+    }
 
     /**
      * @return int
