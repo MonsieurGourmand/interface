@@ -12,7 +12,12 @@ class Allergen extends Master
     /**
      * @var string
      */
-    private $name;
+    private $longDescription;
+
+    /**
+     * @var string
+     */
+    private $shortDescription;
 
     /**
      * @return int
@@ -25,8 +30,16 @@ class Allergen extends Master
     /**
      * @return string
      */
-    public function getName()
+    public function getLongDescription()
     {
-        return $this->name;
+        return $this->longDescription;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription()
+    {
+        return $this->shortDescription;
     }
 }
