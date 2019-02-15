@@ -35,4 +35,8 @@ interface PackageInterface extends MainInterface
     const SIZE_MEDIUM = 1;
     const SIZE_BOX_SMALL = 2;
     const SIZE_BOX_MEDIUM = 3;
+    const SIZE_SMALL_COMMON = 4;
+    const SIZE_MEDIUM_COMMON = 5;
+    const SIZE_SMALL_WHITE = 6;
+    const SIZE_MEDIUM_WHITE = 7;
 }
