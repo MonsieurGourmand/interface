@@ -10,7 +10,6 @@ use Mgd;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
 
-
 class IndexController extends Controller
 {
 
@@ -38,7 +37,11 @@ class IndexController extends Controller
             $roles
         );
         $this->get('security.token_storage')->setToken($token);
-        return $this->redirectToRoute('index');
+        if ($request->cookies->get('redirect_uri')) {
+            return $this->redirect($request->cookies->get('redirect_uri'));
+        } else {
+            return $this->redirectToRoute('index');
+        }
     }
 
     public function disconnectAction(Request $request)

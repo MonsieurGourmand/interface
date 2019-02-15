@@ -13,6 +13,7 @@ use Symfony\Bundle\FrameworkBundle\Routing\Router;
 use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Cookie;
 
 class CheckMGD
 {
@@ -36,7 +37,11 @@ class CheckMGD
                     return;
                 }
                 if (!$client = $request->getSession()->get('client')) {
-                    return new RedirectResponse($this->router->generate('connect'));
+                    $response = new RedirectResponse($this->router->generate('connect'));
+                    if ($request->getRequestUri() !== '/src/favicon.png') {
+                        $response->headers->setCookie(new Cookie('redirect_uri', $request->getUri()));
+                    }
+                    return $response;
                 }
             }
         } else {
