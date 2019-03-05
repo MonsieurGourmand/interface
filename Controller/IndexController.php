@@ -17,7 +17,7 @@ class IndexController extends Controller
     {
         $mgd = $this->get('interface.MGD');
         $url = $mgd->login();
-        return $this->render('InterfaceBundle:index:index.html.twig', array(
+        return $this->render('@Interface/index/index.html.twig', array(
             'url' => $url
         ));
     }
