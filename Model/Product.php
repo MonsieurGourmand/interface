@@ -203,7 +203,7 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
-    private $range;
+    private $rate;
 
     /**
      * @var integer
@@ -1441,18 +1441,20 @@ class Product extends Master implements ProductInterface
     /**
      * @return int
      */
-    public function getRange()
+    public function getRate()
     {
-        return $this->range;
+        return $this->rate;
     }
 
     /**
-     * @param int $range
+     * @param int $rate
      * @return Product
      */
-    public function setRange($range)
+    public function setRate($rate)
     {
-        $this->range = $range;
+        $this->rate = $rate;
         return $this;
     }
+
+
 }
