@@ -29,6 +29,10 @@ class EventProduct extends Master
      */
     private $estimatedStock;
 
+    /**
+     * @var integer
+     */
+    private $grade;
 
     /**
      * @var integer
@@ -163,6 +167,24 @@ class EventProduct extends Master
     public function setComment($comment)
     {
         $this->comment = $comment;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGrade()
+    {
+        return $this->grade;
+    }
+
+    /**
+     * @param int $grade
+     * @return EventProduct
+     */
+    public function setGrade($grade)
+    {
+        $this->grade = $grade;
         return $this;
     }
 }

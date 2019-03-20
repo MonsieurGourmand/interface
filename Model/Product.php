@@ -203,6 +203,11 @@ class Product extends Master implements ProductInterface
     /**
      * @var integer
      */
+    private $range;
+
+    /**
+     * @var integer
+     */
     private $thawingFreshTime;
 
     /**
@@ -1433,4 +1438,21 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getRange()
+    {
+        return $this->range;
+    }
+
+    /**
+     * @param int $range
+     * @return Product
+     */
+    public function setRange($range)
+    {
+        $this->range = $range;
+        return $this;
+    }
 }

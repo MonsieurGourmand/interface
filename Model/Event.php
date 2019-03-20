@@ -271,6 +271,22 @@ class Event extends Master implements EventInterface
     private $type;
 
     /**
+     * @var integer
+     */
+    private $grade;
+
+    /**
+     * @var integer
+     */
+    private $productsGrade;
+
+    /**
+     * @var integer
+     */
+    private $shippingGrade;
+
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -1098,6 +1114,60 @@ class Event extends Master implements EventInterface
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGrade()
+    {
+        return $this->grade;
+    }
+
+    /**
+     * @param int $grade
+     * @return Event
+     */
+    public function setGrade($grade)
+    {
+        $this->grade = $grade;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getProductsGrade()
+    {
+        return $this->productsGrade;
+    }
+
+    /**
+     * @param int $productsGrade
+     * @return Event
+     */
+    public function setProductsGrade($productsGrade)
+    {
+        $this->productsGrade = $productsGrade;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getShippingGrade()
+    {
+        return $this->shippingGrade;
+    }
+
+    /**
+     * @param int $shippingGrade
+     * @return Event
+     */
+    public function setShippingGrade($shippingGrade)
+    {
+        $this->shippingGrade = $shippingGrade;
         return $this;
     }
 }
