@@ -71,6 +71,11 @@ class User extends Master
     private $roles;
 
     /**
+     * @var int
+     */
+    private $score;
+
+    /**
      * @return int
      */
     public function getId()
@@ -253,6 +258,24 @@ class User extends Master
     public function setJob($job)
     {
         $this->job = $job;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getScore()
+    {
+        return $this->score;
+    }
+
+    /**
+     * @param int $score
+     * @return User
+     */
+    public function setScore($score)
+    {
+        $this->score = $score;
         return $this;
     }
 }
