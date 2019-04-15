@@ -2,7 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -37,11 +38,6 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $description;
-
-    /**
-     * @var Document[]
-     */
-    private $pictures;
 
     /**
      * @var integer
@@ -271,11 +267,6 @@ class Product extends Master implements ProductInterface
     private $stockAlert;
 
     /**
-     * @var Document
-     */
-    private $technicalForm;
-
-    /**
      * @var Packaging
      */
     private $packaging;
@@ -339,6 +330,16 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $quantityPreparable;
+
+    /**
+     * @var Document[]|Collection
+     */
+    private $technicalForms;
+
+    /**
+     * @var Document[]|Collection
+     */
+    private $pictures;
 
     /**
      * @return int
@@ -877,7 +878,6 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * <<<<<<< HEAD
      * @return string
      */
     public function getIngredients()
@@ -892,24 +892,6 @@ class Product extends Master implements ProductInterface
     public function setIngredients($ingredients)
     {
         $this->ingredients = $ingredients;
-        return $this;
-    }
-
-    /**
-     * @return Document
-     */
-    public function getTechnicalForm()
-    {
-        return $this->technicalForm;
-    }
-
-    /**
-     * @param Document $technicalForm
-     * @return Product
-     */
-    public function setTechnicalForm($technicalForm)
-    {
-        $this->technicalForm = $technicalForm;
         return $this;
     }
 
@@ -1105,23 +1087,6 @@ class Product extends Master implements ProductInterface
     {
         $this->quantityExpiredCBN = $quantityExpiredCBN;
         return $this;
-    }
-
-    /**
-     * @return Document[]
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-
-    /**
-     * @param Document[] $pictures
-     * @return Product
-     */
-    public function setPictures($pictures)
-    {
-        $this->pictures = $pictures;
     }
 
     /**
@@ -1456,5 +1421,89 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * Add technical form
+     *
+     * @param Document $technicalForm
+     *
+     * @return Product
+     */
+    public function addTechnicalForm(Document $technicalForm)
+    {
+        $technicalForm->setTechnicalFormProduct($this);
 
+        $this->technicalForms[] = $technicalForm;
+
+        return $this;
+    }
+
+    /**
+     * Remove technical form
+     *
+     * @param Document $document
+     */
+    public function removeTechnicalForm(Document $document)
+    {
+        $this->technicalForms->removeElement($document);
+    }
+
+    /**
+     * Get technical forms
+     *
+     * @return Collection
+     */
+    public function getTechnicalForms()
+    {
+        return $this->technicalForms;
+    }
+
+    /**
+     * Add picture
+     *
+     * @param Document $picture
+     *
+     * @return Product
+     */
+    public function addPicture(Document $picture)
+    {
+        $picture->setPictureProduct($this);
+
+        $this->pictures[] = $picture;
+
+        return $this;
+    }
+
+    /**
+     * Remove picture
+     *
+     * @param Document $document
+     */
+    public function removePicture(Document $document)
+    {
+        $this->pictures->removeElement($document);
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return Collection
+     */
+    public function getPictures()
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->prices = new ArrayCollection();
+        $this->salesProducts = new ArrayCollection();
+        $this->archived = 0;
+        $this->favorite = false;
+        $this->cabane = 0;
+        $this->technicalForms = new ArrayCollection();
+        $this->pictures = new ArrayCollection();
+    }
 }
