@@ -35,7 +35,7 @@ class Document
 
     public function remove(\monsieurgourmand\Bundle\InterfaceBundle\Model\Document $document)
     {
-        return $this->master->remove($this->url, $document->getIdDocument());
+        return $this->master->remove($this->url, $document->getId());
     }
 
 }
