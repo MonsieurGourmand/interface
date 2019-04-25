@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
+use http\Client;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Amount;
@@ -10,6 +11,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Document;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Implementation;
@@ -26,6 +28,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Trace;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\User;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
+use OAuth2\Client;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
 
@@ -48,6 +51,7 @@ class MGD
     private $callback;
     private $parser;
     private $serializer;
+    /** @var Client */
     private $client;
     private $refresh_token;
     private $session;
@@ -75,6 +79,7 @@ class MGD
     public $package;
     public $kits;
     public $amount;
+    public $document;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -113,7 +118,7 @@ class MGD
         $this->package = new Package($this);
         $this->kits = new Kit($this);
         $this->amount = new Amount($this);
-
+        $this->document = new Document($this);
     }
 
     public function login()
@@ -123,7 +128,7 @@ class MGD
 
     public function access(Request $request)
     {
-        $this->client = new \OAuth2\Client($this->client_id, $this->client_secret);
+        $this->client = new Client($this->client_id, $this->client_secret);
         $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'authorization_code', array('code' => $request->query->get('code'), "redirect_uri" => $this->callback));
         $this->client->setAccessToken($response['result']['access_token']);
         $request->getSession()->set('client', $this->client);
@@ -133,7 +138,7 @@ class MGD
 
     public function accessClientCredential()
     {
-        $this->client = new \OAuth2\Client($this->client_id, $this->client_secret);
+        $this->client = new Client($this->client_id, $this->client_secret);
         $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'client_credentials', array());
         if ($this->session)
             $this->session->set('client', $this->client);
@@ -179,9 +184,14 @@ class MGD
             return $response['result'];
     }
 
-    public function post($url, $object, $entityClass, $format)
+    public function post($url, $object, $entityClass, $format, bool $postFile = false)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($object), \OAuth2\Client::HTTP_METHOD_POST, array('Content-Type' => 'application/x-www-form-urlencoded'), \OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        if ($postFile) {
+            $this->client->setAccessTokenType(Client::ACCESS_TOKEN_BEARER);
+            $response = $this->client->fetch($this->apiRoot . $url, ['file_contents' => $object], \OAuth2\Client::HTTP_METHOD_POST, array('Content-Type' => 'multipart/form-data'));
+        } else {
+            $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_POST, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        }
         if (self::getError($response))
             return self::post($url, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
@@ -194,7 +204,7 @@ class MGD
 
     public function put($url, $id, $object, $entityClass, $format)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), \OAuth2\Client::HTTP_METHOD_PUT, array('Content-Type' => 'application/x-www-form-urlencoded'), \OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_PUT, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if (self::getError($response))
             return self::put($url, $id, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
@@ -207,7 +217,7 @@ class MGD
 
     public function patch($url, $id, $object, $entityClass, $format)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), \OAuth2\Client::HTTP_METHOD_PATCH, array('Content-Type' => 'application/x-www-form-urlencoded'), \OAuth2\Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_PATCH, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         if (self::getError($response))
             return self::patch($url, $id, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
@@ -220,7 +230,7 @@ class MGD
 
     public function remove($url, $id)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', array(), \OAuth2\Client::HTTP_METHOD_DELETE);
+        $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', array(), Client::HTTP_METHOD_DELETE);
         if (self::getError($response))
             return self::remove($url, $id);
         return $response;
