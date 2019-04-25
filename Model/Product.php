@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -332,12 +331,12 @@ class Product extends Master implements ProductInterface
     private $quantityPreparable;
 
     /**
-     * @var Document[]|Collection
+     * @var Document[]
      */
     private $technicalForms;
 
     /**
-     * @var Document[]|Collection
+     * @var Document[]
      */
     private $pictures;
 
@@ -1422,75 +1421,47 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * Add technical form
-     *
-     * @param Document $technicalForm
-     *
-     * @return Product
-     */
-    public function addTechnicalForm(Document $technicalForm)
-    {
-        $technicalForm->setTechnicalFormProduct($this);
-
-        $this->technicalForms[] = $technicalForm;
-
-        return $this;
-    }
-
-    /**
-     * Remove technical form
-     *
-     * @param Document $document
-     */
-    public function removeTechnicalForm(Document $document)
-    {
-        $this->technicalForms->removeElement($document);
-    }
-
-    /**
      * Get technical forms
      *
-     * @return Collection
+     * @return Document[]
      */
-    public function getTechnicalForms()
+    public function getTechnicalForms(): array
     {
         return $this->technicalForms;
     }
 
     /**
-     * Add picture
-     *
-     * @param Document $picture
+     * @param array $technicalForms
      *
      * @return Product
      */
-    public function addPicture(Document $picture)
+    public function setTechnicalForms(array $technicalForms): Product
     {
-        $picture->setPictureProduct($this);
-
-        $this->pictures[] = $picture;
+        $this->technicalForms = $technicalForms;
 
         return $this;
     }
 
     /**
-     * Remove picture
+     * Get pictures
      *
-     * @param Document $document
+     * @return Document[]
      */
-    public function removePicture(Document $document)
+    public function getPictures(): array
     {
-        $this->pictures->removeElement($document);
+        return $this->pictures;
     }
 
     /**
-     * Get pictures
+     * @param array $pictures
      *
-     * @return Collection
+     * @return Product
      */
-    public function getPictures()
+    public function setPictures(array $pictures): Product
     {
-        return $this->pictures;
+        $this->pictures = $pictures;
+
+        return $this;
     }
 
     /**
@@ -1503,7 +1474,7 @@ class Product extends Master implements ProductInterface
         $this->archived = 0;
         $this->favorite = false;
         $this->cabane = 0;
-        $this->technicalForms = new ArrayCollection();
-        $this->pictures = new ArrayCollection();
+        $this->technicalForms = [];
+        $this->pictures = [];
     }
 }
