@@ -4,13 +4,10 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use DateTime;
 use Exception;
-use Symfony\Component\HttpFoundation\File\File;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Class Document
- *
- * @Vich\Uploadable()
  */
 class Document extends Master
 {
@@ -22,17 +19,20 @@ class Document extends Master
     /**
      * @var string
      */
-    private $documentFileName;
+    private $fileName;
 
     /**
-     * @var File
-     *
-     * @Vich\UploadableField(mapping="document", fileNameProperty="documentFileName")
+     * @var string
+     */
+    private $url;
+
+    /**
+     * @var UploadedFile
      */
     private $documentFile;
 
     /**
-     * @var DateTime
+     * @var string
      */
     private $createdAt;
 
@@ -49,7 +49,7 @@ class Document extends Master
     /**
      * @return int
      */
-    public function getId()
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -57,25 +57,45 @@ class Document extends Master
     /**
      * @return string
      */
-    public function getDocumentFileName()
+    public function getFileName(): ?string
     {
-        return $this->documentFileName;
+        return $this->fileName;
     }
 
     /**
-     * @param string $documentFileName
+     * @param string $fileName
      *
      * @return Document
      */
-    public function setDocumentFileName($documentFileName)
+    public function setFileName($fileName): Document
     {
-        $this->documentFileName = $documentFileName;
+        $this->fileName = $fileName;
 
         return $this;
     }
 
     /**
-     * @return File
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     *
+     * @return Document
+     */
+    public function setUrl(string $url): Document
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    /**
+     * @return UploadedFile
      */
     public function getDocumentFile()
     {
@@ -83,11 +103,11 @@ class Document extends Master
     }
 
     /**
-     * @param File $documentFile
+     * @param UploadedFile $documentFile
      *
      * @return Document
      */
-    public function setDocumentFile($documentFile)
+    public function setDocumentFile(UploadedFile $documentFile): Document
     {
         $this->documentFile = $documentFile;
 
@@ -96,10 +116,12 @@ class Document extends Master
 
     /**
      * @return DateTime
+     *
+     * @throws Exception
      */
-    public function getCreatedAt()
+    public function getCreatedAt(): DateTime
     {
-        return $this->createdAt;
+        return  new DateTime($this->createdAt);
     }
 
     /**
@@ -107,9 +129,9 @@ class Document extends Master
      *
      * @return Document
      */
-    public function setCreatedAt($createdAt)
+    public function setCreatedAt(DateTime $createdAt): Document
     {
-        $this->createdAt = $createdAt;
+        $this->createdAt = $createdAt->format('Y-m-d H:i:s');
 
         return $this;
     }
@@ -117,7 +139,7 @@ class Document extends Master
     /**
      * @return Product
      */
-    public function getTechnicalFormProduct()
+    public function getTechnicalFormProduct(): ?Product
     {
         return $this->technicalFormProduct;
     }
@@ -127,7 +149,7 @@ class Document extends Master
      *
      * @return Document
      */
-    public function setTechnicalFormProduct(Product $technicalFormProduct)
+    public function setTechnicalFormProduct(Product $technicalFormProduct): Document
     {
         $this->technicalFormProduct = $technicalFormProduct;
 
@@ -137,7 +159,7 @@ class Document extends Master
     /**
      * @return Product
      */
-    public function getPictureProduct()
+    public function getPictureProduct(): ?Product
     {
         return $this->pictureProduct;
     }
@@ -147,7 +169,7 @@ class Document extends Master
      *
      * @return Document
      */
-    public function setPictureProduct(Product $pictureProduct)
+    public function setPictureProduct(Product $pictureProduct): Document
     {
         $this->pictureProduct = $pictureProduct;
 
@@ -161,6 +183,6 @@ class Document extends Master
      */
     public function __construct()
     {
-        $this->createdAt = new DateTime();
+        $this->createdAt =  (new DateTime())->format('Y-m-d H:i:s');
     }
 }
