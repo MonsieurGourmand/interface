@@ -70,6 +70,11 @@ class Place extends Master
     private $shipper;
 
     /**
+     * @var string
+     */
+    private $corporateName;
+
+    /**
      * @return int
      */
     public function getIdPlace()
@@ -254,6 +259,24 @@ class Place extends Master
     public function setShipper($shipper)
     {
         $this->shipper = $shipper;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCorporateName()
+    {
+        return $this->corporateName;
+    }
+
+    /**
+     * @param string $corporateName
+     * @return Place
+     */
+    public function setCorporateName($corporateName)
+    {
+        $this->corporateName = $corporateName;
         return $this;
     }
 }
