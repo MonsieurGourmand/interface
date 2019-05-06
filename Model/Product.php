@@ -331,14 +331,14 @@ class Product extends Master implements ProductInterface
     private $quantityPreparable;
 
     /**
-     * @var Document[]
+     * @var ProductTechnicalForm[]
      */
-    private $technicalForms;
+    private $productTechnicalForms;
 
     /**
-     * @var Document[]
+     * @var ProductPicture[]
      */
-    private $pictures;
+    private $productPictures;
 
     /**
      * @return int
@@ -1423,21 +1423,21 @@ class Product extends Master implements ProductInterface
     /**
      * Get technical forms
      *
-     * @return Document[]
+     * @return ProductTechnicalForm[]
      */
-    public function getTechnicalForms(): array
+    public function getProductTechnicalForms(): array
     {
-        return $this->technicalForms;
+        return $this->productTechnicalForms;
     }
 
     /**
-     * @param array $technicalForms
+     * @param ProductTechnicalForm[] $productTechnicalForms
      *
      * @return Product
      */
-    public function setTechnicalForms(array $technicalForms): Product
+    public function setProductTechnicalForms(array $productTechnicalForms): Product
     {
-        $this->technicalForms = $technicalForms;
+        $this->productTechnicalForms = $productTechnicalForms;
 
         return $this;
     }
@@ -1445,21 +1445,21 @@ class Product extends Master implements ProductInterface
     /**
      * Get pictures
      *
-     * @return Document[]
+     * @return ProductPicture[]
      */
-    public function getPictures(): array
+    public function getProductPictures(): array
     {
-        return $this->pictures;
+        return $this->productPictures;
     }
 
     /**
-     * @param array $pictures
+     * @param ProductPicture[] $productPictures
      *
      * @return Product
      */
-    public function setPictures(array $pictures): Product
+    public function setProductPictures(array $productPictures): Product
     {
-        $this->pictures = $pictures;
+        $this->productPictures = $productPictures;
 
         return $this;
     }
@@ -1474,7 +1474,7 @@ class Product extends Master implements ProductInterface
         $this->archived = 0;
         $this->favorite = false;
         $this->cabane = 0;
-        $this->technicalForms = [];
-        $this->pictures = [];
+        $this->productTechnicalForms = [];
+        $this->productPictures = [];
     }
 }

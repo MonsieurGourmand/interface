@@ -3,11 +3,11 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 /**
- * Class ProductPicture
+ * Class ProductTechnicalForm
  *
  * @author Alice Dahan <alice@monsieurgourmand.com>
  */
-class ProductPicture extends Master
+class ProductTechnicalForm extends Master
 {
     /**
      * @var int
@@ -23,11 +23,6 @@ class ProductPicture extends Master
      * @var Document
      */
     private $document;
-
-    /**
-     * @var bool
-     */
-    private $default = false;
 
     /**
      * @return int
@@ -54,9 +49,9 @@ class ProductPicture extends Master
     /**
      * @param Product $product
      *
-     * @return ProductPicture
+     * @return ProductTechnicalForm
      */
-    public function setProduct(Product $product): ProductPicture
+    public function setProduct(Product $product): ProductTechnicalForm
     {
         $this->product = $product;
 
@@ -74,31 +69,11 @@ class ProductPicture extends Master
     /**
      * @param Document $document
      *
-     * @return ProductPicture
+     * @return ProductTechnicalForm
      */
-    public function setDocument(Document $document): ProductPicture
+    public function setDocument(Document $document): ProductTechnicalForm
     {
         $this->document = $document;
-
-        return $this;
-    }
-
-    /**
-     * @return bool
-     */
-    public function isDefault(): bool
-    {
-        return $this->default;
-    }
-
-    /**
-     * @param bool $default
-     *
-     * @return ProductPicture
-     */
-    public function setDefault(bool $default): ProductPicture
-    {
-        $this->default = $default;
 
         return $this;
     }
