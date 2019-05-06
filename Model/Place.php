@@ -263,7 +263,7 @@ class Place extends Master
     }
 
     /**
-     * @return string
+     * @return string|null
      */
     public function getCorporateName()
     {
