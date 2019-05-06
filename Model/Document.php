@@ -37,16 +37,6 @@ class Document extends Master
     private $createdAt;
 
     /**
-     * @var Product
-     */
-    private $technicalFormProduct;
-
-    /**
-     * @var Product
-     */
-    private $pictureProduct;
-
-    /**
      * @return int
      */
     public function getId(): ?int
@@ -132,46 +122,6 @@ class Document extends Master
     public function setCreatedAt(DateTime $createdAt): Document
     {
         $this->createdAt = $createdAt->format('Y-m-d H:i:s');
-
-        return $this;
-    }
-
-    /**
-     * @return Product
-     */
-    public function getTechnicalFormProduct(): ?Product
-    {
-        return $this->technicalFormProduct;
-    }
-
-    /**
-     * @param Product $technicalFormProduct
-     *
-     * @return Document
-     */
-    public function setTechnicalFormProduct(Product $technicalFormProduct): Document
-    {
-        $this->technicalFormProduct = $technicalFormProduct;
-
-        return $this;
-    }
-
-    /**
-     * @return Product
-     */
-    public function getPictureProduct(): ?Product
-    {
-        return $this->pictureProduct;
-    }
-
-    /**
-     * @param Product $pictureProduct
-     *
-     * @return Document
-     */
-    public function setPictureProduct(Product $pictureProduct): Document
-    {
-        $this->pictureProduct = $pictureProduct;
 
         return $this;
     }
