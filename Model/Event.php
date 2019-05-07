@@ -22,16 +22,6 @@ class Event extends Master implements EventInterface
     /**
      * @var string
      */
-    private $zipCode;
-
-    /**
-     * @var string
-     */
-    private $city;
-
-    /**
-     * @var string
-     */
     private $reservationNumber;
 
     /**
@@ -83,29 +73,6 @@ class Event extends Master implements EventInterface
      * @var string
      */
     private $name;
-
-    /**
-     * @var string
-     */
-    private $corporateName;
-
-    /**
-     * @var string
-     *
-     */
-    private $country;
-
-    /**
-     * @var string
-     *
-     */
-    private $mail;
-
-    /**
-     * @var string
-     *
-     */
-    private $phone;
 
     /**
      * @var string
@@ -201,11 +168,6 @@ class Event extends Master implements EventInterface
      * @var Kit
      */
     private $format;
-
-    /**
-     * @var string
-     */
-    private $recipient;
 
     /**
      * @var boolean
@@ -316,42 +278,6 @@ class Event extends Master implements EventInterface
     /**
      * @return string
      */
-    public function getZipCode()
-    {
-        return $this->zipCode;
-    }
-
-    /**
-     * @param string $zipCode
-     * @return Event
-     */
-    public function setZipCode($zipCode)
-    {
-        $this->zipCode = $zipCode;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCity()
-    {
-        return $this->city;
-    }
-
-    /**
-     * @param string $city
-     * @return Event
-     */
-    public function setCity($city)
-    {
-        $this->city = $city;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
     public function getReservationNumber()
     {
         return $this->reservationNumber;
@@ -368,7 +294,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getDeliveryDate()
     {
@@ -376,7 +302,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $deliveryDate
+     * @param DateTime $deliveryDate
      * @return Event
      */
     public function setDeliveryDate($deliveryDate)
@@ -422,7 +348,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getUpdated()
     {
@@ -430,7 +356,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $updated
+     * @param DateTime $updated
      * @return Event
      */
     public function setUpdated($updated)
@@ -454,42 +380,6 @@ class Event extends Master implements EventInterface
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
-     * @param string $mail
-     * @return Event
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * @param string $phone
-     * @return Event
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
         return $this;
     }
 
@@ -710,24 +600,6 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return string
-     */
-    public function getCountry()
-    {
-        return $this->country;
-    }
-
-    /**
-     * @param string $country
-     * @return Event
-     */
-    public function setCountry($country)
-    {
-        $this->country = $country;
-        return $this;
-    }
-
-    /**
      * @return Kit
      */
     public function getFormat()
@@ -742,42 +614,6 @@ class Event extends Master implements EventInterface
     public function setFormat($format)
     {
         $this->format = $format;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getRecipient()
-    {
-        return $this->recipient;
-    }
-
-    /**
-     * @param string $recipient
-     * @return Event
-     */
-    public function setRecipient($recipient)
-    {
-        $this->recipient = $recipient;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getCorporateName()
-    {
-        return $this->corporateName;
-    }
-
-    /**
-     * @param string $corporateName
-     * @return Event
-     */
-    public function setCorporateName($corporateName)
-    {
-        $this->corporateName = $corporateName;
         return $this;
     }
 
@@ -800,7 +636,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getEventDate()
     {
@@ -808,7 +644,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $eventDate
+     * @param DateTime $eventDate
      * @return Event
      */
     public function setEventDate($eventDate)
@@ -854,7 +690,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getRecall()
     {
@@ -862,7 +698,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $recall
+     * @param DateTime $recall
      * @return Event
      */
     public function setRecall($recall)
@@ -872,7 +708,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getCollectDate()
     {
@@ -880,7 +716,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $collectDate
+     * @param DateTime $collectDate
      * @return Event
      */
     public function setCollectDate($collectDate)
@@ -890,7 +726,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getShippingDate()
     {
@@ -898,7 +734,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $shippingDate
+     * @param DateTime $shippingDate
      * @return Event
      */
     public function setShippingDate($shippingDate)
@@ -1029,7 +865,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getPreparationDate()
     {
@@ -1037,7 +873,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param \DateTime $preparationDate
+     * @param DateTime $preparationDate
      * @return Event
      */
     public function setPreparationDate($preparationDate)
