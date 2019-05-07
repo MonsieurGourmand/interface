@@ -81,6 +81,8 @@ class Parser
                 $type = '';
                 if (preg_match('/@var\s+(\\\\\w+)/', $propDest->getDocComment(), $matches)) {
                     list(, $type) = $matches;
+                } elseif (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
+                    list(, $type) = $matches;
                 }
                 if ((strstr($type, '\DateTime') || strstr($type, 'DateTime')) && $value !== null) {
                     $propDest->setValue($destination, new \DateTime($value));
