@@ -46,7 +46,7 @@ class Serializer
                 $type = '';
                 if (preg_match('/@var\s+(\\\\\w+)/', $property->getDocComment(), $matches)) {
                     list(, $type) = $matches;
-                } elseif (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
+                } elseif (preg_match('/@var\s+(\w+)/', $property->getDocComment(), $matches)) {
                     list(, $type) = $matches;
                 }
                 if ((strstr($type, '\DateTime') || strstr($type, 'DateTime')) && $value !== null) {
