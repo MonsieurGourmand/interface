@@ -65,15 +65,9 @@ class Event extends Master implements EventInterface
     private $name;
 
     /**
-     * @var string
-     */
-    private $deliveryReference;
-
-    /**
      * @var User
      */
     private $supportUser;
-
 
     /**
      * @var Operation
@@ -370,24 +364,6 @@ class Event extends Master implements EventInterface
     public function setName($name)
     {
         $this->name = $name;
-        return $this;
-    }
-
-    /**
-     * @return string
-     */
-    public function getDeliveryReference()
-    {
-        return $this->deliveryReference;
-    }
-
-    /**
-     * @param string $deliveryReference
-     * @return Event
-     */
-    public function setDeliveryReference($deliveryReference)
-    {
-        $this->deliveryReference = $deliveryReference;
         return $this;
     }
 
