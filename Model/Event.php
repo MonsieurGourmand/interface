@@ -4,6 +4,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
+use DateTime;
 
 class Event extends Master implements EventInterface
 {
@@ -14,7 +15,7 @@ class Event extends Master implements EventInterface
     private $idEvent;
 
     /**
-     * @var string
+     * @var Place
      */
     private $place;
 
@@ -34,32 +35,32 @@ class Event extends Master implements EventInterface
     private $reservationNumber;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $deliveryDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $preparationDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $recall;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $eventDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $collectDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $shippingDate;
 
@@ -74,7 +75,7 @@ class Event extends Master implements EventInterface
     private $step;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $updated;
 
@@ -295,7 +296,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return string
+     * @return Place
      */
     public function getPlace()
     {
@@ -303,7 +304,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param string $place
+     * @param Place $place
      * @return Event
      */
     public function setPlace($place)
