@@ -4,6 +4,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\ProductPicture;
+use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 /**
  * Class Picture
