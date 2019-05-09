@@ -4,6 +4,8 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Product\Picture;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Product\TechnicalForm;
 
 class Product extends Master implements ProductInterface
 {
@@ -339,6 +341,16 @@ class Product extends Master implements ProductInterface
      * @var ProductPicture[]
      */
     private $productPictures;
+
+    /**
+     * @var Picture
+     */
+    public $productPicturesRoute;
+
+    /**
+     * @var TechnicalForm
+     */
+    public $productTechnicalFormsRoute;
 
     /**
      * @return int
