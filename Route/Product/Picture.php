@@ -1,6 +1,6 @@
 <?php
 
-namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Product;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\ProductPicture;
