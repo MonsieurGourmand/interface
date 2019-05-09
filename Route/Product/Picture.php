@@ -28,9 +28,19 @@ class Picture
         }
     }
 
+    public function get(int $pictureId, $format = MGD::FORMAT_OBJECT): ProductPicture
+    {
+        return $this->master->get($this->url, $pictureId, $this->entity, $format);
+    }
+
     public function post(ProductPicture $picture, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $picture, $this->entity, $format);
+    }
+
+    public function patch(ProductPicture $picture, $format = MGD::FORMAT_OBJECT)
+    {
+        return $this->master->patch($this->url, $picture->getId(), $picture, $this->entity, $format);
     }
 
     public function delete(int $pictureId)

@@ -28,9 +28,19 @@ class TechnicalForm
         }
     }
 
+    public function get(int $technicalFormId, $format = MGD::FORMAT_OBJECT): ProductTechnicalForm
+    {
+        return $this->master->get($this->url, $technicalFormId, $this->entity, $format);
+    }
+
     public function post(ProductTechnicalForm $technicalForm, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $technicalForm, $this->entity, $format);
+    }
+
+    public function patch(ProductTechnicalForm $technicalForm, $format = MGD::FORMAT_OBJECT)
+    {
+        return $this->master->patch($this->url, $technicalForm->getId(), $technicalForm, $this->entity, $format);
     }
 
     public function delete(int $technicalFormId)
