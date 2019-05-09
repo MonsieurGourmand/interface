@@ -22,9 +22,9 @@ class TechnicalForm
         $this->master = $product->getMaster();
         $this->entity = ProductTechnicalForm::class;
         if ($product->getSupplier()) {
-            $this->url = "/suppliers/" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/technical_forms";
+            $this->url = "/suppliers/" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/technicalforms";
         } else {
-            $this->url = "/products/" . $product->getIdProduct() . "/technical_forms";
+            $this->url = "/products/" . $product->getIdProduct() . "/technicalforms";
         }
     }
 
