@@ -37,6 +37,16 @@ class Event extends Master implements EventInterface
     /**
      * @var DateTime
      */
+    private $shippingDate;
+
+    /**
+     * @var DateTime
+     */
+    private $collectDate;
+
+    /**
+     * @var DateTime
+     */
     private $recall;
 
     /**
@@ -930,6 +940,42 @@ class Event extends Master implements EventInterface
     public function setShippingGrade($shippingGrade)
     {
         $this->shippingGrade = $shippingGrade;
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getShippingDate()
+    {
+        return $this->shippingDate;
+    }
+
+    /**
+     * @param DateTime $shippingDate
+     * @return Event
+     */
+    public function setShippingDate($shippingDate)
+    {
+        $this->shippingDate = $shippingDate;
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCollectDate()
+    {
+        return $this->collectDate;
+    }
+
+    /**
+     * @param DateTime $collectDate
+     * @return Event
+     */
+    public function setCollectDate($collectDate)
+    {
+        $this->collectDate = $collectDate;
         return $this;
     }
 }
