@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use Symfony\Component\Validator\Constraints as Assert;
+use Doctrine\Common\Collections\ArrayCollection;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
 class Product extends Master implements ProductInterface
@@ -37,11 +37,6 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $description;
-
-    /**
-     * @var Document[]
-     */
-    private $pictures;
 
     /**
      * @var integer
@@ -271,11 +266,6 @@ class Product extends Master implements ProductInterface
     private $stockAlert;
 
     /**
-     * @var Document
-     */
-    private $technicalForm;
-
-    /**
      * @var Packaging
      */
     private $packaging;
@@ -339,6 +329,26 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $quantityPreparable;
+
+    /**
+     * @var ProductTechnicalForm[]
+     */
+    private $productTechnicalForms;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\TechnicalForm
+     */
+    public $productTechnicalFormsRoute;
+
+    /**
+     * @var ProductPicture[]
+     */
+    private $productPictures;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Picture
+     */
+    public $productPicturesRoute;
 
     /**
      * @return int
@@ -877,7 +887,6 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * <<<<<<< HEAD
      * @return string
      */
     public function getIngredients()
@@ -892,24 +901,6 @@ class Product extends Master implements ProductInterface
     public function setIngredients($ingredients)
     {
         $this->ingredients = $ingredients;
-        return $this;
-    }
-
-    /**
-     * @return Document
-     */
-    public function getTechnicalForm()
-    {
-        return $this->technicalForm;
-    }
-
-    /**
-     * @param Document $technicalForm
-     * @return Product
-     */
-    public function setTechnicalForm($technicalForm)
-    {
-        $this->technicalForm = $technicalForm;
         return $this;
     }
 
@@ -1105,23 +1096,6 @@ class Product extends Master implements ProductInterface
     {
         $this->quantityExpiredCBN = $quantityExpiredCBN;
         return $this;
-    }
-
-    /**
-     * @return Document[]
-     */
-    public function getPictures()
-    {
-        return $this->pictures;
-    }
-
-    /**
-     * @param Document[] $pictures
-     * @return Product
-     */
-    public function setPictures($pictures)
-    {
-        $this->pictures = $pictures;
     }
 
     /**
@@ -1456,5 +1430,61 @@ class Product extends Master implements ProductInterface
         return $this;
     }
 
+    /**
+     * Get technical forms
+     *
+     * @return ProductTechnicalForm[]
+     */
+    public function getProductTechnicalForms(): array
+    {
+        return $this->productTechnicalForms;
+    }
 
+    /**
+     * @param ProductTechnicalForm[] $productTechnicalForms
+     *
+     * @return Product
+     */
+    public function setProductTechnicalForms(array $productTechnicalForms): Product
+    {
+        $this->productTechnicalForms = $productTechnicalForms;
+
+        return $this;
+    }
+
+    /**
+     * Get pictures
+     *
+     * @return ProductPicture[]
+     */
+    public function getProductPictures(): array
+    {
+        return $this->productPictures;
+    }
+
+    /**
+     * @param ProductPicture[] $productPictures
+     *
+     * @return Product
+     */
+    public function setProductPictures(array $productPictures): Product
+    {
+        $this->productPictures = $productPictures;
+
+        return $this;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->prices = new ArrayCollection();
+        $this->salesProducts = new ArrayCollection();
+        $this->archived = 0;
+        $this->favorite = false;
+        $this->cabane = 0;
+        $this->productTechnicalForms = [];
+        $this->productPictures = [];
+    }
 }
