@@ -40,4 +40,6 @@ interface PackageInterface extends MainInterface
     const SIZE_SMALL_WHITE = 6;
     const SIZE_MEDIUM_WHITE = 7;
     const SIZE_BIG_WHITE = 8;
+    const SIZE_MEDIUM_WHITE_EXP = 9;
+    const SIZE_BROWN_RAJA = 10;
 }
