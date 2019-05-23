@@ -20,6 +20,11 @@ class Event extends Master implements EventInterface
     private $place;
 
     /**
+     * @var Place
+     */
+    private $shippingPlace;
+
+    /**
      * @var string
      */
     private $reservationNumber;
@@ -976,6 +981,24 @@ class Event extends Master implements EventInterface
     public function setCollectDate($collectDate)
     {
         $this->collectDate = $collectDate;
+        return $this;
+    }
+
+    /**
+     * @return Place
+     */
+    public function getShippingPlace()
+    {
+        return $this->shippingPlace;
+    }
+
+    /**
+     * @param Place $shippingPlace
+     * @return Event
+     */
+    public function setShippingPlace(Place $shippingPlace)
+    {
+        $this->shippingPlace = $shippingPlace;
         return $this;
     }
 }
