@@ -1481,9 +1481,9 @@ class Product extends Master implements ProductInterface
     {
         $this->prices = new ArrayCollection();
         $this->salesProducts = new ArrayCollection();
-        $this->archived = 0;
+        $this->archived = false;
         $this->favorite = false;
-        $this->cabane = 0;
+        $this->cabane = false;
         $this->productTechnicalForms = [];
         $this->productPictures = [];
     }
