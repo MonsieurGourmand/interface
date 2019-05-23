@@ -30,6 +30,11 @@ class Event extends Master implements EventInterface
     private $reservationNumber;
 
     /**
+     * @var string
+     */
+    private $deliveryReference;
+
+    /**
      * @var DateTime
      */
     private $deliveryDate;
@@ -999,6 +1004,24 @@ class Event extends Master implements EventInterface
     public function setShippingPlace(Place $shippingPlace)
     {
         $this->shippingPlace = $shippingPlace;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDeliveryReference(): ?string
+    {
+        return $this->deliveryReference;
+    }
+
+    /**
+     * @param string $deliveryReference
+     * @return Event
+     */
+    public function setDeliveryReference(string $deliveryReference): Event
+    {
+        $this->deliveryReference = $deliveryReference;
         return $this;
     }
 }
