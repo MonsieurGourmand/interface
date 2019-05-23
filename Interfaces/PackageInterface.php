@@ -31,15 +31,15 @@ interface PackageInterface extends MainInterface
     const TYPE_FRESH = 1;
     const TYPE_FREEZE = 2;
 
-    const SIZE_SMALL = 0;
-    const SIZE_MEDIUM = 1;
-    const SIZE_BOX_SMALL = 2;
-    const SIZE_BOX_MEDIUM = 3;
-    const SIZE_SMALL_COMMON = 4;
-    const SIZE_MEDIUM_COMMON = 5;
-    const SIZE_SMALL_WHITE = 6;
-    const SIZE_MEDIUM_WHITE = 7;
-    const SIZE_BIG_WHITE = 8;
+    const SIZE_SMALL_EXP = 0;
+    const SIZE_MEDIUM_EXP = 1;
+    const SIZE_BOX_SMALL_AUE = 2;
+    const SIZE_BOX_MEDIUM_AUE = 3;
+    const SIZE_SMALL_COMMON_CGE = 4;
+    const SIZE_MEDIUM_COMMON_CGE = 5;
+    const SIZE_SMALL_WHITE_RAJA = 6;
+    const SIZE_MEDIUM_WHITE_RAJA = 7;
+    const SIZE_BIG_WHITE_RAJA = 8;
     const SIZE_MEDIUM_WHITE_EXP = 9;
     const SIZE_BROWN_RAJA = 10;
 }
