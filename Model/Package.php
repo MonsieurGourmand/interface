@@ -14,7 +14,7 @@ class Package extends Master implements PackageInterface
     private $idPackage;
 
     /**
-     * @var integer
+     * @var string
      */
     private $trackingNumber;
 
@@ -58,7 +58,7 @@ class Package extends Master implements PackageInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getTrackingNumber()
     {
@@ -66,7 +66,7 @@ class Package extends Master implements PackageInterface
     }
 
     /**
-     * @param int $trackingNumber
+     * @param string $trackingNumber
      */
     public function setTrackingNumber($trackingNumber)
     {
