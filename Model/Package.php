@@ -4,6 +4,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PackageInterface;
+use DateTime;
 
 class Package extends Master implements PackageInterface
 {
@@ -18,7 +19,7 @@ class Package extends Master implements PackageInterface
     private $trackingNumber;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $shippingDate;
 
@@ -52,11 +53,6 @@ class Package extends Master implements PackageInterface
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Package\Activity
      */
     public $activities;
-
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Package\Shipping
-     */
-    public $shippings;
 
     /**
      * @return int
@@ -181,6 +177,4 @@ class Package extends Master implements PackageInterface
         $this->size = $size;
         return $this;
     }
-
-
 }
