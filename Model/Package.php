@@ -19,11 +19,6 @@ class Package extends Master implements PackageInterface
     private $trackingNumber;
 
     /**
-     * @var DateTime
-     */
-    private $shippingDate;
-
-    /**
      * @var integer
      */
     private $type;
@@ -76,22 +71,6 @@ class Package extends Master implements PackageInterface
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getShippingDate()
-    {
-        return $this->shippingDate;
-    }
-
-    /**
-     * @param \DateTime $shippingDate
-     */
-    public function setShippingDate($shippingDate)
-    {
-        $this->shippingDate = $shippingDate;
     }
 
     /**
