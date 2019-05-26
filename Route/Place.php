@@ -30,6 +30,11 @@ class Place
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
+    public function get($id, $format = MGD::FORMAT_OBJECT)
+    {
+        return $this->master->get($this->url, $id, $this->entity, $format);
+    }
+
     public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Place $place, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $place, $this->entity, $format);
