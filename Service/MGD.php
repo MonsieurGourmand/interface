@@ -19,6 +19,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Menu;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
@@ -125,6 +126,7 @@ class MGD
         $this->menu = new Menu($this);
         $this->shipper = new Shipper($this);
         $this->document = new Document($this);
+        $this->place = new Place($this);
     }
 
     public function login()
