@@ -83,6 +83,7 @@ class MGD
     public $menu;
     public $shipper;
     public $document;
+    public $place;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
