@@ -28,11 +28,10 @@ class EventDiscount extends Master
         return $this->idEventDiscount;
     }
 
-
     /**
      * @return float
      */
-    public function getValue(): float
+    public function getValue()
     {
         return $this->value;
     }
@@ -50,7 +49,7 @@ class EventDiscount extends Master
     /**
      * @return Event
      */
-    public function getEvent(): Event
+    public function getEvent()
     {
         return $this->event;
     }
@@ -68,7 +67,7 @@ class EventDiscount extends Master
     /**
      * @return EventDiscountType
      */
-    public function getEventDiscountType(): EventDiscountType
+    public function getEventDiscountType()
     {
         return $this->eventDiscountType;
     }
