@@ -25,6 +25,11 @@ class KitProduct extends Master
     private $kit;
 
     /**
+     * @var string
+     */
+    private $comment;
+
+    /**
      * @return int
      */
     public function getIdKitProduct()
@@ -93,6 +98,26 @@ class KitProduct extends Master
     public function setKit($kit)
     {
         $this->kit = $kit;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment()
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     *
+     * @return KitProduct
+     */
+    public function setComment($comment)
+    {
+        $this->comment = $comment;
+
         return $this;
     }
 }
