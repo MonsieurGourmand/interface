@@ -72,6 +72,11 @@ class Supplier extends Master
     private $sendingTime;
 
     /**
+     * @var string
+     */
+    private $job;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
@@ -302,6 +307,26 @@ class Supplier extends Master
     public function setSendingTime($sendingTime)
     {
         $this->sendingTime = $sendingTime;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getJob(): ?string
+    {
+        return $this->job;
+    }
+
+    /**
+     * @param string $job
+     *
+     * @return Supplier
+     */
+    public function setJob(string $job): Supplier
+    {
+        $this->job = $job;
+
         return $this;
     }
 }
