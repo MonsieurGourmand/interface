@@ -16,7 +16,7 @@ class EventDiscountType extends Master
     /**
      * @return int
      */
-    public function getIdEventDiscountType(): int
+    public function getIdEventDiscountType(): ?int
     {
         return $this->idEventDiscountType;
     }
@@ -28,13 +28,14 @@ class EventDiscountType extends Master
     public function setIdEventDiscountType(int $idEventDiscountType): EventDiscountType
     {
         $this->idEventDiscountType = $idEventDiscountType;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getDesignation(): string
+    public function getDesignation(): ?string
     {
         return $this->designation;
     }
@@ -46,13 +47,14 @@ class EventDiscountType extends Master
     public function setDesignation(string $designation): EventDiscountType
     {
         $this->designation = $designation;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getType(): int
+    public function getType(): ?int
     {
         return $this->type;
     }
@@ -64,6 +66,7 @@ class EventDiscountType extends Master
     public function setType(int $type): EventDiscountType
     {
         $this->type = $type;
+
         return $this;
     }
 }

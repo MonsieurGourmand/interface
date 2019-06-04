@@ -8,7 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
@@ -49,5 +48,4 @@ class EventDiscount
     {
         return $this->master->remove($this->url, $idEventProduct);
     }
-
 }

@@ -7,14 +7,10 @@ class EventDiscount extends Master
     /** @var int */
     private $idEventDiscount;
 
-    /**
-     * @var float
-     */
+    /** @var float */
     private $value;
 
-    /**
-     * @var Event
-     */
+    /** @var Event */
     private $event;
 
     /** @var EventDiscountType */
@@ -23,7 +19,7 @@ class EventDiscount extends Master
     /**
      * @return int
      */
-    public function getIdEventDiscount()
+    public function getIdEventDiscount(): ?int
     {
         return $this->idEventDiscount;
     }
@@ -31,7 +27,7 @@ class EventDiscount extends Master
     /**
      * @return float
      */
-    public function getValue()
+    public function getValue(): ?float
     {
         return $this->value;
     }
@@ -43,13 +39,14 @@ class EventDiscount extends Master
     public function setValue(float $value): EventDiscount
     {
         $this->value = $value;
+
         return $this;
     }
 
     /**
      * @return Event
      */
-    public function getEvent()
+    public function getEvent(): ?Event
     {
         return $this->event;
     }
@@ -61,13 +58,14 @@ class EventDiscount extends Master
     public function setEvent(Event $event): EventDiscount
     {
         $this->event = $event;
+
         return $this;
     }
 
     /**
      * @return EventDiscountType
      */
-    public function getEventDiscountType()
+    public function getEventDiscountType(): ?EventDiscountType
     {
         return $this->eventDiscountType;
     }
@@ -79,6 +77,7 @@ class EventDiscount extends Master
     public function setEventDiscountType(EventDiscountType $eventDiscountType): EventDiscount
     {
         $this->eventDiscountType = $eventDiscountType;
+
         return $this;
     }
 }
