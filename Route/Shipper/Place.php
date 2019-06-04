@@ -8,7 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Shipper;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Shipper;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
@@ -25,9 +24,8 @@ class Place
         $this->url = "/shippers/" . $shipper->getIdShipper() . "/places";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll($params = [], $format = MGD::FORMAT_OBJECT)
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
