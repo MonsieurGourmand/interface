@@ -9,7 +9,7 @@ class Place extends Master
      * @var int
      *
      */
-    private $idPlace;
+    private $id;
 
     /**
      * @var string
@@ -77,9 +77,9 @@ class Place extends Master
     /**
      * @return int
      */
-    public function getIdPlace()
+    public function getId()
     {
-        return $this->idPlace;
+        return $this->id;
     }
 
     /**

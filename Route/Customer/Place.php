@@ -41,6 +41,6 @@ class Place
 
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Place $place, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url, $place->getIdPlace(), $place, $this->entity, $format);
+        return $this->master->put($this->url, $place->getId(), $place, $this->entity, $format);
     }
 }
