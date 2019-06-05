@@ -5,7 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 class EventDiscountType extends Master
 {
     /** @var int */
-    private $idEventDiscountType;
+    private $id;
 
     /** @var string */
     private $designation;
@@ -16,18 +16,18 @@ class EventDiscountType extends Master
     /**
      * @return int
      */
-    public function getIdEventDiscountType(): ?int
+    public function getId()
     {
-        return $this->idEventDiscountType;
+        return $this->id;
     }
 
     /**
-     * @param int $idEventDiscountType
+     * @param int $id
      * @return EventDiscountType
      */
-    public function setIdEventDiscountType(int $idEventDiscountType): EventDiscountType
+    public function setId(int $id): EventDiscountType
     {
-        $this->idEventDiscountType = $idEventDiscountType;
+        $this->id = $id;
 
         return $this;
     }
@@ -35,7 +35,7 @@ class EventDiscountType extends Master
     /**
      * @return string
      */
-    public function getDesignation(): ?string
+    public function getDesignation()
     {
         return $this->designation;
     }
@@ -54,7 +54,7 @@ class EventDiscountType extends Master
     /**
      * @return int
      */
-    public function getType(): ?int
+    public function getType()
     {
         return $this->type;
     }

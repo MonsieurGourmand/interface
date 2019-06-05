@@ -5,7 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 class EventDiscount extends Master
 {
     /** @var int */
-    private $idEventDiscount;
+    private $id;
 
     /** @var float */
     private $value;
@@ -19,9 +19,9 @@ class EventDiscount extends Master
     /**
      * @return int
      */
-    public function getIdEventDiscount(): ?int
+    public function getId(): ?int
     {
-        return $this->idEventDiscount;
+        return $this->id;
     }
 
     /**

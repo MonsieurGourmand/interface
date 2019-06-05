@@ -41,7 +41,7 @@ class EventDiscount
 
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\EventDiscount $eventDiscount, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url, $eventDiscount->getIdEventDiscount(), $eventDiscount, $this->entity, $format);
+        return $this->master->put($this->url, $eventDiscount->getId(), $eventDiscount, $this->entity, $format);
     }
 
     public function remove($idEventProduct)
