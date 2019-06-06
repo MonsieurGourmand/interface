@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Place extends Master
 {
@@ -14,30 +15,36 @@ class Place extends Master
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      */
     private $address;
 
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      */
     private $country;
 
     /**
      * @var string
      *
+     * @Assert\NotBlank()
+     * @Assert\Length(min=5, max=5)
      */
     private $zipCode;
 
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      */
     private $city;
 
     /**
      * @var string
      *
+     * @Assert\NotBlank()
      */
     private $recipient;
 
@@ -50,6 +57,7 @@ class Place extends Master
     /**
      * @var string
      *
+     * @Assert\Email()
      */
     private $mail;
 
@@ -71,6 +79,8 @@ class Place extends Master
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank()
      */
     private $corporateName;
 
