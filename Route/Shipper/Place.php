@@ -21,7 +21,7 @@ class Place
     {
         $this->master = $shipper->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Place::class;
-        $this->url = "/shippers/" . $shipper->getIdShipper() . "/places";
+        $this->url = "/shippers/" . $shipper->getId() . "/places";
     }
 
     public function getAll($params = [], $format = MGD::FORMAT_OBJECT)

@@ -66,6 +66,6 @@ class Shipper
      */
     public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Shipper $shipper, $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->put($this->url, $shipper->getIdShipper(), $shipper, $this->entity, $format);
+        return $this->master->put($this->url, $shipper->getId(), $shipper, $this->entity, $format);
     }
 }
