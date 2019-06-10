@@ -10,6 +10,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\DiscountType;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Document;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
@@ -84,6 +85,7 @@ class MGD
     public $menu;
     public $shipper;
     public $document;
+    public $eventDiscountType;
     public $place;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
@@ -126,6 +128,7 @@ class MGD
         $this->menu = new Menu($this);
         $this->shipper = new Shipper($this);
         $this->document = new Document($this);
+        $this->eventDiscountType = new DiscountType($this);
         $this->place = new Place($this);
     }
 
