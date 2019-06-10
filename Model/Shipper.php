@@ -8,7 +8,7 @@ class Shipper extends Master
     /**
      * @var int
      */
-    private $idShipper;
+    private $id;
 
     /**
      * @var string
@@ -43,9 +43,9 @@ class Shipper extends Master
     /**
      * @return int
      */
-    public function getIdShipper()
+    public function getId()
     {
-        return $this->idShipper;
+        return $this->id;
     }
 
     /**
