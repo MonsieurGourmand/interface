@@ -5,6 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Amount;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Application;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
@@ -81,6 +82,7 @@ class MGD
     public $amount;
     public $menu;
     public $document;
+    public $application;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -121,6 +123,7 @@ class MGD
         $this->amount = new Amount($this);
         $this->menu = new Menu($this);
         $this->document = new Document($this);
+        $this->application = new Application($this);
     }
 
     public function login()
