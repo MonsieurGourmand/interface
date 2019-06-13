@@ -75,6 +75,9 @@ class User extends Master
      */
     private $score;
 
+    /** @var array */
+    private $applications;
+
     /**
      * @return int
      */
@@ -276,6 +279,24 @@ class User extends Master
     public function setScore($score)
     {
         $this->score = $score;
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getApplications()
+    {
+        return $this->applications;
+    }
+
+    /**
+     * @param array $applications
+     * @return User
+     */
+    public function setApplications(array $applications): User
+    {
+        $this->applications = $applications;
         return $this;
     }
 }
