@@ -3,8 +3,8 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PackageInterface;
+use DateTime;
 
 class Package extends Master implements PackageInterface
 {
@@ -14,14 +14,9 @@ class Package extends Master implements PackageInterface
     private $idPackage;
 
     /**
-     * @var integer
+     * @var string
      */
     private $trackingNumber;
-
-    /**
-     * @var \DateTime
-     */
-    private $shippingDate;
 
     /**
      * @var integer
@@ -63,7 +58,7 @@ class Package extends Master implements PackageInterface
     }
 
     /**
-     * @return int
+     * @return string
      */
     public function getTrackingNumber()
     {
@@ -71,27 +66,11 @@ class Package extends Master implements PackageInterface
     }
 
     /**
-     * @param int $trackingNumber
+     * @param string $trackingNumber
      */
     public function setTrackingNumber($trackingNumber)
     {
         $this->trackingNumber = $trackingNumber;
-    }
-
-    /**
-     * @return \DateTime
-     */
-    public function getShippingDate()
-    {
-        return $this->shippingDate;
-    }
-
-    /**
-     * @param \DateTime $shippingDate
-     */
-    public function setShippingDate($shippingDate)
-    {
-        $this->shippingDate = $shippingDate;
     }
 
     /**
@@ -177,6 +156,4 @@ class Package extends Master implements PackageInterface
         $this->size = $size;
         return $this;
     }
-
-
 }

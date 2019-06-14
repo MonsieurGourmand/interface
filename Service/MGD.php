@@ -11,6 +11,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\DiscountType;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Document;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
@@ -20,10 +21,12 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Menu;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purpose;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Shipper;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Trace;
@@ -81,8 +84,11 @@ class MGD
     public $kits;
     public $amount;
     public $menu;
+    public $shipper;
     public $document;
     public $application;
+    public $eventDiscountType;
+    public $place;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -122,8 +128,11 @@ class MGD
         $this->kits = new Kit($this);
         $this->amount = new Amount($this);
         $this->menu = new Menu($this);
+        $this->shipper = new Shipper($this);
         $this->document = new Document($this);
         $this->application = new Application($this);
+        $this->eventDiscountType = new DiscountType($this);
+        $this->place = new Place($this);
     }
 
     public function login()
