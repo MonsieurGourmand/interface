@@ -49,4 +49,10 @@ class IndexController extends Controller
         $request->getSession()->clear();
         return $this->redirectToRoute('connect');
     }
+
+    public function accessAction(Request $request)
+    {
+        $mgd = $this->get('interface.MGD');
+        return $this->redirect($mgd->login());
+    }
 }

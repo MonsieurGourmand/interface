@@ -5,6 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Amount;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Application;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
@@ -85,6 +86,7 @@ class MGD
     public $menu;
     public $shipper;
     public $document;
+    public $application;
     public $eventDiscountType;
     public $place;
 
@@ -128,6 +130,7 @@ class MGD
         $this->menu = new Menu($this);
         $this->shipper = new Shipper($this);
         $this->document = new Document($this);
+        $this->application = new Application($this);
         $this->eventDiscountType = new DiscountType($this);
         $this->place = new Place($this);
     }

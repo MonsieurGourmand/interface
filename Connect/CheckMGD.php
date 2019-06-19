@@ -30,7 +30,10 @@ class CheckMGD
     public function check(Request $request)
     {
         if (!$this->credentials) {
-            if ($request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('connect') || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')) {
+            if ($request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('connect')
+                || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')
+                || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('access')
+            ) {
                 return;
             } else {
                 if ($request->isXmlHttpRequest()) {

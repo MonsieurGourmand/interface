@@ -9,3 +9,7 @@ token:
 disconnect:
     path: /disconnect
     defaults: { _controller: InterfaceBundle:Index:disconnect }
+
+access:
+    path: /access
+    defaults: { _controller: InterfaceBundle:Index:access }
