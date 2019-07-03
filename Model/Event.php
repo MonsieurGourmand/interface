@@ -10,7 +10,6 @@ class Event extends Master implements EventInterface
 {
     /**
      * @var integer
-     *
      */
     private $idEvent;
 
@@ -28,6 +27,11 @@ class Event extends Master implements EventInterface
      * @var string
      */
     private $reservationNumber;
+
+    /**
+     * @var integer
+     */
+    private $shippingCode;
 
     /**
      * @var string
@@ -1027,6 +1031,24 @@ class Event extends Master implements EventInterface
     public function setDeliveryReference(string $deliveryReference): Event
     {
         $this->deliveryReference = $deliveryReference;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getShippingCode()
+    {
+        return $this->shippingCode;
+    }
+
+    /**
+     * @param int $shippingCode
+     * @return Event
+     */
+    public function setShippingCode(int $shippingCode): Event
+    {
+        $this->shippingCode = $shippingCode;
         return $this;
     }
 }

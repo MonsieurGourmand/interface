@@ -26,4 +26,7 @@ interface EventInterface extends MainInterface
 
     const TYPE_PUNCTUAL = 0;
     const TYPE_MULTI = 1;
+
+    const SHIPPING_CODE_C12 = 0;
+    const SHIPPING_CODE_C13 = 1;
 }
