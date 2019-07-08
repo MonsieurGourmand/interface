@@ -36,6 +36,11 @@ class Customer extends Master
     public $places;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu
+     */
+    public $menus;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
