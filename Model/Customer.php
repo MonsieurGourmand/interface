@@ -41,6 +41,11 @@ class Customer extends Master
     public $menus;
 
     /**
+     * @var integer
+     */
+    private $nbrMenus;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
@@ -98,5 +103,21 @@ class Customer extends Master
         return $this;
     }
 
+    /**
+     * @return int
+     */
+    public function getNbrMenus()
+    {
+        return $this->nbrMenus;
+    }
 
+    /**
+     * @param int $nbrMenus
+     * @return Customer
+     */
+    public function setNbrMenus(int $nbrMenus): Customer
+    {
+        $this->nbrMenus = $nbrMenus;
+        return $this;
+    }
 }
