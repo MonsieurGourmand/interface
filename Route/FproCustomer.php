@@ -8,7 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class FproCustomer
@@ -24,7 +23,7 @@ class FproCustomer
         $this->url = '/fprocustomers';
     }
 
-    public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
+    public function getAll($params = [],string $format = MGD::FORMAT_OBJECT): array
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }

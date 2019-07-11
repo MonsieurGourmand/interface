@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: remi
- * Date: 1/20/17
- * Time: 6:10 PM
- */
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 
@@ -29,12 +23,12 @@ class FproCustomer
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\FproCustomer $fproCustomer, $format = MGD::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\FproCustomer $fproCustomer, string $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $fproCustomer->getId(), $fproCustomer, $this->entity, $format);
     }
 
-    public function remove($idFproCustomer)
+    public function remove(int $idFproCustomer)
     {
         return $this->master->remove($this->url, $idFproCustomer);
     }

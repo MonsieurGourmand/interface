@@ -23,7 +23,7 @@ class FproCustomer extends Master
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -31,7 +31,7 @@ class FproCustomer extends Master
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -43,13 +43,14 @@ class FproCustomer extends Master
     public function setName(string $name): FproCustomer
     {
         $this->name = $name;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getIdFacturationPro()
+    public function getIdFacturationPro(): ?int
     {
         return $this->idFacturationPro;
     }
@@ -61,6 +62,7 @@ class FproCustomer extends Master
     public function setIdFacturationPro(int $idFacturationPro): FproCustomer
     {
         $this->idFacturationPro = $idFacturationPro;
+
         return $this;
     }
 }
