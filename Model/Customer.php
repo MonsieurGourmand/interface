@@ -44,6 +44,11 @@ class Customer extends Master
      * @var integer
      */
     private $nbrMenus;
+  
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer
+     */
+    public $fproCustomers;
 
     /**
      * @return int

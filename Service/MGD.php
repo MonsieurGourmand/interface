@@ -15,6 +15,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\DiscountType;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Document;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\FproCustomer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Implementation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Kit;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Menu;
@@ -89,6 +90,7 @@ class MGD
     public $application;
     public $eventDiscountType;
     public $place;
+    public $fproCustomers;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -133,6 +135,7 @@ class MGD
         $this->application = new Application($this);
         $this->eventDiscountType = new DiscountType($this);
         $this->place = new Place($this);
+        $this->fproCustomers = new FproCustomer($this);
     }
 
     public function login()
