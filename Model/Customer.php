@@ -44,11 +44,16 @@ class Customer extends Master
      * @var integer
      */
     private $nbrMenus;
-  
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer
      */
     public $fproCustomers;
+
+    /**
+     * @var boolean
+     */
+    private $billable;
 
     /**
      * @return int
@@ -124,5 +129,13 @@ class Customer extends Master
     {
         $this->nbrMenus = $nbrMenus;
         return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isBillable(): ?bool
+    {
+        return $this->billable;
     }
 }
