@@ -51,6 +51,21 @@ class Customer extends Master
     public $fproCustomers;
 
     /**
+     * @var string
+     */
+    private $slug;
+
+    /**
+     * @var string
+     */
+    private $password;
+
+    /**
+     * @var Document
+     */
+    private $logo;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
@@ -123,6 +138,60 @@ class Customer extends Master
     public function setNbrMenus(int $nbrMenus): Customer
     {
         $this->nbrMenus = $nbrMenus;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return Customer
+     */
+    public function setSlug(string $slug): Customer
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPassword(): ?string
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param string $password
+     * @return Customer
+     */
+    public function setPassword(string $password): Customer
+    {
+        $this->password = $password;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getLogo(): ?Document
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Document $logo
+     * @return Customer
+     */
+    public function setLogo(Document $logo): Customer
+    {
+        $this->logo = $logo;
         return $this;
     }
 }
