@@ -44,7 +44,7 @@ class Customer extends Master
      * @var integer
      */
     private $nbrMenus;
-  
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer
      */
@@ -69,6 +69,11 @@ class Customer extends Master
      * @var Document
      */
     private $logoMixed;
+  
+    /**
+     * @var boolean
+     */
+    private $billable;
 
     /**
      * @return int
@@ -216,5 +221,13 @@ class Customer extends Master
     {
         $this->logoMixed = $logoMixed;
         return $this;
+    }
+
+     /**
+     * @return bool
+     */
+    public function isBillable(): ?bool
+    {
+        return $this->billable;
     }
 }
