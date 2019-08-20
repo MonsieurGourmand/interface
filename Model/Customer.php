@@ -66,6 +66,11 @@ class Customer extends Master
     private $logo;
 
     /**
+     * @var Document
+     */
+    private $logoMixed;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
@@ -192,6 +197,24 @@ class Customer extends Master
     public function setLogo(Document $logo): Customer
     {
         $this->logo = $logo;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getLogoMixed(): ?Document
+    {
+        return $this->logoMixed;
+    }
+
+    /**
+     * @param Document $logoMixed
+     * @return Customer
+     */
+    public function setLogoMixed(Document $logoMixed): Customer
+    {
+        $this->logoMixed = $logoMixed;
         return $this;
     }
 }
