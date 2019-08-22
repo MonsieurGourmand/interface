@@ -245,10 +245,10 @@ class Customer extends Master
     }
 
     /**
-     * @param string $welcome
+     * @param string|null $welcome
      * @return Customer
      */
-    public function setWelcome(string $welcome): Customer
+    public function setWelcome(?string $welcome): Customer
     {
         $this->welcome = $welcome;
         return $this;
