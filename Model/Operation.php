@@ -39,6 +39,11 @@ class Operation extends Master implements EventInterface
     public $amounts;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Quote
+     */
+    public $quotes;
+
+    /**
      * @var string
      */
     private $name;
@@ -94,6 +99,10 @@ class Operation extends Master implements EventInterface
      */
     private $type;
 
+    /**
+     * @var bool
+     */
+    private $toValidate;
 
     /**
      * @return int
@@ -294,7 +303,7 @@ class Operation extends Master implements EventInterface
 
     /**
      * @param int $discount
-     * @return Event
+     * @return Operation
      */
     public function setDiscount($discount)
     {
@@ -317,6 +326,24 @@ class Operation extends Master implements EventInterface
     public function setType($type)
     {
         $this->type = $type;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isToValidate(): ?bool
+    {
+        return $this->toValidate;
+    }
+
+    /**
+     * @param bool $toValidate
+     * @return Operation
+     */
+    public function setToValidate(bool $toValidate): Operation
+    {
+        $this->toValidate = $toValidate;
         return $this;
     }
 }
