@@ -76,6 +76,11 @@ class Customer extends Master
     private $billable;
 
     /**
+     * @var string
+     */
+    private $welcome;
+
+    /**
      * @return int
      */
     public function getIdCustomer()
@@ -229,5 +234,23 @@ class Customer extends Master
     public function isBillable(): ?bool
     {
         return $this->billable;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWelcome(): ?string
+    {
+        return $this->welcome;
+    }
+
+    /**
+     * @param string $welcome
+     * @return Customer
+     */
+    public function setWelcome(string $welcome): Customer
+    {
+        $this->welcome = $welcome;
+        return $this;
     }
 }
