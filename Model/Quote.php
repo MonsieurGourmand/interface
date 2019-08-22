@@ -30,6 +30,9 @@ class Quote extends Master
     /** @var bool */
     private $validated;
 
+    /** @var Document */
+    private $lastDocument;
+
     /**
      * @return int
      */
@@ -161,6 +164,24 @@ class Quote extends Master
     public function setValidated(bool $validated): Quote
     {
         $this->validated = $validated;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getLastDocument(): ?Document
+    {
+        return $this->lastDocument;
+    }
+
+    /**
+     * @param Document $lastDocument
+     * @return Quote
+     */
+    public function setLastDocument(Document $lastDocument): Quote
+    {
+        $this->lastDocument = $lastDocument;
         return $this;
     }
 }
