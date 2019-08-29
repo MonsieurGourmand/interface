@@ -30,6 +30,11 @@ class Kit extends Master
     public $kitProducts;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\Option
+     */
+    public $options;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Format\Event
      */
     public $events;
