@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PackageInterface;
 use DateTime;
 
@@ -23,6 +22,10 @@ class Package extends Master implements PackageInterface
      */
     private $type;
 
+    /**
+     * @var DateTime
+     */
+    private $collectDate;
 
     /**
      * @var Event
@@ -154,6 +157,24 @@ class Package extends Master implements PackageInterface
     public function setSize($size)
     {
         $this->size = $size;
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCollectDate(): ?DateTime
+    {
+        return $this->collectDate;
+    }
+
+    /**
+     * @param DateTime $collectDate
+     * @return Package
+     */
+    public function setCollectDate(DateTime $collectDate): Package
+    {
+        $this->collectDate = $collectDate;
         return $this;
     }
 }
