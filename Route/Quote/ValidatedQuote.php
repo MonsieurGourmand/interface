@@ -15,6 +15,7 @@ class ValidatedQuote
     {
         $this->master = $quote->getMaster();
         $this->url = "/operations/" . $quote->getOperation()->getIdOperation() . "/quotes/" . $quote->getId() . '/validatedquotes';
+        $this->entity = Quote::class;
     }
 
     public function post(Quote $quote, $format = MGD::FORMAT_OBJECT)
