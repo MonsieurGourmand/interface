@@ -33,6 +33,9 @@ class Quote extends Master
     /** @var Document */
     private $lastDocument;
 
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\ValidatedQuote */
+    public $validatedQuotes;
+
     /**
      * @return int
      */
