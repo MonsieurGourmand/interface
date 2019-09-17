@@ -30,4 +30,5 @@ interface EventInterface extends MainInterface
 
     const SHIPPING_CODE_C12 = 0;
     const SHIPPING_CODE_C13 = 1;
+    const SHIPPING_CODE_MAD = 2;
 }
