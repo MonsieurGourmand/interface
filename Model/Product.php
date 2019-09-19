@@ -36,7 +36,17 @@ class Product extends Master implements ProductInterface
     /**
      * @var string
      */
+    private $commercialName;
+
+    /**
+     * @var string
+     */
     private $description;
+
+    /**
+     * @var string
+     */
+    private $commercialDescription;
 
     /**
      * @var integer
@@ -1471,6 +1481,42 @@ class Product extends Master implements ProductInterface
     {
         $this->productPictures = $productPictures;
 
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCommercialName(): ?string
+    {
+        return $this->commercialName;
+    }
+
+    /**
+     * @param string|null $commercialName
+     * @return Product
+     */
+    public function setCommercialName(?string $commercialName): Product
+    {
+        $this->commercialName = $commercialName;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCommercialDescription(): ?string
+    {
+        return $this->commercialDescription;
+    }
+
+    /**
+     * @param string|null $commercialDescription
+     * @return Product
+     */
+    public function setCommercialDescription(?string $commercialDescription): Product
+    {
+        $this->commercialDescription = $commercialDescription;
         return $this;
     }
 
