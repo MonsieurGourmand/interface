@@ -1493,10 +1493,10 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @param string $commercialName
+     * @param string|null $commercialName
      * @return Product
      */
-    public function setCommercialName(string $commercialName): Product
+    public function setCommercialName(?string $commercialName): Product
     {
         $this->commercialName = $commercialName;
         return $this;
@@ -1511,10 +1511,10 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @param string $commercialDescription
+     * @param string|null $commercialDescription
      * @return Product
      */
-    public function setCommercialDescription(string $commercialDescription): Product
+    public function setCommercialDescription(?string $commercialDescription): Product
     {
         $this->commercialDescription = $commercialDescription;
         return $this;
