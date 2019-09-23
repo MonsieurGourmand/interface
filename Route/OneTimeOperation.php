@@ -6,7 +6,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\PunctualOperation as PunctualOperationEntity;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
 
-class PunctualOperation
+class OneTimeOperation
 {
     private $master;
     private $entity;
@@ -20,7 +20,7 @@ class PunctualOperation
     {
         $this->master = $master;
         $this->entity = Event::class;
-        $this->url = '/punctualoperations';
+        $this->url = '/onetimeoperations';
     }
 
     /**
