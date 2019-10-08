@@ -5,79 +5,51 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 class Customer extends Master
 {
-    /**
-     * @var integer
-     */
+    const DEFAULT_MARGIN = 45;
+
+    /** @var integer */
     private $idCustomer;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $slideShare;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $reference;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\User
-     */
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\User */
     public $users;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place
-     */
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place */
     public $places;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu
-     */
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu */
     public $menus;
 
-    /**
-     * @var integer
-     */
+    /** @var integer */
     private $nbrMenus;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer
-     */
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer */
     public $fproCustomers;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $slug;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $password;
 
-    /**
-     * @var Document
-     */
+    /** @var Document */
     private $logo;
 
-    /**
-     * @var Document
-     */
+    /** @var Document */
     private $logoMixed;
   
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     private $billable;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $welcome;
 
     /** @var int */
@@ -283,7 +255,7 @@ class Customer extends Master
      *
      * @return Customer
      */
-    public function setMargin(int $margin): Customer
+    public function setMargin(?int $margin): Customer
     {
         $this->margin = $margin;
 
