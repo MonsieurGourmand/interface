@@ -64,7 +64,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getSaltPax(): int
+    public function getSaltPax()
     {
         return $this->saltPax;
     }
@@ -82,7 +82,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getSugarPax(): int
+    public function getSugarPax()
     {
         return $this->sugarPax;
     }
@@ -100,7 +100,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return string
      */
-    public function getQuoteNumber(): string
+    public function getQuoteNumber()
     {
         return $this->quoteNumber;
     }
@@ -118,7 +118,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getTransport(): int
+    public function getTransport()
     {
         return $this->transport;
     }
@@ -136,7 +136,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getService(): int
+    public function getService()
     {
         return $this->service;
     }
@@ -154,7 +154,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getDocuments(): int
+    public function getDocuments()
     {
         return $this->documents;
     }
@@ -172,7 +172,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return float
      */
-    public function getDivers(): float
+    public function getDivers()
     {
         return $this->divers;
     }
@@ -190,7 +190,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return float
      */
-    public function getServiceCost(): float
+    public function getServiceCost()
     {
         return $this->serviceCost;
     }
@@ -208,7 +208,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return float
      */
-    public function getPrice(): float
+    public function getPrice()
     {
         return $this->price;
     }
@@ -226,7 +226,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getType(): int
+    public function getType()
     {
         return $this->type;
     }
@@ -244,7 +244,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return int
      */
-    public function getDiscount(): int
+    public function getDiscount()
     {
         return $this->discount;
     }
