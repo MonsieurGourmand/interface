@@ -19,19 +19,27 @@ class Customer extends Master
     /** @var string */
     private $reference;
 
-    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\User */
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\User
+     */
     public $users;
 
-    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place */
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place
+     */
     public $places;
 
-    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu */
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu
+     */
     public $menus;
 
     /** @var integer */
     private $nbrMenus;
 
-    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer */
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer
+     */
     public $fproCustomers;
 
     /** @var string */
