@@ -20,11 +20,6 @@ class Kit extends Master
     private $pax;
 
     /**
-     * @var Format
-     */
-    private $format;
-
-    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\KitProduct
      */
     public $kitProducts;
@@ -95,24 +90,6 @@ class Kit extends Master
     public function setPax($pax)
     {
         $this->pax = $pax;
-        return $this;
-    }
-
-    /**
-     * @return Format
-     */
-    public function getFormat()
-    {
-        return $this->format;
-    }
-
-    /**
-     * @param Format $format
-     * @return Kit
-     */
-    public function setFormat($format)
-    {
-        $this->format = $format;
         return $this;
     }
 }

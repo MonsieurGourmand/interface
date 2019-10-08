@@ -20,7 +20,7 @@ class Format
     public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Kit::class;
+        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Format::class;
         $this->url = "/formats";
     }
 
@@ -34,13 +34,13 @@ class Format
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
-    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Kit $kit, $format = MGD::FORMAT_OBJECT)
+    public function post(\monsieurgourmand\Bundle\InterfaceBundle\Model\Format $kit, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $kit, $this->entity, $format);
 
     }
 
-    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Kit $kit, $format = MGD::FORMAT_OBJECT)
+    public function put(\monsieurgourmand\Bundle\InterfaceBundle\Model\Format $kit, $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $kit->getIdKit(), $kit, $this->entity, $format);
     }
