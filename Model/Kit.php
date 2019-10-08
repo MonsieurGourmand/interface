@@ -45,6 +45,26 @@ class Kit extends Master
     public $addKits;
 
     /**
+     * @var KitTechnicalForm[]
+     */
+    private $technicalForms;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\TechnicalForm
+     */
+    public $technicalFormsRoute;
+
+    /**
+     * @var KitPicture[]
+     */
+    private $pictures;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\Picture
+     */
+    public $picturesRoute;
+
+    /**
      * @return int
      */
     public function getIdKit()
