@@ -8,6 +8,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
+use ReflectionClass;
+use ReflectionProperty;
 
 class Serializer
 {
@@ -28,33 +30,14 @@ class Serializer
         if ($depth > 2) return;
         $array = array();
         if (is_object($object)) {
-            $reflectionClass = new \ReflectionClass(get_class($object));
+            $reflectionClass = new ReflectionClass(get_class($object));
             foreach ($reflectionClass->getProperties() as $property) {
-                $property->setAccessible(true);
-                $value = $property->getValue($object);
-                if (is_array($value)) {
-                    if (isset($value[0])) {
-                        if (is_object($value[0])) {
-                            foreach ($value as &$element) {
-                                $element = self::object($element, $depth + 1);
-                            }
-                        }
-                    }
-
-                } elseif (is_object($value) && strpos(get_class($value), "monsieurgourmand") !== false)
-                    $value = self::object($value, $depth + 1);
-                $type = '';
-                if (preg_match('/@var\s+(\\\\\w+)/', $property->getDocComment(), $matches)) {
-                    list(, $type) = $matches;
-                } elseif (preg_match('/@var\s+(\w+)/', $property->getDocComment(), $matches)) {
-                    list(, $type) = $matches;
+                $this->getValue($property, $array, $depth, $object);
+            }
+            if ($reflectionClass->getParentClass()) {
+                foreach ($reflectionClass->getParentClass()->getProperties() as $property) {
+                    $this->getValue($property, $array, $depth, $object);
                 }
-                if ((strstr($type, '\DateTime') || strstr($type, 'DateTime')) && $value !== null) {
-                    $array[$property->getName()] = $value->format('c');
-                } else {
-                    $array[$property->getName()] = $value;
-                }
-                $property->setAccessible(false);
             }
             return $array;
         } elseif (is_array($object)) {
@@ -63,5 +46,34 @@ class Serializer
             return $object;
         } else
             return $object;
+    }
+
+    private function getValue(ReflectionProperty $property, array &$array, $depth, $object)
+    {
+        $property->setAccessible(true);
+        $value = $property->getValue($object);
+        if (is_array($value)) {
+            if (isset($value[0])) {
+                if (is_object($value[0])) {
+                    foreach ($value as &$element) {
+                        $element = self::object($element, $depth + 1);
+                    }
+                }
+            }
+
+        } elseif (is_object($value) && strpos(get_class($value), "monsieurgourmand") !== false)
+            $value = self::object($value, $depth + 1);
+        $type = '';
+        if (preg_match('/@var\s+(\\\\\w+)/', $property->getDocComment(), $matches)) {
+            list(, $type) = $matches;
+        } elseif (preg_match('/@var\s+(\w+)/', $property->getDocComment(), $matches)) {
+            list(, $type) = $matches;
+        }
+        if ((strstr($type, '\DateTime') || strstr($type, 'DateTime')) && $value !== null) {
+            $array[$property->getName()] = $value->format('c');
+        } else {
+            $array[$property->getName()] = $value;
+        }
+        $property->setAccessible(false);
     }
 }
