@@ -39,7 +39,7 @@ class Format
      * @param array $params
      * @param string $format
      *
-     * @return \monsieurgourmand\Bundle\InterfaceBundle\Model\Format
+     * @return \monsieurgourmand\Bundle\InterfaceBundle\Model\Kit
      */
     public function get(int $id, array $params = [], string $format = MGD::FORMAT_OBJECT)
     {
