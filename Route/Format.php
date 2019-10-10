@@ -8,6 +8,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
+use AppBundle\Entity\Filter\FormatFilter;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Format
@@ -24,12 +25,12 @@ class Format
     }
 
     /**
-     * @param array $params
+     * @param array|FormatFilter $params
      * @param string $format
      *
      * @return array
      */
-    public function getAll(array $params = [], string $format = MGD::FORMAT_OBJECT)
+    public function getAll($params = [], string $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
