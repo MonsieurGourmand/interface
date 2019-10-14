@@ -73,6 +73,9 @@ class Format extends Master implements FormatInterface
      */
     private $discount;
 
+    /** @var bool */
+    private $public;
+
     /**
      * @return int
      */
@@ -279,4 +282,23 @@ class Format extends Master implements FormatInterface
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isPublic(): ?bool
+    {
+        return $this->public;
+    }
+
+    /**
+     * @param bool $public
+     *
+     * @return Format
+     */
+    public function setPublic(bool $public): Format
+    {
+        $this->public = $public;
+
+        return $this;
+    }
 }
