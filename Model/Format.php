@@ -67,8 +67,8 @@ class Format extends Master implements FormatInterface
      */
     private $discount;
 
-    /** @var float */
-    private $marketingExpenses;
+    /** @var bool */
+    private $public;
 
     /**
      * @return int
@@ -288,21 +288,21 @@ class Format extends Master implements FormatInterface
     }
 
     /**
-     * @return float
+     * @return bool
      */
-    public function getMarketingExpenses(): ?float
+    public function isPublic(): ?bool
     {
-        return $this->marketingExpenses;
+        return $this->public;
     }
 
     /**
-     * @param float $marketingExpenses
+     * @param bool $public
      *
      * @return Format
      */
-    public function setMarketingExpenses(float $marketingExpenses): Format
+    public function setPublic(bool $public): Format
     {
-        $this->marketingExpenses = $marketingExpenses;
+        $this->public = $public;
 
         return $this;
     }
