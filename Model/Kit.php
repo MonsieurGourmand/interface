@@ -24,6 +24,9 @@ class Kit extends Master
      */
     private $format;
 
+    /** @var float */
+    private $productsExpenses;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\KitProduct
      */
@@ -67,7 +70,7 @@ class Kit extends Master
     /**
      * @return int
      */
-    public function getIdKit()
+    public function getIdKit(): ?int
     {
         return $this->idKit;
     }
@@ -76,7 +79,7 @@ class Kit extends Master
      * @param int $idKit
      * @return Kit
      */
-    public function setIdKit($idKit)
+    public function setIdKit($idKit): Kit
     {
         $this->idKit = $idKit;
 
@@ -86,7 +89,7 @@ class Kit extends Master
     /**
      * @return string
      */
-    public function getTitle()
+    public function getTitle(): ?string
     {
         return $this->title;
     }
@@ -95,7 +98,7 @@ class Kit extends Master
      * @param string $title
      * @return Kit
      */
-    public function setTitle($title)
+    public function setTitle($title): Kit
     {
         $this->title = $title;
 
@@ -105,7 +108,7 @@ class Kit extends Master
     /**
      * @return int
      */
-    public function getPax()
+    public function getPax(): ?int
     {
         return $this->pax;
     }
@@ -114,7 +117,7 @@ class Kit extends Master
      * @param int $pax
      * @return Kit
      */
-    public function setPax($pax)
+    public function setPax($pax): Kit
     {
         $this->pax = $pax;
 
@@ -124,7 +127,7 @@ class Kit extends Master
     /**
      * @return Format
      */
-    public function getFormat()
+    public function getFormat(): ?Format
     {
         return $this->format;
     }
@@ -133,13 +136,31 @@ class Kit extends Master
      * @param Format $format
      * @return Kit
      */
-    public function setFormat($format)
+    public function setFormat($format): Kit
     {
         $this->format = $format;
 
         return $this;
     }
 
+    /**
+     * @return float
+     */
+    public function getProductsExpenses(): ?float
+    {
+        return $this->productsExpenses;
+    }
+
+    /**
+     * @param float $productsExpenses
+     *
+     * @return Kit
+     */
+    public function setProductsExpenses(float $productsExpenses): Kit
+    {
+        $this->productsExpenses = $productsExpenses;
+    }
+  
     /**
      * @return KitTechnicalForm[]
      */
