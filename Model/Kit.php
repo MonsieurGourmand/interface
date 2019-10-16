@@ -45,6 +45,26 @@ class Kit extends Master
     public $addKits;
 
     /**
+     * @var KitTechnicalForm[]
+     */
+    private $technicalForms;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\TechnicalForm
+     */
+    public $technicalFormsRoute;
+
+    /**
+     * @var KitPicture[]
+     */
+    private $pictures;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Kit\Picture
+     */
+    public $picturesRoute;
+
+    /**
      * @return int
      */
     public function getIdKit()
@@ -59,6 +79,7 @@ class Kit extends Master
     public function setIdKit($idKit)
     {
         $this->idKit = $idKit;
+
         return $this;
     }
 
@@ -77,6 +98,7 @@ class Kit extends Master
     public function setTitle($title)
     {
         $this->title = $title;
+
         return $this;
     }
 
@@ -95,6 +117,7 @@ class Kit extends Master
     public function setPax($pax)
     {
         $this->pax = $pax;
+
         return $this;
     }
 
@@ -113,6 +136,47 @@ class Kit extends Master
     public function setFormat($format)
     {
         $this->format = $format;
+
+        return $this;
+    }
+
+    /**
+     * @return KitTechnicalForm[]
+     */
+    public function getTechnicalForms(): array
+    {
+        return $this->technicalForms;
+    }
+
+    /**
+     * @param KitTechnicalForm[] $kitTechnicalForms
+     *
+     * @return Kit
+     */
+    public function setTechnicalForms(array $kitTechnicalForms): Kit
+    {
+        $this->technicalForms = $kitTechnicalForms;
+
+        return $this;
+    }
+
+    /**
+     * @return KitPicture[]
+     */
+    public function getPictures(): array
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param KitPicture[] $kitPictures
+     *
+     * @return Kit
+     */
+    public function setPictures(array $kitPictures): Kit
+    {
+        $this->pictures = $kitPictures;
+
         return $this;
     }
 }
