@@ -61,6 +61,9 @@ class Format extends Kit implements FormatInterface
      */
     private $discount;
 
+    /** @var bool */
+    private $public;
+
     /**
      * @return int
      */
@@ -100,7 +103,7 @@ class Format extends Kit implements FormatInterface
     /**
      * @return string
      */
-    public function getQuoteNumber()
+    public function getQuoteNumber(): ?string
     {
         return $this->quoteNumber;
     }
@@ -112,13 +115,14 @@ class Format extends Kit implements FormatInterface
     public function setQuoteNumber(string $quoteNumber): Format
     {
         $this->quoteNumber = $quoteNumber;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getTransport()
+    public function getTransport(): ?int
     {
         return $this->transport;
     }
@@ -130,13 +134,14 @@ class Format extends Kit implements FormatInterface
     public function setTransport(int $transport): Format
     {
         $this->transport = $transport;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getService()
+    public function getService(): ?int
     {
         return $this->service;
     }
@@ -148,13 +153,14 @@ class Format extends Kit implements FormatInterface
     public function setService(int $service): Format
     {
         $this->service = $service;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getDocuments()
+    public function getDocuments(): ?int
     {
         return $this->documents;
     }
@@ -166,13 +172,14 @@ class Format extends Kit implements FormatInterface
     public function setDocuments(int $documents): Format
     {
         $this->documents = $documents;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getDivers()
+    public function getDivers(): ?float
     {
         return $this->divers;
     }
@@ -184,13 +191,14 @@ class Format extends Kit implements FormatInterface
     public function setDivers(float $divers): Format
     {
         $this->divers = $divers;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getServiceCost()
+    public function getServiceCost(): ?float
     {
         return $this->serviceCost;
     }
@@ -202,13 +210,14 @@ class Format extends Kit implements FormatInterface
     public function setServiceCost(float $serviceCost): Format
     {
         $this->serviceCost = $serviceCost;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getPrice()
+    public function getPrice(): ?float
     {
         return $this->price;
     }
@@ -220,13 +229,14 @@ class Format extends Kit implements FormatInterface
     public function setPrice(float $price): Format
     {
         $this->price = $price;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getType()
+    public function getType(): ?int
     {
         return $this->type;
     }
@@ -238,13 +248,14 @@ class Format extends Kit implements FormatInterface
     public function setType(int $type): Format
     {
         $this->type = $type;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getDiscount()
+    public function getDiscount(): ?int
     {
         return $this->discount;
     }
@@ -256,6 +267,27 @@ class Format extends Kit implements FormatInterface
     public function setDiscount(int $discount): Format
     {
         $this->discount = $discount;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPublic(): ?bool
+    {
+        return $this->public;
+    }
+
+    /**
+     * @param bool $public
+     *
+     * @return Format
+     */
+    public function setPublic(bool $public): Format
+    {
+        $this->public = $public;
+
         return $this;
     }
 }

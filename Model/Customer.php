@@ -5,24 +5,18 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 class Customer extends Master
 {
-    /**
-     * @var integer
-     */
+    const DEFAULT_MARGIN = 45;
+
+    /** @var integer */
     private $idCustomer;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $name;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $slideShare;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $reference;
 
     /**
@@ -40,9 +34,7 @@ class Customer extends Master
      */
     public $menus;
 
-    /**
-     * @var integer
-     */
+    /** @var integer */
     private $nbrMenus;
 
     /**
@@ -50,40 +42,31 @@ class Customer extends Master
      */
     public $fproCustomers;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $slug;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $password;
 
-    /**
-     * @var Document
-     */
+    /** @var Document */
     private $logo;
 
-    /**
-     * @var Document
-     */
+    /** @var Document */
     private $logoMixed;
   
-    /**
-     * @var boolean
-     */
+    /** @var boolean */
     private $billable;
 
-    /**
-     * @var string
-     */
+    /** @var string */
     private $welcome;
+
+    /** @var int */
+    private $margin;
 
     /**
      * @return int
      */
-    public function getIdCustomer()
+    public function getIdCustomer(): ?int
     {
         return $this->idCustomer;
     }
@@ -91,39 +74,45 @@ class Customer extends Master
     /**
      * @return string
      */
-    public function getName()
+    public function getName(): ?string
     {
         return $this->name;
     }
 
     /**
      * @param string $name
+     * @return Customer
      */
-    public function setName($name)
+    public function setName(string $name): Customer
     {
         $this->name = $name;
+
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getReference()
+    public function getReference(): ?string
     {
         return $this->reference;
     }
 
     /**
      * @param string $reference
+     * @return Customer
      */
-    public function setReference($reference)
+    public function setReference(string $reference): Customer
     {
         $this->reference = $reference;
+
+        return $this;
     }
 
     /**
      * @return string
      */
-    public function getSlideShare()
+    public function getSlideShare(): ?string
     {
         return $this->slideShare;
     }
@@ -132,16 +121,17 @@ class Customer extends Master
      * @param string $slideShare
      * @return Customer
      */
-    public function setSlideShare($slideShare)
+    public function setSlideShare(string $slideShare): Customer
     {
         $this->slideShare = $slideShare;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getNbrMenus()
+    public function getNbrMenus(): ?int
     {
         return $this->nbrMenus;
     }
@@ -153,6 +143,7 @@ class Customer extends Master
     public function setNbrMenus(int $nbrMenus): Customer
     {
         $this->nbrMenus = $nbrMenus;
+
         return $this;
     }
 
@@ -171,6 +162,7 @@ class Customer extends Master
     public function setSlug(string $slug): Customer
     {
         $this->slug = $slug;
+
         return $this;
     }
 
@@ -189,6 +181,7 @@ class Customer extends Master
     public function setPassword(string $password): Customer
     {
         $this->password = $password;
+
         return $this;
     }
 
@@ -207,6 +200,7 @@ class Customer extends Master
     public function setLogo(Document $logo): Customer
     {
         $this->logo = $logo;
+
         return $this;
     }
 
@@ -225,6 +219,7 @@ class Customer extends Master
     public function setLogoMixed(Document $logoMixed): Customer
     {
         $this->logoMixed = $logoMixed;
+
         return $this;
     }
 
@@ -251,6 +246,27 @@ class Customer extends Master
     public function setWelcome(?string $welcome): Customer
     {
         $this->welcome = $welcome;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMargin(): ?int
+    {
+        return $this->margin;
+    }
+
+    /**
+     * @param int $margin
+     *
+     * @return Customer
+     */
+    public function setMargin(?int $margin): Customer
+    {
+        $this->margin = $margin;
+
         return $this;
     }
 }
