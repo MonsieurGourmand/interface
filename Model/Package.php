@@ -53,6 +53,11 @@ class Package extends Master implements PackageInterface
     public $activities;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Package\Channel
+     */
+    public $channels;
+
+    /**
      * @return int
      */
     public function getIdPackage()

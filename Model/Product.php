@@ -251,6 +251,11 @@ class Product extends Master implements ProductInterface
     public $prices;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Channel
+     */
+    public $channels;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Stock
      */
     public $stocks;

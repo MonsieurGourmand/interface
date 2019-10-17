@@ -147,6 +147,11 @@ class Purchase extends Master implements PurchaseInterface
     public $purchaseProducts;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase\Channel
+     */
+    public $channels;
+
+    /**
      * @return int
      */
     public function getIdPurchase()

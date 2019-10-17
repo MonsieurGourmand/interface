@@ -173,6 +173,11 @@ class Event extends Master implements EventInterface
     public $addKits;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Channel
+     */
+    public $channels;
+
+    /**
      * @var Package[]
      */
     public $packages;
