@@ -24,7 +24,7 @@ class AddSub
     {
         $this->master = $channel->getMaster();
         $this->entity = Channel::class;
-        $this->url = "/channels/" . $channel->getId() . '/addsub';
+        $this->url = "/channels/" . $channel->getId() . '/addsubs';
     }
 
     /**
