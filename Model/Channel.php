@@ -27,7 +27,7 @@ class Channel extends Master
     /** @var array */
     private $subscribers;
 
-    /** @var bool */
+    /** @var integer */
     private $unreadMessages;
 
     /**
@@ -177,9 +177,9 @@ class Channel extends Master
     }
 
     /**
-     * @return bool
+     * @return int|null
      */
-    public function isUnreadMessages(): ?bool
+    public function getUnreadMessages(): ?int
     {
         return $this->unreadMessages;
     }
