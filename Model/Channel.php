@@ -179,7 +179,7 @@ class Channel extends Master
     /**
      * @return bool
      */
-    public function isUnread(): bool
+    public function isUnread(): ?bool
     {
         return $this->unread;
     }
