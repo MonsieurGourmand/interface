@@ -27,6 +27,9 @@ class Channel extends Master
     /** @var array */
     private $subscribers;
 
+    /** @var bool */
+    private $unread;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Channel\AddSub
      */
@@ -170,6 +173,24 @@ class Channel extends Master
     public function setSubscribers(array $subscribers): Channel
     {
         $this->subscribers = $subscribers;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isUnread(): bool
+    {
+        return $this->unread;
+    }
+
+    /**
+     * @param bool $unread
+     * @return Channel
+     */
+    public function setUnread(bool $unread): Channel
+    {
+        $this->unread = $unread;
         return $this;
     }
 }
