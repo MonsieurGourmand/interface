@@ -21,6 +21,12 @@ class Channel extends Master
     /** @var string */
     private $discr;
 
+    /** @var bool */
+    private $system;
+
+    /** @var array */
+    private $subscribers;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Channel\AddSub
      */
@@ -34,7 +40,7 @@ class Channel extends Master
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Channel\Subscriber
      */
-    public $subscribers;
+    public $subscribersEndpoint;
 
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Channel\Message
@@ -128,6 +134,42 @@ class Channel extends Master
     public function setDiscr(string $discr): Channel
     {
         $this->discr = $discr;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isSystem(): bool
+    {
+        return $this->system;
+    }
+
+    /**
+     * @param bool $system
+     * @return Channel
+     */
+    public function setSystem(bool $system): Channel
+    {
+        $this->system = $system;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getSubscribers(): array
+    {
+        return $this->subscribers;
+    }
+
+    /**
+     * @param array $subscribers
+     * @return Channel
+     */
+    public function setSubscribers(array $subscribers): Channel
+    {
+        $this->subscribers = $subscribers;
         return $this;
     }
 }
