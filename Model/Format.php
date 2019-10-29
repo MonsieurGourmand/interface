@@ -2,16 +2,10 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\FormatInterface;
 
-class Format extends Master implements FormatInterface
+class Format extends Kit implements FormatInterface
 {
-    /**
-     * @var integer
-     */
-    private $idFormat;
-
     /**
      * @var integer
      */
@@ -73,9 +67,37 @@ class Format extends Master implements FormatInterface
     /**
      * @return int
      */
-    public function getIdFormat(): ?int
+    public function getSaltPax()
     {
-        return $this->idFormat;
+        return $this->saltPax;
+    }
+
+    /**
+     * @param int $saltPax
+     * @return Format
+     */
+    public function setSaltPax(int $saltPax): Format
+    {
+        $this->saltPax = $saltPax;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getSugarPax()
+    {
+        return $this->sugarPax;
+    }
+
+    /**
+     * @param int $sugarPax
+     * @return Format
+     */
+    public function setSugarPax(int $sugarPax): Format
+    {
+        $this->sugarPax = $sugarPax;
+        return $this;
     }
 
     /**
@@ -226,44 +248,6 @@ class Format extends Master implements FormatInterface
     public function setType(int $type): Format
     {
         $this->type = $type;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSaltPax(): ?int
-    {
-        return $this->saltPax;
-    }
-
-    /**
-     * @param int $saltPax
-     * @return Format
-     */
-    public function setSaltPax(int $saltPax): Format
-    {
-        $this->saltPax = $saltPax;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getSugarPax(): ?int
-    {
-        return $this->sugarPax;
-    }
-
-    /**
-     * @param int $sugarPax
-     * @return Format
-     */
-    public function setSugarPax(int $sugarPax): Format
-    {
-        $this->sugarPax = $sugarPax;
 
         return $this;
     }

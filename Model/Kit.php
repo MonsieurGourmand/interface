@@ -19,11 +19,6 @@ class Kit extends Master
      */
     private $pax;
 
-    /**
-     * @var Format
-     */
-    private $format;
-
     /** @var float */
     private $productsExpenses;
 
@@ -125,25 +120,6 @@ class Kit extends Master
     }
 
     /**
-     * @return Format
-     */
-    public function getFormat(): ?Format
-    {
-        return $this->format;
-    }
-
-    /**
-     * @param Format $format
-     * @return Kit
-     */
-    public function setFormat($format): Kit
-    {
-        $this->format = $format;
-
-        return $this;
-    }
-
-    /**
      * @return float
      */
     public function getProductsExpenses(): ?float
@@ -159,8 +135,10 @@ class Kit extends Master
     public function setProductsExpenses(float $productsExpenses): Kit
     {
         $this->productsExpenses = $productsExpenses;
+
+        return $this;
     }
-  
+
     /**
      * @return KitTechnicalForm[]
      */

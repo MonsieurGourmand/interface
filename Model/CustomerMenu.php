@@ -17,9 +17,9 @@ class CustomerMenu extends Master
     private $customer;
 
     /**
-     * @var Kit
+     * @var Format
      */
-    private $kit;
+    private $format;
 
     /**
      * @var float
@@ -63,20 +63,20 @@ class CustomerMenu extends Master
     }
 
     /**
-     * @return Kit
+     * @return Format
      */
-    public function getKit()
+    public function getFormat()
     {
-        return $this->kit;
+        return $this->format;
     }
 
     /**
-     * @param Kit $kit
+     * @param Format $format
      * @return CustomerMenu
      */
-    public function setKit(Kit $kit): CustomerMenu
+    public function setFormat(Format $format): CustomerMenu
     {
-        $this->kit = $kit;
+        $this->format = $format;
         return $this;
     }
 
