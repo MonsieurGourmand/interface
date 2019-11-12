@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
 use DateTime;
 
