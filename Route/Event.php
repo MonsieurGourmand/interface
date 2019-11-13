@@ -34,8 +34,8 @@ class Event
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get($id, $format = MGD::FORMAT_OBJECT)
+    public function get(int $id, $format = MGD::FORMAT_OBJECT, array $params = [])
     {
-        return $this->master->get($this->url, $id, $this->entity, $format);
+        return $this->master->get($this->url, $id, $this->entity, $format, $params);
     }
 }
