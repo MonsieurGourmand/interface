@@ -4,11 +4,13 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\AllProduct;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Amount;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Application;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Bill;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Channel;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\DiscountType;
@@ -19,6 +21,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\FproCustomer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Implementation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Kit;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Menu;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Notification;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
@@ -30,6 +33,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Purpose;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Shipper;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Team;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Trace;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\User;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
@@ -91,6 +95,10 @@ class MGD
     public $eventDiscountType;
     public $place;
     public $fproCustomers;
+    public $notifications;
+    public $channels;
+    public $teams;
+    public $allProducts;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -136,6 +144,10 @@ class MGD
         $this->eventDiscountType = new DiscountType($this);
         $this->place = new Place($this);
         $this->fproCustomers = new FproCustomer($this);
+        $this->notifications = new Notification($this);
+        $this->teams = new Team($this);
+        $this->channels = new Channel($this);
+        $this->allProducts = new AllProduct($this);
     }
 
     public function login()
