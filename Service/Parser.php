@@ -108,8 +108,11 @@ class Parser
                 if (strstr($type, 'array')) {
                     $propDest->setValue($destination, $value);
                 } else {
-                    foreach ($value as &$item)
-                        $item = self::object($item, "\\monsieurgourmand\\Bundle\\InterfaceBundle\\Model\\" . $type, $master);
+                    foreach ($value as &$item) {
+                        if ($item) {
+                            $item = self::object($item, "\\monsieurgourmand\\Bundle\\InterfaceBundle\\Model\\" . $type, $master);
+                        }
+                    }
                 }
             } else {
                 if (preg_match('/@var\s+(\w+)/', $propDest->getDocComment(), $matches)) {
