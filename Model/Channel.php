@@ -161,7 +161,7 @@ class Channel extends Master
     /**
      * @return array
      */
-    public function getSubscribers(): array
+    public function getSubscribers(): ?array
     {
         return $this->subscribers;
     }
