@@ -79,6 +79,11 @@ class User extends Master
     private $applications;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
+     */
+    public $billings;
+
+    /**
      * @return int
      */
     public function getId()

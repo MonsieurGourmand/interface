@@ -265,6 +265,10 @@ class Event extends Master implements EventInterface
      */
     private $shippingGrade;
 
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Quote
+     */
+    public $quotes;
 
     /**
      * @return int

@@ -21,8 +21,8 @@ class Quote extends Master
     /** @var DateTime */
     private $updated;
 
-    /** @var Operation */
-    private $operation;
+    /** @var Event */
+    private $event;
 
     /** @var Document */
     private $validatedQuote;
@@ -37,6 +37,11 @@ class Quote extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\ValidatedQuote
      */
     public $validatedQuotes;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\Invoice
+     */
+    public $invoices;
 
     /**
      * @return int
@@ -119,20 +124,20 @@ class Quote extends Master
     }
 
     /**
-     * @return Operation
+     * @return Event
      */
-    public function getOperation(): ?Operation
+    public function getEvent(): ?Event
     {
-        return $this->operation;
+        return $this->event;
     }
 
     /**
-     * @param Operation $operation
+     * @param Event $event
      * @return Quote
      */
-    public function setOperation(Operation $operation): Quote
+    public function setEvent(Event $event): Quote
     {
-        $this->operation = $operation;
+        $this->event = $event;
         return $this;
     }
 
