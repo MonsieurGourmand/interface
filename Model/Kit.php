@@ -20,7 +20,7 @@ class Kit extends Master
     private $pax;
 
     /** @var integer */
-    private $maxPx;
+    private $maxPax;
 
     /**
      * @var bool
@@ -130,19 +130,19 @@ class Kit extends Master
     /**
      * @return int
      */
-    public function getMaxPx(): ?int
+    public function getMaxPax(): ?int
     {
-        return $this->maxPx;
+        return $this->maxPax;
     }
 
     /**
-     * @param int $maxPx
+     * @param int $maxPax
      *
      * @return Kit
      */
-    public function setMaxPx(int $maxPx): Kit
+    public function setMaxPax(int $maxPax): Kit
     {
-        $this->maxPx = $maxPx;
+        $this->maxPax = $maxPax;
 
         return $this;
     }
