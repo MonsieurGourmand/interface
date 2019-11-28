@@ -140,7 +140,7 @@ class Kit extends Master
      *
      * @return Kit
      */
-    public function setMaxPax(int $maxPax): Kit
+    public function setMaxPax(?int $maxPax): Kit
     {
         $this->maxPax = $maxPax;
 
