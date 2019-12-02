@@ -110,6 +110,16 @@ class Operation extends Master implements EventInterface
     private $toValidate;
 
     /**
+     * @var User
+     */
+    private $logisticsManager;
+
+    /**
+     * @var User
+     */
+    private $salesManager;
+
+    /**
      * @return int
      */
     public function getIdOperation()
@@ -349,6 +359,47 @@ class Operation extends Master implements EventInterface
     public function setToValidate(bool $toValidate): Operation
     {
         $this->toValidate = $toValidate;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getLogisticsManager(): ?User
+    {
+        return $this->logisticsManager;
+    }
+
+    /**
+     * @param User $logisticsManager
+     *
+     * @return Operation
+     */
+    public function setLogisticsManager(?User $logisticsManager): Operation
+    {
+        $this->logisticsManager = $logisticsManager;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getSalesManager(): ?User
+    {
+        return $this->salesManager;
+    }
+
+    /**
+     * @param User $salesManager
+     *
+     * @return Operation
+     */
+    public function setSalesManager(?User $salesManager): Operation
+    {
+        $this->salesManager = $salesManager;
+
         return $this;
     }
 }

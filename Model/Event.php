@@ -265,6 +265,16 @@ class Event extends Master implements EventInterface
      */
     private $shippingGrade;
 
+    /**
+     * @var User
+     */
+    private $logisticsManager;
+
+    /**
+     * @var User
+     */
+    private $salesManager;
+
 
     /**
      * @return int
@@ -1053,6 +1063,47 @@ class Event extends Master implements EventInterface
     public function setShippingCode(int $shippingCode): Event
     {
         $this->shippingCode = $shippingCode;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getLogisticsManager(): ?User
+    {
+        return $this->logisticsManager;
+    }
+
+    /**
+     * @param User $logisticsManager
+     *
+     * @return Event
+     */
+    public function setLogisticsManager(?User $logisticsManager): Event
+    {
+        $this->logisticsManager = $logisticsManager;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getSalesManager(): ?User
+    {
+        return $this->salesManager;
+    }
+
+    /**
+     * @param User $salesManager
+     *
+     * @return Event
+     */
+    public function setSalesManager(?User $salesManager): Event
+    {
+        $this->salesManager = $salesManager;
+
         return $this;
     }
 }
