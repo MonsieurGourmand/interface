@@ -12,6 +12,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Billing;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Category;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Cause;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Channel;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Contact;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Diet;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\DiscountType;
@@ -100,6 +101,7 @@ class MGD
     public $teams;
     public $allProducts;
     public $billings;
+    public $contact;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -149,6 +151,7 @@ class MGD
         $this->teams = new Team($this);
         $this->channels = new Channel($this);
         $this->allProducts = new AllProduct($this);
+        $this->contact = new Contact($this);
     }
 
     public function login()
