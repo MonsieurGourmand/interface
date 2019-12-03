@@ -38,4 +38,9 @@ class Billing
     {
         return $this->master->put($this->url, $billing->getId(), $billing, $this->entity, $format);
     }
+
+    public function remove(int $billingId)
+    {
+        return $this->master->remove($this->url, $billingId);
+    }
 }
