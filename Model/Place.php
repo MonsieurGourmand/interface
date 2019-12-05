@@ -44,22 +44,8 @@ class Place extends Master
     /**
      * @var string
      *
-     * @Assert\NotBlank()
-     */
-    private $recipient;
-
-    /**
-     * @var string
-     *
      */
     private $reference;
-
-    /**
-     * @var string
-     *
-     * @Assert\Email()
-     */
-    private $mail;
 
     /**
      * @var string|null
