@@ -37,6 +37,9 @@ interface MainInterface
     const DOCS_EVENTAIL = 6;
     const DOCS_PICFC = 7;
     const DOCS_PIC = 8;
+    const DOCS_PICMGD = 9;
+    const DOCS_PICMGDEVENTAIL = 10;
+    const DOCS_PICMGFCEVENTAIL = 11;
 
     //Temp Prepa/transport
 

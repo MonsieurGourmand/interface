@@ -58,6 +58,12 @@ class Customer extends Master
     /** @var int */
     private $margin;
 
+    /** @var User */
+    private $logisticsManager;
+
+    /** @var User */
+    private $salesManager;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Shop
      */
@@ -276,6 +282,46 @@ class Customer extends Master
     public function setMargin(?int $margin): Customer
     {
         $this->margin = $margin;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getLogisticsManager(): ?User
+    {
+        return $this->logisticsManager;
+    }
+
+    /**
+     * @param User $logisticsManager
+     *
+     * @return Customer
+     */
+    public function setLogisticsManager(?User $logisticsManager): Customer
+    {
+        $this->logisticsManager = $logisticsManager;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getSalesManager(): ?User
+    {
+        return $this->salesManager;
+    }
+
+    /**
+     * @param User $salesManager
+     *
+     * @return Customer
+     */
+    public function setSalesManager(?User $salesManager): Customer
+    {
+        $this->salesManager = $salesManager;
 
         return $this;
     }
