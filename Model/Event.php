@@ -271,6 +271,16 @@ class Event extends Master implements EventInterface
     public $quotes;
 
     /**
+     * @var User
+     */
+    private $eventContact;
+
+    /**
+     * @var User
+     */
+    private $shippingContact;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -1057,6 +1067,42 @@ class Event extends Master implements EventInterface
     public function setShippingCode(int $shippingCode): Event
     {
         $this->shippingCode = $shippingCode;
+        return $this;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getEventContact(): ?User
+    {
+        return $this->eventContact;
+    }
+
+    /**
+     * @param User $eventContact
+     * @return Event
+     */
+    public function setEventContact(User $eventContact): Event
+    {
+        $this->eventContact = $eventContact;
+        return $this;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getShippingContact(): ?User
+    {
+        return $this->shippingContact;
+    }
+
+    /**
+     * @param User $shippingContact
+     * @return Event
+     */
+    public function setShippingContact(User $shippingContact): Event
+    {
+        $this->shippingContact = $shippingContact;
         return $this;
     }
 }
