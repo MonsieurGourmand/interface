@@ -8,6 +8,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use phpDocumentor\Reflection\Types\Null_;
+
 class User extends Master
 {
     /**
@@ -82,6 +84,16 @@ class User extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
      */
     public $billings;
+
+    /**
+     * @var Customer
+     */
+    public $customerFirm;
+
+    /**
+     * @var Supplier
+     */
+    public $supplierFirm;
 
     /**
      * @return int
@@ -302,6 +314,42 @@ class User extends Master
     public function setApplications(array $applications): User
     {
         $this->applications = $applications;
+        return $this;
+    }
+
+    /**
+     * @return Customer|null
+     */
+    public function getCustomerFirm(): ?Customer
+    {
+        return $this->customerFirm;
+    }
+
+    /**
+     * @param Customer $customerFirm
+     * @return User
+     */
+    public function setCustomerFirm(Customer $customerFirm): User
+    {
+        $this->customerFirm = $customerFirm;
+        return $this;
+    }
+
+    /**
+     * @return Supplier|null
+     */
+    public function getSupplierFirm(): ?Supplier
+    {
+        return $this->supplierFirm;
+    }
+
+    /**
+     * @param Supplier $supplierFirm
+     * @return User
+     */
+    public function setSupplierFirm(Supplier $supplierFirm): User
+    {
+        $this->supplierFirm = $supplierFirm;
         return $this;
     }
 }
