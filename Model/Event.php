@@ -1131,10 +1131,10 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param User $eventContact
+     * @param User|null $eventContact
      * @return Event
      */
-    public function setEventContact(User $eventContact): Event
+    public function setEventContact(?User $eventContact): Event
     {
         $this->eventContact = $eventContact;
         return $this;
@@ -1149,10 +1149,10 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param User $shippingContact
+     * @param User|null $shippingContact
      * @return Event
      */
-    public function setShippingContact(User $shippingContact): Event
+    public function setShippingContact(?User $shippingContact): Event
     {
         $this->shippingContact = $shippingContact;
         return $this;
