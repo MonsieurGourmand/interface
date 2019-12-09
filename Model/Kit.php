@@ -19,6 +19,14 @@ class Kit extends Master
      */
     private $pax;
 
+    /** @var integer */
+    private $maxPax;
+
+    /**
+     * @var bool
+     */
+    private $fixedPax;
+
     /** @var float */
     private $productsExpenses;
 
@@ -115,6 +123,46 @@ class Kit extends Master
     public function setPax($pax): Kit
     {
         $this->pax = $pax;
+
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getMaxPax(): ?int
+    {
+        return $this->maxPax;
+    }
+
+    /**
+     * @param int $maxPax
+     *
+     * @return Kit
+     */
+    public function setMaxPax(?int $maxPax): Kit
+    {
+        $this->maxPax = $maxPax;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isFixedPax(): ?bool
+    {
+        return $this->fixedPax;
+    }
+
+    /**
+     * @param bool $fixedPax
+     *
+     * @return Kit
+     */
+    public function setFixedPax(bool $fixedPax): Kit
+    {
+        $this->fixedPax = $fixedPax;
 
         return $this;
     }
