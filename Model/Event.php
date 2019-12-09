@@ -275,10 +275,10 @@ class Event extends Master implements EventInterface
      */
     private $eventContact;
 
+    /**
      * @var User
      */
     private $logisticsManager;
-
 
     /**
      * @var User

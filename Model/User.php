@@ -8,8 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use phpDocumentor\Reflection\Types\Null_;
-
 class User extends Master
 {
     /**
