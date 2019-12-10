@@ -13,6 +13,10 @@ class Shop extends Place
     public $billings;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Shop\AddBilling
+     */
+    public $addBillings;
+    /**
      * @return string
      */
     public function getName(): string
