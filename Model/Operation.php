@@ -39,11 +39,6 @@ class Operation extends Master implements EventInterface
     public $amounts;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Quote
-     */
-    public $quotes;
-
-    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Channel
      */
     public $channels;

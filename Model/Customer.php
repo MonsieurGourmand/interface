@@ -37,11 +37,6 @@ class Customer extends Master
     /** @var integer */
     private $nbrMenus;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\FproCustomer
-     */
-    public $fproCustomers;
-
     /** @var string */
     private $slug;
 
@@ -53,7 +48,7 @@ class Customer extends Master
 
     /** @var Document */
     private $logoMixed;
-  
+
     /** @var boolean */
     private $billable;
 
@@ -68,6 +63,21 @@ class Customer extends Master
 
     /** @var User */
     private $salesManager;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Shop
+     */
+    private $shops;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Billing
+     */
+    public $billings;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\AddBilling
+     */
+    public $addBillings;
 
     /**
      * @return int
@@ -229,7 +239,7 @@ class Customer extends Master
         return $this;
     }
 
-     /**
+    /**
      * @return bool
      */
     public function isBillable(): ?bool

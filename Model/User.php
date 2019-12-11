@@ -79,6 +79,21 @@ class User extends Master
     private $applications;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
+     */
+    public $shops;
+
+    /**
+     * @var Customer
+     */
+    public $customerFirm;
+
+    /**
+     * @var Supplier
+     */
+    public $supplierFirm;
+
+    /**
      * @return int
      */
     public function getId()
@@ -297,6 +312,42 @@ class User extends Master
     public function setApplications(array $applications): User
     {
         $this->applications = $applications;
+        return $this;
+    }
+
+    /**
+     * @return Customer|null
+     */
+    public function getCustomerFirm(): ?Customer
+    {
+        return $this->customerFirm;
+    }
+
+    /**
+     * @param Customer $customerFirm
+     * @return User
+     */
+    public function setCustomerFirm(Customer $customerFirm): User
+    {
+        $this->customerFirm = $customerFirm;
+        return $this;
+    }
+
+    /**
+     * @return Supplier|null
+     */
+    public function getSupplierFirm(): ?Supplier
+    {
+        return $this->supplierFirm;
+    }
+
+    /**
+     * @param Supplier $supplierFirm
+     * @return User
+     */
+    public function setSupplierFirm(Supplier $supplierFirm): User
+    {
+        $this->supplierFirm = $supplierFirm;
         return $this;
     }
 }

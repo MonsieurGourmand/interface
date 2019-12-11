@@ -6,9 +6,9 @@
  * Time: 6:10 PM
  */
 
-namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
+namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Operation;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Quote
@@ -17,11 +17,11 @@ class Quote
     private $url;
     private $master;
 
-    public function __construct(Operation $operation)
+    public function __construct(Event $event)
     {
-        $this->master = $operation->getMaster();
+        $this->master = $event->getMaster();
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Quote::class;
-        $this->url = "/operations/" . $operation->getIdOperation() . "/quotes";
+        $this->url = "/events/" . $event->getIdEvent() . "/quotes";
     }
 
     public function getAll($format = MGD::FORMAT_OBJECT)
