@@ -24,11 +24,6 @@ class Shop
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
-    public function get(int $id, string $format = MGD::FORMAT_OBJECT)
-    {
-        return $this->master->get($this->url, $id, $this->entity, $format);
-    }
-
     public function post(ShopModel $shop, string $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->post($this->url, $shop, $this->entity, $format);

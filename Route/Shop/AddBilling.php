@@ -19,21 +19,6 @@ class Billing
         $this->url = "/shops/" . $shop->getId() . "/addbillings";
     }
 
-    public function getAll(array $params = [], string $format = MGD::FORMAT_OBJECT)
-    {
-        return $this->master->getAll($this->url, $this->entity, $params, $format);
-    }
-
-    public function get(int $id, string $format = MGD::FORMAT_OBJECT)
-    {
-        return $this->master->get($this->url, $id, $this->entity, $format);
-    }
-
-    public function post(BillingModel $billing, string $format = MGD::FORMAT_OBJECT)
-    {
-        return $this->master->post($this->url, $billing, $this->entity, $format);
-    }
-
     public function put(BillingModel $billing, string $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->put($this->url, $billing->getId(), $billing, $this->entity, $format);

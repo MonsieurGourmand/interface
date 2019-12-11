@@ -19,9 +19,8 @@ class Invoice
         $this->url = "/events/" . $quote->getEvent()->getIdEvent() . "/quotes/" . $quote->getId() . '/invoices';
     }
 
-    public function getAll(string $format = MGD::FORMAT_OBJECT)
+    public function getAll(string $format = MGD::FORMAT_OBJECT, $params = [])
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 

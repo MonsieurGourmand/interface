@@ -81,7 +81,7 @@ class User extends Master
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
      */
-    public $billings;
+    public $shops;
 
     /**
      * @var Customer
