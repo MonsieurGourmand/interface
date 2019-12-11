@@ -6,7 +6,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Model\Shop;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Billing as BillingModel;
 
-class Billing
+class AddBilling
 {
     private $entity;
     private $url;
