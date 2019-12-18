@@ -20,7 +20,7 @@ class Customer extends Master
     private $reference;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\User
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Contact
      */
     public $users;
 

@@ -71,6 +71,11 @@ class Place extends Master
     private $corporateName;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Shop\Contact
+     */
+    public $shopContacts;
+
+    /**
      * @return int
      */
     public function getId()
