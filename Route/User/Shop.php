@@ -34,4 +34,15 @@ class Shop
     {
         return $this->master->get($this->url, $id, $this->entity, $format);
     }
+
+    /**
+     * @param User $user
+     * @param int $shopId
+     * @param string $format
+     * @return array|false|string|void
+     */
+    public function put(User $user, int $shopId, $format = MGD::FORMAT_OBJECT)
+    {
+        return $this->master->put($this->url, $shopId, $user, $this->entity, $format);
+    }
 }
