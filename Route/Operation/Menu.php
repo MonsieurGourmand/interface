@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: remi
- * Date: 1/20/17
- * Time: 6:10 PM
- */
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 
