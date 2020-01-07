@@ -115,6 +115,12 @@ class Operation extends Master implements EventInterface
     private $salesManager;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Menu
+     */
+    public $menus;
+
+
+    /**
      * @return int
      */
     public function getIdOperation()
