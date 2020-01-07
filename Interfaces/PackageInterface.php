@@ -46,4 +46,5 @@ interface PackageInterface extends MainInterface
     const SIZE_BBA_MEDIUM = 12;
     const SIZE_BBA_BIG = 13;
     const SIZE_RPT17_RAJA = 14;
+    const SIZE_BFSA40_RAJA = 15;
 }
