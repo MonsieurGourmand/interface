@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
 
 class Operation extends Master implements EventInterface
@@ -93,7 +92,6 @@ class Operation extends Master implements EventInterface
      */
     private $discount;
 
-
     /**
      * @var integer
      */
@@ -118,7 +116,6 @@ class Operation extends Master implements EventInterface
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Menu
      */
     public $menus;
-
 
     /**
      * @return int
