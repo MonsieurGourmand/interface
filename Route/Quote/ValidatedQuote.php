@@ -14,7 +14,7 @@ class ValidatedQuote
     public function __construct(Quote $quote)
     {
         $this->master = $quote->getMaster();
-        $this->url = "/operations/" . $quote->getOperation()->getIdOperation() . "/quotes/" . $quote->getId() . '/validatedquotes';
+        $this->url = "/events/" . $quote->getEvent()->getIdEvent() . "/quotes/" . $quote->getId() . '/validatedquotes';
         $this->entity = Quote::class;
     }
 
