@@ -29,11 +29,6 @@ class Customer extends Master
      */
     public $places;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu
-     */
-    public $menus;
-
     /** @var integer */
     private $nbrMenus;
 
