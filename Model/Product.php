@@ -366,6 +366,11 @@ class Product extends Master implements ProductInterface
     public $productPicturesRoute;
 
     /**
+     * @var string
+     */
+    private $zone;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1522,6 +1527,24 @@ class Product extends Master implements ProductInterface
     public function setCommercialDescription(?string $commercialDescription): Product
     {
         $this->commercialDescription = $commercialDescription;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getZone(): string
+    {
+        return $this->zone;
+    }
+
+    /**
+     * @param string $zone
+     * @return Product
+     */
+    public function setZone(string $zone): Product
+    {
+        $this->zone = $zone;
         return $this;
     }
 
