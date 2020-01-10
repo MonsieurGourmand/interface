@@ -1531,9 +1531,9 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getZone(): string
+    public function getZone(): ?string
     {
         return $this->zone;
     }
