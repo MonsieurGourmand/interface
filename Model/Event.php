@@ -308,7 +308,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param Place $place
+     * @param Place|null $place
      * @return Event
      */
     public function setPlace($place)
@@ -1036,10 +1036,10 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param Place $shippingPlace
+     * @param Place|null $shippingPlace
      * @return Event
      */
-    public function setShippingPlace(Place $shippingPlace)
+    public function setShippingPlace(?Place $shippingPlace)
     {
         $this->shippingPlace = $shippingPlace;
         return $this;
