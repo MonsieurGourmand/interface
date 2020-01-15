@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 class Customer extends Master
 {
     const DEFAULT_MARGIN = 45;
@@ -28,14 +27,6 @@ class Customer extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place
      */
     public $places;
-
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu
-     */
-    public $menus;
-
-    /** @var integer */
-    private $nbrMenus;
 
     /** @var string */
     private $slug;
@@ -140,25 +131,6 @@ class Customer extends Master
     public function setSlideShare(string $slideShare): Customer
     {
         $this->slideShare = $slideShare;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNbrMenus(): ?int
-    {
-        return $this->nbrMenus;
-    }
-
-    /**
-     * @param int $nbrMenus
-     * @return Customer
-     */
-    public function setNbrMenus(int $nbrMenus): Customer
-    {
-        $this->nbrMenus = $nbrMenus;
 
         return $this;
     }
