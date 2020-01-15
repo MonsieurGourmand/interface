@@ -369,6 +369,11 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $zone;
+  
+    /**
+     * @var boolean
+     */
+    private $ecoFriendly;
 
     /**
      * @return int
@@ -1545,6 +1550,23 @@ class Product extends Master implements ProductInterface
     public function setZone(string $zone): Product
     {
         $this->zone = $zone;
+      
+    /**
+     * @return bool
+     */
+    public function isEcoFriendly(): ?bool
+    {
+        return $this->ecoFriendly;
+    }
+
+    /**
+     * @param bool $ecoFriendly
+     * @return Product
+     */
+    public function setEcoFriendly(bool $ecoFriendly): Product
+    {
+        $this->ecoFriendly = $ecoFriendly;
+
         return $this;
     }
 
