@@ -4,7 +4,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use DateTime;
 
-class CustomerMenu extends Master
+class OperationMenu extends Master
 {
     /**
      * @var integer
@@ -12,9 +12,9 @@ class CustomerMenu extends Master
     private $id;
 
     /**
-     * @var Customer
+     * @var Operation
      */
-    private $customer;
+    private $operation;
 
     /**
      * @var Format
@@ -45,20 +45,20 @@ class CustomerMenu extends Master
     }
 
     /**
-     * @return Customer
+     * @return Operation|null
      */
-    public function getCustomer()
+    public function getOperation(): ?Operation
     {
-        return $this->customer;
+        return $this->operation;
     }
 
     /**
-     * @param Customer $customer
-     * @return CustomerMenu
+     * @param OperationMenu $operation
+     * @return OperationMenu
      */
-    public function setCustomer(Customer $customer): CustomerMenu
+    public function setOperation(OperationMenu $operation): OperationMenu
     {
-        $this->customer = $customer;
+        $this->operation = $operation;
         return $this;
     }
 
@@ -72,9 +72,9 @@ class CustomerMenu extends Master
 
     /**
      * @param Format $format
-     * @return CustomerMenu
+     * @return OperationMenu
      */
-    public function setFormat(Format $format): CustomerMenu
+    public function setFormat(Format $format): OperationMenu
     {
         $this->format = $format;
         return $this;
@@ -90,9 +90,9 @@ class CustomerMenu extends Master
 
     /**
      * @param float $price
-     * @return CustomerMenu
+     * @return OperationMenu
      */
-    public function setPrice(float $price): CustomerMenu
+    public function setPrice(float $price): OperationMenu
     {
         $this->price = $price;
         return $this;
@@ -108,9 +108,9 @@ class CustomerMenu extends Master
 
     /**
      * @param DateTime $startDate
-     * @return CustomerMenu
+     * @return OperationMenu
      */
-    public function setStartDate(DateTime $startDate): CustomerMenu
+    public function setStartDate(DateTime $startDate): OperationMenu
     {
         $this->startDate = $startDate;
         return $this;
@@ -126,9 +126,9 @@ class CustomerMenu extends Master
 
     /**
      * @param DateTime $endDate
-     * @return CustomerMenu
+     * @return OperationMenu
      */
-    public function setEndDate(DateTime $endDate): CustomerMenu
+    public function setEndDate(DateTime $endDate): OperationMenu
     {
         $this->endDate = $endDate;
         return $this;

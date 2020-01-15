@@ -34,9 +34,6 @@ class Customer extends Master
      */
     public $menus;
 
-    /** @var integer */
-    private $nbrMenus;
-
     /** @var string */
     private $slug;
 
@@ -140,25 +137,6 @@ class Customer extends Master
     public function setSlideShare(string $slideShare): Customer
     {
         $this->slideShare = $slideShare;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNbrMenus(): ?int
-    {
-        return $this->nbrMenus;
-    }
-
-    /**
-     * @param int $nbrMenus
-     * @return Customer
-     */
-    public function setNbrMenus(int $nbrMenus): Customer
-    {
-        $this->nbrMenus = $nbrMenus;
 
         return $this;
     }
