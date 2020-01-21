@@ -83,11 +83,6 @@ class Operation extends Master implements EventInterface
     private $document;
 
     /**
-     * @var User
-     */
-    private $leadUser;
-
-    /**
      * @var integer
      */
     private $discount;
@@ -286,25 +281,6 @@ class Operation extends Master implements EventInterface
         $this->document = $document;
         return $this;
     }
-
-    /**
-     * @return User
-     */
-    public function getLeadUser()
-    {
-        return $this->leadUser;
-    }
-
-    /**
-     * @param User $leadUser
-     * @return Operation
-     */
-    public function setLeadUser($leadUser)
-    {
-        $this->leadUser = $leadUser;
-        return $this;
-    }
-
 
     /**
      * @return int
