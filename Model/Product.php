@@ -1550,6 +1550,9 @@ class Product extends Master implements ProductInterface
     public function setZone(string $zone): Product
     {
         $this->zone = $zone;
+
+        return $this;
+    }
       
     /**
      * @return bool
