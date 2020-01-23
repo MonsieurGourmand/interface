@@ -81,7 +81,7 @@ class User extends Master
     /**
      * @var array
      */
-    private $shops;
+    private $places;
 
     /**
      * @var Customer
@@ -354,18 +354,18 @@ class User extends Master
     /**
      * @return array|null
      */
-    public function getShops(): ?array
+    public function getPlaces(): ?array
     {
-        return $this->shops;
+        return $this->places;
     }
 
     /**
-     * @param array $shops
+     * @param array $places
      * @return User
      */
-    public function setShops(array $shops): User
+    public function setPlaces(array $places): User
     {
-        $this->shops = $shops;
+        $this->places = $places;
         return $this;
     }
 }
