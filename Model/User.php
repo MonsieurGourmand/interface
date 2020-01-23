@@ -79,9 +79,9 @@ class User extends Master
     private $applications;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
+     * @var array
      */
-    public $shops;
+    private $shops;
 
     /**
      * @var Customer
@@ -348,6 +348,24 @@ class User extends Master
     public function setSupplierFirm(Supplier $supplierFirm): User
     {
         $this->supplierFirm = $supplierFirm;
+        return $this;
+    }
+
+    /**
+     * @return array|null
+     */
+    public function getShops(): ?array
+    {
+        return $this->shops;
+    }
+
+    /**
+     * @param array $shops
+     * @return User
+     */
+    public function setShops(array $shops): User
+    {
+        $this->shops = $shops;
         return $this;
     }
 }
