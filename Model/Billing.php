@@ -7,7 +7,7 @@ class Billing extends Place
     /**
      * @var string
      */
-    private $name;
+    private $email;
 
     /**
      * @var string
@@ -27,18 +27,18 @@ class Billing extends Place
     /**
      * @return string
      */
-    public function getName(): ?string
+    public function getEmail(): ?string
     {
-        return $this->name;
+        return $this->email;
     }
 
     /**
-     * @param string $name
+     * @param string $email
      * @return Billing
      */
-    public function setName(string $name): Billing
+    public function setEmail(string $email): Billing
     {
-        $this->name = $name;
+        $this->email = $email;
 
         return $this;
     }
