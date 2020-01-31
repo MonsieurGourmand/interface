@@ -189,15 +189,18 @@ class MGD
 
     public function getAll($url, $entityClass, $params = array(), $format)
     {
-        $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($params));
-        if (self::getError($response))
-            return self::getAll($url, $entityClass, $params, $format);
-        if ($format == self::FORMAT_OBJECT)
-            return $this->parser->parse($response['result'], $entityClass, $this, $format);
-        elseif ($format == self::FORMAT_JSON)
-            return json_encode($response['result']);
-        else
-            return $response['result'];
+        if($this->client)
+        {
+            $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($params));
+            if (self::getError($response))
+                return self::getAll($url, $entityClass, $params, $format);
+            if ($format == self::FORMAT_OBJECT)
+                return $this->parser->parse($response['result'], $entityClass, $this, $format);
+            elseif ($format == self::FORMAT_JSON)
+                return json_encode($response['result']);
+            else
+                return $response['result'];
+        }
     }
 
     public function get($url, $id, $entityClass, $format, $params = array())
