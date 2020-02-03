@@ -93,6 +93,9 @@ class User extends Master
      */
     public $supplierFirm;
 
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop */
+    public $shops;
+
     /**
      * @return int
      */
