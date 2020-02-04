@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\ShopType as ShopTypeModel;
 
 class ShopType
 {
@@ -23,7 +24,7 @@ class ShopType
     public function __construct(MGD $master)
     {
         $this->master = $master;
-        $this->entity = ShopType::class;
+        $this->entity = ShopTypeModel::class;
         $this->url = '/shoptypes';
     }
 
