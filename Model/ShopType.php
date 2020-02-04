@@ -5,7 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 /**
  * Class ShopType
  */
-class ShopType extends Master
+class ShopType
 {
     /** @var int */
     private $id;

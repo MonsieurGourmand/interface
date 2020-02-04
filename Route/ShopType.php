@@ -2,9 +2,10 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Master;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
-class ShopType
+class ShopType extends Master
 {
     /** @var MGD */
     private $master;
