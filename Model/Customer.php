@@ -23,11 +23,6 @@ class Customer extends Master
      */
     public $users;
 
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place
-     */
-    public $places;
-
     /** @var string */
     private $slug;
 
