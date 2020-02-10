@@ -37,6 +37,11 @@ class OperationMenu extends Master
     private $endDate;
 
     /**
+     * @var string
+     */
+    private $name;
+
+    /**
      * @return int
      */
     public function getId()
@@ -131,6 +136,24 @@ class OperationMenu extends Master
     public function setEndDate(DateTime $endDate): OperationMenu
     {
         $this->endDate = $endDate;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     * @return OperationMenu
+     */
+    public function setName(?string $name): OperationMenu
+    {
+        $this->name = $name;
         return $this;
     }
 }
