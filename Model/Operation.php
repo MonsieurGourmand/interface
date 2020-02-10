@@ -113,6 +113,17 @@ class Operation extends Master implements EventInterface
     public $menus;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\AddFormat
+     */
+    public $addFormats;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\AddPackages
+     */
+    public $addPackages;
+
+
+    /**
      * @return int
      */
     public function getIdOperation()

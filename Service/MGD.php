@@ -228,6 +228,9 @@ class MGD
         } else {
             $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_POST, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         }
+        if ($response['code'] == 204) {
+            return null;
+        }
         if (self::getError($response))
             return self::post($url, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
@@ -241,6 +244,9 @@ class MGD
     public function put($url, $id, $object, $entityClass, $format)
     {
         $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_PUT, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        if ($response['code'] == 204) {
+            return null;
+        }
         if (self::getError($response))
             return self::put($url, $id, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
