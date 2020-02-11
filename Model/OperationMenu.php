@@ -140,7 +140,7 @@ class OperationMenu extends Master
     }
 
     /**
-     * @return string|null
+     * @return string
      */
     public function getName(): ?string
     {
@@ -151,9 +151,10 @@ class OperationMenu extends Master
      * @param string $name
      * @return OperationMenu
      */
-    public function setName(?string $name): OperationMenu
+    public function setName(string $name): OperationMenu
     {
         $this->name = $name;
+
         return $this;
     }
 }
