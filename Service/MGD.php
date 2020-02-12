@@ -33,6 +33,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purpose;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Shipper;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\ShopType;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Stat;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Team;
@@ -102,6 +103,7 @@ class MGD
     public $allProducts;
     public $billings;
     public $contact;
+    public $shopTypes;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -152,6 +154,7 @@ class MGD
         $this->channels = new Channel($this);
         $this->allProducts = new AllProduct($this);
         $this->contact = new Contact($this);
+        $this->shopTypes = new ShopType($this);
     }
 
     public function login()

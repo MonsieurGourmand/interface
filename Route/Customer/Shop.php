@@ -19,9 +19,14 @@ class Shop
         $this->url = "/customers/" . $customer->getIdCustomer() . "/shops";
     }
 
-    public function getAll(array $params = [], string $format = MGD::FORMAT_OBJECT)
+    public function getAll($params = [], string $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
+    }
+
+    public function get($id, $format = MGD::FORMAT_OBJECT)
+    {
+        return $this->master->get($this->url, $id, $this->entity, $format);
     }
 
     public function post(ShopModel $shop, string $format = MGD::FORMAT_OBJECT)
