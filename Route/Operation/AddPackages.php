@@ -13,15 +13,24 @@ class AddPackages
     /** @var MGD */
     private $master;
 
+    /**
+     * AddPackages constructor.
+     * @param Operation $operation
+     */
     public function __construct(Operation $operation)
     {
         $this->master = $operation->getMaster();
         $this->url = "/operations/" . $operation->getIdOperation() . "/formats";
     }
 
-    public function addFormat(int $formatId, array $params, string $format = MGD::FORMAT_OBJECT)
+    /**
+     * @param int $formatId
+     * @param array $params
+     * @param string $format
+     */
+    public function addPackages(int $formatId, array $params, string $format = MGD::FORMAT_OBJECT)
     {
-        return $this->master->post($this->url . '/' . $formatId, $params, null, $format);
+        $this->master->post($this->url . '/' . $formatId . '/addpackages', $params, null, $format);
     }
 
 }
