@@ -30,6 +30,16 @@ class KitProduct extends Master
     private $comment;
 
     /**
+     * @var integer
+     */
+    private $transport;
+
+    /**
+     * @var integer
+     */
+    private $storage;
+
+    /**
      * @return int
      */
     public function getIdKitProduct()
@@ -118,6 +128,42 @@ class KitProduct extends Master
     {
         $this->comment = $comment;
 
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTransport(): ?int
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param int $transport
+     * @return KitProduct
+     */
+    public function setTransport($transport): KitProduct
+    {
+        $this->transport = $transport;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStorage(): ?int
+    {
+        return $this->storage;
+    }
+
+    /**
+     * @param int $storage
+     * @return KitProduct
+     */
+    public function setStorage($storage): KitProduct
+    {
+        $this->storage = $storage;
         return $this;
     }
 }
