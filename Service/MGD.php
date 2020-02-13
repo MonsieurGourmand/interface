@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
-use HttpException;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\AllProduct;
@@ -44,6 +44,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
 use OAuth2\Client;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class MGD
 {
@@ -287,7 +288,7 @@ class MGD
             if ($this->refresh_token != null) {
                 $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'refresh_token', array('refresh_token' => $this->refresh_token));
                 if (!isset($response['result']['access_token'])) {
-                    throw new HttpException('refresh token expired', '401');
+                    throw new UnauthorizedHttpException('refresh token expired');
                 }
                 $this->client->setAccessToken($response['result']['access_token']);
                 $this->refresh_token = $response['result']['refresh_token'];
