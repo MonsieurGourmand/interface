@@ -290,6 +290,10 @@ class Event extends Master implements EventInterface
      */
     private $salesManager;
 
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\AddPackages
+     */
+    public $addPackages;
 
     /**
      * @return int
