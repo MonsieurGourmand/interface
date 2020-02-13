@@ -50,11 +50,6 @@ class EventProduct extends Master
     private $transport;
 
     /**
-     * @var integer
-     */
-    private $storage;
-
-    /**
      * @return int
      */
     public function getIdEventProduct()
@@ -213,24 +208,6 @@ class EventProduct extends Master
     public function setTransport($transport): EventProduct
     {
         $this->transport = $transport;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getStorage(): ?int
-    {
-        return $this->storage;
-    }
-
-    /**
-     * @param int $storage
-     * @return EventProduct
-     */
-    public function setStorage($storage): EventProduct
-    {
-        $this->storage = $storage;
         return $this;
     }
 }

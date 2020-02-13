@@ -65,16 +65,6 @@ class Operation extends Master implements EventInterface
     /**
      * @var integer
      */
-    private $tPreparation;
-
-    /**
-     * @var integer
-     */
-    private $tTransport;
-
-    /**
-     * @var integer
-     */
     private $tDefrost;
 
     /**
@@ -218,42 +208,6 @@ class Operation extends Master implements EventInterface
     public function setDocuments($documents)
     {
         $this->documents = $documents;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTPreparation()
-    {
-        return $this->tPreparation;
-    }
-
-    /**
-     * @param mixed $tPreparation
-     * @return Operation
-     */
-    public function setTPreparation($tPreparation)
-    {
-        $this->tPreparation = $tPreparation;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTTransport()
-    {
-        return $this->tTransport;
-    }
-
-    /**
-     * @param mixed $tTransport
-     * @return Operation
-     */
-    public function setTTransport($tTransport)
-    {
-        $this->tTransport = $tTransport;
         return $this;
     }
 
