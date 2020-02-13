@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
+use HttpException;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\AllProduct;
@@ -192,8 +193,7 @@ class MGD
 
     public function getAll($url, $entityClass, $params = array(), $format)
     {
-        if($this->client)
-        {
+        if ($this->client) {
             $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($params));
             if (self::getError($response))
                 return self::getAll($url, $entityClass, $params, $format);
@@ -275,12 +275,20 @@ class MGD
         return $response;
     }
 
+    /**
+     * @param $response
+     * @return bool
+     * @throws HttpException
+     */
     public function getError($response)
     {
         // Gestion de l'accessToken expired
         if ($response['code'] == 401 && $response['result']['error'] == "invalid_grant" && $response['result']['error_description'] == "The access token provided has expired.") {
             if ($this->refresh_token != null) {
                 $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'refresh_token', array('refresh_token' => $this->refresh_token));
+                if (!isset($response['result']['access_token'])) {
+                    throw new HttpException('refresh token expired', '401');
+                }
                 $this->client->setAccessToken($response['result']['access_token']);
                 $this->refresh_token = $response['result']['refresh_token'];
                 $this->session->set('client', $this->client);
