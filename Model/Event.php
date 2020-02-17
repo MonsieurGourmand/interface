@@ -290,6 +290,11 @@ class Event extends Master implements EventInterface
      */
     private $salesManager;
 
+    /**
+     * @var string
+     */
+    private $recipient;
+
 
     /**
      * @return int
@@ -1155,6 +1160,24 @@ class Event extends Master implements EventInterface
     public function setShippingContact(?User $shippingContact): Event
     {
         $this->shippingContact = $shippingContact;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecipient(): ?string
+    {
+        return $this->recipient;
+    }
+
+    /**
+     * @param string $recipient
+     * @return Event
+     */
+    public function setRecipient(string $recipient): Event
+    {
+        $this->recipient = $recipient;
         return $this;
     }
 }
