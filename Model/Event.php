@@ -1057,7 +1057,7 @@ class Event extends Master implements EventInterface
      * @param string $deliveryReference
      * @return Event
      */
-    public function setDeliveryReference(string $deliveryReference): Event
+    public function setDeliveryReference(?string $deliveryReference): Event
     {
         $this->deliveryReference = $deliveryReference;
         return $this;
