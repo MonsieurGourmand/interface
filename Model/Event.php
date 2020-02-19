@@ -286,6 +286,11 @@ class Event extends Master implements EventInterface
     public $addPackages;
 
     /**
+     * @var bool
+     */
+    public $packed;
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -1113,6 +1118,24 @@ class Event extends Master implements EventInterface
     public function setShippingContact(?User $shippingContact): Event
     {
         $this->shippingContact = $shippingContact;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPacked(): bool
+    {
+        return $this->packed;
+    }
+
+    /**
+     * @param bool $packed
+     * @return Event
+     */
+    public function setPacked(bool $packed): Event
+    {
+        $this->packed = $packed;
         return $this;
     }
 }
