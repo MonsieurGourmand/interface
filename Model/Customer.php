@@ -295,4 +295,24 @@ class Customer extends Master
 
         return $this;
     }
+
+    /**
+     * @return PaymentMethod
+     */
+    public function getPaymentMethod(): ?PaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    /**
+     * @param PaymentMethod $paymentMethod
+     *
+     * @return Customer
+     */
+    public function setPaymentMethod(PaymentMethod $paymentMethod): Customer
+    {
+        $this->paymentMethod = $paymentMethod;
+
+        return $this;
+    }
 }
