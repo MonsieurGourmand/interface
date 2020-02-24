@@ -124,16 +124,6 @@ class Event extends Master implements EventInterface
     /**
      * @var integer
      */
-    private $tPreparation;
-
-    /**
-     * @var integer
-     */
-    private $tTransport;
-
-    /**
-     * @var integer
-     */
     private $tDefrost;
 
     /**
@@ -290,6 +280,15 @@ class Event extends Master implements EventInterface
      */
     private $salesManager;
 
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\AddPackages
+     */
+    public $addPackages;
+
+    /**
+     * @var bool
+     */
+    public $packed;
 
     /**
      * @return int
@@ -566,42 +565,6 @@ class Event extends Master implements EventInterface
     public function setDocuments($documents)
     {
         $this->documents = $documents;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTPreparation()
-    {
-        return $this->tPreparation;
-    }
-
-    /**
-     * @param int $tPreparation
-     * @return Event
-     */
-    public function setTPreparation($tPreparation)
-    {
-        $this->tPreparation = $tPreparation;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getTTransport()
-    {
-        return $this->tTransport;
-    }
-
-    /**
-     * @param int $tTransport
-     * @return Event
-     */
-    public function setTTransport($tTransport)
-    {
-        $this->tTransport = $tTransport;
         return $this;
     }
 
@@ -1155,6 +1118,24 @@ class Event extends Master implements EventInterface
     public function setShippingContact(?User $shippingContact): Event
     {
         $this->shippingContact = $shippingContact;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPacked(): bool
+    {
+        return $this->packed;
+    }
+
+    /**
+     * @param bool $packed
+     * @return Event
+     */
+    public function setPacked(bool $packed): Event
+    {
+        $this->packed = $packed;
         return $this;
     }
 }
