@@ -50,6 +50,9 @@ class Customer extends Master
     /** @var User */
     private $salesManager;
 
+    /** @var PaymentMethod */
+    private $paymentMethod;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Shop
      */
