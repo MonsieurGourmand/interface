@@ -27,6 +27,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Notification;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\PaymentMethod;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
@@ -104,6 +105,7 @@ class MGD
     public $billings;
     public $contact;
     public $shopTypes;
+    public $paymentMethod;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -155,6 +157,7 @@ class MGD
         $this->allProducts = new AllProduct($this);
         $this->contact = new Contact($this);
         $this->shopTypes = new ShopType($this);
+        $this->paymentMethod = new PaymentMethod($this);
     }
 
     public function login()
