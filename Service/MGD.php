@@ -28,6 +28,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Notification;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\PaymentMethod;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
@@ -106,6 +107,7 @@ class MGD
     public $billings;
     public $contact;
     public $shopTypes;
+    public $paymentMethod;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -157,6 +159,7 @@ class MGD
         $this->allProducts = new AllProduct($this);
         $this->contact = new Contact($this);
         $this->shopTypes = new ShopType($this);
+        $this->paymentMethod = new PaymentMethod($this);
     }
 
     public function login()
@@ -195,7 +198,8 @@ class MGD
     public function getAll($url, $entityClass, $params = array(), $format)
     {
         if ($this->client) {
-            $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($params));
+            $format == self::FORMAT_PDF ? $dot = ".pdf" : $dot = ".json";
+            $response = $this->client->fetch($this->apiRoot . $url . $dot, $this->serializer->serialize($params));
             if (self::getError($response))
                 return self::getAll($url, $entityClass, $params, $format);
             if ($format == self::FORMAT_OBJECT)
@@ -232,6 +236,9 @@ class MGD
         } else {
             $response = $this->client->fetch($this->apiRoot . $url . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_POST, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
         }
+        if ($response['code'] == 204) {
+            return null;
+        }
         if (self::getError($response))
             return self::post($url, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)
@@ -245,6 +252,9 @@ class MGD
     public function put($url, $id, $object, $entityClass, $format)
     {
         $response = $this->client->fetch($this->apiRoot . $url . '/' . $id . '.json', $this->serializer->serialize($object), Client::HTTP_METHOD_PUT, array('Content-Type' => 'application/x-www-form-urlencoded'), Client::HTTP_FORM_CONTENT_TYPE_APPLICATION);
+        if ($response['code'] == 204) {
+            return null;
+        }
         if (self::getError($response))
             return self::put($url, $id, $object, $entityClass, $format);
         if ($format == self::FORMAT_OBJECT)

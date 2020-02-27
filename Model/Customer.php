@@ -50,6 +50,9 @@ class Customer extends Master
     /** @var User */
     private $salesManager;
 
+    /** @var PaymentMethod */
+    private $paymentMethod;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Shop
      */
@@ -289,6 +292,26 @@ class Customer extends Master
     public function setSalesManager(?User $salesManager): Customer
     {
         $this->salesManager = $salesManager;
+
+        return $this;
+    }
+
+    /**
+     * @return PaymentMethod
+     */
+    public function getPaymentMethod(): ?PaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    /**
+     * @param PaymentMethod $paymentMethod
+     *
+     * @return Customer
+     */
+    public function setPaymentMethod(PaymentMethod $paymentMethod): Customer
+    {
+        $this->paymentMethod = $paymentMethod;
 
         return $this;
     }

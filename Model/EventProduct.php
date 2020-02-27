@@ -45,6 +45,11 @@ class EventProduct extends Master
     private $comment;
 
     /**
+     * @var integer
+     */
+    private $transport;
+
+    /**
      * @return int
      */
     public function getIdEventProduct()
@@ -185,6 +190,24 @@ class EventProduct extends Master
     public function setGrade($grade)
     {
         $this->grade = $grade;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getTransport(): ?int
+    {
+        return $this->transport;
+    }
+
+    /**
+     * @param int $transport
+     * @return EventProduct
+     */
+    public function setTransport($transport): EventProduct
+    {
+        $this->transport = $transport;
         return $this;
     }
 }
