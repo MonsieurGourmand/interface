@@ -570,7 +570,7 @@ class Purchase extends Master implements PurchaseInterface
      * @param Supplier $supplier
      * @return Purchase
      */
-    public function setSupplier(Supplier $supplier): Purchase
+    public function setSupplier(?Supplier $supplier): Purchase
     {
         $this->supplier = $supplier;
 
