@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
+use DateTime;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\PurchaseInterface;
 
 class Purchase extends Master implements PurchaseInterface
@@ -18,20 +18,19 @@ class Purchase extends Master implements PurchaseInterface
     private $place;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $orderDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $deliveryDate;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $sendDate;
-
 
     /**
      * @var string
@@ -50,10 +49,9 @@ class Purchase extends Master implements PurchaseInterface
     private $step;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $updated;
-
 
     /**
      * @var float
@@ -74,7 +72,6 @@ class Purchase extends Master implements PurchaseInterface
      * @var integer
      */
     private $type;
-
 
     /**
      * @var string
@@ -141,6 +138,9 @@ class Purchase extends Master implements PurchaseInterface
      */
     private $leadUser;
 
+    /** @var string */
+    private $fproInvoice;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase\PurchaseProduct
      */
@@ -154,7 +154,7 @@ class Purchase extends Master implements PurchaseInterface
     /**
      * @return int
      */
-    public function getIdPurchase()
+    public function getIdPurchase(): ?int
     {
         return $this->idPurchase;
     }
@@ -162,7 +162,7 @@ class Purchase extends Master implements PurchaseInterface
     /**
      * @return string
      */
-    public function getPlace()
+    public function getPlace(): ?string
     {
         return $this->place;
     }
@@ -171,52 +171,55 @@ class Purchase extends Master implements PurchaseInterface
      * @param string $place
      * @return Purchase
      */
-    public function setPlace($place)
+    public function setPlace(string$place): Purchase
     {
         $this->place = $place;
+
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getOrderDate()
+    public function getOrderDate(): ?DateTime
     {
         return $this->orderDate;
     }
 
     /**
-     * @param \DateTime $orderDate
+     * @param DateTime $orderDate
      * @return Purchase
      */
-    public function setOrderDate($orderDate)
+    public function setOrderDate(DateTime$orderDate): Purchase
     {
         $this->orderDate = $orderDate;
+
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getDeliveryDate()
+    public function getDeliveryDate(): ?DateTime
     {
         return $this->deliveryDate;
     }
 
     /**
-     * @param \DateTime $deliveryDate
+     * @param DateTime $deliveryDate
      * @return Purchase
      */
-    public function setDeliveryDate($deliveryDate)
+    public function setDeliveryDate(DateTime$deliveryDate): Purchase
     {
         $this->deliveryDate = $deliveryDate;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getComment()
+    public function getComment(): ?string
     {
         return $this->comment;
     }
@@ -225,16 +228,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param string $comment
      * @return Purchase
      */
-    public function setComment($comment)
+    public function setComment(string$comment): Purchase
     {
         $this->comment = $comment;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getStatus()
+    public function getStatus(): ?int
     {
         return $this->status;
     }
@@ -243,16 +247,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param int $status
      * @return Purchase
      */
-    public function setStatus($status)
+    public function setStatus(int $status): Purchase
     {
         $this->status = $status;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getStep()
+    public function getStep(): ?string
     {
         return $this->step;
     }
@@ -261,34 +266,36 @@ class Purchase extends Master implements PurchaseInterface
      * @param string $step
      * @return Purchase
      */
-    public function setStep($step)
+    public function setStep(string $step): Purchase
     {
         $this->step = $step;
+
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getUpdated()
+    public function getUpdated(): ?DateTime
     {
         return $this->updated;
     }
 
     /**
-     * @param \DateTime $updated
+     * @param DateTime $updated
      * @return Purchase
      */
-    public function setUpdated($updated)
+    public function setUpdated(DateTime $updated): Purchase
     {
         $this->updated = $updated;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getDeliveryCharge()
+    public function getDeliveryCharge(): ?float
     {
         return $this->deliveryCharge;
     }
@@ -297,16 +304,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $deliveryCharge
      * @return Purchase
      */
-    public function setDeliveryCharge($deliveryCharge)
+    public function setDeliveryCharge(float $deliveryCharge): Purchase
     {
         $this->deliveryCharge = $deliveryCharge;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getDiscount()
+    public function getDiscount(): ?float
     {
         return $this->discount;
     }
@@ -315,16 +323,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $discount
      * @return Purchase
      */
-    public function setDiscount($discount)
+    public function setDiscount(float $discount): Purchase
     {
         $this->discount = $discount;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getDiscountType()
+    public function getDiscountType(): ?int
     {
         return $this->discountType;
     }
@@ -333,16 +342,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param int $discountType
      * @return Purchase
      */
-    public function setDiscountType($discountType)
+    public function setDiscountType(int $discountType): Purchase
     {
         $this->discountType = $discountType;
+
         return $this;
     }
 
     /**
      * @return string
      */
-    public function getOrderReference()
+    public function getOrderReference(): ?string
     {
         return $this->orderReference;
     }
@@ -351,16 +361,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param string $orderReference
      * @return Purchase
      */
-    public function setOrderReference($orderReference)
+    public function setOrderReference(string $orderReference): Purchase
     {
         $this->orderReference = $orderReference;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getSuggestDiscount()
+    public function getSuggestDiscount(): ?float
     {
         return $this->suggestDiscount;
     }
@@ -369,16 +380,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $suggestDiscount
      * @return Purchase
      */
-    public function setSuggestDiscount($suggestDiscount)
+    public function setSuggestDiscount(float $suggestDiscount): Purchase
     {
         $this->suggestDiscount = $suggestDiscount;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getSuggestDiscountType()
+    public function getSuggestDiscountType(): ?int
     {
         return $this->suggestDiscountType;
     }
@@ -387,16 +399,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param int $suggestDiscountType
      * @return Purchase
      */
-    public function setSuggestDiscountType($suggestDiscountType)
+    public function setSuggestDiscountType(int $suggestDiscountType): Purchase
     {
         $this->suggestDiscountType = $suggestDiscountType;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getSuggestDeliveryCharge()
+    public function getSuggestDeliveryCharge(): ?float
     {
         return $this->suggestDeliveryCharge;
     }
@@ -405,16 +418,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $suggestDeliveryCharge
      * @return Purchase
      */
-    public function setSuggestDeliveryCharge($suggestDeliveryCharge)
+    public function setSuggestDeliveryCharge(float $suggestDeliveryCharge): Purchase
     {
         $this->suggestDeliveryCharge = $suggestDeliveryCharge;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getTotal()
+    public function getTotal(): ?float
     {
         return $this->total;
     }
@@ -423,16 +437,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $total
      * @return Purchase
      */
-    public function setTotal($total)
+    public function setTotal(float $total): Purchase
     {
         $this->total = $total;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getTotalHT()
+    public function getTotalHT(): ?float
     {
         return $this->totalHT;
     }
@@ -441,16 +456,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $totalHT
      * @return Purchase
      */
-    public function setTotalHT($totalHT)
+    public function setTotalHT(float $totalHT): Purchase
     {
         $this->totalHT = $totalHT;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getTotalHTR()
+    public function getTotalHTR(): ?float
     {
         return $this->totalHTR;
     }
@@ -459,16 +475,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $totalHTR
      * @return Purchase
      */
-    public function setTotalHTR($totalHTR)
+    public function setTotalHTR(float $totalHTR): Purchase
     {
         $this->totalHTR = $totalHTR;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getTotalVAT()
+    public function getTotalVAT(): ?float
     {
         return $this->totalVAT;
     }
@@ -477,16 +494,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $totalVAT
      * @return Purchase
      */
-    public function setTotalVAT($totalVAT)
+    public function setTotalVAT(float $totalVAT): Purchase
     {
         $this->totalVAT = $totalVAT;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getTotalTax()
+    public function getTotalTax(): ?float
     {
         return $this->totalTax;
     }
@@ -495,16 +513,17 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $totalTax
      * @return Purchase
      */
-    public function setTotalTax($totalTax)
+    public function setTotalTax(float $totalTax): Purchase
     {
         $this->totalTax = $totalTax;
+
         return $this;
     }
 
     /**
      * @return float
      */
-    public function getBillingCosts()
+    public function getBillingCosts(): ?float
     {
         return $this->billingCosts;
     }
@@ -513,88 +532,93 @@ class Purchase extends Master implements PurchaseInterface
      * @param float $billingCosts
      * @return Purchase
      */
-    public function setBillingCosts($billingCosts)
+    public function setBillingCosts(float $billingCosts): Purchase
     {
         $this->billingCosts = $billingCosts;
+
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return Document
      */
-    public function getDocument()
+    public function getDocument(): ?Document
     {
         return $this->document;
     }
 
     /**
-     * @param mixed $document
+     * @param Document $document
      * @return Purchase
      */
-    public function setDocument($document)
+    public function setDocument(Document $document): Purchase
     {
         $this->document = $document;
+
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return Supplier
      */
-    public function getSupplier()
+    public function getSupplier(): ?Supplier
     {
         return $this->supplier;
     }
 
     /**
-     * @param mixed $supplier
+     * @param Supplier $supplier
      * @return Purchase
      */
-    public function setSupplier($supplier)
+    public function setSupplier(Supplier $supplier): Purchase
     {
         $this->supplier = $supplier;
+
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return User
      */
-    public function getLeadUser()
+    public function getLeadUser(): ?User
     {
         return $this->leadUser;
     }
 
     /**
-     * @param mixed $leadUser
+     * @param User $leadUser
      * @return Purchase
      */
-    public function setLeadUser($leadUser)
+    public function setLeadUser(User $leadUser): Purchase
     {
         $this->leadUser = $leadUser;
+
         return $this;
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
-    public function getSendDate()
+    public function getSendDate(): ?DateTime
     {
         return $this->sendDate;
     }
 
     /**
-     * @param \DateTime $sendDate
+     * @param DateTime $sendDate
      * @return Purchase
      */
-    public function setSendDate($sendDate)
+    public function setSendDate(DateTime $sendDate): Purchase
     {
         $this->sendDate = $sendDate;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getType()
+    public function getType(): ?int
     {
         return $this->type;
     }
@@ -603,9 +627,30 @@ class Purchase extends Master implements PurchaseInterface
      * @param int $type
      * @return Purchase
      */
-    public function setType($type)
+    public function setType(int $type): Purchase
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getFproInvoice(): ?string
+    {
+        return $this->fproInvoice;
+    }
+
+    /**
+     * @param string $fproInvoice
+     *
+     * @return Purchase
+     */
+    public function setFproInvoice(string $fproInvoice): Purchase
+    {
+        $this->fproInvoice = $fproInvoice;
+
         return $this;
     }
 }
