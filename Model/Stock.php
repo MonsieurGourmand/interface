@@ -2,25 +2,25 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
+use DateTime;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\StockInterface;
 
 class Stock extends Master implements StockInterface
 {
+    /**
+     * @var integer
+     */
+    private $idStock;
+
     /**
      * @var Product
      */
     private $product;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $expirationDate;
-
-    /**
-     * @var integer
-     */
-    private $idStock;
 
     /**
      * @var integer
@@ -28,30 +28,34 @@ class Stock extends Master implements StockInterface
     private $quantity;
 
     /**
-     * @var integer
-     */
-    private $quantityPreparable;
-
-
-    /**
-     * @var integer
-     */
-    private $quantityExpired;
-
-    /**
      * @var float
      */
     private $value;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Stock\Flux
+     * @var boolean
      */
-    public $fluxes;
+    private $alert;
 
     /**
-     * @var integer
+     * @var int
      */
-    private $type;
+    private $bookedQuantity;
+
+    /**
+     * @var int
+     */
+    private $pickedQuantity;
+
+    /**
+     * @var int
+     */
+    private $preparedQuantity;
+
+    /**
+     * @var int
+     */
+    private $availableQuantity;
 
     /**
      * @return bool
@@ -60,11 +64,6 @@ class Stock extends Master implements StockInterface
     {
         return $this->alert;
     }
-
-    /**
-     * @var boolean
-     */
-    private $alert;
 
     /**
      * @return int
@@ -99,7 +98,7 @@ class Stock extends Master implements StockInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getExpirationDate()
     {
@@ -107,7 +106,7 @@ class Stock extends Master implements StockInterface
     }
 
     /**
-     * @param \DateTime $expirationDate
+     * @param DateTime $expirationDate
      */
     public function setExpirationDate($expirationDate)
     {
@@ -151,54 +150,72 @@ class Stock extends Master implements StockInterface
     /**
      * @return int
      */
-    public function getQuantityExpired()
+    public function getBookedQuantity(): ?int
     {
-        return $this->quantityExpired;
+        return $this->bookedQuantity;
     }
 
     /**
-     * @param int $quantityExpired
+     * @param int $bookedQuantity
      * @return Stock
      */
-    public function setQuantityExpired($quantityExpired)
+    public function setBookedQuantity(int $bookedQuantity): Stock
     {
-        $this->quantityExpired = $quantityExpired;
+        $this->bookedQuantity = $bookedQuantity;
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getType()
+    public function getPickedQuantity(): ?int
     {
-        return $this->type;
+        return $this->pickedQuantity;
     }
 
     /**
-     * @param int $type
+     * @param int $pickedQuantity
      * @return Stock
      */
-    public function setType($type)
+    public function setPickedQuantity(int $pickedQuantity): Stock
     {
-        $this->type = $type;
+        $this->pickedQuantity = $pickedQuantity;
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getQuantityPreparable()
+    public function getPreparedQuantity(): ?int
     {
-        return $this->quantityPreparable;
+        return $this->preparedQuantity;
     }
 
     /**
-     * @param int $quantityPreparable
+     * @param int $preparedQuantity
      * @return Stock
      */
-    public function setQuantityPreparable($quantityPreparable)
+    public function setPreparedQuantity(int $preparedQuantity): Stock
     {
-        $this->quantityPreparable = $quantityPreparable;
+        $this->preparedQuantity = $preparedQuantity;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAvailableQuantity(): ?int
+    {
+        return $this->availableQuantity;
+    }
+
+    /**
+     * @param int $availableQuantity
+     * @return Stock
+     */
+    public function setAvailableQuantity(int $availableQuantity): Stock
+    {
+        $this->availableQuantity = $availableQuantity;
         return $this;
     }
 }

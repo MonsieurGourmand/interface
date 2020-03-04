@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Flux;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\AllProduct;
@@ -19,7 +20,6 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\DiscountType;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Document;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Format;
-use monsieurgourmand\Bundle\InterfaceBundle\Route\FproCustomer;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Implementation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Kit;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Menu;
@@ -27,6 +27,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Notification;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\Picking;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
@@ -104,6 +105,8 @@ class MGD
     public $billings;
     public $contact;
     public $shopTypes;
+    public $flux;
+    public $picking;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -155,6 +158,8 @@ class MGD
         $this->allProducts = new AllProduct($this);
         $this->contact = new Contact($this);
         $this->shopTypes = new ShopType($this);
+        $this->flux = new Flux($this);
+        $this->picking = new Picking($this);
     }
 
     public function login()

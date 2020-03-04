@@ -2,6 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use DateTime;
+
 class Flux extends Master
 {
     /**
@@ -12,7 +14,7 @@ class Flux extends Master
     /**
      * @var integer
      */
-    private $idFlux;
+    private $id;
 
     /**
      * @var integer
@@ -25,7 +27,7 @@ class Flux extends Master
     private $outComing;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $created;
 
@@ -53,17 +55,9 @@ class Flux extends Master
     /**
      * @return int
      */
-    public function getIdFlux()
+    public function getId()
     {
-        return $this->idFlux;
-    }
-
-    /**
-     * @param int $idFlux
-     */
-    public function setIdFlux($idFlux)
-    {
-        $this->idFlux = $idFlux;
+        return $this->id;
     }
 
     /**
@@ -99,7 +93,7 @@ class Flux extends Master
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getCreated()
     {
@@ -107,7 +101,7 @@ class Flux extends Master
     }
 
     /**
-     * @param \DateTime $created
+     * @param DateTime $created
      */
     public function setCreated($created)
     {

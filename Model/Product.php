@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
 
@@ -11,7 +12,6 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $idProduct;
-
 
     /**
      * @var integer
@@ -88,7 +88,6 @@ class Product extends Master implements ProductInterface
      */
     private $creator;
 
-
     /**
      * @var Category
      */
@@ -105,7 +104,7 @@ class Product extends Master implements ProductInterface
     private $archived;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $stoppedDate;
 
@@ -118,7 +117,6 @@ class Product extends Master implements ProductInterface
      * @var integer
      */
     private $alert;
-
 
     /**
      * @var float
@@ -156,9 +154,29 @@ class Product extends Master implements ProductInterface
     private $quantity;
 
     /**
-     * @var integer
+     * @var int
      */
-    private $quantityCBN;
+    private $bookedQuantity;
+
+    /**
+     * @var int
+     */
+    private $pickedQuantity;
+
+    /**
+     * @var int
+     */
+    private $preparedQuantity;
+
+    /**
+     * @var int
+     */
+    private $availableQuantity;
+
+    /**
+     * @var int
+     */
+    private $expiredQuantity;
 
     /**
      * @var boolean
@@ -166,24 +184,9 @@ class Product extends Master implements ProductInterface
     private $inAlert;
 
     /**
-     * @var integer
-     */
-    private $quantityExpired;
-
-    /**
-     * @var integer
-     */
-    private $quantityExpiredCBN;
-
-    /**
      * @var float
      */
     private $unitPrice;
-
-    /**
-     * @var float
-     */
-    private $unitPriceCBN;
 
     /**
      * @var Price
@@ -318,7 +321,7 @@ class Product extends Master implements ProductInterface
     private $pieceNetWeight;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $shortestDlc;
 
@@ -339,11 +342,6 @@ class Product extends Master implements ProductInterface
      *
      */
     private $dietsStatus;
-
-    /**
-     * @var integer
-     */
-    private $quantityPreparable;
 
     /**
      * @var ProductTechnicalForm[]
@@ -369,7 +367,7 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $zone;
-  
+
     /**
      * @var boolean
      */
@@ -624,24 +622,6 @@ class Product extends Master implements ProductInterface
     public function setArchived($archived)
     {
         $this->archived = $archived;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getStopped()
-    {
-        return $this->stopped;
-    }
-
-    /**
-     * @param mixed $stopped
-     * @return Product
-     */
-    public function setStopped($stopped)
-    {
-        $this->stopped = $stopped;
         return $this;
     }
 
@@ -1019,7 +999,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return int
+     * @return Implementation[]
      */
     public function getImplementations()
     {
@@ -1056,7 +1036,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Allergen
+     * @return Allergen[]
      */
     public function getAllergens()
     {
@@ -1074,7 +1054,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Diet
+     * @return Diet[]
      */
     public function getDiets()
     {
@@ -1092,7 +1072,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Trace
+     * @return Trace[]
      */
     public function getTraces()
     {
@@ -1101,44 +1081,10 @@ class Product extends Master implements ProductInterface
 
     /**
      * @param Trace $traces
-     * @return Product
      */
     public function setTraces($traces)
     {
         $this->traces = $traces;
-    }
-
-    public function getQuantityExpiredCBN()
-    {
-        return $this->quantityExpiredCBN;
-    }
-
-    /**
-     * @param int $quantityExpiredCBN
-     * @return Product
-     */
-    public function setQuantityExpiredCBN($quantityExpiredCBN)
-    {
-        $this->quantityExpiredCBN = $quantityExpiredCBN;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getUnitPriceCBN()
-    {
-        return $this->unitPriceCBN;
-    }
-
-    /**
-     * @param float $unitPriceCBN
-     * @return Product
-     */
-    public function setUnitPriceCBN($unitPriceCBN)
-    {
-        $this->unitPriceCBN = $unitPriceCBN;
-        return $this;
     }
 
     /**
@@ -1286,7 +1232,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getShortestDlc()
     {
@@ -1348,7 +1294,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getStoppedDate()
     {
@@ -1356,7 +1302,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @param \DateTime $stoppedDate
+     * @param DateTime $stoppedDate
      * @return Product
      */
     public function setStoppedDate($stoppedDate)
@@ -1416,24 +1362,6 @@ class Product extends Master implements ProductInterface
     public function setCreator($creator)
     {
         $this->creator = $creator;
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getQuantityPreparable()
-    {
-        return $this->quantityPreparable;
-    }
-
-    /**
-     * @param int $quantityPreparable
-     * @return Product
-     */
-    public function setQuantityPreparable($quantityPreparable)
-    {
-        $this->quantityPreparable = $quantityPreparable;
         return $this;
     }
 
@@ -1553,7 +1481,7 @@ class Product extends Master implements ProductInterface
 
         return $this;
     }
-      
+
     /**
      * @return bool
      */
@@ -1570,6 +1498,96 @@ class Product extends Master implements ProductInterface
     {
         $this->ecoFriendly = $ecoFriendly;
 
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBookedQuantity(): ?int
+    {
+        return $this->bookedQuantity;
+    }
+
+    /**
+     * @param int $bookedQuantity
+     * @return Product
+     */
+    public function setBookedQuantity(int $bookedQuantity): Product
+    {
+        $this->bookedQuantity = $bookedQuantity;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPickedQuantity(): ?int
+    {
+        return $this->pickedQuantity;
+    }
+
+    /**
+     * @param int $pickedQuantity
+     * @return Product
+     */
+    public function setPickedQuantity(int $pickedQuantity): Product
+    {
+        $this->pickedQuantity = $pickedQuantity;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getPreparedQuantity(): ?int
+    {
+        return $this->preparedQuantity;
+    }
+
+    /**
+     * @param int $preparedQuantity
+     * @return Product
+     */
+    public function setPreparedQuantity(int $preparedQuantity): Product
+    {
+        $this->preparedQuantity = $preparedQuantity;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getAvailableQuantity(): ?int
+    {
+        return $this->availableQuantity;
+    }
+
+    /**
+     * @param int $availableQuantity
+     * @return Product
+     */
+    public function setAvailableQuantity(int $availableQuantity): Product
+    {
+        $this->availableQuantity = $availableQuantity;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getExpiredQuantity(): ?int
+    {
+        return $this->expiredQuantity;
+    }
+
+    /**
+     * @param int $expiredQuantity
+     * @return Product
+     */
+    public function setExpiredQuantity(int $expiredQuantity): Product
+    {
+        $this->expiredQuantity = $expiredQuantity;
         return $this;
     }
 
