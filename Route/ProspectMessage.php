@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Prospect;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class ProspectMessage
