@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: remi
- * Date: 1/20/17
- * Time: 6:10 PM
- */
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
@@ -17,11 +11,11 @@ class ProspectMessage
     private $url;
     private $master;
 
-    public function __construct(Prospect $prospect)
+    public function __construct(MGD $master)
     {
-        $this->master = $prospect->getMaster();
+        $this->master = $master;
         $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\ProspectMessage::class;
-        $this->url = "/prospectsmessages";
+        $this->url = '/prospectsmessages';
     }
 
     public function getAll($params = [], $format=MGD::FORMAT_OBJECT)
