@@ -8,7 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Purchase
@@ -25,7 +24,7 @@ class Purchase
         $this->url = '/purchases';
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT, $params = array())
+    public function getAll($params = [], $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
