@@ -25,13 +25,8 @@ class Purchase
         $this->url = '/purchases';
     }
 
-    public function getAll($startDate = null, $endDate = null, $format = MGD::FORMAT_OBJECT, $params = array())
+    public function getAll($format = MGD::FORMAT_OBJECT, $params = array())
     {
-        if ($startDate && $endDate) {
-            $params['startDate'] = $startDate;
-            $params['endDate'] = $endDate;
-        }
-
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
