@@ -176,7 +176,7 @@ class Product extends Master implements ProductInterface
     /**
      * @var int
      */
-    private $expiredQuantity;
+    private $quantityExpired;
 
     /**
      * @var boolean
@@ -924,23 +924,6 @@ class Product extends Master implements ProductInterface
     public function setCabane($cabane)
     {
         $this->cabane = $cabane;
-        return $this;
-    }
-
-    public
-    function getQuantityCBN()
-    {
-        return $this->quantityCBN;
-    }
-
-    /**
-     * @param int $quantityCBN
-     * @return Product
-     */
-    public
-    function setQuantityCBN($quantityCBN)
-    {
-        $this->quantityCBN = $quantityCBN;
         return $this;
     }
 
