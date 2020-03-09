@@ -31,7 +31,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\PaymentMethod;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
-use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\ProspectMessage;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purpose;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Shipper;
@@ -81,7 +81,7 @@ class MGD
     public $zone;
     public $stat;
     public $format;
-    public $prospect;
+    public $prospectMessage;
     public $event;
     public $bill;
     public $trace;
@@ -186,7 +186,7 @@ class MGD
         $this->client->setAccessToken($response['result']['access_token']);
 
         // Générations des routes anonymes
-        $this->prospect = new Prospect($this);
+        $this->prospectMessage = new ProspectMessage($this);
     }
 
     public function me(Request $request)
