@@ -281,6 +281,11 @@ class Event extends Master implements EventInterface
     private $salesManager;
 
     /**
+     * @var string
+     */
+    private $recipient;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\AddPackages
      */
     public $addPackages;
@@ -1020,7 +1025,7 @@ class Event extends Master implements EventInterface
      * @param string $deliveryReference
      * @return Event
      */
-    public function setDeliveryReference(string $deliveryReference): Event
+    public function setDeliveryReference(?string $deliveryReference): Event
     {
         $this->deliveryReference = $deliveryReference;
         return $this;
@@ -1118,6 +1123,24 @@ class Event extends Master implements EventInterface
     public function setShippingContact(?User $shippingContact): Event
     {
         $this->shippingContact = $shippingContact;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getRecipient(): ?string
+    {
+        return $this->recipient;
+    }
+
+    /**
+     * @param string $recipient
+     * @return Event
+     */
+    public function setRecipient(string $recipient): Event
+    {
+        $this->recipient = $recipient;
         return $this;
     }
 

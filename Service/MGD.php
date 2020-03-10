@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Flux;
+use Symfony\Component\HttpKernel\Exception\HttpException;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\AllProduct;
@@ -28,9 +29,10 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Operation;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Package;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Packaging;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Picking;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\PaymentMethod;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
-use monsieurgourmand\Bundle\InterfaceBundle\Route\Prospect;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\ProspectMessage;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purchase;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Purpose;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Shipper;
@@ -44,6 +46,7 @@ use monsieurgourmand\Bundle\InterfaceBundle\Route\Zone;
 use OAuth2\Client;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Session\Session;
+use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 
 class MGD
 {
@@ -79,7 +82,7 @@ class MGD
     public $zone;
     public $stat;
     public $format;
-    public $prospect;
+    public $prospectMessage;
     public $event;
     public $bill;
     public $trace;
@@ -105,6 +108,7 @@ class MGD
     public $billings;
     public $contact;
     public $shopTypes;
+    public $paymentMethod;
     public $flux;
     public $picking;
 
@@ -160,6 +164,7 @@ class MGD
         $this->shopTypes = new ShopType($this);
         $this->flux = new Flux($this);
         $this->picking = new Picking($this);
+        $this->paymentMethod = new PaymentMethod($this);
     }
 
     public function login()
@@ -186,7 +191,7 @@ class MGD
         $this->client->setAccessToken($response['result']['access_token']);
 
         // Générations des routes anonymes
-        $this->prospect = new Prospect($this);
+        $this->prospectMessage = new ProspectMessage($this);
     }
 
     public function me(Request $request)
@@ -197,16 +202,18 @@ class MGD
 
     public function getAll($url, $entityClass, $params = array(), $format)
     {
-        $format == self::FORMAT_PDF ? $dot = ".pdf" : $dot = ".json";
-        $response = $this->client->fetch($this->apiRoot . $url . $dot, $this->serializer->serialize($params));
-        if (self::getError($response))
-            return self::getAll($url, $entityClass, $params, $format);
-        if ($format == self::FORMAT_OBJECT)
-            return $this->parser->parse($response['result'], $entityClass, $this, $format);
-        elseif ($format == self::FORMAT_JSON)
-            return json_encode($response['result']);
-        else
-            return $response['result'];
+        if ($this->client) {
+            $format == self::FORMAT_PDF ? $dot = ".pdf" : $dot = ".json";
+            $response = $this->client->fetch($this->apiRoot . $url . $dot, $this->serializer->serialize($params));
+            if (self::getError($response))
+                return self::getAll($url, $entityClass, $params, $format);
+            if ($format == self::FORMAT_OBJECT)
+                return $this->parser->parse($response['result'], $entityClass, $this, $format);
+            elseif ($format == self::FORMAT_JSON)
+                return json_encode($response['result']);
+            else
+                return $response['result'];
+        }
     }
 
     public function get($url, $id, $entityClass, $format, $params = array())
@@ -284,12 +291,20 @@ class MGD
         return $response;
     }
 
+    /**
+     * @param $response
+     * @return bool
+     * @throws HttpException
+     */
     public function getError($response)
     {
         // Gestion de l'accessToken expired
         if ($response['code'] == 401 && $response['result']['error'] == "invalid_grant" && $response['result']['error_description'] == "The access token provided has expired.") {
             if ($this->refresh_token != null) {
                 $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'refresh_token', array('refresh_token' => $this->refresh_token));
+                if (!isset($response['result']['access_token'])) {
+                    throw new UnauthorizedHttpException('refresh token expired');
+                }
                 $this->client->setAccessToken($response['result']['access_token']);
                 $this->refresh_token = $response['result']['refresh_token'];
                 $this->session->set('client', $this->client);

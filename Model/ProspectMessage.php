@@ -2,6 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use DateTime;
+
 class ProspectMessage extends Master
 {
     /**
@@ -15,20 +17,24 @@ class ProspectMessage extends Master
     private $message;
 
     /**
-     * @var \DateTime
+     * @var DateTime
      */
     private $date;
 
+    /**
+     * @var string
+     */
+    private $email;
 
     /**
-     * @var Prospect
+     * @var string
      */
-    private $prospect;
+    private $phone;
 
     /**
      * @return int
      */
-    public function getIdMessage()
+    public function getIdMessage(): ?int
     {
         return $this->idMessage;
     }
@@ -37,7 +43,7 @@ class ProspectMessage extends Master
      * @param int $idMessage
      * @return ProspectMessage
      */
-    public function setIdMessage($idMessage)
+    public function setIdMessage(int $idMessage): ProspectMessage
     {
         $this->idMessage = $idMessage;
         return $this;
@@ -46,7 +52,7 @@ class ProspectMessage extends Master
     /**
      * @return string
      */
-    public function getMessage()
+    public function getMessage(): ?string
     {
         return $this->message;
     }
@@ -55,43 +61,69 @@ class ProspectMessage extends Master
      * @param string $message
      * @return ProspectMessage
      */
-    public function setMessage($message)
+    public function setMessage(string $message): ProspectMessage
     {
         $this->message = $message;
+
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return DateTime
      */
-    public function getDate()
+    public function getDate(): ?DateTime
     {
         return $this->date;
     }
 
     /**
-     * @param mixed $date
+     * @param DateTime $date
      * @return ProspectMessage
      */
-    public function setDate($date)
+    public function setDate(DateTime $date): ProspectMessage
     {
         $this->date = $date;
+
         return $this;
     }
 
     /**
-     * @return Prospect
+     * @return string
      */
-    public function getProspect()
+    public function getEmail(): ?string
     {
-        return $this->prospect;
+        return $this->email;
     }
 
     /**
-     * @param Prospect $prospect
+     * @param string $email
+     *
+     * @return ProspectMessage
      */
-    public function setProspect($prospect)
+    public function setEmail(string $email): ProspectMessage
     {
-        $this->prospect = $prospect;
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhone(): ?string
+    {
+        return $this->phone;
+    }
+
+    /**
+     * @param string $phone
+     *
+     * @return ProspectMessage
+     */
+    public function setPhone(string $phone): ProspectMessage
+    {
+        $this->phone = $phone;
+
+        return $this;
     }
 }

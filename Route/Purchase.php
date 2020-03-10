@@ -8,7 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Purchase
@@ -25,13 +24,8 @@ class Purchase
         $this->url = '/purchases';
     }
 
-    public function getAll($startDate = null, $endDate = null, $format = MGD::FORMAT_OBJECT, $params = array())
+    public function getAll($params = [], $format = MGD::FORMAT_OBJECT)
     {
-        if ($startDate && $endDate) {
-            $params['startDate'] = $startDate;
-            $params['endDate'] = $endDate;
-        }
-
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 
