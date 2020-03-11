@@ -1585,11 +1585,11 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @param string $defaultPictureUrl
+     * @param string|null $defaultPictureUrl
      *
      * @return Product
      */
-    public function setDefaultPictureUrl(string $defaultPictureUrl): Product
+    public function setDefaultPictureUrl(?string $defaultPictureUrl): Product
     {
         $this->defaultPictureUrl = $defaultPictureUrl;
 
