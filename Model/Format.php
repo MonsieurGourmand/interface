@@ -64,6 +64,9 @@ class Format extends Kit implements FormatInterface
     /** @var bool */
     private $public;
 
+    /** @var bool */
+    private $fixedPrice;
+
     /**
      * @return int
      */
@@ -287,6 +290,26 @@ class Format extends Kit implements FormatInterface
     public function setPublic(bool $public): Format
     {
         $this->public = $public;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasFixedPrice(): ?bool
+    {
+        return $this->fixedPrice;
+    }
+
+    /**
+     * @param bool $fixedPrice
+     *
+     * @return Format
+     */
+    public function setFixedPrice(bool $fixedPrice): Format
+    {
+        $this->fixedPrice = $fixedPrice;
 
         return $this;
     }
