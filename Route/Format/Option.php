@@ -34,7 +34,7 @@ class Option
      * @param array $params
      * @param string $format
      */
-    public function addOption(int $optionId, array $params, string $format = MGD::FORMAT_OBJECT): void
+    public function add(int $optionId, array $params = [], string $format = MGD::FORMAT_OBJECT): void
     {
         $this->master->put($this->url, $optionId, $params, $this->entity, $format);
     }
@@ -42,7 +42,7 @@ class Option
     /**
      * @param int $optionId
      */
-    public function removeOption(int $optionId): void
+    public function remove(int $optionId): void
     {
         $this->master->remove($this->url, $optionId);
     }
