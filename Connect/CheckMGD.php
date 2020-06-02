@@ -33,6 +33,7 @@ class CheckMGD
             if ($request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('connect')
                 || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')
                 || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('access')
+                || $request->attributes->get('public')
             ) {
                 return;
             } else {
