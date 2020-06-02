@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
 
 class Operation extends Master implements EventInterface
@@ -66,16 +65,6 @@ class Operation extends Master implements EventInterface
     /**
      * @var integer
      */
-    private $tPreparation;
-
-    /**
-     * @var integer
-     */
-    private $tTransport;
-
-    /**
-     * @var integer
-     */
     private $tDefrost;
 
     /**
@@ -84,15 +73,9 @@ class Operation extends Master implements EventInterface
     private $document;
 
     /**
-     * @var User
-     */
-    private $leadUser;
-
-    /**
      * @var integer
      */
     private $discount;
-
 
     /**
      * @var integer
@@ -113,6 +96,22 @@ class Operation extends Master implements EventInterface
      * @var User
      */
     private $salesManager;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\Menu
+     */
+    public $menus;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\AddFormat
+     */
+    public $addFormats;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Operation\AddPackages
+     */
+    public $addPackages;
+
 
     /**
      * @return int
@@ -215,42 +214,6 @@ class Operation extends Master implements EventInterface
     /**
      * @return mixed
      */
-    public function getTPreparation()
-    {
-        return $this->tPreparation;
-    }
-
-    /**
-     * @param mixed $tPreparation
-     * @return Operation
-     */
-    public function setTPreparation($tPreparation)
-    {
-        $this->tPreparation = $tPreparation;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getTTransport()
-    {
-        return $this->tTransport;
-    }
-
-    /**
-     * @param mixed $tTransport
-     * @return Operation
-     */
-    public function setTTransport($tTransport)
-    {
-        $this->tTransport = $tTransport;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
     public function getTDefrost()
     {
         return $this->tDefrost;
@@ -283,25 +246,6 @@ class Operation extends Master implements EventInterface
         $this->document = $document;
         return $this;
     }
-
-    /**
-     * @return User
-     */
-    public function getLeadUser()
-    {
-        return $this->leadUser;
-    }
-
-    /**
-     * @param User $leadUser
-     * @return Operation
-     */
-    public function setLeadUser($leadUser)
-    {
-        $this->leadUser = $leadUser;
-        return $this;
-    }
-
 
     /**
      * @return int

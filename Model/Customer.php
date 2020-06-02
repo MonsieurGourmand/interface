@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
 class Customer extends Master
 {
     const DEFAULT_MARGIN = 45;
@@ -23,19 +22,6 @@ class Customer extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Contact
      */
     public $users;
-
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Place
-     */
-    public $places;
-
-    /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Menu
-     */
-    public $menus;
-
-    /** @var integer */
-    private $nbrMenus;
 
     /** @var string */
     private $slug;
@@ -64,10 +50,13 @@ class Customer extends Master
     /** @var User */
     private $salesManager;
 
+    /** @var PaymentMethod */
+    private $paymentMethod;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Shop
      */
-    private $shops;
+    public $shops;
 
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Customer\Billing
@@ -140,25 +129,6 @@ class Customer extends Master
     public function setSlideShare(string $slideShare): Customer
     {
         $this->slideShare = $slideShare;
-
-        return $this;
-    }
-
-    /**
-     * @return int
-     */
-    public function getNbrMenus(): ?int
-    {
-        return $this->nbrMenus;
-    }
-
-    /**
-     * @param int $nbrMenus
-     * @return Customer
-     */
-    public function setNbrMenus(int $nbrMenus): Customer
-    {
-        $this->nbrMenus = $nbrMenus;
 
         return $this;
     }
@@ -322,6 +292,26 @@ class Customer extends Master
     public function setSalesManager(?User $salesManager): Customer
     {
         $this->salesManager = $salesManager;
+
+        return $this;
+    }
+
+    /**
+     * @return PaymentMethod
+     */
+    public function getPaymentMethod(): ?PaymentMethod
+    {
+        return $this->paymentMethod;
+    }
+
+    /**
+     * @param PaymentMethod $paymentMethod
+     *
+     * @return Customer
+     */
+    public function setPaymentMethod(PaymentMethod $paymentMethod): Customer
+    {
+        $this->paymentMethod = $paymentMethod;
 
         return $this;
     }

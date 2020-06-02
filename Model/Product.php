@@ -366,6 +366,16 @@ class Product extends Master implements ProductInterface
     public $productPicturesRoute;
 
     /**
+     * @var string
+     */
+    private $zone;
+  
+    /**
+     * @var boolean
+     */
+    private $ecoFriendly;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1522,6 +1532,44 @@ class Product extends Master implements ProductInterface
     public function setCommercialDescription(?string $commercialDescription): Product
     {
         $this->commercialDescription = $commercialDescription;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getZone(): ?string
+    {
+        return $this->zone;
+    }
+
+    /**
+     * @param string $zone
+     * @return Product
+     */
+    public function setZone(string $zone): Product
+    {
+        $this->zone = $zone;
+
+        return $this;
+    }
+      
+    /**
+     * @return bool
+     */
+    public function isEcoFriendly(): ?bool
+    {
+        return $this->ecoFriendly;
+    }
+
+    /**
+     * @param bool $ecoFriendly
+     * @return Product
+     */
+    public function setEcoFriendly(bool $ecoFriendly): Product
+    {
+        $this->ecoFriendly = $ecoFriendly;
+
         return $this;
     }
 

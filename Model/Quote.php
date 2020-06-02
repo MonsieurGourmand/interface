@@ -33,6 +33,9 @@ class Quote extends Master
     /** @var Document */
     private $lastDocument;
 
+    /** @var PurchaseOrder */
+    private $purchaseOrder;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\ValidatedQuote
      */
@@ -42,6 +45,11 @@ class Quote extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\Invoice
      */
     public $invoices;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\PurchaseOrder
+     */
+    public $purchaseOrders;
 
     /**
      * @return int
@@ -66,6 +74,7 @@ class Quote extends Master
     public function setIdFproQuote(int $idFproQuote): Quote
     {
         $this->idFproQuote = $idFproQuote;
+
         return $this;
     }
 
@@ -84,6 +93,7 @@ class Quote extends Master
     public function setArchived(bool $archived): Quote
     {
         $this->archived = $archived;
+
         return $this;
     }
 
@@ -102,6 +112,7 @@ class Quote extends Master
     public function setCreated(DateTime $created): Quote
     {
         $this->created = $created;
+
         return $this;
     }
 
@@ -120,6 +131,7 @@ class Quote extends Master
     public function setUpdated(DateTime $updated): Quote
     {
         $this->updated = $updated;
+
         return $this;
     }
 
@@ -138,6 +150,7 @@ class Quote extends Master
     public function setEvent(Event $event): Quote
     {
         $this->event = $event;
+
         return $this;
     }
 
@@ -156,6 +169,7 @@ class Quote extends Master
     public function setValidatedQuote(Document $validatedQuote): Quote
     {
         $this->validatedQuote = $validatedQuote;
+
         return $this;
     }
 
@@ -174,6 +188,7 @@ class Quote extends Master
     public function setValidated(bool $validated): Quote
     {
         $this->validated = $validated;
+
         return $this;
     }
 
@@ -192,6 +207,27 @@ class Quote extends Master
     public function setLastDocument(Document $lastDocument): Quote
     {
         $this->lastDocument = $lastDocument;
+
+        return $this;
+    }
+
+    /**
+     * @return PurchaseOrder
+     */
+    public function getPurchaseOrder(): ?PurchaseOrder
+    {
+        return $this->purchaseOrder;
+    }
+
+    /**
+     * @param PurchaseOrder $purchaseOrder
+     *
+     * @return Quote
+     */
+    public function setPurchaseOrder(PurchaseOrder $purchaseOrder): Quote
+    {
+        $this->purchaseOrder = $purchaseOrder;
+
         return $this;
     }
 }

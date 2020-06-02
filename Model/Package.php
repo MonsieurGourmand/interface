@@ -38,7 +38,7 @@ class Package extends Master implements PackageInterface
     private $status;
 
     /**
-     * @var integer
+     * @var float
      */
     private $weight;
 
@@ -46,6 +46,11 @@ class Package extends Master implements PackageInterface
      * @var integer
      */
     private $size;
+
+    /**
+     * @var bool
+     */
+    private $equipment;
 
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Package\Activity
@@ -60,7 +65,7 @@ class Package extends Master implements PackageInterface
     /**
      * @return int
      */
-    public function getIdPackage()
+    public function getIdPackage(): ?int
     {
         return $this->idPackage;
     }
@@ -68,71 +73,83 @@ class Package extends Master implements PackageInterface
     /**
      * @return string
      */
-    public function getTrackingNumber()
+    public function getTrackingNumber(): ?string
     {
         return $this->trackingNumber;
     }
 
     /**
-     * @param string $trackingNumber
+     * @param string|null $trackingNumber
+     * @return Package
      */
-    public function setTrackingNumber($trackingNumber)
+    public function setTrackingNumber(?string $trackingNumber): Package
     {
         $this->trackingNumber = $trackingNumber;
+
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getType()
+    public function getType(): ?int
     {
         return $this->type;
     }
 
     /**
      * @param int $type
+     * @return Package
      */
-    public function setType($type)
+    public function setType(int $type): Package
     {
         $this->type = $type;
-    }
 
-    /**
-     * @return mixed
-     */
-    public function getStatus()
-    {
-        return $this->status;
-    }
-
-    /**
-     * @param mixed $status
-     */
-    public function setStatus($status)
-    {
-        $this->status = $status;
+        return $this;
     }
 
     /**
      * @return int
      */
-    public function getWeight()
+    public function getStatus(): ?int
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     * @return Package
+     */
+    public function setStatus(int $status): Package
+    {
+        $this->status = $status;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getWeight(): ?float
     {
         return $this->weight;
     }
 
     /**
-     * @param int $weight
+     * @param float $weight
+     * @return Package
      */
-    public function setWeight($weight)
+    public function setWeight(float $weight): Package
     {
         $this->weight = $weight;
+
+        return $this;
     }
 
     /**
      * @return Event
      */
-    public function getEvent()
+    public function getEvent(): ?Event
     {
         return $this->event;
     }
@@ -141,16 +158,17 @@ class Package extends Master implements PackageInterface
      * @param Event $event
      * @return Package
      */
-    public function setEvent($event)
+    public function setEvent(Event $event): Package
     {
         $this->event = $event;
+
         return $this;
     }
 
     /**
      * @return int
      */
-    public function getSize()
+    public function getSize(): ?int
     {
         return $this->size;
     }
@@ -159,9 +177,10 @@ class Package extends Master implements PackageInterface
      * @param int $size
      * @return Package
      */
-    public function setSize($size)
+    public function setSize(int $size): Package
     {
         $this->size = $size;
+
         return $this;
     }
 
@@ -180,6 +199,27 @@ class Package extends Master implements PackageInterface
     public function setCollectDate(DateTime $collectDate): Package
     {
         $this->collectDate = $collectDate;
+
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function hasEquipment(): ?bool
+    {
+        return $this->equipment;
+    }
+
+    /**
+     * @param bool $equipment
+     *
+     * @return Package
+     */
+    public function setEquipment(bool $equipment): Package
+    {
+        $this->equipment = $equipment;
+
         return $this;
     }
 }
