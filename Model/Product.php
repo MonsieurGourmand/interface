@@ -376,6 +376,11 @@ class Product extends Master implements ProductInterface
     private $ecoFriendly;
 
     /**
+     * @var boolean
+     */
+    private $display;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1570,6 +1575,24 @@ class Product extends Master implements ProductInterface
     {
         $this->ecoFriendly = $ecoFriendly;
 
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isDisplay(): ?bool
+    {
+        return $this->display;
+    }
+
+    /**
+     * @param bool $display
+     * @return Product
+     */
+    public function setDisplay(?bool $display): Product
+    {
+        $this->display = $display;
         return $this;
     }
 
