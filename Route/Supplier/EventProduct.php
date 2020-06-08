@@ -23,7 +23,7 @@ class EventProduct
     {
         $this->master = $supplier->getMaster();
         $this->entity = EventProductModel::class;
-        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/eventproducts/";
+        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/eventproducts";
     }
 
     /**
