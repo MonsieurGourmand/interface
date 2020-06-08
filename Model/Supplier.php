@@ -82,6 +82,11 @@ class Supplier extends Master
     public $products;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\EventProduct
+     */
+    public $eventProducts;
+
+    /**
      * @return int
      */
     public function getIdSupplier()
