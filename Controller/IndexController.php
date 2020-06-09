@@ -47,7 +47,8 @@ class IndexController extends Controller
     public function disconnectAction(Request $request)
     {
         $request->getSession()->clear();
-        return $this->redirectToRoute('connect');
+        $this->get('security.token_storage')->setToken(NULL);
+        return $this->redirect($this->getParameter('api_root') . '/oauth/v2/auth/logout');
     }
 
     public function accessAction(Request $request)
