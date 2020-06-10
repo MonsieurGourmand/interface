@@ -301,6 +301,12 @@ class Event extends Master implements EventInterface
      */
     public $packed;
 
+    /** @var float */
+    private $supplierSales;
+
+    /** @var float */
+    private $totalSales;
+
     /**
      * Event constructor.
      *
@@ -1194,6 +1200,44 @@ class Event extends Master implements EventInterface
     public function setPacked(bool $packed): Event
     {
         $this->packed = $packed;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSupplierSales(): ?float
+    {
+        return $this->supplierSales;
+    }
+
+    /**
+     * @param float $supplierSales
+     *
+     * @return Event
+     */
+    public function setSupplierSales(float $supplierSales): Event
+    {
+        $this->supplierSales = $supplierSales;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalSales(): ?float
+    {
+        return $this->totalSales;
+    }
+
+    /**
+     * @param float $totalSales
+     *
+     * @return Event
+     */
+    public function setTotalSales(float $totalSales): Event
+    {
+        $this->totalSales = $totalSales;
         return $this;
     }
 }
