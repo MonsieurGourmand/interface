@@ -308,16 +308,6 @@ class Event extends Master implements EventInterface
     private $totalSales;
 
     /**
-     * Event constructor.
-     *
-     * @throws Exception
-     */
-    public function __construct()
-    {
-        $this->created = new DateTime();
-    }
-
-    /**
      * @return int
      */
     public function getIdEvent()
