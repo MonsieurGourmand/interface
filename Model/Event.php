@@ -354,7 +354,7 @@ class Event extends Master implements EventInterface
     /**
      * @return DateTime
      */
-    public function getCreated(): DateTime
+    public function getCreated(): ?DateTime
     {
         return $this->created;
     }
