@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use Exception;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
 use DateTime;
 
@@ -36,6 +37,11 @@ class Event extends Master implements EventInterface
      * @var string
      */
     private $deliveryReference;
+
+    /**
+     * @var DateTime
+     */
+    private $created;
 
     /**
      * @var DateTime
@@ -296,6 +302,16 @@ class Event extends Master implements EventInterface
     public $packed;
 
     /**
+     * Event constructor.
+     *
+     * @throws Exception
+     */
+    public function __construct()
+    {
+        $this->created = new DateTime();
+    }
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -336,6 +352,25 @@ class Event extends Master implements EventInterface
     public function setReservationNumber($reservationNumber)
     {
         $this->reservationNumber = $reservationNumber;
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreated(): DateTime
+    {
+        return $this->created;
+    }
+
+    /**
+     * @param DateTime $created
+     *
+     * @return Event
+     */
+    public function setCreated(DateTime $created): Event
+    {
+        $this->created = $created;
         return $this;
     }
 
