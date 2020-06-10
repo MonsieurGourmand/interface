@@ -34,6 +34,7 @@ class CheckMGD
                 || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('token')
                 || $request->getBaseUrl() . $request->getPathInfo() == $this->router->generate('access')
                 || $request->attributes->get('public')
+                || $request->attributes->has('exception')
             ) {
                 return;
             } else {
