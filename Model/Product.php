@@ -381,6 +381,11 @@ class Product extends Master implements ProductInterface
     private $display;
 
     /**
+     * @var string
+     */
+    private $defaultPictureUrl;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1593,6 +1598,25 @@ class Product extends Master implements ProductInterface
     public function setDisplay(?bool $display): Product
     {
         $this->display = $display;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultPictureUrl(): ?string
+    {
+        return $this->defaultPictureUrl;
+    }
+
+    /**
+     * @param string $defaultPictureUrl
+     *
+     * @return Product
+     */
+    public function setDefaultPictureUrl(string $defaultPictureUrl): Product
+    {
+        $this->defaultPictureUrl = $defaultPictureUrl;
         return $this;
     }
 
