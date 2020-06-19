@@ -27,6 +27,9 @@ class Invoice extends Master
     /** @var DateTime */
     private $created;
 
+    /** @var string */
+    private $mode = 'normal';
+
     /**
      * @return int
      */
@@ -140,6 +143,16 @@ class Invoice extends Master
     public function setCreated(DateTime $created): Invoice
     {
         $this->created = $created;
+        return $this;
+    }
+
+    /**
+     * @param string $mode
+     * @return Invoice
+     */
+    public function setMode(string $mode): Invoice
+    {
+        $this->mode = $mode;
         return $this;
     }
 }
