@@ -386,6 +386,11 @@ class Product extends Master implements ProductInterface
     private $defaultPictureUrl;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Review
+     */
+    public $reviews;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1029,7 +1034,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return int
+     * @return Implementation[]
      */
     public function getImplementations()
     {
@@ -1066,7 +1071,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Allergen
+     * @return Allergen[]
      */
     public function getAllergens()
     {
@@ -1084,7 +1089,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Diet
+     * @return Diet[]
      */
     public function getDiets()
     {
@@ -1102,7 +1107,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Trace
+     * @return Trace[]
      */
     public function getTraces()
     {
@@ -1116,6 +1121,7 @@ class Product extends Master implements ProductInterface
     public function setTraces($traces)
     {
         $this->traces = $traces;
+        return $this;
     }
 
     public function getQuantityExpiredCBN()
