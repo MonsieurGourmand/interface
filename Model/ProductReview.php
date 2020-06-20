@@ -5,7 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 /**
  * Class ProductReview
  */
-class ProductReview
+class ProductReview extends Master
 {
     /** @var int */
     private $productId;

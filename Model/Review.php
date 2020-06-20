@@ -7,7 +7,7 @@ use DateTime;
 /**
  * Class Review
  */
-class Review
+class Review extends Master
 {
     /** @var int */
     private $grade;
