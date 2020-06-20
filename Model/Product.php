@@ -386,9 +386,14 @@ class Product extends Master implements ProductInterface
     private $defaultPictureUrl;
 
     /**
+     * @var ProductReview
+     */
+    private $review;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Review
      */
-    public $reviews;
+    public $reviewRoute;
 
     /**
      * @return int
@@ -1623,6 +1628,25 @@ class Product extends Master implements ProductInterface
     public function setDefaultPictureUrl(string $defaultPictureUrl): Product
     {
         $this->defaultPictureUrl = $defaultPictureUrl;
+        return $this;
+    }
+
+    /**
+     * @return ProductReview
+     */
+    public function getReview(): ?ProductReview
+    {
+        return $this->review;
+    }
+
+    /**
+     * @param ProductReview $review
+     *
+     * @return Product
+     */
+    public function setReview(ProductReview $review): Product
+    {
+        $this->review = $review;
         return $this;
     }
 
