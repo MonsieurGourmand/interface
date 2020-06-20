@@ -391,11 +391,6 @@ class Product extends Master implements ProductInterface
     private $review;
 
     /**
-     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Review
-     */
-    public $reviewRoute;
-
-    /**
      * @return int
      */
     public function getIdProduct()
