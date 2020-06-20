@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Product;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Review as ReviewEntity;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\ProductReview as ProductReviewEntity;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Product;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
@@ -24,7 +24,7 @@ class Review
     public function __construct(Product $product)
     {
         $this->master = $product->getMaster();
-        $this->entity = ReviewEntity::class;
+        $this->entity = ProductReviewEntity::class;
         $this->url = "/products/" . $product->getIdProduct() . '/reviews';
     }
 
@@ -32,7 +32,7 @@ class Review
      * @param array $params
      * @param string $format
      *
-     * @return ReviewEntity[]
+     * @return ProductReviewEntity
      */
     public function getAll($params = [], string $format = MGD::FORMAT_OBJECT)
     {
