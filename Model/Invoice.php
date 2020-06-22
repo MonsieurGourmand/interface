@@ -30,6 +30,9 @@ class Invoice extends Master
     /** @var string */
     private $mode = 'normal';
 
+    /** @var string */
+    private $paymentRef;
+
     /**
      * @return int
      */
@@ -153,6 +156,16 @@ class Invoice extends Master
     public function setMode(string $mode): Invoice
     {
         $this->mode = $mode;
+        return $this;
+    }
+
+    /**
+     * @param string $paymentRef
+     * @return Invoice
+     */
+    public function setPaymentRef(string $paymentRef): Invoice
+    {
+        $this->paymentRef = $paymentRef;
         return $this;
     }
 }
