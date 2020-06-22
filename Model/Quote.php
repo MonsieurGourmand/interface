@@ -36,6 +36,9 @@ class Quote extends Master
     /** @var PurchaseOrder */
     private $purchaseOrder;
 
+    /** @var bool */
+    private $marketPlace = false;
+
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Quote\ValidatedQuote
      */
@@ -228,6 +231,16 @@ class Quote extends Master
     {
         $this->purchaseOrder = $purchaseOrder;
 
+        return $this;
+    }
+
+    /**
+     * @param bool $marketPlace
+     * @return Quote
+     */
+    public function setMarketPlace(bool $marketPlace): Quote
+    {
+        $this->marketPlace = $marketPlace;
         return $this;
     }
 }
