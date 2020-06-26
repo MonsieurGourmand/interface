@@ -50,6 +50,11 @@ class EventProduct extends Master
     private $transport;
 
     /**
+     * @var Price
+     */
+    private $sellingPrice;
+
+    /**
      * @return int
      */
     public function getIdEventProduct()
@@ -208,6 +213,25 @@ class EventProduct extends Master
     public function setTransport($transport): EventProduct
     {
         $this->transport = $transport;
+        return $this;
+    }
+
+    /**
+     * @return Price
+     */
+    public function getSellingPrice(): ?Price
+    {
+        return $this->sellingPrice;
+    }
+
+    /**
+     * @param Price $sellingPrice
+     *
+     * @return EventProduct
+     */
+    public function setSellingPrice(Price $sellingPrice): EventProduct
+    {
+        $this->sellingPrice = $sellingPrice;
         return $this;
     }
 }
