@@ -189,6 +189,12 @@ class MGD
         $this->prospectMessage = new ProspectMessage($this);
     }
 
+    public function reset()
+    {
+        $this->session->clear();
+        $this->client = null;
+    }
+
     public function me(Request $request)
     {
         $response = $request->getSession()->get('client')->fetch($this->apiRoot . '/me');
