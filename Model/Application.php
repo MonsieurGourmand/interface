@@ -14,13 +14,22 @@ class Application extends Master
      */
     private $name;
 
-
     /**
      * @return int
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Application
+     */
+    public function setId(int $id): Application
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
