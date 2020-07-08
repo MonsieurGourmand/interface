@@ -391,6 +391,11 @@ class Product extends Master implements ProductInterface
     private $review;
 
     /**
+     * @var int
+     */
+    private $vat;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1642,6 +1647,25 @@ class Product extends Master implements ProductInterface
     public function setReview(ProductReview $review): Product
     {
         $this->review = $review;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVat(): ?int
+    {
+        return $this->vat;
+    }
+
+    /**
+     * @param int $vat
+     *
+     * @return Product
+     */
+    public function setVat(int $vat): Product
+    {
+        $this->vat = $vat;
         return $this;
     }
 
