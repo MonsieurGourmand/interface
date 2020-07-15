@@ -375,6 +375,9 @@ class Product extends Master implements ProductInterface
      */
     private $ecoFriendly;
 
+    /** @var string */
+    private $defaultPictureUrl;
+
     /**
      * @return int
      */
@@ -1569,6 +1572,26 @@ class Product extends Master implements ProductInterface
     public function setEcoFriendly(bool $ecoFriendly): Product
     {
         $this->ecoFriendly = $ecoFriendly;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultPictureUrl(): ?string
+    {
+        return $this->defaultPictureUrl;
+    }
+
+    /**
+     * @param string|null $defaultPictureUrl
+     *
+     * @return Product
+     */
+    public function setDefaultPictureUrl(?string $defaultPictureUrl): Product
+    {
+        $this->defaultPictureUrl = $defaultPictureUrl;
 
         return $this;
     }
