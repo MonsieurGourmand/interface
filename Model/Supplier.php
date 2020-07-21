@@ -4,6 +4,8 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 
 
+use DateTime;
+
 class Supplier extends Master
 {
     /**
@@ -67,7 +69,42 @@ class Supplier extends Master
     private $customerReference;
 
     /**
-     * @var \DateTime
+     * @var Document
+     */
+    private $logo;
+
+    /**
+     * @var string
+     */
+    private $shortDescription;
+
+    /**
+     * @var string
+     */
+    private $longDescription;
+
+    /**
+     * @var string
+     */
+    private $contactEmail;
+
+    /**
+     * @var string
+     */
+    private $websiteUrl;
+
+    /**
+     * @var SupplierPicture[]
+     */
+    private $pictures;
+
+    /**
+     * @var string
+     */
+    private $videoUrl;
+
+    /**
+     * @var DateTime
      */
     private $sendingTime;
 
@@ -90,6 +127,11 @@ class Supplier extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Event
      */
     public $events;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Picture
+     */
+    public $supplierPictures;
 
     /**
      * @return int
@@ -312,6 +354,139 @@ class Supplier extends Master
     public function setSendingTime($sendingTime)
     {
         $this->sendingTime = $sendingTime;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getLogo(): ?Document
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Document $logo
+     *
+     * @return Supplier
+     */
+    public function setLogo(Document $logo): Supplier
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): ?string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @param string $shortDescription
+     *
+     * @return Supplier
+     */
+    public function setShortDescription(string $shortDescription): Supplier
+    {
+        $this->shortDescription = $shortDescription;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongDescription(): ?string
+    {
+        return $this->longDescription;
+    }
+
+    /**
+     * @param string $longDescription
+     *
+     * @return Supplier
+     */
+    public function setLongDescription(string $longDescription): Supplier
+    {
+        $this->longDescription = $longDescription;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactEmail(): ?string
+    {
+        return $this->contactEmail;
+    }
+
+    /**
+     * @param string $contactEmail
+     *
+     * @return Supplier
+     */
+    public function setContactEmail(string $contactEmail): Supplier
+    {
+        $this->contactEmail = $contactEmail;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebsiteUrl(): ?string
+    {
+        return $this->websiteUrl;
+    }
+
+    /**
+     * @param string $websiteUrl
+     *
+     * @return Supplier
+     */
+    public function setWebsiteUrl(string $websiteUrl): Supplier
+    {
+        $this->websiteUrl = $websiteUrl;
+        return $this;
+    }
+
+    /**
+     * @return SupplierPicture[]
+     */
+    public function getPictures(): ?array
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param SupplierPicture[] $pictures
+     *
+     * @return Supplier
+     */
+    public function setPictures(array $pictures): Supplier
+    {
+        $this->pictures = $pictures;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVideoUrl(): ?string
+    {
+        return $this->videoUrl;
+    }
+
+    /**
+     * @param string $videoUrl
+     *
+     * @return Supplier
+     */
+    public function setVideoUrl(string $videoUrl): Supplier
+    {
+        $this->videoUrl = $videoUrl;
         return $this;
     }
 }
