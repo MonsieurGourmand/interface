@@ -5,7 +5,6 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\SupplierPicture;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
-use monsieurgourmand\Bundle\InterfaceBundle\Model\SupplierPicture as PictureModel;
 
 class Picture
 {
@@ -23,8 +22,13 @@ class Picture
     public function __construct(Supplier $supplier)
     {
         $this->master = $supplier->getMaster();
-        $this->entity = PictureModel::class;
+        $this->entity = SupplierPicture::class;
         $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/pictures";
+    }
+
+    public function get(int $pictureId, $format = MGD::FORMAT_OBJECT): SupplierPicture
+    {
+        return $this->master->get($this->url, $pictureId, $this->entity, $format);
     }
 
     public function post(SupplierPicture $picture, $format = MGD::FORMAT_OBJECT)
