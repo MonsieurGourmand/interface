@@ -109,6 +109,16 @@ class Supplier extends Master
     private $sendingTime;
 
     /**
+     * @var bool
+     */
+    private $marketplace;
+
+    /**
+     * @var bool
+     */
+    private $premium;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
@@ -487,6 +497,44 @@ class Supplier extends Master
     public function setVideoUrl(string $videoUrl): Supplier
     {
         $this->videoUrl = $videoUrl;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMarketplace(): ?bool
+    {
+        return $this->marketplace;
+    }
+
+    /**
+     * @param bool $marketplace
+     *
+     * @return Supplier
+     */
+    public function setMarketplace(bool $marketplace): Supplier
+    {
+        $this->marketplace = $marketplace;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPremium(): ?bool
+    {
+        return $this->premium;
+    }
+
+    /**
+     * @param bool $premium
+     *
+     * @return Supplier
+     */
+    public function setPremium(bool $premium): Supplier
+    {
+        $this->premium = $premium;
         return $this;
     }
 }
