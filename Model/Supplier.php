@@ -119,6 +119,11 @@ class Supplier extends Master
     private $premium;
 
     /**
+     * @var Certification[]
+     */
+    private $certifications;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
@@ -142,6 +147,11 @@ class Supplier extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Picture
      */
     public $supplierPictures;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Certification
+     */
+    public $supplierCertifications;
 
     /**
      * @return int
@@ -535,6 +545,26 @@ class Supplier extends Master
     public function setPremium(bool $premium): Supplier
     {
         $this->premium = $premium;
+        return $this;
+    }
+
+    /**
+     * @return Certification[]
+     */
+    public function getCertifications(): ?array
+    {
+        return $this->certifications;
+    }
+
+    /**
+     * @param Certification[] $certifications
+     *
+     * @return Supplier
+     */
+    public function setCertifications(array $certifications): Supplier
+    {
+        $this->certifications = $certifications;
+
         return $this;
     }
 }
