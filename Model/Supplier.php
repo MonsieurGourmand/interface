@@ -144,6 +144,16 @@ class Supplier extends Master
     public $supplierPictures;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredSales
+     */
+    public $sponsoredSales;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredUsers
+     */
+    public $sponsoredUsers;
+
+    /**
      * @return int
      */
     public function getIdSupplier()
