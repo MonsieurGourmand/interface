@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Certification extends Master
+abstract class Certification extends Master
 {
     /** @var integer */
     private $id;

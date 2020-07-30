@@ -2,10 +2,10 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Certification as CertificationModel;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\SupplierCertification as CertificationModel;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
-class Certification
+class SupplierCertification
 {
     private $master;
     private $entity;
@@ -15,7 +15,7 @@ class Certification
     {
         $this->master = $master;
         $this->entity = CertificationModel::class;
-        $this->url = '/certifications';
+        $this->url = '/suppliercertifications';
     }
 
     /**
