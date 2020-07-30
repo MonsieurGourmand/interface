@@ -2,8 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
-
 use DateTime;
 
 class Supplier extends Master
@@ -119,7 +117,7 @@ class Supplier extends Master
     private $premium;
 
     /**
-     * @var Certification[]
+     * @var SupplierCertification[]
      */
     private $certifications;
 
@@ -549,7 +547,7 @@ class Supplier extends Master
     }
 
     /**
-     * @return Certification[]
+     * @return SupplierCertification[]
      */
     public function getCertifications(): ?array
     {
@@ -557,7 +555,7 @@ class Supplier extends Master
     }
 
     /**
-     * @param Certification[] $certifications
+     * @param SupplierCertification[] $certifications
      *
      * @return Supplier
      */
