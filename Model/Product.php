@@ -396,6 +396,11 @@ class Product extends Master implements ProductInterface
     private $vat;
 
     /**
+     * @var ProductCertification[]
+     */
+    private $certifications;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1666,6 +1671,26 @@ class Product extends Master implements ProductInterface
     public function setVat(int $vat): Product
     {
         $this->vat = $vat;
+        return $this;
+    }
+
+    /**
+     * @return ProductCertification[]
+     */
+    public function getCertifications(): array
+    {
+        return $this->certifications;
+    }
+
+    /**
+     * @param ProductCertification[] $certifications
+     *
+     * @return Product
+     */
+    public function setCertifications(array $certifications): Product
+    {
+        $this->certifications = $certifications;
+
         return $this;
     }
 
