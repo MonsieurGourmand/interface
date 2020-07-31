@@ -1699,6 +1699,7 @@ class Product extends Master implements ProductInterface
      */
     public function __construct()
     {
+        $this->certifications = new ArrayCollection();
         $this->prices = new ArrayCollection();
         $this->salesProducts = new ArrayCollection();
         $this->archived = false;
