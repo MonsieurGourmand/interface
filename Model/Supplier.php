@@ -147,6 +147,15 @@ class Supplier extends Master
     public $supplierPictures;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredSales
+     */
+    public $sponsoredSales;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredUsers
+     */
+    public $sponsoredUsers;
+
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Certification
      */
     public $supplierCertifications;
