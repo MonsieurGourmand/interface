@@ -2,8 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
-
 use DateTime;
 
 class Supplier extends Master
@@ -119,6 +117,11 @@ class Supplier extends Master
     private $premium;
 
     /**
+     * @var SupplierCertification[]
+     */
+    private $certifications;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
@@ -152,6 +155,10 @@ class Supplier extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredUsers
      */
     public $sponsoredUsers;
+
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Certification
+     */
+    public $supplierCertifications;
 
     /**
      * @return int
@@ -545,6 +552,26 @@ class Supplier extends Master
     public function setPremium(bool $premium): Supplier
     {
         $this->premium = $premium;
+        return $this;
+    }
+
+    /**
+     * @return SupplierCertification[]
+     */
+    public function getCertifications(): ?array
+    {
+        return $this->certifications;
+    }
+
+    /**
+     * @param SupplierCertification[] $certifications
+     *
+     * @return Supplier
+     */
+    public function setCertifications(array $certifications): Supplier
+    {
+        $this->certifications = $certifications;
+
         return $this;
     }
 }
