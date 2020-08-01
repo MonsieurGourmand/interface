@@ -396,6 +396,11 @@ class Product extends Master implements ProductInterface
     private $vat;
 
     /**
+     * @var ProductCertification[]
+     */
+    private $certifications;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1670,10 +1675,31 @@ class Product extends Master implements ProductInterface
     }
 
     /**
+     * @return ProductCertification[]
+     */
+    public function getCertifications(): array
+    {
+        return $this->certifications;
+    }
+
+    /**
+     * @param ProductCertification[] $certifications
+     *
+     * @return Product
+     */
+    public function setCertifications(array $certifications): Product
+    {
+        $this->certifications = $certifications;
+
+        return $this;
+    }
+
+    /**
      * Constructor
      */
     public function __construct()
     {
+        $this->certifications = [];
         $this->prices = new ArrayCollection();
         $this->salesProducts = new ArrayCollection();
         $this->archived = false;
