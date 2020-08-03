@@ -156,6 +156,7 @@ class Supplier extends Master
      */
     public $sponsoredUsers;
 
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Certification
      */
     public $supplierCertifications;
