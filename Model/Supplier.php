@@ -172,6 +172,11 @@ class Supplier extends Master
     public $accountingRoute;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\AccountingContact
+     */
+    public $accountingContact;
+
+    /**
      * @return int
      */
     public function getIdSupplier()
