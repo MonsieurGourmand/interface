@@ -16,7 +16,7 @@ class Certification
     private $master;
 
     /**
-     * Picture constructor.
+     * Certification constructor.
      * @param Supplier $supplier
      */
     public function __construct(Supplier $supplier)

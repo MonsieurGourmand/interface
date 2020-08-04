@@ -122,6 +122,11 @@ class Supplier extends Master
     private $certifications;
 
     /**
+     * @var Accounting
+     */
+    private $accounting;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
      */
     public $users;
@@ -160,6 +165,11 @@ class Supplier extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Certification
      */
     public $supplierCertifications;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Accounting
+     */
+    public $accountingRoute;
 
     /**
      * @return int
@@ -368,7 +378,7 @@ class Supplier extends Master
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getSendingTime()
     {
@@ -376,7 +386,7 @@ class Supplier extends Master
     }
 
     /**
-     * @param \DateTime $sendingTime
+     * @param DateTime $sendingTime
      * @return Supplier
      */
     public function setSendingTime($sendingTime)
@@ -572,6 +582,26 @@ class Supplier extends Master
     public function setCertifications(array $certifications): Supplier
     {
         $this->certifications = $certifications;
+
+        return $this;
+    }
+
+    /**
+     * @return Accounting
+     */
+    public function getAccounting(): ?Accounting
+    {
+        return $this->accounting;
+    }
+
+    /**
+     * @param Accounting $accounting
+     *
+     * @return Supplier
+     */
+    public function setAccounting(Accounting $accounting): Supplier
+    {
+        $this->accounting = $accounting;
 
         return $this;
     }
