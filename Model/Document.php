@@ -45,6 +45,18 @@ class Document extends Master
     }
 
     /**
+     * @param int $id
+     *
+     * @return Document
+     */
+    public function setId(int $id): Document
+    {
+        $this->id = $id;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getFileName(): ?string
