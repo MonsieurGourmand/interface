@@ -2,6 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 
+use monsieurgourmand\Bundle\InterfaceBundle\Model\Accounting as AccountingModel;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\User as UserModel;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
@@ -26,7 +27,9 @@ class AccountingContact
     {
         $this->master = $supplier->getMaster();
         $this->entity = UserModel::class;
-        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/accountings/" . $supplier->getAccounting()->getId() . "/contacts";
+        if ($supplier->getAccounting() instanceof AccountingModel) {
+            $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/accountings/" . $supplier->getAccounting()->getId() . "/contacts";
+        }
     }
 
     /**
