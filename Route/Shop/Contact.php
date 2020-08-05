@@ -8,7 +8,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Shop;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Customer;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Place;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
@@ -21,7 +20,7 @@ class Contact
     public function __construct(Place $shop)
     {
         $this->master = $shop->getMaster();
-        $this->entity = \monsieurgourmand\Bundle\InterfaceBundle\Model\Place::class;
+        $this->entity = Place::class;
         $this->url = "/shops/" . $shop->getId() . '/contacts';
     }
 

@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 
-use monsieurgourmand\Bundle\InterfaceBundle\Model\Accounting as AccountingModel;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\User as UserModel;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
@@ -18,6 +17,8 @@ class AccountingContact
     private $url;
     /** @var MGD */
     private $master;
+    /** @var Supplier */
+    private $supplier;
 
     /**
      * AccountingContact constructor.
@@ -27,9 +28,7 @@ class AccountingContact
     {
         $this->master = $supplier->getMaster();
         $this->entity = UserModel::class;
-        if ($supplier->getAccounting() instanceof AccountingModel) {
-            $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/accountings/" . $supplier->getAccounting()->getId() . "/contacts";
-        }
+        $this->supplier = $supplier;
     }
 
     /**
@@ -39,6 +38,8 @@ class AccountingContact
      */
     public function get(int $contactId, $format = MGD::FORMAT_OBJECT): UserModel
     {
+        $this->url = "/suppliers/" . $this->supplier->getIdSupplier() . "/accountings/" . $this->supplier->getAccounting()->getId() . "/contacts";
+
         return $this->master->get($this->url, $contactId, $this->entity, $format);
     }
 
@@ -49,6 +50,8 @@ class AccountingContact
      */
     public function post(UserModel $contact, $format = MGD::FORMAT_OBJECT): UserModel
     {
+        $this->url = "/suppliers/" . $this->supplier->getIdSupplier() . "/accountings/" . $this->supplier->getAccounting()->getId() . "/contacts";
+
         return $this->master->post($this->url, $contact, $this->entity, $format);
     }
 
@@ -59,6 +62,8 @@ class AccountingContact
      */
     public function put(UserModel $contact, $format = MGD::FORMAT_OBJECT): UserModel
     {
+        $this->url = "/suppliers/" . $this->supplier->getIdSupplier() . "/accountings/" . $this->supplier->getAccounting()->getId() . "/contacts";
+
         return $this->master->put($this->url, $contact->getId(), $contact, $this->entity, $format);
     }
 }
