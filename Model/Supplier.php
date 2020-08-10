@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-
+use DateTime;
 
 class Supplier extends Master
 {
@@ -67,9 +67,64 @@ class Supplier extends Master
     private $customerReference;
 
     /**
-     * @var \DateTime
+     * @var Document
+     */
+    private $logo;
+
+    /**
+     * @var string
+     */
+    private $shortDescription;
+
+    /**
+     * @var string
+     */
+    private $longDescription;
+
+    /**
+     * @var string
+     */
+    private $contactEmail;
+
+    /**
+     * @var string
+     */
+    private $websiteUrl;
+
+    /**
+     * @var SupplierPicture[]
+     */
+    private $pictures;
+
+    /**
+     * @var string
+     */
+    private $videoUrl;
+
+    /**
+     * @var DateTime
      */
     private $sendingTime;
+
+    /**
+     * @var bool
+     */
+    private $marketplace;
+
+    /**
+     * @var bool
+     */
+    private $premium;
+
+    /**
+     * @var SupplierCertification[]
+     */
+    private $certifications;
+
+    /**
+     * @var Accounting
+     */
+    private $accounting;
 
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\User
@@ -90,6 +145,36 @@ class Supplier extends Master
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Event
      */
     public $events;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Picture
+     */
+    public $supplierPictures;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredSales
+     */
+    public $sponsoredSales;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\SponsoredUsers
+     */
+    public $sponsoredUsers;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Certification
+     */
+    public $supplierCertifications;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Accounting
+     */
+    public $accountingRoute;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\AccountingContact
+     */
+    public $accountingContact;
 
     /**
      * @return int
@@ -298,7 +383,7 @@ class Supplier extends Master
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getSendingTime()
     {
@@ -306,12 +391,223 @@ class Supplier extends Master
     }
 
     /**
-     * @param \DateTime $sendingTime
+     * @param DateTime $sendingTime
      * @return Supplier
      */
     public function setSendingTime($sendingTime)
     {
         $this->sendingTime = $sendingTime;
+        return $this;
+    }
+
+    /**
+     * @return Document
+     */
+    public function getLogo(): ?Document
+    {
+        return $this->logo;
+    }
+
+    /**
+     * @param Document $logo
+     *
+     * @return Supplier
+     */
+    public function setLogo(Document $logo): Supplier
+    {
+        $this->logo = $logo;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getShortDescription(): ?string
+    {
+        return $this->shortDescription;
+    }
+
+    /**
+     * @param string $shortDescription
+     *
+     * @return Supplier
+     */
+    public function setShortDescription(string $shortDescription): Supplier
+    {
+        $this->shortDescription = $shortDescription;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLongDescription(): ?string
+    {
+        return $this->longDescription;
+    }
+
+    /**
+     * @param string $longDescription
+     *
+     * @return Supplier
+     */
+    public function setLongDescription(string $longDescription): Supplier
+    {
+        $this->longDescription = $longDescription;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getContactEmail(): ?string
+    {
+        return $this->contactEmail;
+    }
+
+    /**
+     * @param string $contactEmail
+     *
+     * @return Supplier
+     */
+    public function setContactEmail(string $contactEmail): Supplier
+    {
+        $this->contactEmail = $contactEmail;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWebsiteUrl(): ?string
+    {
+        return $this->websiteUrl;
+    }
+
+    /**
+     * @param string $websiteUrl
+     *
+     * @return Supplier
+     */
+    public function setWebsiteUrl(string $websiteUrl): Supplier
+    {
+        $this->websiteUrl = $websiteUrl;
+        return $this;
+    }
+
+    /**
+     * @return SupplierPicture[]
+     */
+    public function getPictures(): ?array
+    {
+        return $this->pictures;
+    }
+
+    /**
+     * @param SupplierPicture[] $pictures
+     *
+     * @return Supplier
+     */
+    public function setPictures(array $pictures): Supplier
+    {
+        $this->pictures = $pictures;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getVideoUrl(): ?string
+    {
+        return $this->videoUrl;
+    }
+
+    /**
+     * @param string $videoUrl
+     *
+     * @return Supplier
+     */
+    public function setVideoUrl(string $videoUrl): Supplier
+    {
+        $this->videoUrl = $videoUrl;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isMarketplace(): ?bool
+    {
+        return $this->marketplace;
+    }
+
+    /**
+     * @param bool $marketplace
+     *
+     * @return Supplier
+     */
+    public function setMarketplace(bool $marketplace): Supplier
+    {
+        $this->marketplace = $marketplace;
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isPremium(): ?bool
+    {
+        return $this->premium;
+    }
+
+    /**
+     * @param bool $premium
+     *
+     * @return Supplier
+     */
+    public function setPremium(bool $premium): Supplier
+    {
+        $this->premium = $premium;
+        return $this;
+    }
+
+    /**
+     * @return SupplierCertification[]
+     */
+    public function getCertifications(): ?array
+    {
+        return $this->certifications;
+    }
+
+    /**
+     * @param SupplierCertification[] $certifications
+     *
+     * @return Supplier
+     */
+    public function setCertifications(array $certifications): Supplier
+    {
+        $this->certifications = $certifications;
+
+        return $this;
+    }
+
+    /**
+     * @return Accounting
+     */
+    public function getAccounting(): ?Accounting
+    {
+        return $this->accounting;
+    }
+
+    /**
+     * @param Accounting $accounting
+     *
+     * @return Supplier
+     */
+    public function setAccounting(Accounting $accounting): Supplier
+    {
+        $this->accounting = $accounting;
+
         return $this;
     }
 }

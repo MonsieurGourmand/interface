@@ -99,9 +99,24 @@ class User extends Master
     public $supplierFirm;
 
     /**
+     * @var Invitation
+     */
+    private $invitation;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
      */
     public $shops;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\SponsoredSales
+     */
+    public $sponsoredSales;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\SponsoredUsers
+     */
+    public $sponsoredUsers;
 
     /**
      * @return int
@@ -394,6 +409,25 @@ class User extends Master
     public function setSponsor(?User $sponsor): User
     {
         $this->sponsor = $sponsor;
+        return $this;
+    }
+
+    /**
+     * @return Invitation
+     */
+    public function getInvitation(): ?Invitation
+    {
+        return $this->invitation;
+    }
+
+    /**
+     * @param Invitation $invitation
+     *
+     * @return User
+     */
+    public function setInvitation(Invitation $invitation): User
+    {
+        $this->invitation = $invitation;
         return $this;
     }
 }

@@ -2,6 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
+use monsieurgourmand\Bundle\InterfaceBundle\Route\ProductCertification;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\SupplierCertification;
 use Symfony\Component\HttpKernel\Exception\HttpException;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Action;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Allergen;
@@ -108,6 +110,8 @@ class MGD
     public $contact;
     public $shopTypes;
     public $paymentMethod;
+    public $supplierCertification;
+    public $productCertification;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -160,6 +164,8 @@ class MGD
         $this->contact = new Contact($this);
         $this->shopTypes = new ShopType($this);
         $this->paymentMethod = new PaymentMethod($this);
+        $this->supplierCertification = new SupplierCertification($this);
+        $this->productCertification = new ProductCertification($this);
     }
 
     public function login()
