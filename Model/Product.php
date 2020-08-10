@@ -381,6 +381,21 @@ class Product extends Master implements ProductInterface
     private $display;
 
     /**
+     * @var string
+     */
+    private $defaultPictureUrl;
+
+    /**
+     * @var ProductReview
+     */
+    private $review;
+
+    /**
+     * @var int
+     */
+    private $vat;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1024,7 +1039,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return int
+     * @return Implementation[]
      */
     public function getImplementations()
     {
@@ -1061,7 +1076,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Allergen
+     * @return Allergen[]
      */
     public function getAllergens()
     {
@@ -1079,7 +1094,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Diet
+     * @return Diet[]
      */
     public function getDiets()
     {
@@ -1097,7 +1112,7 @@ class Product extends Master implements ProductInterface
     }
 
     /**
-     * @return Trace
+     * @return Trace[]
      */
     public function getTraces()
     {
@@ -1111,6 +1126,7 @@ class Product extends Master implements ProductInterface
     public function setTraces($traces)
     {
         $this->traces = $traces;
+        return $this;
     }
 
     public function getQuantityExpiredCBN()
@@ -1593,6 +1609,63 @@ class Product extends Master implements ProductInterface
     public function setDisplay(?bool $display): Product
     {
         $this->display = $display;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultPictureUrl(): ?string
+    {
+        return $this->defaultPictureUrl;
+    }
+
+    /**
+     * @param string $defaultPictureUrl
+     *
+     * @return Product
+     */
+    public function setDefaultPictureUrl(string $defaultPictureUrl): Product
+    {
+        $this->defaultPictureUrl = $defaultPictureUrl;
+        return $this;
+    }
+
+    /**
+     * @return ProductReview
+     */
+    public function getReview(): ?ProductReview
+    {
+        return $this->review;
+    }
+
+    /**
+     * @param ProductReview $review
+     *
+     * @return Product
+     */
+    public function setReview(ProductReview $review): Product
+    {
+        $this->review = $review;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getVat(): ?int
+    {
+        return $this->vat;
+    }
+
+    /**
+     * @param int $vat
+     *
+     * @return Product
+     */
+    public function setVat(int $vat): Product
+    {
+        $this->vat = $vat;
         return $this;
     }
 

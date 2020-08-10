@@ -84,6 +84,11 @@ class User extends Master
     private $places;
 
     /**
+     * @var User
+     */
+    private $sponsor;
+
+    /**
      * @var Customer
      */
     public $customerFirm;
@@ -371,6 +376,24 @@ class User extends Master
     public function setPlaces(array $places): User
     {
         $this->places = $places;
+        return $this;
+    }
+
+    /**
+     * @return User|null
+     */
+    public function getSponsor(): ?User
+    {
+        return $this->sponsor;
+    }
+
+    /**
+     * @param User|null $sponsor
+     * @return User
+     */
+    public function setSponsor(?User $sponsor): User
+    {
+        $this->sponsor = $sponsor;
         return $this;
     }
 }

@@ -9,17 +9,13 @@ use Symfony\Component\HttpFoundation\Request;
 use Mgd;
 use Symfony\Component\Security\Core\Authentication\Token\UsernamePasswordToken;
 
-
 class IndexController extends Controller
 {
 
     public function indexAction(Request $request)
     {
         $mgd = $this->get('interface.MGD');
-        $url = $mgd->login();
-        return $this->render('@Interface/index/index.html.twig', array(
-            'url' => $url
-        ));
+        return $this->redirect($mgd->login());
     }
 
     public function tokenAction(Request $request)
