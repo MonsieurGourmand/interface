@@ -400,6 +400,9 @@ class Product extends Master implements ProductInterface
      */
     private $certifications;
 
+    /** @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Review */
+    public $review;
+
     /**
      * @return int
      */
