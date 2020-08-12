@@ -26,11 +26,10 @@ class Product
 
     /**
      * @param int $id
-     * @param string $format
      * @return bool
      */
-    public function hasBought(int $id, string $format = MGD::FORMAT_JSON): bool
+    public function hasBought(int $id): bool
     {
-        return $this->master->get($this->url, $id, null, $format);
+        return $this->master->get($this->url, $id, null, null);
     }
 }
