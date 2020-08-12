@@ -1777,5 +1777,6 @@ class Product extends Master implements ProductInterface
         $this->cabane = false;
         $this->productTechnicalForms = [];
         $this->productPictures = [];
+        $this->reviews = new ProductReviews();
     }
 }
