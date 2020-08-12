@@ -177,6 +177,11 @@ class Supplier extends Master
     public $accountingContact;
 
     /**
+     * @var string
+     */
+    private $commercialName;
+
+    /**
      * @return int
      */
     public function getIdSupplier()
@@ -608,6 +613,24 @@ class Supplier extends Master
     {
         $this->accounting = $accounting;
 
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getCommercialName(): ?string
+    {
+        return $this->commercialName;
+    }
+
+    /**
+     * @param string|null $commercialName
+     * @return Supplier
+     */
+    public function setCommercialName(?string $commercialName): Supplier
+    {
+        $this->commercialName = $commercialName;
         return $this;
     }
 }
