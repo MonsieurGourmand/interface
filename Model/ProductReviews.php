@@ -17,6 +17,15 @@ class ProductReviews extends Master
     private $averageGrade;
 
     /**
+     * ProductReviews constructor.
+     */
+    public function __construct()
+    {
+        $this->averageGrade = 0;
+        $this->reviews = [];
+    }
+
+    /**
      * @return int
      */
     public function getProductId(): ?int
@@ -37,7 +46,7 @@ class ProductReviews extends Master
     }
 
     /**
-     * @return ProductReviews[]
+     * @return ProductReview[]
      */
     public function getReviews(): ?array
     {
@@ -45,7 +54,7 @@ class ProductReviews extends Master
     }
 
     /**
-     * @param ProductReviews[] $reviews
+     * @param ProductReview[] $reviews
      *
      * @return ProductReviews
      */
