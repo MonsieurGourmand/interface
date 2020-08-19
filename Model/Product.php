@@ -386,9 +386,9 @@ class Product extends Master implements ProductInterface
     private $defaultPictureUrl;
 
     /**
-     * @var ProductReview
+     * @var ProductReviews
      */
-    private $review;
+    private $reviews;
 
     /**
      * @var int
@@ -399,6 +399,11 @@ class Product extends Master implements ProductInterface
      * @var ProductCertification[]
      */
     private $certifications;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Review
+     */
+    public $review;
 
     /**
      * @return int
@@ -415,6 +420,7 @@ class Product extends Master implements ProductInterface
     public function setIdProduct($idProduct)
     {
         $this->idProduct = $idProduct;
+
         return $this;
     }
 
@@ -433,6 +439,7 @@ class Product extends Master implements ProductInterface
     public function setBatches($batches)
     {
         $this->batches = $batches;
+
         return $this;
     }
 
@@ -451,6 +458,7 @@ class Product extends Master implements ProductInterface
     public function setPieces($pieces)
     {
         $this->pieces = $pieces;
+
         return $this;
     }
 
@@ -469,6 +477,7 @@ class Product extends Master implements ProductInterface
     public function setCompanyReference($companyReference)
     {
         $this->companyReference = $companyReference;
+
         return $this;
     }
 
@@ -487,6 +496,7 @@ class Product extends Master implements ProductInterface
     public function setName($name)
     {
         $this->name = $name;
+
         return $this;
     }
 
@@ -505,6 +515,7 @@ class Product extends Master implements ProductInterface
     public function setDescription($description)
     {
         $this->description = $description;
+
         return $this;
     }
 
@@ -523,6 +534,7 @@ class Product extends Master implements ProductInterface
     public function setWeight($weight)
     {
         $this->weight = $weight;
+
         return $this;
     }
 
@@ -541,6 +553,7 @@ class Product extends Master implements ProductInterface
     public function setBaseWeight($baseWeight)
     {
         $this->baseWeight = $baseWeight;
+
         return $this;
     }
 
@@ -559,6 +572,7 @@ class Product extends Master implements ProductInterface
     public function setQuantityPurchase($quantityPurchase)
     {
         $this->quantityPurchase = $quantityPurchase;
+
         return $this;
     }
 
@@ -577,6 +591,7 @@ class Product extends Master implements ProductInterface
     public function setPurchaseProduct($purchaseProduct)
     {
         $this->purchaseProduct = $purchaseProduct;
+
         return $this;
     }
 
@@ -595,6 +610,7 @@ class Product extends Master implements ProductInterface
     public function setSupplier($supplier)
     {
         $this->supplier = $supplier;
+
         return $this;
     }
 
@@ -613,6 +629,7 @@ class Product extends Master implements ProductInterface
     public function setCategory($category)
     {
         $this->category = $category;
+
         return $this;
     }
 
@@ -631,6 +648,7 @@ class Product extends Master implements ProductInterface
     public function setDlcDisable($dlcDisable)
     {
         $this->dlcDisable = $dlcDisable;
+
         return $this;
     }
 
@@ -649,6 +667,7 @@ class Product extends Master implements ProductInterface
     public function setArchived($archived)
     {
         $this->archived = $archived;
+
         return $this;
     }
 
@@ -667,6 +686,7 @@ class Product extends Master implements ProductInterface
     public function setStopped($stopped)
     {
         $this->stopped = $stopped;
+
         return $this;
     }
 
@@ -685,6 +705,7 @@ class Product extends Master implements ProductInterface
     public function setAlert($alert)
     {
         $this->alert = $alert;
+
         return $this;
     }
 
@@ -703,6 +724,7 @@ class Product extends Master implements ProductInterface
     public function setTax($tax)
     {
         $this->tax = $tax;
+
         return $this;
     }
 
@@ -721,6 +743,7 @@ class Product extends Master implements ProductInterface
     public function setBaseAlert($baseAlert)
     {
         $this->baseAlert = $baseAlert;
+
         return $this;
     }
 
@@ -739,6 +762,7 @@ class Product extends Master implements ProductInterface
     public function setProductWeight($productWeight)
     {
         $this->productWeight = $productWeight;
+
         return $this;
     }
 
@@ -757,6 +781,7 @@ class Product extends Master implements ProductInterface
     public function setNegotiate($negotiate)
     {
         $this->negotiate = $negotiate;
+
         return $this;
     }
 
@@ -775,6 +800,7 @@ class Product extends Master implements ProductInterface
     public function setCost($cost)
     {
         $this->cost = $cost;
+
         return $this;
     }
 
@@ -793,6 +819,7 @@ class Product extends Master implements ProductInterface
     public function setQuantity($quantity)
     {
         $this->quantity = $quantity;
+
         return $this;
     }
 
@@ -811,6 +838,7 @@ class Product extends Master implements ProductInterface
     public function setInAlert($inAlert)
     {
         $this->inAlert = $inAlert;
+
         return $this;
     }
 
@@ -829,6 +857,7 @@ class Product extends Master implements ProductInterface
     public function setQuantityExpired($quantityExpired)
     {
         $this->quantityExpired = $quantityExpired;
+
         return $this;
     }
 
@@ -847,6 +876,7 @@ class Product extends Master implements ProductInterface
     public function setActivePrice($activePrice)
     {
         $this->activePrice = $activePrice;
+
         return $this;
     }
 
@@ -879,6 +909,7 @@ class Product extends Master implements ProductInterface
     public function setType($type)
     {
         $this->type = $type;
+
         return $this;
     }
 
@@ -897,6 +928,7 @@ class Product extends Master implements ProductInterface
     public function setStockAlert($stockAlert)
     {
         $this->stockAlert = $stockAlert;
+
         return $this;
     }
 
@@ -915,6 +947,7 @@ class Product extends Master implements ProductInterface
     public function setFavorite($favorite)
     {
         $this->favorite = $favorite;
+
         return $this;
     }
 
@@ -933,6 +966,7 @@ class Product extends Master implements ProductInterface
     public function setUnitPrice($unitPrice)
     {
         $this->unitPrice = $unitPrice;
+
         return $this;
     }
 
@@ -951,6 +985,7 @@ class Product extends Master implements ProductInterface
     public function setIngredients($ingredients)
     {
         $this->ingredients = $ingredients;
+
         return $this;
     }
 
@@ -969,6 +1004,7 @@ class Product extends Master implements ProductInterface
     public function setCabane($cabane)
     {
         $this->cabane = $cabane;
+
         return $this;
     }
 
@@ -986,6 +1022,7 @@ class Product extends Master implements ProductInterface
     function setQuantityCBN($quantityCBN)
     {
         $this->quantityCBN = $quantityCBN;
+
         return $this;
     }
 
@@ -1004,6 +1041,7 @@ class Product extends Master implements ProductInterface
     public function setThawingDryTime($thawingDryTime)
     {
         $this->thawingDryTime = $thawingDryTime;
+
         return $this;
     }
 
@@ -1022,6 +1060,7 @@ class Product extends Master implements ProductInterface
     public function setThawingFreshTime($thawingFreshTime)
     {
         $this->thawingFreshTime = $thawingFreshTime;
+
         return $this;
     }
 
@@ -1040,6 +1079,7 @@ class Product extends Master implements ProductInterface
     public function setRetentionTime($retentionTime)
     {
         $this->retentionTime = $retentionTime;
+
         return $this;
     }
 
@@ -1058,6 +1098,7 @@ class Product extends Master implements ProductInterface
     public function setImplementations($implementations)
     {
         $this->implementations = $implementations;
+
         return $this;
     }
 
@@ -1077,6 +1118,7 @@ class Product extends Master implements ProductInterface
     public function setImplementationDetails($implementationDetails)
     {
         $this->implementationDetails = $implementationDetails;
+
         return $this;
     }
 
@@ -1095,6 +1137,7 @@ class Product extends Master implements ProductInterface
     public function setAllergens($allergens)
     {
         $this->allergens = $allergens;
+
         return $this;
     }
 
@@ -1113,6 +1156,7 @@ class Product extends Master implements ProductInterface
     public function setDiets($diets)
     {
         $this->diets = $diets;
+
         return $this;
     }
 
@@ -1131,6 +1175,7 @@ class Product extends Master implements ProductInterface
     public function setTraces($traces)
     {
         $this->traces = $traces;
+
         return $this;
     }
 
@@ -1146,6 +1191,7 @@ class Product extends Master implements ProductInterface
     public function setQuantityExpiredCBN($quantityExpiredCBN)
     {
         $this->quantityExpiredCBN = $quantityExpiredCBN;
+
         return $this;
     }
 
@@ -1164,6 +1210,7 @@ class Product extends Master implements ProductInterface
     public function setUnitPriceCBN($unitPriceCBN)
     {
         $this->unitPriceCBN = $unitPriceCBN;
+
         return $this;
     }
 
@@ -1182,6 +1229,7 @@ class Product extends Master implements ProductInterface
     public function setNetWeight($netWeight)
     {
         $this->netWeight = $netWeight;
+
         return $this;
     }
 
@@ -1200,6 +1248,7 @@ class Product extends Master implements ProductInterface
     public function setBaseNetWeight($baseNetWeight)
     {
         $this->baseNetWeight = $baseNetWeight;
+
         return $this;
     }
 
@@ -1218,6 +1267,7 @@ class Product extends Master implements ProductInterface
     public function setDeletable($deletable)
     {
         $this->deletable = $deletable;
+
         return $this;
     }
 
@@ -1236,6 +1286,7 @@ class Product extends Master implements ProductInterface
     public function setIndividual($individual)
     {
         $this->individual = $individual;
+
         return $this;
     }
 
@@ -1254,6 +1305,7 @@ class Product extends Master implements ProductInterface
     public function setPurposes($purposes)
     {
         $this->purposes = $purposes;
+
         return $this;
     }
 
@@ -1272,6 +1324,7 @@ class Product extends Master implements ProductInterface
     public function setPieceCost($pieceCost)
     {
         $this->pieceCost = $pieceCost;
+
         return $this;
     }
 
@@ -1290,6 +1343,7 @@ class Product extends Master implements ProductInterface
     public function setPieceNegotiate($pieceNegotiate)
     {
         $this->pieceNegotiate = $pieceNegotiate;
+
         return $this;
     }
 
@@ -1308,6 +1362,7 @@ class Product extends Master implements ProductInterface
     public function setPieceNetWeight($pieceNetWeight)
     {
         $this->pieceNetWeight = $pieceNetWeight;
+
         return $this;
     }
 
@@ -1334,6 +1389,7 @@ class Product extends Master implements ProductInterface
     public function setAllergensStatus($allergensStatus)
     {
         $this->allergensStatus = $allergensStatus;
+
         return $this;
     }
 
@@ -1352,6 +1408,7 @@ class Product extends Master implements ProductInterface
     public function setTracesStatus($tracesStatus)
     {
         $this->tracesStatus = $tracesStatus;
+
         return $this;
     }
 
@@ -1370,6 +1427,7 @@ class Product extends Master implements ProductInterface
     public function setDietsStatus($dietsStatus)
     {
         $this->dietsStatus = $dietsStatus;
+
         return $this;
     }
 
@@ -1388,6 +1446,7 @@ class Product extends Master implements ProductInterface
     public function setStoppedDate($stoppedDate)
     {
         $this->stoppedDate = $stoppedDate;
+
         return $this;
     }
 
@@ -1406,6 +1465,7 @@ class Product extends Master implements ProductInterface
     public function setRepackage($repackage)
     {
         $this->repackage = $repackage;
+
         return $this;
     }
 
@@ -1424,6 +1484,7 @@ class Product extends Master implements ProductInterface
     public function setPackaging($packaging)
     {
         $this->packaging = $packaging;
+
         return $this;
     }
 
@@ -1442,6 +1503,7 @@ class Product extends Master implements ProductInterface
     public function setCreator($creator)
     {
         $this->creator = $creator;
+
         return $this;
     }
 
@@ -1460,6 +1522,7 @@ class Product extends Master implements ProductInterface
     public function setQuantityPreparable($quantityPreparable)
     {
         $this->quantityPreparable = $quantityPreparable;
+
         return $this;
     }
 
@@ -1478,6 +1541,7 @@ class Product extends Master implements ProductInterface
     public function setRate($rate)
     {
         $this->rate = $rate;
+
         return $this;
     }
 
@@ -1540,6 +1604,7 @@ class Product extends Master implements ProductInterface
     public function setCommercialName(?string $commercialName): Product
     {
         $this->commercialName = $commercialName;
+
         return $this;
     }
 
@@ -1558,6 +1623,7 @@ class Product extends Master implements ProductInterface
     public function setCommercialDescription(?string $commercialDescription): Product
     {
         $this->commercialDescription = $commercialDescription;
+
         return $this;
     }
 
@@ -1614,6 +1680,7 @@ class Product extends Master implements ProductInterface
     public function setDisplay(?bool $display): Product
     {
         $this->display = $display;
+
         return $this;
     }
 
@@ -1633,25 +1700,27 @@ class Product extends Master implements ProductInterface
     public function setDefaultPictureUrl(string $defaultPictureUrl): Product
     {
         $this->defaultPictureUrl = $defaultPictureUrl;
+
         return $this;
     }
 
     /**
-     * @return ProductReview
+     * @return ProductReviews
      */
-    public function getReview(): ?ProductReview
+    public function getReviews(): ?ProductReviews
     {
-        return $this->review;
+        return $this->reviews;
     }
 
     /**
-     * @param ProductReview $review
+     * @param ProductReviews $reviews
      *
      * @return Product
      */
-    public function setReview(ProductReview $review): Product
+    public function setReviews(ProductReviews $reviews): Product
     {
-        $this->review = $review;
+        $this->reviews = $reviews;
+
         return $this;
     }
 
@@ -1671,6 +1740,7 @@ class Product extends Master implements ProductInterface
     public function setVat(int $vat): Product
     {
         $this->vat = $vat;
+
         return $this;
     }
 
@@ -1707,5 +1777,6 @@ class Product extends Master implements ProductInterface
         $this->cabane = false;
         $this->productTechnicalForms = [];
         $this->productPictures = [];
+        $this->reviews = new ProductReviews();
     }
 }

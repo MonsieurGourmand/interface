@@ -2,74 +2,148 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use DateTime;
+
 /**
  * Class ProductReview
  */
 class ProductReview extends Master
 {
     /** @var int */
-    private $productId;
+    private $id;
 
-    /** @var Review[] */
-    private $reviews;
+    /** @var Product */
+    private $product;
 
-    /** @var float */
-    private $averageGrade;
+    /** @var int */
+    private $grade;
+
+    /** @var string */
+    private $comment;
+
+    /** @var DateTime */
+    private $createdAt;
+
+    /** @var User */
+    private $author;
 
     /**
      * @return int
      */
-    public function getProductId(): ?int
+    public function getId(): ?int
     {
-        return $this->productId;
+        return $this->id;
     }
 
     /**
-     * @param int $productId
+     * @param int $id
      *
      * @return ProductReview
      */
-    public function setProductId(int $productId): ProductReview
+    public function setId(int $id): ProductReview
     {
-        $this->productId = $productId;
+        $this->id = $id;
+
         return $this;
     }
 
     /**
-     * @return Review[]
+     * @return Product
      */
-    public function getReviews(): ?array
+    public function getProduct(): ?Product
     {
-        return $this->reviews;
+        return $this->product;
     }
 
     /**
-     * @param Review[] $reviews
+     * @param Product $product
      *
      * @return ProductReview
      */
-    public function setReviews(array $reviews): ProductReview
+    public function setProduct(Product $product): ProductReview
     {
-        $this->reviews = $reviews;
+        $this->product = $product;
+
         return $this;
     }
 
     /**
-     * @return float
+     * @return int
      */
-    public function getAverageGrade(): ?float
+    public function getGrade(): ?int
     {
-        return $this->averageGrade;
+        return $this->grade;
     }
 
     /**
-     * @param float $averageGrade
+     * @param int $grade
      *
      * @return ProductReview
      */
-    public function setAverageGrade(float $averageGrade): ProductReview
+    public function setGrade(int $grade): ProductReview
     {
-        $this->averageGrade = $averageGrade;
+        $this->grade = $grade;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getComment(): ?string
+    {
+        return $this->comment;
+    }
+
+    /**
+     * @param string $comment
+     *
+     * @return ProductReview
+     */
+    public function setComment(?string $comment): ProductReview
+    {
+        $this->comment = $comment;
+
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getCreatedAt(): ?DateTime
+    {
+        return $this->createdAt;
+    }
+
+    /**
+     * @param DateTime $createdAt
+     *
+     * @return ProductReview
+     */
+    public function setCreatedAt(DateTime $createdAt): ProductReview
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getAuthor(): ?User
+    {
+        return $this->author;
+    }
+
+    /**
+     * @param User $author
+     *
+     * @return ProductReview
+     */
+    public function setAuthor(User $author): ProductReview
+    {
+        $this->author = $author;
+
         return $this;
     }
 }
