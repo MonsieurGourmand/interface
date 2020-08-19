@@ -77,6 +77,18 @@ class Customer extends Master
     }
 
     /**
+     * @param int $idCustomer
+     *
+     * @return Customer
+     */
+    public function setIdCustomer(int $idCustomer): Customer
+    {
+        $this->idCustomer = $idCustomer;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getName(): ?string

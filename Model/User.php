@@ -119,11 +119,28 @@ class User extends Master
     public $sponsoredUsers;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Product
+     */
+    public $products;
+
+    /**
      * @return int
      */
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * @param int $id
+     *
+     * @return User
+     */
+    public function setId(int $id): User
+    {
+        $this->id = $id;
+
+        return $this;
     }
 
     /**
