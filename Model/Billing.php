@@ -2,6 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 class Billing extends Place
 {
     /**
@@ -11,11 +13,15 @@ class Billing extends Place
 
     /**
      * @var string
+     *
+     * @Assert\Length(min=14, max=14)
      */
     private $siret;
 
     /**
      * @var string
+     *
+     * @Assert\Length(min=13, max=13)
      */
     private $vatNumber;
 

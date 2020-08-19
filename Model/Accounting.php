@@ -2,6 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Class Accounting
  */
@@ -14,11 +16,16 @@ class Accounting extends Master
 
     /**
      * @var string
+     *
+     * @Assert\Length(max=255)
      */
     private $commercialName;
 
     /**
      * @var Billing
+     *
+     * @Assert\NotBlank()
+     * @Assert\Valid()
      */
     private $billing;
 
