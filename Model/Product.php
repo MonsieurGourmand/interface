@@ -369,7 +369,7 @@ class Product extends Master implements ProductInterface
      * @var string
      */
     private $zone;
-  
+
     /**
      * @var boolean
      */
@@ -379,6 +379,11 @@ class Product extends Master implements ProductInterface
      * @var boolean
      */
     private $display;
+
+    /**
+     * @var boolean
+     */
+    private $averagePiecesNumber;
 
     /**
      * @var string
@@ -1645,7 +1650,7 @@ class Product extends Master implements ProductInterface
 
         return $this;
     }
-      
+
     /**
      * @return bool
      */
@@ -1778,5 +1783,24 @@ class Product extends Master implements ProductInterface
         $this->productTechnicalForms = [];
         $this->productPictures = [];
         $this->reviews = new ProductReviews();
+        $this->averagePiecesNumber = false;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isAveragePiecesNumber(): bool
+    {
+        return $this->averagePiecesNumber;
+    }
+
+    /**
+     * @param bool $averagePiecesNumber
+     * @return Product
+     */
+    public function setAveragePiecesNumber(bool $averagePiecesNumber): Product
+    {
+        $this->averagePiecesNumber = $averagePiecesNumber;
+        return $this;
     }
 }
