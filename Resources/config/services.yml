@@ -1,7 +1,7 @@
 services:
     interface.check.mgd:
         class: monsieurgourmand\Bundle\InterfaceBundle\Connect\CheckMGD
-        arguments: ["@router",'credentials']
+        arguments: ["@router",'credentials','local']
     interface.check.listener:
         class: monsieurgourmand\Bundle\InterfaceBundle\Connect\CheckMGDListener
         arguments : ['@interface.check.mgd']
