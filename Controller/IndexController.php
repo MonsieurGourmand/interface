@@ -44,7 +44,11 @@ class IndexController extends Controller
     {
         $request->getSession()->clear();
         $this->get('security.token_storage')->setToken(NULL);
-        return $this->redirect($this->getParameter('api_root') . '/oauth/v2/auth/logout');
+        if ($request->query->get('api')) {
+            return $this->redirect($this->getParameter('api_root') . '/oauth/v2/auth/logout');
+        } else {
+            return $this->redirectToRoute('index');
+        }
     }
 
     public function accessAction(Request $request)

@@ -195,6 +195,21 @@ class MGD
         $this->prospectMessage = new ProspectMessage($this);
     }
 
+    public function accessPassword(Request $request, string $username, string $password)
+    {
+        $this->client = new Client($this->client_id, $this->client_secret);
+        $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'password', array('username' => $username, 'password' => $password, "redirect_uri" => $this->callback));
+        if ($response['code'] != 200) {
+            return false;
+        }
+        $this->client->setAccessToken($response['result']['access_token']);
+        $request->getSession()->set('client', $this->client);
+        $request->getSession()->set('refresh_token', $response['result']['refresh_token']);
+        $this->me($request);
+
+        return true;
+    }
+
     public function reset()
     {
         $this->session->clear();

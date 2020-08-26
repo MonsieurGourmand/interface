@@ -20,11 +20,14 @@ class CheckMGD
 
     private $router;
     private $credentials;
+    /** @var bool */
+    private $local;
 
-    public function __construct(Router $router, $credentials)
+    public function __construct(Router $router, $credentials, bool $local)
     {
         $this->router = $router;
         $this->credentials = $credentials;
+        $this->local = $local;
     }
 
     public function check(Request $request)
@@ -42,7 +45,11 @@ class CheckMGD
                     return;
                 }
                 if (!$client = $request->getSession()->get('client')) {
-                    $response = new RedirectResponse($this->router->generate('connect'));
+                    if ($this->local) {
+                        $response = new RedirectResponse($this->router->generate('index'));
+                    } else {
+                        $response = new RedirectResponse($this->router->generate('connect'));
+                    }
                     if ($request->getRequestUri() !== '/src/favicon.png') {
                         $response->headers->setCookie(new Cookie('redirect_uri', $request->getUri()));
                     }
