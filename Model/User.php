@@ -114,6 +114,11 @@ class User extends Master
     private $sponsorshipCode;
 
     /**
+     * @var BusinessLine
+     */
+    private $businessLine;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
      */
     public $shops;
@@ -491,6 +496,24 @@ class User extends Master
     public function setSponsorshipCode($sponsorshipCode)
     {
         $this->sponsorshipCode = $sponsorshipCode;
+        return $this;
+    }
+
+    /**
+     * @return BusinessLine|null
+     */
+    public function getBusinessLine(): ?BusinessLine
+    {
+        return $this->businessLine;
+    }
+
+    /**
+     * @param BusinessLine|null $businessLine
+     * @return User
+     */
+    public function setBusinessLine(?BusinessLine $businessLine): User
+    {
+        $this->businessLine = $businessLine;
         return $this;
     }
 }

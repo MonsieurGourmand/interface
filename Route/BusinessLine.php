@@ -17,7 +17,7 @@ class BusinessLine
         $this->url = '/businesslines';
     }
 
-    public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
+    public function getAll($params = [], $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
