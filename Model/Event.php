@@ -2,7 +2,6 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-use Exception;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\EventInterface;
 use DateTime;
 
@@ -211,6 +210,11 @@ class Event extends Master implements EventInterface
      * @var boolean
      */
     private $free;
+
+    /**
+     * @var float
+     */
+    private $shippingFees;
 
     /**
      * @var Cause
@@ -807,6 +811,25 @@ class Event extends Master implements EventInterface
     public function setFree($free)
     {
         $this->free = $free;
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getShippingFees(): ?float
+    {
+        return $this->shippingFees;
+    }
+
+    /**
+     * @param float $shippingFees
+     *
+     * @return Event
+     */
+    public function setShippingFees(float $shippingFees): Event
+    {
+        $this->shippingFees = $shippingFees;
         return $this;
     }
 
