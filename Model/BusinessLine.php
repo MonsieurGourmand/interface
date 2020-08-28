@@ -2,7 +2,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
-class Application extends Master
+class BusinessLine extends Master
 {
     /**
      * @var integer
@@ -24,11 +24,12 @@ class Application extends Master
 
     /**
      * @param int $id
-     * @return Application
+     * @return BusinessLine
      */
-    public function setId(int $id): Application
+    public function setId(int $id): BusinessLine
     {
         $this->id = $id;
+
         return $this;
     }
 
@@ -42,11 +43,12 @@ class Application extends Master
 
     /**
      * @param string $name
-     * @return Application
+     * @return BusinessLine
      */
-    public function setName(string $name): Application
+    public function setName(string $name): BusinessLine
     {
         $this->name = $name;
+
         return $this;
     }
 }

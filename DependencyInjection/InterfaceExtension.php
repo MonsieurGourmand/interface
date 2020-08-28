@@ -35,6 +35,7 @@ class InterfaceExtension extends Extension
 
         $defCheck = $container->getDefinition('interface.check.mgd');
         $defCheck->replaceArgument(1, $config['credentials']);
+        $defCheck->replaceArgument(2, $config['local']);
 
         $defCommand = $container->getDefinition('interface.MGD.command');
         $defCommand->replaceArgument(3, $config['client_command_id']);

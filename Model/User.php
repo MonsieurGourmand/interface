@@ -104,6 +104,21 @@ class User extends Master
     private $invitation;
 
     /**
+     * @var string
+     */
+    private $plainPassword;
+
+    /**
+     * @var string
+     */
+    private $sponsorshipCode;
+
+    /**
+     * @var BusinessLine
+     */
+    private $businessLine;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
      */
     public $shops;
@@ -445,6 +460,60 @@ class User extends Master
     public function setInvitation(Invitation $invitation): User
     {
         $this->invitation = $invitation;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    /**
+     * @param string|null $plainPassword
+     * @return User
+     */
+    public function setPlainPassword(?string $plainPassword): User
+    {
+        $this->plainPassword = $plainPassword;
+        return $this;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getSponsorshipCode()
+    {
+        return $this->sponsorshipCode;
+    }
+
+    /**
+     * @param mixed|null $sponsorshipCode
+     * @return User
+     */
+    public function setSponsorshipCode($sponsorshipCode)
+    {
+        $this->sponsorshipCode = $sponsorshipCode;
+        return $this;
+    }
+
+    /**
+     * @return BusinessLine|null
+     */
+    public function getBusinessLine(): ?BusinessLine
+    {
+        return $this->businessLine;
+    }
+
+    /**
+     * @param BusinessLine|null $businessLine
+     * @return User
+     */
+    public function setBusinessLine(?BusinessLine $businessLine): User
+    {
+        $this->businessLine = $businessLine;
         return $this;
     }
 }
