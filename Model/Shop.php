@@ -82,7 +82,7 @@ class Shop extends Place
      *
      * @return Shop
      */
-    public function setAccessCode(string $accessCode): Shop
+    public function setAccessCode(?string $accessCode): Shop
     {
         $this->accessCode = $accessCode;
         return $this;
@@ -101,7 +101,7 @@ class Shop extends Place
      *
      * @return Shop
      */
-    public function setIntercom(string $intercom): Shop
+    public function setIntercom(?string $intercom): Shop
     {
         $this->intercom = $intercom;
         return $this;
