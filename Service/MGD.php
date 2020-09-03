@@ -328,6 +328,7 @@ class MGD
             if ($this->refresh_token != null) {
                 $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'refresh_token', array('refresh_token' => $this->refresh_token));
                 if (!isset($response['result']['access_token'])) {
+                    $this->reset();
                     throw new UnauthorizedHttpException('refresh token expired');
                 }
                 $this->client->setAccessToken($response['result']['access_token']);
@@ -340,6 +341,7 @@ class MGD
                 return true;
             }
         }
+        $this->reset();
         // Gestion de l'accessToken expired
         if (floor($response['code'] / 100) == 4) {
             throw new \Error("[" . $response['code'] . "] " . $response['result']['error']['message']);
