@@ -112,9 +112,9 @@ class Supplier extends Master
     private $marketplace;
 
     /**
-     * @var bool
+     * @var MarketplacePlan
      */
-    private $premium;
+    private $marketplacePlan;
 
     /**
      * @var SupplierCertification[]
@@ -558,21 +558,22 @@ class Supplier extends Master
     }
 
     /**
-     * @return bool
+     * @return MarketplacePlan
      */
-    public function isPremium(): ?bool
+    public function getMarketplacePlan(): ?MarketplacePlan
     {
-        return $this->premium;
+        return $this->marketplacePlan;
     }
 
     /**
-     * @param bool $premium
+     * @param MarketplacePlan $marketplacePlan
      *
      * @return Supplier
      */
-    public function setPremium(bool $premium): Supplier
+    public function setMarketplacePlan(MarketplacePlan $marketplacePlan): Supplier
     {
-        $this->premium = $premium;
+        $this->marketplacePlan = $marketplacePlan;
+
         return $this;
     }
 
