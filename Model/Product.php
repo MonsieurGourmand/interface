@@ -4,6 +4,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
 use monsieurgourmand\Bundle\InterfaceBundle\Interfaces\ProductInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Product extends Master implements ProductInterface
 {
@@ -12,7 +13,6 @@ class Product extends Master implements ProductInterface
      */
     private $idProduct;
 
-
     /**
      * @var integer
      */
@@ -20,11 +20,14 @@ class Product extends Master implements ProductInterface
 
     /**
      * @var integer
+     *
+     * @Assert\GreaterThan(value = 0)
      */
     private $pieces;
 
     /**
      * @var string
+     *
      */
     private $companyReference;
 
@@ -119,7 +122,6 @@ class Product extends Master implements ProductInterface
      */
     private $alert;
 
-
     /**
      * @var float
      */
@@ -142,6 +144,7 @@ class Product extends Master implements ProductInterface
 
     /**
      * @var float
+     *
      */
     private $negotiate;
 
