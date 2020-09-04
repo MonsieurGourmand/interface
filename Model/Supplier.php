@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Supplier extends Master
 {
@@ -113,6 +114,8 @@ class Supplier extends Master
 
     /**
      * @var MarketplacePlan
+     *
+     * @Assert\Expression("!this.isMarketplace() || value", message = "Un plan est obligatoire pour tout fournisseur Le Comptoir")
      */
     private $marketplacePlan;
 
