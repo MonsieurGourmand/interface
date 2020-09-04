@@ -343,12 +343,10 @@ class MGD
         }
         // Gestion de l'accessToken expired
         if (floor($response['code'] / 100) == 4) {
-            $this->reset();
 
             throw new \Error("[" . $response['code'] . "] " . $response['result']['error']['message']);
         }
         if (floor($response['code'] / 100) > 4) {
-            $this->reset();
 
             throw new \Error("[" . $response['code'] . "] " . $response['result']['error']['message']);
         }
