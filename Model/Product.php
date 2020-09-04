@@ -53,6 +53,9 @@ class Product extends Master implements ProductInterface
 
     /**
      * @var integer
+     *
+     * @Assert\GreaterThan(value = 0)
+     * @Assert\Expression("value >= this.getNetWeight()",message = "Cette valeur doit être supérieur ou égale au poids net")
      */
     private $weight;
 
@@ -63,6 +66,8 @@ class Product extends Master implements ProductInterface
 
     /**
      * @var integer
+     *
+     * @Assert\GreaterThan(value = 0)
      */
     private $netWeight;
 
