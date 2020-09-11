@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\BusinessLine;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\MarketplacePlan;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\ProductCertification;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\Sponsorship;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\SupplierCertification;
@@ -116,6 +117,7 @@ class MGD
     public $productCertification;
     public $businessLines;
     public $sponsorship;
+    public $marketplacePlans;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -172,6 +174,7 @@ class MGD
         $this->productCertification = new ProductCertification($this);
         $this->businessLines = new BusinessLine($this);
         $this->sponsorship = new Sponsorship($this);
+        $this->marketplacePlans = new MarketplacePlan($this);
     }
 
     public function login()

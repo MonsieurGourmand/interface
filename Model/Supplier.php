@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use DateTime;
+use Symfony\Component\Validator\Constraints as Assert;
 
 class Supplier extends Master
 {
@@ -112,9 +113,11 @@ class Supplier extends Master
     private $marketplace;
 
     /**
-     * @var bool
+     * @var MarketplacePlan
+     *
+     * @Assert\Expression("!this.isMarketplace() || value", message = "Un plan est obligatoire pour tout fournisseur Le Comptoir")
      */
-    private $premium;
+    private $marketplacePlan;
 
     /**
      * @var SupplierCertification[]
@@ -558,21 +561,22 @@ class Supplier extends Master
     }
 
     /**
-     * @return bool
+     * @return MarketplacePlan
      */
-    public function isPremium(): ?bool
+    public function getMarketplacePlan(): ?MarketplacePlan
     {
-        return $this->premium;
+        return $this->marketplacePlan;
     }
 
     /**
-     * @param bool $premium
+     * @param MarketplacePlan $marketplacePlan
      *
      * @return Supplier
      */
-    public function setPremium(bool $premium): Supplier
+    public function setMarketplacePlan(MarketplacePlan $marketplacePlan): Supplier
     {
-        $this->premium = $premium;
+        $this->marketplacePlan = $marketplacePlan;
+
         return $this;
     }
 
