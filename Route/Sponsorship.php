@@ -23,7 +23,7 @@ class Sponsorship
     {
         $this->master = $master;
         $this->entity = SponsorshipModel::class;
-        $this->url = '/zones';
+        $this->url = '/sponsorships';
     }
 
     /**
