@@ -491,7 +491,7 @@ class User extends Master
      *
      * @return User
      */
-    public function setSponsorshipCode(string $sponsorshipCode): User
+    public function setSponsorshipCode(?string $sponsorshipCode): User
     {
         $this->sponsorshipCode = $sponsorshipCode;
 
