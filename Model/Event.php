@@ -207,6 +207,11 @@ class Event extends Master implements EventInterface
     private $sellingPrice;
 
     /**
+     * @var float
+     */
+    private $realSellingPrice;
+
+    /**
      * @var boolean
      */
     private $free;
@@ -310,6 +315,12 @@ class Event extends Master implements EventInterface
 
     /** @var float */
     private $totalSales;
+
+    /** @var EventProduct[] */
+    private $eventsProducts;
+
+    /** @var User */
+    private $creator;
 
     /**
      * @return int
@@ -788,6 +799,26 @@ class Event extends Master implements EventInterface
         return $this;
     }
 
+    /**
+     * @return float
+     */
+    public function getRealSellingPrice(): ?float
+    {
+        return $this->realSellingPrice;
+    }
+
+    /**
+     * @param float $realSellingPrice
+     *
+     * @return Event
+     */
+    public function setRealSellingPrice(float $realSellingPrice): Event
+    {
+        $this->realSellingPrice = $realSellingPrice;
+
+        return $this;
+    }
+
     public function isStatusPricing()
     {
         if ($this->status === $this::STATUS_SEND || $this->status === $this::STATUS_VALIDATE || $this->status === $this::STATUS_DONE)
@@ -1251,6 +1282,46 @@ class Event extends Master implements EventInterface
     public function setTotalSales(float $totalSales): Event
     {
         $this->totalSales = $totalSales;
+        return $this;
+    }
+
+    /**
+     * @return EventProduct[]
+     */
+    public function getEventsProducts(): ?array
+    {
+        return $this->eventsProducts;
+    }
+
+    /**
+     * @param EventProduct[] $eventsProducts
+     *
+     * @return Event
+     */
+    public function setEventsProducts(array $eventsProducts): Event
+    {
+        $this->eventsProducts = $eventsProducts;
+
+        return $this;
+    }
+
+    /**
+     * @return User
+     */
+    public function getCreator(): ?User
+    {
+        return $this->creator;
+    }
+
+    /**
+     * @param User $creator
+     *
+     * @return Event
+     */
+    public function setCreator(User $creator): Event
+    {
+        $this->creator = $creator;
+
         return $this;
     }
 }

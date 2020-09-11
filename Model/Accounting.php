@@ -49,8 +49,6 @@ class Accounting extends Master
      */
     private $additionalInformation;
 
-
-
     /**
      * @return int
      */
