@@ -84,11 +84,6 @@ class User extends Master
     private $places;
 
     /**
-     * @var User
-     */
-    private $sponsor;
-
-    /**
      * @var Customer
      */
     public $customerFirm;
@@ -107,11 +102,6 @@ class User extends Master
      * @var string
      */
     private $plainPassword;
-
-    /**
-     * @var string
-     */
-    private $sponsorshipCode;
 
     /**
      * @var BusinessLine
@@ -427,24 +417,6 @@ class User extends Master
     }
 
     /**
-     * @return User|null
-     */
-    public function getSponsor(): ?User
-    {
-        return $this->sponsor;
-    }
-
-    /**
-     * @param User|null $sponsor
-     * @return User
-     */
-    public function setSponsor(?User $sponsor): User
-    {
-        $this->sponsor = $sponsor;
-        return $this;
-    }
-
-    /**
      * @return Invitation
      */
     public function getInvitation(): ?Invitation
@@ -478,24 +450,6 @@ class User extends Master
     public function setPlainPassword(?string $plainPassword): User
     {
         $this->plainPassword = $plainPassword;
-        return $this;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getSponsorshipCode()
-    {
-        return $this->sponsorshipCode;
-    }
-
-    /**
-     * @param mixed|null $sponsorshipCode
-     * @return User
-     */
-    public function setSponsorshipCode($sponsorshipCode)
-    {
-        $this->sponsorshipCode = $sponsorshipCode;
         return $this;
     }
 
