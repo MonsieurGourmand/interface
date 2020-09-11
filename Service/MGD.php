@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Service;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Route\BusinessLine;
+use monsieurgourmand\Bundle\InterfaceBundle\Route\MarketplacePlan;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\ProductCertification;
 use monsieurgourmand\Bundle\InterfaceBundle\Route\SupplierCertification;
 use Symfony\Component\HttpKernel\Exception\HttpException;
@@ -114,6 +115,7 @@ class MGD
     public $supplierCertification;
     public $productCertification;
     public $businessLines;
+    public $marketplacePlans;
 
     public function __construct(Session $session = null, Parser $parser, Serializer $serializer, $client_id, $client_secret, $callback, $oauthRoot)
     {
@@ -169,6 +171,7 @@ class MGD
         $this->supplierCertification = new SupplierCertification($this);
         $this->productCertification = new ProductCertification($this);
         $this->businessLines = new BusinessLine($this);
+        $this->marketplacePlans = new MarketplacePlan($this);
     }
 
     public function login()
