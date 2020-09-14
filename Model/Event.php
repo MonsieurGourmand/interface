@@ -323,6 +323,11 @@ class Event extends Master implements EventInterface
     private $creator;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\ProductReview
+     */
+    public $productReviews;
+
+    /**
      * @return int
      */
     public function getIdEvent()
