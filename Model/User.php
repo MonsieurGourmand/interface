@@ -134,6 +134,11 @@ class User extends Master
     public $products;
 
     /**
+     * @var User
+     */
+    private $sponsor;
+
+    /**
      * @return int
      */
     public function getId()
@@ -494,6 +499,18 @@ class User extends Master
     public function setSponsorshipCode(?string $sponsorshipCode): User
     {
         $this->sponsorshipCode = $sponsorshipCode;
+
+        return $this;
+    }
+
+    /**
+     * @param User $sponsor
+     *
+     * @return User
+     */
+    public function setSponsor(User $sponsor): User
+    {
+        $this->sponsor = $sponsor;
 
         return $this;
     }
