@@ -37,6 +37,16 @@ class Document extends Master
     private $createdAt;
 
     /**
+     * @var string
+     */
+    private $squareUrl;
+
+    /**
+     * @var string
+     */
+    private $baseUrl;
+
+    /**
      * @return int
      */
     public function getId(): ?int
@@ -123,7 +133,7 @@ class Document extends Master
      */
     public function getCreatedAt(): DateTime
     {
-        return  new DateTime($this->createdAt);
+        return new DateTime($this->createdAt);
     }
 
     /**
@@ -145,6 +155,42 @@ class Document extends Master
      */
     public function __construct()
     {
-        $this->createdAt =  (new DateTime())->format('Y-m-d H:i:s');
+        $this->createdAt = (new DateTime())->format('Y-m-d H:i:s');
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getSquareUrl(): ?string
+    {
+        return $this->squareUrl;
+    }
+
+    /**
+     * @param string|null $squareUrl
+     * @return Document
+     */
+    public function setSquareUrl(?string $squareUrl): Document
+    {
+        $this->squareUrl = $squareUrl;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getBaseUrl(): ?string
+    {
+        return $this->baseUrl;
+    }
+
+    /**
+     * @param string|null $baseUrl
+     * @return Document
+     */
+    public function setBaseUrl(?string $baseUrl): Document
+    {
+        $this->baseUrl = $baseUrl;
+        return $this;
     }
 }
