@@ -30,6 +30,16 @@ class Review
     }
 
     /**
+     * @param int $id
+     * @param string $format
+     * @return ProductReview
+     */
+    public function get(int $id, $format = MGD::FORMAT_OBJECT): ?ProductReview
+    {
+        return $this->master->get($this->url, $id, $this->entity, $format);
+    }
+
+    /**
      * @param ProductReview $productReview
      * @param string $format
      * @return ProductReview
