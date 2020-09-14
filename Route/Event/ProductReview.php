@@ -3,7 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Event;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event;
-use monsieurgourmand\Bundle\InterfaceBundle\Model\ProductReview as ProductReviewModel
+use monsieurgourmand\Bundle\InterfaceBundle\Model\ProductReview as ProductReviewModel;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class ProductReview
