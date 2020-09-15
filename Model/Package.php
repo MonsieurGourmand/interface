@@ -35,7 +35,7 @@ class Package extends Master implements PackageInterface
     /**
      * @var integer
      */
-    private $status;
+    private $shipperStatus;
 
     /**
      * @var float
@@ -111,18 +111,18 @@ class Package extends Master implements PackageInterface
     /**
      * @return int
      */
-    public function getStatus(): ?int
+    public function getShipperStatus(): ?int
     {
-        return $this->status;
+        return $this->shipperStatus;
     }
 
     /**
-     * @param int $status
+     * @param int $shipperStatus
      * @return Package
      */
-    public function setStatus(int $status): Package
+    public function setShipperStatus(int $shipperStatus): Package
     {
-        $this->status = $status;
+        $this->shipperStatus = $shipperStatus;
 
         return $this;
     }
