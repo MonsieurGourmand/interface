@@ -48,4 +48,14 @@ class Review
     {
         return $this->master->post($this->url, $productReview, $this->entity, $format);
     }
+
+    /**
+     * @param ProductReview $productReview
+     * @param string $format
+     * @return ProductReview
+     */
+    public function put(ProductReview $productReview, $format = MGD::FORMAT_OBJECT): ProductReview
+    {
+        return $this->master->put($this->url, $productReview->getId(), $productReview, $this->entity, $format);
+    }
 }
