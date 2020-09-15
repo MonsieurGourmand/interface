@@ -336,6 +336,18 @@ class Event extends Master implements EventInterface
     }
 
     /**
+     * @param int $idEvent
+     *
+     * @return Event
+     */
+    public function setIdEvent(int $idEvent): Event
+    {
+        $this->idEvent = $idEvent;
+
+        return $this;
+    }
+
+    /**
      * @return Place
      */
     public function getPlace()
