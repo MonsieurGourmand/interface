@@ -26,6 +26,14 @@ class PushEmail
     private $created;
 
     /**
+     * PushEmail constructor.
+     */
+    public function __construct()
+    {
+        $this->created = new DateTime();
+    }
+
+    /**
      * Get id.
      *
      * @return int
