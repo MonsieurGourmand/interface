@@ -322,6 +322,9 @@ class Event extends Master implements EventInterface
     /** @var User */
     private $creator;
 
+    /** @var PushEmail */
+    private $reminder;
+
     /**
      * @return int
      */
@@ -1322,6 +1325,24 @@ class Event extends Master implements EventInterface
     {
         $this->creator = $creator;
 
+        return $this;
+    }
+
+    /**
+     * @return PushEmail|null
+     */
+    public function getReminder(): ?PushEmail
+    {
+        return $this->reminder;
+    }
+
+    /**
+     * @param PushEmail|null $reminder
+     * @return Event
+     */
+    public function setReminder(?PushEmail $reminder): Event
+    {
+        $this->reminder = $reminder;
         return $this;
     }
 }
