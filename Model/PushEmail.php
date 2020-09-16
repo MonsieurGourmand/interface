@@ -7,7 +7,7 @@ use DateTime;
 /**
  * Push
  */
-class PushEmail
+class PushEmail extends Master
 {
     /**
      * @var int
