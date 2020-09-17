@@ -21,6 +21,11 @@ class Shop extends Place
     private $intercom;
 
     /**
+     * @var string
+     */
+    private $information;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Shop\Billing
      */
     public $billings;
@@ -104,6 +109,27 @@ class Shop extends Place
     public function setIntercom(?string $intercom): Shop
     {
         $this->intercom = $intercom;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getInformation(): ?string
+    {
+        return $this->information;
+    }
+
+    /**
+     * @param string $information
+     *
+     * @return Shop
+     */
+    public function setInformation(?string $information): Shop
+    {
+        $this->information = $information;
+
         return $this;
     }
 }
