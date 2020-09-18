@@ -399,6 +399,11 @@ class Product extends Master implements ProductInterface
     private $defaultPictureUrl;
 
     /**
+     * @var string
+     */
+    private $defaultSquarePictureUrl;
+
+    /**
      * @var ProductReviews
      */
     private $reviews;
@@ -1809,6 +1814,24 @@ class Product extends Master implements ProductInterface
     public function setAveragePiecesNumber(bool $averagePiecesNumber): Product
     {
         $this->averagePiecesNumber = $averagePiecesNumber;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDefaultSquarePictureUrl(): ?string
+    {
+        return $this->defaultSquarePictureUrl;
+    }
+
+    /**
+     * @param string $defaultSquarePictureUrl
+     * @return Product
+     */
+    public function setDefaultSquarePictureUrl(?string $defaultSquarePictureUrl): Product
+    {
+        $this->defaultSquarePictureUrl = $defaultSquarePictureUrl;
         return $this;
     }
 }
