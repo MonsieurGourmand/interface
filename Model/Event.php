@@ -324,6 +324,14 @@ class Event extends Master implements EventInterface
 
     /** @var Billing */
     private $billing;
+  
+    /** @var PushEmail */
+    private $reminder;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\ProductReview
+     */
+    public $productReviews;
 
     /**
      * @return int
@@ -331,6 +339,18 @@ class Event extends Master implements EventInterface
     public function getIdEvent()
     {
         return $this->idEvent;
+    }
+
+    /**
+     * @param int $idEvent
+     *
+     * @return Event
+     */
+    public function setIdEvent(int $idEvent): Event
+    {
+        $this->idEvent = $idEvent;
+
+        return $this;
     }
 
     /**
@@ -1344,7 +1364,23 @@ class Event extends Master implements EventInterface
     public function setBilling(Billing $billing): Event
     {
         $this->billing = $billing;
+    }
+  
+    /**
+     * @return PushEmail|null
+     */
+    public function getReminder(): ?PushEmail
+    {
+        return $this->reminder;
+    }
 
+    /**
+     * @param PushEmail|null $reminder
+     * @return Event
+     */
+    public function setReminder(?PushEmail $reminder): Event
+    {
+        $this->reminder = $reminder;
         return $this;
     }
 }

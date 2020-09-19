@@ -35,7 +35,12 @@ class Package extends Master implements PackageInterface
     /**
      * @var integer
      */
-    private $status;
+    private $shipperStatus;
+
+    /**
+     * @var DateTime
+     */
+    private $deliveryDate;
 
     /**
      * @var float
@@ -111,18 +116,38 @@ class Package extends Master implements PackageInterface
     /**
      * @return int
      */
-    public function getStatus(): ?int
+    public function getShipperStatus(): ?int
     {
-        return $this->status;
+        return $this->shipperStatus;
     }
 
     /**
-     * @param int $status
+     * @param int $shipperStatus
      * @return Package
      */
-    public function setStatus(int $status): Package
+    public function setShipperStatus(int $shipperStatus): Package
     {
-        $this->status = $status;
+        $this->shipperStatus = $shipperStatus;
+
+        return $this;
+    }
+
+    /**
+     * @return DateTime
+     */
+    public function getDeliveryDate(): ?DateTime
+    {
+        return $this->deliveryDate;
+    }
+
+    /**
+     * @param DateTime $deliveryDate
+     *
+     * @return Package
+     */
+    public function setDeliveryDate(DateTime $deliveryDate): Package
+    {
+        $this->deliveryDate = $deliveryDate;
 
         return $this;
     }

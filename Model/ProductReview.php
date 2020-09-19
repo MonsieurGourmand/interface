@@ -27,6 +27,9 @@ class ProductReview extends Master
     /** @var User */
     private $author;
 
+    /** @var Event */
+    private $event;
+
     /**
      * @return int
      */
@@ -143,6 +146,26 @@ class ProductReview extends Master
     public function setAuthor(User $author): ProductReview
     {
         $this->author = $author;
+
+        return $this;
+    }
+
+    /**
+     * @return Event
+     */
+    public function getEvent(): ?Event
+    {
+        return $this->event;
+    }
+
+    /**
+     * @param Event $event
+     *
+     * @return ProductReview
+     */
+    public function setEvent(Event $event): ProductReview
+    {
+        $this->event = $event;
 
         return $this;
     }
