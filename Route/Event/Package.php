@@ -25,9 +25,8 @@ class Package
         $this->url = "/operations/" . $event->getOperation()->getIdOperation() . "/events/" . $event->getIdEvent() . "/packages";
     }
 
-    public function getAll($format = MGD::FORMAT_OBJECT)
+    public function getAll(string $format = MGD::FORMAT_OBJECT, array $params = [])
     {
-        $params = array();
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
 

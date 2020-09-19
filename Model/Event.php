@@ -326,11 +326,28 @@ class Event extends Master implements EventInterface
     private $reminder;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\ProductReview
+     */
+    public $productReviews;
+
+    /**
      * @return int
      */
     public function getIdEvent()
     {
         return $this->idEvent;
+    }
+
+    /**
+     * @param int $idEvent
+     *
+     * @return Event
+     */
+    public function setIdEvent(int $idEvent): Event
+    {
+        $this->idEvent = $idEvent;
+
+        return $this;
     }
 
     /**
