@@ -38,4 +38,9 @@ class Shop
     {
         return $this->master->put($this->url, $shop->getId(), $shop, $this->entity, $format);
     }
+
+    public function remove(int $shopId)
+    {
+        return $this->master->remove($this->url, $shopId);
+    }
 }

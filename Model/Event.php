@@ -322,6 +322,9 @@ class Event extends Master implements EventInterface
     /** @var User */
     private $creator;
 
+    /** @var Billing */
+    private $billing;
+  
     /** @var PushEmail */
     private $reminder;
 
@@ -1345,6 +1348,24 @@ class Event extends Master implements EventInterface
         return $this;
     }
 
+    /**
+     * @return Billing
+     */
+    public function getBilling(): ?Billing
+    {
+        return $this->billing;
+    }
+
+    /**
+     * @param Billing $billing
+     *
+     * @return Event
+     */
+    public function setBilling(Billing $billing): Event
+    {
+        $this->billing = $billing;
+    }
+  
     /**
      * @return PushEmail|null
      */
