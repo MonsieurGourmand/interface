@@ -6,6 +6,9 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 class Billing extends Place
 {
+    /** @var string */
+    private $name;
+
     /**
      * @var string
      */
@@ -29,6 +32,31 @@ class Billing extends Place
      * @var integer
      */
     private $idFacturationPro;
+
+    /**
+     * @var Shop
+     */
+    private $shop;
+
+    /**
+     * @return string
+     */
+    public function getName(): ?string
+    {
+        return $this->name;
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return Billing
+     */
+    public function setName(?string $name): Billing
+    {
+        $this->name = $name;
+
+        return $this;
+    }
 
     /**
      * @return string
@@ -102,6 +130,26 @@ class Billing extends Place
     public function setIdFacturationPro(int $idFacturationPro): Billing
     {
         $this->idFacturationPro = $idFacturationPro;
+
+        return $this;
+    }
+
+    /**
+     * @return Shop
+     */
+    public function getShop(): ?Shop
+    {
+        return $this->shop;
+    }
+
+    /**
+     * @param Shop $shop
+     *
+     * @return Billing
+     */
+    public function setShop(?Shop $shop): Billing
+    {
+        $this->shop = $shop;
 
         return $this;
     }

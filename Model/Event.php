@@ -322,12 +322,35 @@ class Event extends Master implements EventInterface
     /** @var User */
     private $creator;
 
+    /** @var Billing */
+    private $billing;
+  
+    /** @var PushEmail */
+    private $reminder;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\ProductReview
+     */
+    public $productReviews;
+
     /**
      * @return int
      */
     public function getIdEvent()
     {
         return $this->idEvent;
+    }
+
+    /**
+     * @param int $idEvent
+     *
+     * @return Event
+     */
+    public function setIdEvent(int $idEvent): Event
+    {
+        $this->idEvent = $idEvent;
+
+        return $this;
     }
 
     /**
@@ -1322,6 +1345,44 @@ class Event extends Master implements EventInterface
     {
         $this->creator = $creator;
 
+        return $this;
+    }
+
+    /**
+     * @return Billing
+     */
+    public function getBilling(): ?Billing
+    {
+        return $this->billing;
+    }
+
+    /**
+     * @param Billing $billing
+     *
+     * @return Event
+     */
+    public function setBilling(Billing $billing): Event
+    {
+        $this->billing = $billing;
+
+        return $this;
+    }
+  
+    /**
+     * @return PushEmail|null
+     */
+    public function getReminder(): ?PushEmail
+    {
+        return $this->reminder;
+    }
+
+    /**
+     * @param PushEmail|null $reminder
+     * @return Event
+     */
+    public function setReminder(?PushEmail $reminder): Event
+    {
+        $this->reminder = $reminder;
         return $this;
     }
 }
