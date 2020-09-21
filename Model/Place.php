@@ -50,6 +50,10 @@ class Place extends Master
     /**
      * @var string|null
      *
+     * @Assert\Type(
+     *     type="integer",
+     *     message="Le numéro de téléphone ne doit contenir que des chiffres"
+     * )
      */
     private $phone;
 
