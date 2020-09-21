@@ -1364,6 +1364,8 @@ class Event extends Master implements EventInterface
     public function setBilling(Billing $billing): Event
     {
         $this->billing = $billing;
+
+        return $this;
     }
   
     /**
