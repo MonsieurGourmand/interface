@@ -50,9 +50,9 @@ class Place extends Master
     /**
      * @var string|null
      *
-     * @Assert\Type(
-     *     type="integer",
-     *     message="Le numéro de téléphone ne doit contenir que des chiffres"
+     * @Assert\Regex(
+     *     pattern="/^[0-9]{10}$/",
+     *     message="Le numéro de téléphone doit être composé de 10 chiffres"
      * )
      */
     private $phone;
