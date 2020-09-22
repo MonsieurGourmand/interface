@@ -55,6 +55,7 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 class MGD
 {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
+    const CONNEXION_ENDPOINT = 'oauth/v2/connexion';
 
     private $oauthRoot;
     private $apiRoot;
@@ -208,6 +209,21 @@ class MGD
     {
         $this->client = new Client($this->client_id, $this->client_secret);
         $response = $this->client->getAccessToken($this->oauthRoot . self::TOKEN_ENDPOINT, 'password', array('username' => $username, 'password' => $password, "redirect_uri" => $this->callback));
+        if ($response['code'] != 200) {
+            return false;
+        }
+        $this->client->setAccessToken($response['result']['access_token']);
+        $request->getSession()->set('client', $this->client);
+        $request->getSession()->set('refresh_token', $response['result']['refresh_token']);
+        $this->me($request);
+
+        return true;
+    }
+
+    public function accessConnexion(Request $request, string $type, string $distantToken)
+    {
+        $this->client = new Client($this->client_id, $this->client_secret);
+        $response = $this->client->getAccessToken($this->oauthRoot . self::CONNEXION_ENDPOINT, 'password', array('type' => $type, 'distant_token' => $distantToken));
         if ($response['code'] != 200) {
             return false;
         }
