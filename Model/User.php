@@ -116,7 +116,7 @@ class User extends Master
     /**
      * @var Sponsorship
      */
-    private $sponshorship;
+    private $sponsorship;
 
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
@@ -511,19 +511,19 @@ class User extends Master
     /**
      * @return Sponsorship
      */
-    public function getSponshorship(): ?Sponsorship
+    public function getSponsorship(): ?Sponsorship
     {
-        return $this->sponshorship;
+        return $this->sponsorship;
     }
 
     /**
-     * @param Sponsorship $sponshorship
+     * @param Sponsorship $sponsorship
      *
      * @return User
      */
-    public function setSponshorship(Sponsorship $sponshorship): User
+    public function setSponsorship(Sponsorship $sponsorship): User
     {
-        $this->sponshorship = $sponshorship;
+        $this->sponsorship = $sponsorship;
 
         return $this;
     }
