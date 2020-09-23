@@ -67,7 +67,7 @@ class Stat
             "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y"),
         ];
-        $url = $this->url . "/marketplace";
+        $url = $this->url . "/marketplaces";
 
         return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
     }
