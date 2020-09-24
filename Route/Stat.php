@@ -61,6 +61,28 @@ class Stat
         return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
     }
 
+    public function getMgdStocks()
+    {
+        $params = [
+            "startDate" => $this->startDate->format("d/m/Y"),
+            "endDate" => $this->endDate->format("d/m/Y"),
+        ];
+        $url = $this->url . "/mgdstocks";
+
+        return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
+    }
+
+    public function getSuppliersStocks()
+    {
+        $params = [
+            "startDate" => $this->startDate->format("d/m/Y"),
+            "endDate" => $this->endDate->format("d/m/Y"),
+        ];
+        $url = $this->url . "/suppliersstocks";
+
+        return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
+    }
+
     /**
      * @return \DateTime
      */
