@@ -55,11 +55,6 @@ class EventProduct extends Master
     private $sellingPrice;
 
     /**
-     * @var float
-     */
-    private $unitPrice;
-
-    /**
      * @return int
      */
     public function getIdEventProduct()
@@ -237,25 +232,6 @@ class EventProduct extends Master
     public function setSellingPrice(Price $sellingPrice): EventProduct
     {
         $this->sellingPrice = $sellingPrice;
-        return $this;
-    }
-
-    /**
-     * @return float
-     */
-    public function getUnitPrice(): ?float
-    {
-        return $this->unitPrice;
-    }
-
-    /**
-     * @param float $unitPrice
-     *
-     * @return EventProduct
-     */
-    public function setUnitPrice(float $unitPrice): EventProduct
-    {
-        $this->unitPrice = $unitPrice;
         return $this;
     }
 }
