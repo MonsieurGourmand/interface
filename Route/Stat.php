@@ -62,12 +62,30 @@ class Stat
     }
 
     public function getMarketplace()
+      {
+        $params = [
+            "startDate" => $this->startDate->format("d/m/Y"),
+            "endDate" => $this->endDate->format("d/m/Y"),
+        ];
+          $url = $this->url . "/marketplaces";
+  
+          return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
+       }
+
+    public function getMgdStocks()
+    {
+        $url = $this->url . "/mgdstocks";
+
+        return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
+    }
+
+    public function getSuppliersStocks()
     {
         $params = [
             "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y"),
         ];
-        $url = $this->url . "/marketplaces";
+        $url = $this->url . "/suppliersstocks";
 
         return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
     }
