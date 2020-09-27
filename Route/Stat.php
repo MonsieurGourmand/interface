@@ -8,7 +8,7 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route;
 
-
+use DateTime;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 
 class Stat
@@ -16,18 +16,18 @@ class Stat
     private $master;
     private $url;
 
-    /** @var \DateTime $startDate */
+    /** @var DateTime $startDate */
     protected $startDate;
 
-    /** @var \DateTime $endDate */
+    /** @var DateTime $endDate */
     protected $endDate;
 
     public function __construct(MGD $master)
     {
         $this->master = $master;
         $this->url = '/stats';
-        $this->startDate = new \DateTime("last month");
-        $this->endDate = new \DateTime();
+        $this->startDate = new DateTime("last month");
+        $this->endDate = new DateTime();
     }
 
     public function getOrders()
@@ -61,12 +61,19 @@ class Stat
         return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
     }
 
-    public function getMgdStocks()
-    {
+    public function getMarketplace()
+      {
         $params = [
             "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y"),
         ];
+          $url = $this->url . "/marketplaces";
+  
+          return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
+       }
+
+    public function getMgdStocks()
+    {
         $url = $this->url . "/mgdstocks";
 
         return $this->master->getAll($url, null, $params, MGD::FORMAT_JSON);
@@ -84,7 +91,7 @@ class Stat
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getStartDate()
     {
@@ -92,7 +99,7 @@ class Stat
     }
 
     /**
-     * @param \DateTime $startDate
+     * @param DateTime $startDate
      * @return Stat
      */
     public function setStartDate($startDate)
@@ -102,7 +109,7 @@ class Stat
     }
 
     /**
-     * @return \DateTime
+     * @return DateTime
      */
     public function getEndDate()
     {
@@ -110,7 +117,7 @@ class Stat
     }
 
     /**
-     * @param \DateTime $endDate
+     * @param DateTime $endDate
      * @return Stat
      */
     public function setEndDate($endDate)
