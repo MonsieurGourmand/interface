@@ -231,12 +231,12 @@ class MGD
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $output = curl_exec($ch);
-        if (curl_errno($ch)) {
+        $response = json_decode($output);
+        if (curl_errno($ch) || !$response->access_token) {
 
             return false;
         }
         curl_close($ch);
-        $response = json_decode($output);
         $this->client->setAccessToken($response->access_token);
         $request->getSession()->set('client', $this->client);
         $request->getSession()->set('refresh_token', $response->refresh_token);
