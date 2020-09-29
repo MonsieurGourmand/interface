@@ -75,7 +75,6 @@ class Stat
     public function getMgdStocks()
     {
         $params = [
-            "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y"),
         ];
         $url = $this->url . "/mgdstocks";
@@ -86,7 +85,6 @@ class Stat
     public function getSuppliersStocks()
     {
         $params = [
-            "startDate" => $this->startDate->format("d/m/Y"),
             "endDate" => $this->endDate->format("d/m/Y"),
         ];
         $url = $this->url . "/suppliersstocks";
