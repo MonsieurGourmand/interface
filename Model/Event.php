@@ -328,7 +328,7 @@ class Event extends Master implements EventInterface
     /** @var PushEmail */
     private $reminder;
 
-    /** @var PushEmail|null */
+    /** @var PushEmail */
     private $shipped;
 
     /**
