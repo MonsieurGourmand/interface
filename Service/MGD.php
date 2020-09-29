@@ -55,6 +55,7 @@ use Symfony\Component\HttpKernel\Exception\UnauthorizedHttpException;
 class MGD
 {
     const TOKEN_ENDPOINT = '/oauth/v2/token';
+    const CONNEXION_ENDPOINT = '/oauth/v2/connexion';
 
     private $oauthRoot;
     private $apiRoot;
@@ -214,6 +215,31 @@ class MGD
         $this->client->setAccessToken($response['result']['access_token']);
         $request->getSession()->set('client', $this->client);
         $request->getSession()->set('refresh_token', $response['result']['refresh_token']);
+        $this->me($request);
+
+        return true;
+    }
+
+    public function accessConnexion(Request $request, string $type, string $distantToken)
+    {
+        $this->client = new Client($this->client_id, $this->client_secret);
+
+        $url = $this->oauthRoot . self::CONNEXION_ENDPOINT . '?type=' . $type . '&distant_token=' . $distantToken .
+            '&client_id=' . substr($this->client_id, strpos($this->client_id, '_') + 1);
+
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        $output = curl_exec($ch);
+        if (curl_errno($ch)) {
+
+            return false;
+        }
+        curl_close($ch);
+        $response = json_decode($output);
+        $this->client->setAccessToken($response->access_token);
+        $request->getSession()->set('client', $this->client);
+        $request->getSession()->set('refresh_token', $response->refresh_token);
         $this->me($request);
 
         return true;

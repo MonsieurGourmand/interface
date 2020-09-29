@@ -114,6 +114,11 @@ class User extends Master
     private $sponsorshipCode;
 
     /**
+     * @var Sponsorship
+     */
+    private $sponsorship;
+
+    /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\User\Shop
      */
     public $shops;
@@ -137,6 +142,11 @@ class User extends Master
      * @var User
      */
     private $sponsor;
+
+    /**
+     * @var int|null
+     */
+    private $facebookId;
 
     /**
      * @return int
@@ -504,6 +514,26 @@ class User extends Master
     }
 
     /**
+     * @return Sponsorship
+     */
+    public function getSponsorship(): ?Sponsorship
+    {
+        return $this->sponsorship;
+    }
+
+    /**
+     * @param Sponsorship $sponsorship
+     *
+     * @return User
+     */
+    public function setSponsorship(Sponsorship $sponsorship): User
+    {
+        $this->sponsorship = $sponsorship;
+
+        return $this;
+    }
+
+    /**
      * @param User $sponsor
      *
      * @return User
@@ -512,6 +542,24 @@ class User extends Master
     {
         $this->sponsor = $sponsor;
 
+        return $this;
+    }
+
+    /**
+     * @return int|null
+     */
+    public function getFacebookId(): ?int
+    {
+        return $this->facebookId;
+    }
+
+    /**
+     * @param int|null $facebookId
+     * @return User
+     */
+    public function setFacebookId(?int $facebookId): User
+    {
+        $this->facebookId = $facebookId;
         return $this;
     }
 }
