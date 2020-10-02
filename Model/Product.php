@@ -424,6 +424,16 @@ class Product extends Master implements ProductInterface
     public $review;
 
     /**
+     * @var ProductCoupon[]
+     */
+    private $coupons;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Product\Coupon
+     */
+    public $coupon;
+
+    /**
      * @return int
      */
     public function getIdProduct()
@@ -1797,6 +1807,7 @@ class Product extends Master implements ProductInterface
         $this->productPictures = [];
         $this->reviews = new ProductReviews();
         $this->averagePiecesNumber = false;
+        $this->coupons = [];
     }
 
     /**
@@ -1832,6 +1843,26 @@ class Product extends Master implements ProductInterface
     public function setDefaultSquarePictureUrl(?string $defaultSquarePictureUrl): Product
     {
         $this->defaultSquarePictureUrl = $defaultSquarePictureUrl;
+        return $this;
+    }
+
+    /**
+     * @return ProductCoupon[]
+     */
+    public function getCoupons(): array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param ProductCoupon[] $coupons
+     *
+     * @return Product
+     */
+    public function setCoupons(array $coupons): Product
+    {
+        $this->coupons = $coupons;
+
         return $this;
     }
 }
