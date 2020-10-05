@@ -23,13 +23,13 @@ class Coupon
     /**
      * Coupon constructor.
      *
-     * @param Supplier $product
+     * @param Supplier $supplier
      */
-    public function __construct(Supplier $product)
+    public function __construct(Supplier $supplier)
     {
-        $this->master = $product->getMaster();
+        $this->master = $supplier->getMaster();
         $this->entity = SupplierCoupon::class;
-        $this->url = "/products/" . $product->getIdSupplier() . "/coupons";
+        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/coupons";
     }
 
     /**
