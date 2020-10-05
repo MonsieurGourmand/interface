@@ -59,7 +59,7 @@ class Coupon extends Master
      * Array of emails for which the Coupon will be reserved
      * In POST request, emails must be a string of comma-separated emails
      *
-     * @var string
+     * @var array
      */
     private $emails;
 
@@ -183,24 +183,24 @@ class Coupon extends Master
         return $this;
     }
 
+
+
     /**
      * Get emails as a comma-separated string
      *
-     * @return string
-     */
-    public function getEmails(): ?string
-    {
-        return $this->emails;
-    }
-
-    /**
-     * Get emails as an array
-     *
      * @return array
      */
-    public function getEmailsArray(): array
+    public function getEmails(): array
     {
-        return $this->emails ? explode(',', $this->emails) : [];
+        if (!$this->emails) {
+            return [];
+        }
+
+        if (is_string($this->emails)) {
+            return explode(',', $this->emails);
+        }
+
+        return $this->emails;
     }
 
     /**
