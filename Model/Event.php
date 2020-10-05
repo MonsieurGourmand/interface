@@ -334,6 +334,19 @@ class Event extends Master implements EventInterface
     public $productReviews;
 
     /**
+     * @var Coupon[]
+     */
+    private $coupons;
+
+    /**
+     * Event constructor.
+     */
+    public function __construct()
+    {
+        $this->coupons = [];
+    }
+
+    /**
      * @return int
      */
     public function getIdEvent()
@@ -1383,6 +1396,26 @@ class Event extends Master implements EventInterface
     public function setReminder(?PushEmail $reminder): Event
     {
         $this->reminder = $reminder;
+        return $this;
+    }
+
+    /**
+     * @return Coupon[]
+     */
+    public function getCoupons(): array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param Coupon[] $coupons
+     *
+     * @return Event
+     */
+    public function setCoupons(array $coupons): Event
+    {
+        $this->coupons = $coupons;
+
         return $this;
     }
 }
