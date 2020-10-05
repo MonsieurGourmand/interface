@@ -195,6 +195,11 @@ class Supplier extends Master
     public $coupon;
 
     /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\ProductCoupon
+     */
+    public $productCoupon;
+
+    /**
      * Supplier constructor.
      */
     public function __construct()
