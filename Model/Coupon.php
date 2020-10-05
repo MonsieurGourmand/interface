@@ -40,7 +40,11 @@ class Coupon extends Master
      * @var DateTime|null
      *
      * @Assert\Expression(
-     *     "(!value and !this.getStartDate()) or this.getStartDate() <= value",
+     *     "((!value and !this.getStartDate())) or (this.getStartDate() and value)",
+     *     message="Vous ne pouvez pas remplir qu'un seul des deux champs."
+     * )
+     * @Assert\Expression(
+     *     "(!value or this.getStartDate() <= value)",
      *     message="La date de fin de validité doit être supérieure ou égale à la date de début."
      * )
      */
@@ -55,22 +59,9 @@ class Coupon extends Master
      * Array of emails for which the Coupon will be reserved
      * In POST request, emails must be a string of comma-separated emails
      *
-     * @var array
-     *
-     * @Assert\Type('array')
-     * @Assert\All([
-     *     @Assert\Email(),
-     * ])
+     * @var string
      */
     private $emails;
-
-    /**
-     * Coupon constructor.
-     */
-    public function __construct()
-    {
-        $this->emails = [];
-    }
 
     /**
      * @return int
@@ -193,21 +184,40 @@ class Coupon extends Master
     }
 
     /**
-     * @return array
+     * Get emails as a comma-separated string
+     *
+     * @return string
      */
-    public function getEmails(): ?array
+    public function getEmails(): ?string
     {
         return $this->emails;
     }
 
     /**
-     * @param array $emails
+     * Get emails as an array
      *
+     * @return array
+     */
+    public function getEmailsArray(): array
+    {
+        return $this->emails ? explode(',', $this->emails) : [];
+    }
+
+    /**
+     * Set emails.
+     *
+     * @param string|array $emails
      * @return Coupon
      */
-    public function setEmails(array $emails): Coupon
+    public function setEmails($emails): Coupon
     {
-        $this->emails = $emails;
+        if (is_array($emails)) {
+            $emails = implode(',', $emails);
+        }
+
+        if (is_string($emails)) {
+            $this->emails = $emails;
+        }
 
         return $this;
     }
