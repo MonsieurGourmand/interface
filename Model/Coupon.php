@@ -19,7 +19,7 @@ class Coupon extends Master
      * @var float
      *
      * @Assert\NotNull()
-     * @Assert\Positive()
+     * @Assert\GreaterThan(value = 0)
      */
     private $amount;
 
