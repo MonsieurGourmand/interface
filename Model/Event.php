@@ -324,7 +324,7 @@ class Event extends Master implements EventInterface
 
     /** @var Billing */
     private $billing;
-
+  
     /** @var PushEmail */
     private $reminder;
 
@@ -335,6 +335,19 @@ class Event extends Master implements EventInterface
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\ProductReview
      */
     public $productReviews;
+
+    /**
+     * @var Coupon[]
+     */
+    private $coupons;
+
+    /**
+     * Event constructor.
+     */
+    public function __construct()
+    {
+        $this->coupons = [];
+    }
 
     /**
      * @return int
@@ -1370,7 +1383,7 @@ class Event extends Master implements EventInterface
 
         return $this;
     }
-
+  
     /**
      * @return PushEmail|null
      */
@@ -1386,6 +1399,7 @@ class Event extends Master implements EventInterface
     public function setReminder(?PushEmail $reminder): Event
     {
         $this->reminder = $reminder;
+
         return $this;
     }
 
@@ -1404,6 +1418,27 @@ class Event extends Master implements EventInterface
     public function setShipped(?PushEmail $shipped): Event
     {
         $this->shipped = $shipped;
+
+        return $this;
+    }
+
+    /**
+     * @return Coupon[]
+     */
+    public function getCoupons(): array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param Coupon[] $coupons
+     *
+     * @return Event
+     */
+    public function setCoupons(array $coupons): Event
+    {
+        $this->coupons = $coupons;
+
         return $this;
     }
 }
