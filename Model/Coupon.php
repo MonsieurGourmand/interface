@@ -56,12 +56,14 @@ class Coupon extends Master
     private $active;
 
     /**
-     * Array of emails for which the Coupon will be reserved
-     * In POST request, emails must be a string of comma-separated emails
-     *
-     * @var array
+     * @var string|null
      */
-    private $emails;
+    private $code;
+
+    /**
+     * @var bool
+     */
+    private $forAll;
 
     /**
      * @return int
@@ -183,41 +185,42 @@ class Coupon extends Master
         return $this;
     }
 
-
-
     /**
-     * Get emails as a comma-separated string
-     *
-     * @return array
+     * @return string
      */
-    public function getEmails(): array
+    public function getCode(): ?string
     {
-        if (!$this->emails) {
-            return [];
-        }
-
-        if (is_string($this->emails)) {
-            return explode(',', $this->emails);
-        }
-
-        return $this->emails;
+        return $this->code;
     }
 
     /**
-     * Set emails.
+     * @param string $code
      *
-     * @param string|array $emails
      * @return Coupon
      */
-    public function setEmails($emails): Coupon
+    public function setCode(?string $code): Coupon
     {
-        if (is_array($emails)) {
-            $emails = implode(',', $emails);
-        }
+        $this->code = $code;
 
-        if (is_string($emails)) {
-            $this->emails = $emails;
-        }
+        return $this;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isForAll(): ?bool
+    {
+        return $this->forAll;
+    }
+
+    /**
+     * @param bool $forAll
+     *
+     * @return Coupon
+     */
+    public function setForAll(bool $forAll): Coupon
+    {
+        $this->forAll = $forAll;
 
         return $this;
     }
