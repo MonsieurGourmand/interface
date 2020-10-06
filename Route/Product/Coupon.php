@@ -29,7 +29,7 @@ class Coupon
     {
         $this->master = $product->getMaster();
         $this->entity = ProductCoupon::class;
-        $this->url = "/suppliers/" . $product->getPurchaseProduct()->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/coupons";
+        $this->url = "/suppliers/" . $product->getSupplier()->getIdSupplier() . "/products/" . $product->getIdProduct() . "/coupons";
     }
 
     /**
