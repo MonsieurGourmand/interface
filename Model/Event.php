@@ -337,9 +337,17 @@ class Event extends Master implements EventInterface
     public $productReviews;
 
     /**
-     * @var Coupon[]
+     * @var EventCoupon[]
      */
     private $coupons;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Coupon
+     */
+    private $coupon;
+
+    /** @var float */
+    private $supplierCouponsAmount;
 
     /**
      * Event constructor.
@@ -1423,7 +1431,7 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @return Coupon[]
+     * @return EventCoupon[]
      */
     public function getCoupons(): array
     {
@@ -1431,13 +1439,33 @@ class Event extends Master implements EventInterface
     }
 
     /**
-     * @param Coupon[] $coupons
+     * @param EventCoupon[] $coupons
      *
      * @return Event
      */
     public function setCoupons(array $coupons): Event
     {
         $this->coupons = $coupons;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSupplierCouponsAmount(): ?float
+    {
+        return $this->supplierCouponsAmount;
+    }
+
+    /**
+     * @param float $supplierCouponsAmount
+     *
+     * @return Event
+     */
+    public function setSupplierCouponsAmount(float $supplierCouponsAmount): Event
+    {
+        $this->supplierCouponsAmount = $supplierCouponsAmount;
 
         return $this;
     }
