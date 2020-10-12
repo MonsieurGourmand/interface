@@ -185,6 +185,34 @@ class Supplier extends Master
     private $commercialName;
 
     /**
+     * @var SupplierCoupon[]
+     */
+    private $coupons;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\Coupon
+     */
+    public $coupon;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\ProductCoupon
+     */
+    public $productCoupon;
+
+    /**
+     * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier\EventCoupon
+     */
+    public $eventCoupon;
+
+    /**
+     * Supplier constructor.
+     */
+    public function __construct()
+    {
+        $this->coupons = [];
+    }
+
+    /**
      * @return int
      */
     public function getIdSupplier()
@@ -635,6 +663,26 @@ class Supplier extends Master
     public function setCommercialName(?string $commercialName): Supplier
     {
         $this->commercialName = $commercialName;
+        return $this;
+    }
+
+    /**
+     * @return SupplierCoupon[]
+     */
+    public function getCoupons(): array
+    {
+        return $this->coupons;
+    }
+
+    /**
+     * @param SupplierCoupon[] $coupons
+     *
+     * @return Supplier
+     */
+    public function setCoupons(array $coupons): Supplier
+    {
+        $this->coupons = $coupons;
+
         return $this;
     }
 }

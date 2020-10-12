@@ -4,9 +4,9 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
-use monsieurgourmand\Bundle\InterfaceBundle\Model\EventProduct as EventProductModel;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\EventCoupon as EventCouponModel;
 
-class EventProduct
+class EventCoupon
 {
     /** @var string */
     private $entity;
@@ -16,20 +16,20 @@ class EventProduct
     private $master;
 
     /**
-     * EventProduct constructor.
+     * EventCoupon constructor.
      * @param Supplier $supplier
      */
     public function __construct(Supplier $supplier)
     {
         $this->master = $supplier->getMaster();
-        $this->entity = EventProductModel::class;
-        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/eventproducts";
+        $this->entity = EventCouponModel::class;
+        $this->url = "/suppliers/" . $supplier->getIdSupplier() . "/eventcoupons";
     }
 
     /**
      * @param string $format
      * @param array $params
-     * @return EventProductModel[]
+     * @return EventCouponModel[]
      */
     public function getAll($params = [], $format = MGD::FORMAT_OBJECT)
     {
