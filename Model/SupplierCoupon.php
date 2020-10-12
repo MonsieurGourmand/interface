@@ -2,6 +2,8 @@
 
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Class SupplierCoupon
  */
