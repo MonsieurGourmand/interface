@@ -344,7 +344,7 @@ class Event extends Master implements EventInterface
     /**
      * @var \monsieurgourmand\Bundle\InterfaceBundle\Route\Event\Coupon
      */
-    private $coupon;
+    public $coupon;
 
     /** @var float */
     private $supplierCouponsAmount;
