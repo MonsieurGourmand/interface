@@ -18,7 +18,7 @@ class SupplierCoupon extends Coupon
      * @var float
      *
      * @Assert\NotNull()
-     * @Assert\Positive()
+     * @Assert\GreaterThan(value = 0)
      */
     private $minAmount;
 
