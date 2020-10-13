@@ -221,6 +221,18 @@ class Supplier extends Master
     }
 
     /**
+     * @param int $idSupplier
+     *
+     * @return Supplier
+     */
+    public function setIdSupplier(int $idSupplier): Supplier
+    {
+        $this->idSupplier = $idSupplier;
+
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getName()
