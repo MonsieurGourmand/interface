@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
+use monsieurgourmand\Bundle\InterfaceBundle\Model\SupplierCoupon;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event as EventModel;
 
@@ -34,5 +35,16 @@ class Event
     public function getAll($params = array(), $format = MGD::FORMAT_OBJECT)
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
+    }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @param string $format
+     * @return EventModel
+     */
+    public function get(int $id, array $params = [], $format = MGD::FORMAT_OBJECT): ?EventModel
+    {
+        return $this->master->get($this->url, $id, $this->entity, $format, $params);
     }
 }
