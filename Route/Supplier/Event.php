@@ -3,7 +3,6 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Route\Supplier;
 
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Supplier;
-use monsieurgourmand\Bundle\InterfaceBundle\Model\SupplierCoupon;
 use monsieurgourmand\Bundle\InterfaceBundle\Service\MGD;
 use monsieurgourmand\Bundle\InterfaceBundle\Model\Event as EventModel;
 
