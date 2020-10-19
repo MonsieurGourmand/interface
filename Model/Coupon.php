@@ -3,6 +3,7 @@
 namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 
 use DateTime;
+use Exception;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
@@ -223,5 +224,23 @@ class Coupon extends Master
         $this->forAll = $forAll;
 
         return $this;
+    }
+
+    /**
+     * @return bool
+     * @throws Exception
+     */
+    public function isActiveAndValidNow(): bool
+    {
+        return $this->isActive() && $this->isValidNow();
+    }
+
+    /**
+     * @return bool
+     * @throws Exception
+     */
+    public function isValidNow(): bool
+    {
+        return (!$this->getStartDate() && !$this->getEndDate()) || ($this->getStartDate() < new DateTime() && $this->getEndDate() > new DateTime());
     }
 }
