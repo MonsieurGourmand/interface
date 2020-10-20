@@ -35,4 +35,15 @@ class Event
     {
         return $this->master->getAll($this->url, $this->entity, $params, $format);
     }
+
+    /**
+     * @param int $id
+     * @param array $params
+     * @param string $format
+     * @return EventModel
+     */
+    public function get(int $id, array $params = [], $format = MGD::FORMAT_OBJECT): ?EventModel
+    {
+        return $this->master->get($this->url, $id, $this->entity, $format, $params);
+    }
 }
