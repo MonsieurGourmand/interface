@@ -39,6 +39,11 @@ class Billing extends Place
     private $shop;
 
     /**
+     * @var int
+     */
+    private $nbrEvents;
+
+    /**
      * @return string
      */
     public function getName(): ?string
@@ -152,5 +157,13 @@ class Billing extends Place
         $this->shop = $shop;
 
         return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getNbrEvents(): ?int
+    {
+        return $this->nbrEvents;
     }
 }
