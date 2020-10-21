@@ -349,6 +349,9 @@ class Event extends Master implements EventInterface
     /** @var float */
     private $supplierCouponsAmount;
 
+    /** @var float */
+    private $totalCouponsAmount;
+
     /**
      * Event constructor.
      */
@@ -1466,6 +1469,26 @@ class Event extends Master implements EventInterface
     public function setSupplierCouponsAmount(float $supplierCouponsAmount): Event
     {
         $this->supplierCouponsAmount = $supplierCouponsAmount;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getTotalCouponsAmount(): ?float
+    {
+        return $this->totalCouponsAmount;
+    }
+
+    /**
+     * @param float $totalCouponsAmount
+     *
+     * @return Event
+     */
+    public function setTotalCouponsAmount(float $totalCouponsAmount): Event
+    {
+        $this->totalCouponsAmount = $totalCouponsAmount;
 
         return $this;
     }
