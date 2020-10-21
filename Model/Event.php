@@ -324,7 +324,7 @@ class Event extends Master implements EventInterface
 
     /** @var Billing */
     private $billing;
-  
+
     /** @var PushEmail */
     private $reminder;
 
@@ -348,6 +348,11 @@ class Event extends Master implements EventInterface
 
     /** @var float */
     private $supplierCouponsAmount;
+
+    /**
+     * @var Slot|null
+     */
+    private $slot;
 
     /**
      * Event constructor.
@@ -1391,7 +1396,7 @@ class Event extends Master implements EventInterface
 
         return $this;
     }
-  
+
     /**
      * @return PushEmail|null
      */
@@ -1467,6 +1472,24 @@ class Event extends Master implements EventInterface
     {
         $this->supplierCouponsAmount = $supplierCouponsAmount;
 
+        return $this;
+    }
+
+    /**
+     * @return Slot|null
+     */
+    public function getSlot(): ?Slot
+    {
+        return $this->slot;
+    }
+
+    /**
+     * @param Slot|null $slot
+     * @return Event
+     */
+    public function setSlot(?Slot $slot): Event
+    {
+        $this->slot = $slot;
         return $this;
     }
 }
