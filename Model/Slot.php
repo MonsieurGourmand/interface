@@ -5,7 +5,7 @@ namespace monsieurgourmand\Bundle\InterfaceBundle\Model;
 use DateTime;
 
 
-class Slot
+class Slot extends Master
 {
     /**
      * @var int
